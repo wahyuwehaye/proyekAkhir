@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Simple Tables</title>
+  <title>Admin | Nite Audit</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -34,7 +34,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Cihampelas</b>Hotel</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -244,16 +244,16 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url()?>admin/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs">Ajeng Puspitasari</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo base_url()?>admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
+                  Ajeng Puspitasari - Web Developer
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -298,10 +298,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url()?>admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>Ajeng Puspitasari</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -344,91 +344,87 @@
     <section class="content-header">
       <h1>
         Laporan Harian
-        <small>preview of simple tables</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Tables</a></li>
-        <li class="active">Simple</li>
+        <li class="active">Laporan Harian</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-md-6">
+
+
           <div class="box">
-            <div class="box-header with-border">
-              <h3 class="box-title">Bordered Table</h3>
-            </div>
             <!-- /.box-header -->
+
             <div class="box-body">
-              <table class="table table-bordered">
+                <div class="col-md-6 swimming-grid">
+					<label>Show</label>
+					<input type="text" name="tanggalIn" class="tanggal" />
+                    <button type="Submit" class="btn btn-primary btn-xs">Cari </i></button>
+				</div>
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
                 <tr>
-                  <th style="width: 10px">#</th>
-                  <th>Task</th>
-                  <th>Progress</th>
-                  <th style="width: 40px">Label</th>
+                  <th>No</th>
+                  <th>Data Input</th>
+                  <th>Nama</th>
+                  <th>Tipe Kamar</th>
+                  <th>Nomor HP</th>
+                  <th>Alamat</th>
+                  <th>Check In</th>
+                  <th>Check Out</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>PSP</td>
+                  <td>-</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
                 </tr>
                 <tr>
-                  <td>1.</td>
-                  <td>Update software</td>
-                  <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-red">55%</span></td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>U</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
                 </tr>
+                </tbody>
+                <tfoot>
                 <tr>
-                  <td>2.</td>
-                  <td>Clean database</td>
-                  <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-yellow">70%</span></td>
+                    <th>No</th>
+                    <th>Data Input</th>
+                    <th>Nama</th>
+                    <th>Tipe Kamar</th>
+                    <th>Nomor HP</th>
+                    <th>Alamat</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
                 </tr>
-                <tr>
-                  <td>3.</td>
-                  <td>Cron job running</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-light-blue">30%</span></td>
-                </tr>
-                <tr>
-                  <td>4.</td>
-                  <td>Fix and squish bugs</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-green">90%</span></td>
-                </tr>
+                </tfoot>
               </table>
+              <div class="col-md-12 swimming-grid">
+                  <button type="button" class="btn btn-primary">Di Ulang</button>
+                  <button type="button" class="btn btn-success">Approve</button>
+              </div>
             </div>
             <!-- /.box-body -->
-            <div class="box-footer clearfix">
-              <ul class="pagination pagination-sm no-margin pull-right">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">&raquo;</a></li>
-              </ul>
-            </div>
           </div>
           <!-- /.box -->
-
-
         </div>
-
-
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
