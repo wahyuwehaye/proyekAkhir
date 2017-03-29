@@ -28,7 +28,7 @@ class m_login extends CI_Model {
     }
 
     public function findByDynamicColumn($array){
-            $query = $this->db->get_where('user', $array);              
+            $query = $this->db->get_where('user', $array);
             return $query->result_array();
     }
 }

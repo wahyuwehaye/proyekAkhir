@@ -14,6 +14,10 @@
     <script src="<?php echo base_url()?>sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>sweetalert/dist/sweetalert.css">
 
+<link href="<?php echo base_url()?>alert/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>alert/css/sb-admin-2.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>alert/css/plugins/morris.css" rel="stylesheet">
+
       <link rel="stylesheet" href="<?php echo base_url()?>uilogin/css/style.css">
 
 
@@ -30,38 +34,55 @@
 
       <div class="tab-content">
         <div id="signup">
-          <h1>Sign Up for Free</h1>
+          <h1>Sign Up for Member</h1>
 
-          <form action="<?php echo base_url()?>index.php/Dashboard/loginAdmin" method="post">
+          <form action="<?php echo base_url()?>index.php/Dashboard/insert" method="post">
+
+              <input type="hidden"required autocomplete="off" name="id_user"/>
 
           <div class="top-row">
             <div class="field-wrap">
               <label>
-                First Name<span class="req">*</span>
+                Nama Lengkap<span class="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" />
+              <input type="text" required autocomplete="off" name="nama"/>
             </div>
 
             <div class="field-wrap">
               <label>
-                Last Name<span class="req">*</span>
+                Username<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off"/>
+              <input type="text"required autocomplete="off" name="username"/>
             </div>
-          </div>
-
-          <div class="field-wrap">
-            <label>
-              Email Address<span class="req">*</span>
-            </label>
-            <input type="email"required autocomplete="off"/>
           </div>
 
           <div class="field-wrap">
             <label>
               Set A Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input type="password"required autocomplete="off" name="password"/>
+          </div>
+
+          <div class="field-wrap">
+            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
+                                    <option value="">--Pilih Jenis Kelamin--</option>
+                                    <option value="Laki-Laki">Laki-Laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Alamat<span class="req">*</span>
+            </label>
+            <input type="text" required autocomplete="off" name="alamat"/>
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              No Handphone<span class="req">*</span>
+            </label>
+            <input type="text" required autocomplete="off" name="phone"/>
           </div>
 
           <button type="submit" class="button button-block"/>Get Started</button>
@@ -108,14 +129,11 @@
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <script src="<?php echo base_url()?>uilogin/js/index.js"></script>
+    <script src="<?php echo base_url()?>alert/js/jquery-1.11.0.js"></script>
+    <script src="<?php echo base_url()?>alert/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url()?>alert/js/sb-admin-2.js"></script>
 
     <script>
-    swal({
-      title: 'Error!',
-      text: 'Here my error message!',
-      type: 'error',
-      confirmButtonText: 'Cool'
-    });
 function tampil(){
     swal({
       title: "Error!",

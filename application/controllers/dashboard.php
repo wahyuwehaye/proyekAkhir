@@ -23,6 +23,7 @@ class Dashboard extends CI_Controller {
     {
      parent::__construct();
      $this->load->model('m_login');
+	 $this->load->model(array('m_dashboard'));
      //session_start();
     }
 
@@ -81,6 +82,8 @@ class Dashboard extends CI_Controller {
                         redirect('dashboard/keuangan');
                     }elseif ($_POST['username']=='resepsionis') {
                         redirect('dashboard/resepsionis');
+                    }else {
+                    	redirect('main/index');
                     }
 
 				}else{
@@ -125,4 +128,23 @@ class Dashboard extends CI_Controller {
     public function resepsionis(){
         $this->load->view('resepsionis');
     }
+
+	public function insert(){
+		$this->load->database();
+	    $this->load->model('m_dashboard');
+	    $dataUser = array(
+			'nama' => $this->input->post('nama'),
+			'jenis_kelamin' => $this->input->post('username'),
+	        'username' => $this->input->post('username'),
+	        'password' => md5($this->input->post("password")),
+			);
+		$dataPelanggan = array(
+	 		'alamat' => $this->input->post('alamat'),
+	 		'phone' => $this->input->post('phone')
+	 	    );
+	    $this->m_dashboard->insertPelanggan($dataUser, $dataPelanggan);
+	    redirect('dashboard/login');
+		echo json_encode(array("status" => TRUE));
+		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
+	}
 }

@@ -54,6 +54,17 @@
     	 </div>
     </div>
 </div>
+<script src="<?php echo base_url()?>assets/js/jquery-3.2.0.min.js"></script>
+        <script src="<?php echo base_url()?>assets/bootstrap/js/bootstrap.js"></script>
+        <script src="<?php echo base_url()?>assets/datepicker/js/bootstrap-datepicker.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.tanggal').datepicker({
+                    format: "dd-mm-yyyy",
+                    autoclose:true
+                });
+            });
+        </script>
 <!-- InputMask -->
 <script src="<?php echo base_url()?>plugins/input-mask/jquery.inputmask.js"></script>
 <script src="<?php echo base_url()?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script>

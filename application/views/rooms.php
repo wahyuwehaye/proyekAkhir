@@ -1,5 +1,5 @@
 <!--room start here-->
-<div class="rooms">
+<!--<div class="rooms">
 	<div class="container">
 		<div class="rooms-main">
 			 <div class="room-head">
@@ -40,7 +40,7 @@
 	</div>
 </div>
 <!--gallery start here-->
-<div class="gallery" id="gallery">
+<!--<div class="gallery" id="gallery">
 	<div class="container">
 	  <div class="gallery-main wow zoomIn" data-wow-delay="0.3s">
 	  	<div class="gallery-top">
@@ -120,6 +120,129 @@
 	</div>
 </div>
 <!--gallery end here-->
+<!--about start here-->
+<div class="about">
+	<div class="container">
+		<div class="about-main">
+			<div class="about-top">
+				<h1>Standard Room</h1>
+			</div>
+			<div class="about-bottom">
+				<div class="col-md-5 about-left wow bounceInLeft" data-wow-delay="0.3s">
+					<img src="<?php echo base_url()?>assets/images/a1.jpg" alt="" class="img-responsive">
+				</div>
+				<div class="col-md-7 about-right wow bounceInRight" data-wow-delay="0.3s">
+					<h4>Penjelasan</h4>
+					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+				    <div class="about-list">
+					  	<div class="about-img">
+					  		 <span class="abou-icon2"> </span>
+					  	</div>
+					  	<div class="about-text">
+					  		<h5>Detail Harga</h5>
+					  		<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam</p>
+					  	</div>
+					  	 <div class="clearfix"> </div>
+				   </div>
+
+				   <button type="button" class="btn btn-block btn-primary btn-lg">Book Now</button>
+
+					  	 <div class="clearfix"> </div>
+				   </div>
+				</div>
+			  <div class="clearfix"> </div>
+			</div>
+			<div class="about-main">
+				<div class="about-top">
+					<h1>Deluxe Room</h1>
+				</div>
+				<div class="about-bottom">
+					<div class="col-md-5 about-left wow bounceInLeft" data-wow-delay="0.3s">
+						<img src="<?php echo base_url()?>assets/images/a1.jpg" alt="" class="img-responsive">
+					</div>
+					<div class="col-md-7 about-right wow bounceInRight" data-wow-delay="0.3s">
+						<h4>Penjelasan</h4>
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+					    <div class="about-list">
+						  	<div class="about-img">
+						  		 <span class="abou-icon2"> </span>
+						  	</div>
+						  	<div class="about-text">
+						  		<h5>Detail Harga</h5>
+						  		<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam</p>
+						  	</div>
+						  	 <div class="clearfix"> </div>
+					   </div>
+
+					   <button type="button" class="btn btn-block btn-primary btn-lg">Book Now</button>
+
+						  	 <div class="clearfix"> </div>
+					   </div>
+					</div>
+				  <div class="clearfix"> </div>
+				</div>
+				<div class="about-main">
+					<div class="about-top">
+						<h1>Superior Room</h1>
+					</div>
+					<div class="about-bottom">
+						<div class="col-md-5 about-left wow bounceInLeft" data-wow-delay="0.3s">
+							<img src="<?php echo base_url()?>assets/images/a1.jpg" alt="" class="img-responsive">
+						</div>
+						<div class="col-md-7 about-right wow bounceInRight" data-wow-delay="0.3s">
+							<h4>Penjelasan</h4>
+							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+						    <div class="about-list">
+							  	<div class="about-img">
+							  		 <span class="abou-icon2"> </span>
+							  	</div>
+							  	<div class="about-text">
+							  		<h5>Detail Harga</h5>
+							  		<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam</p>
+							  	</div>
+							  	 <div class="clearfix"> </div>
+						   </div>
+
+						   <button type="button" class="btn btn-block btn-primary btn-lg">Book Now</button>
+
+							  	 <div class="clearfix"> </div>
+						   </div>
+						</div>
+					  <div class="clearfix"> </div>
+					</div>
+					<div class="about-main">
+						<div class="about-top">
+							<h1>Family Triple Room</h1>
+						</div>
+						<div class="about-bottom">
+							<div class="col-md-5 about-left wow bounceInLeft" data-wow-delay="0.3s">
+								<img src="<?php echo base_url()?>assets/images/a1.jpg" alt="" class="img-responsive">
+							</div>
+							<div class="col-md-7 about-right wow bounceInRight" data-wow-delay="0.3s">
+								<h4>Penjelasan</h4>
+								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+							    <div class="about-list">
+								  	<div class="about-img">
+								  		 <span class="abou-icon2"> </span>
+								  	</div>
+								  	<div class="about-text">
+								  		<h5>Detail Harga</h5>
+								  		<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam</p>
+								  	</div>
+								  	 <div class="clearfix"> </div>
+							   </div>
+
+							   <button type="button" class="btn btn-block btn-primary btn-lg">Book Now</button>
+
+								  	 <div class="clearfix"> </div>
+							   </div>
+							</div>
+						  <div class="clearfix"> </div>
+						</div>
+		</div>
+	</div>
+</div>
+<!--about end here-->
 <script src="js/jquery.chocolat.js"></script>
 		<link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen" charset="utf-8">
 		<!--light-box-files -->
