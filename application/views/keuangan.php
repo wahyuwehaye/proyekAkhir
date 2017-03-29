@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Simple Tables</title>
+  <title>Admin | Keuangan</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -12,6 +12,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="<?php echo base_url()?>assets/bootstrap/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="<?php echo base_url()?>assets/datepicker/css/bootstrap-datepicker3.css"/>
+  <link rel="stylesheet" href="<?php echo base_url()?>plugins/daterangepicker/daterangepicker.css">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="<?php echo base_url()?>assets/bootstrap/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="<?php echo base_url()?>assets/datepicker/css/bootstrap-datepicker3.css"/>
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url()?>admin/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -34,7 +41,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Cihampelas</b>Hotel</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -62,7 +69,7 @@
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="<?php echo base_url()?>admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -87,7 +94,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="<?php echo base_url()?>admin/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Developers
@@ -244,16 +251,16 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url()?>admin/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs">Ajeng Puspitasari</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo base_url()?>admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
+                  Ajeng Puspitasari - Web Developer
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -298,10 +305,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url()?>admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>Ajeng Puspitasari</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -343,12 +350,11 @@
     <section class="content-header">
       <h1>
         Kelola Tipe Kamar dan Harga
-        <small>preview of simple tables</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Tables</a></li>
-        <li class="active">Simple</li>
+        <li class="active">Kelola Kamar</li>
       </ol>
     </section>
 
@@ -359,8 +365,12 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Kelola Tipe Kamar dan Harga</h3>
 
+                <div class="col-md-6 swimming-grid">
+					<label>Show</label>
+					<input type="text" name="tanggalIn" class="tanggal" />
+                    <button type="Submit" class="btn btn-primary btn-xs">Cari </i></button>
+				</div>
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
                   <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
@@ -375,39 +385,22 @@
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tr>
-                  <th>ID</th>
-                  <th>User</th>
-                  <th>Date</th>
-                  <th>Status</th>
-                  <th>Reason</th>
+                  <th>No</th>
+                  <th>Tipe Kamar</th>
+                  <th>Harga</th>
+                  <th>Aksi</th>
                 </tr>
                 <tr>
                   <td>183</td>
                   <td>John Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-success">Approved</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                  <td>1000000</td>
+                  <td><span class="label label-warning"><i class="glyphicon glyphicon-pencil"></i></span>&nbsp <span class="label label-danger"><i class="glyphicon glyphicon-trash"></i></span></td>
                 </tr>
                 <tr>
                   <td>219</td>
                   <td>Alexander Pierce</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-warning">Pending</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                  <td>657</td>
-                  <td>Bob Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-primary">Approved</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                  <td>175</td>
-                  <td>Mike Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-danger">Denied</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                  <td>1000000</td>
+                  <td><span class="label label-warning"><i class="glyphicon glyphicon-pencil"></i></span>&nbsp <span class="label label-danger"><i class="glyphicon glyphicon-trash"></i></span></td>
                 </tr>
               </table>
             </div>
@@ -622,6 +615,17 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
+<script src="<?php echo base_url()?>assets/js/jquery-3.2.0.min.js"></script>
+        <script src="<?php echo base_url()?>assets/bootstrap/js/bootstrap.js"></script>
+        <script src="<?php echo base_url()?>assets/datepicker/js/bootstrap-datepicker.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.tanggal').datepicker({
+                    format: "dd-mm-yyyy",
+                    autoclose:true
+                });
+            });
+        </script>
 <!-- ./wrapper -->
 
 <!-- jQuery 2.2.3 -->

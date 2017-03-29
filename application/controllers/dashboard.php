@@ -129,6 +129,12 @@ class Dashboard extends CI_Controller {
         $this->load->view('resepsionis');
     }
 
+	public function wizard(){
+		$this->load->view('main/header1');
+		$this->load->view('wizard');
+		$this->load->view('main/footer1');
+	}
+
 	public function insert(){
 		$this->load->database();
 	    $this->load->model('m_dashboard');

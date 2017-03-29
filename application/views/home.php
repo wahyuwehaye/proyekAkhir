@@ -9,27 +9,45 @@
     </div>
 </div>
 <!--BANNER END HERE-->
+<!--swiming-->
+<div class="swimming">
+	<div class="container">
+		<div class="swimming-main wow zoomIn" data-wow-delay="0.3s">
+			<div class="swimming-top">
+				<h3>Pilih Tanggal</h3>
+			</div>
+			<form action="<?php echo base_url()?>index.php/rooms" method="post">
+			<div class="swimmimg-bot">
+				<div class="col-md-6 swimming-grid">
+					<h4>Tanggal Check In</h4>
+					<input type="text" name="tanggalIn" class="tanggal" />
+				</div>
+				<div class="col-md-6 swimming-grid">
+					<h4>Tanggal Check Out</h4>
+					<input type="text" name="tanggalOut" class="tanggal"/>
+				</div>
+				<div class="col-md-12 swimming-grid">
+					<h4></h4>
+					<button type="Submit" class="btn btn-block btn-primary btn-lg">Simpan &nbsp<i class="glyphicon glyphicon-chevron-right"></i></button>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!--swimmg emd here-->
 <!--homegrids start here-->
 <div class="home-block">
 	<div class="container">
 		<div class="home-main">
-			<h4>Pilih Tanggal</h4>
-			<form action="<?php echo base_url()?>index.php/rooms" method="post">
-			<div class="form-group">
-                <label for="tanggal">Tanggal Check In</label>
-                <input type="text" name="tanggalIn" class="tanggal" />
-				<label for="tanggal">Tanggal Check Out</label>
-				<input type="text" name="tanggalOut" class="tanggal"/>
-				<button type="Submit" class="btn btn-primary btn-sm">Simpan</button>
-            </div>
-			</form>
 			<div class="home-top">
 				<h3>News Updates</h3>
 			</div>
 			<div class="home-bottom  wow bounceInLeft" data-wow-delay="0.3s">
 				<div class="col-md-4 home-grid">
 					<div class="item item-type-move">
-						<a class="item-hover" href="single.html">
+						<a class="item-hover" href="<?php echo base_url()?>index.php/soon">
 							<div class="item-info">
 								<div class="headline">
 									Our Rooms
@@ -47,7 +65,7 @@
 				</div>
 				<div class="col-md-4 home-grid">
 					<div class="item item-type-move">
-						<a class="item-hover" href="single.html">
+						<a class="item-hover" href="<?php echo base_url()?>index.php/soon">
 							<div class="item-info">
 								<div class="headline">
 									Our Rooms
@@ -64,7 +82,7 @@
 				</div>
 				<div class="col-md-4 home-grid">
 					<div class="item item-type-move">
-						<a class="item-hover" href="single.html">
+						<a class="item-hover" href="<?php echo base_url()?>index.php/soon">
 							<div class="item-info">
 								<div class="headline">
 									Our Rooms
@@ -88,6 +106,7 @@
 <!--home grid end here-->
 
 <!--branches start here-->
+<!--
 <div class="branches">
 		<div class="branches-main wow zoomIn" data-wow-delay="0.3s">
 			<div class="branches-top">
@@ -149,43 +168,10 @@
 		</div>
 </div>
 <!--branches end here-->
+<!--
 <div class="branch-text">
    <div class="container">
 			<span class="quotations"> </span>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
 </div>
-<!--swiming-->
-<div class="swimming">
-	<div class="container">
-		<div class="swimming-main wow zoomIn" data-wow-delay="0.3s">
-			<div class="swimming-top">
-				<h3>Welcome</h3>
-			</div>
-			<div class="swimmimg-bot">
-				<div class="col-md-3 swimming-grid">
-					<h4>758</h4>
-					<span class="swim-icon-1"> </span>
-					<h5>Lorem Ipsum</h5>
-				</div>
-				<div class="col-md-3 swimming-grid">
-					<h4>4,790</h4>
-					<span class="swim-icon-2"> </span>
-					<h5>Lorem Ipsum</h5>
-				</div>
-				<div class="col-md-3 swimming-grid">
-					<h4>7,920</h4>
-					<span class="swim-icon-3"> </span>
-					<h5>Lorem Ipsum</h5>
-				</div>
-				<div class="col-md-3 swimming-grid">
-					<h4>190</h4>
-					<span class="swim-icon-4"> </span>
-					<h5>Lorem Ipsum</h5>
-				</div>
-			  <div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-</div>
-<!--swimmg emd here-->

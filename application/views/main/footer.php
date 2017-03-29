@@ -54,6 +54,36 @@
     	 </div>
     </div>
 </div>
+<!-- Jquery Core Js -->
+    <script src="<?php echo base_url()?>wizard/plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="<?php echo base_url()?>wizard/plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="<?php echo base_url()?>wizard/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="<?php echo base_url()?>wizard/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Jquery Validation Plugin Css -->
+    <script src="<?php echo base_url()?>wizard/plugins/jquery-validation/jquery.validate.js"></script>
+
+    <!-- JQuery Steps Plugin Js -->
+    <script src="<?php echo base_url()?>wizard/plugins/jquery-steps/jquery.steps.js"></script>
+
+    <!-- Sweet Alert Plugin Js -->
+    <script src="<?php echo base_url()?>wizard/plugins/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="<?php echo base_url()?>wizard/plugins/node-waves/waves.js"></script>
+
+    <!-- Custom Js -->
+    <script src="<?php echo base_url()?>wizard/js/admin.js"></script>
+    <script src="<?php echo base_url()?>wizard/js/pages/forms/form-wizard.js"></script>
+
+    <!-- Demo Js -->
+    <script src="<?php echo base_url()?>wizard/js/demo.js"></script>
 <script src="<?php echo base_url()?>assets/js/jquery-3.2.0.min.js"></script>
         <script src="<?php echo base_url()?>assets/bootstrap/js/bootstrap.js"></script>
         <script src="<?php echo base_url()?>assets/datepicker/js/bootstrap-datepicker.js"></script>

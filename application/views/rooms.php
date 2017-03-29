@@ -123,6 +123,7 @@
 <!--about start here-->
 <div class="about">
 	<div class="container">
+		<form action="<?php echo base_url()?>index.php/wizard" method="post">
 		<div class="about-main">
 			<div class="about-top">
 				<h1>Standard Room</h1>
@@ -145,13 +146,15 @@
 					  	 <div class="clearfix"> </div>
 				   </div>
 
-				   <button type="button" class="btn btn-block btn-primary btn-lg">Book Now</button>
+				   <button type="Submit" class="btn btn-block btn-primary btn-lg">Book Now</button>
 
 					  	 <div class="clearfix"> </div>
 				   </div>
 				</div>
 			  <div class="clearfix"> </div>
 			</div>
+		</form>
+		<form action="<?php echo base_url()?>index.php/wizard" method="post">
 			<div class="about-main">
 				<div class="about-top">
 					<h1>Deluxe Room</h1>
@@ -174,13 +177,15 @@
 						  	 <div class="clearfix"> </div>
 					   </div>
 
-					   <button type="button" class="btn btn-block btn-primary btn-lg">Book Now</button>
+					   <button type="Submit" class="btn btn-block btn-primary btn-lg">Book Now</button>
 
 						  	 <div class="clearfix"> </div>
 					   </div>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
+			</form>
+			<form action="<?php echo base_url()?>index.php/wizard" method="post">
 				<div class="about-main">
 					<div class="about-top">
 						<h1>Superior Room</h1>
@@ -203,13 +208,15 @@
 							  	 <div class="clearfix"> </div>
 						   </div>
 
-						   <button type="button" class="btn btn-block btn-primary btn-lg">Book Now</button>
+						   <button type="Submit" class="btn btn-block btn-primary btn-lg">Book Now</button>
 
 							  	 <div class="clearfix"> </div>
 						   </div>
 						</div>
 					  <div class="clearfix"> </div>
 					</div>
+				</form>
+				<form action="<?php echo base_url()?>index.php/wizard" method="post">
 					<div class="about-main">
 						<div class="about-top">
 							<h1>Family Triple Room</h1>
@@ -232,13 +239,14 @@
 								  	 <div class="clearfix"> </div>
 							   </div>
 
-							   <button type="button" class="btn btn-block btn-primary btn-lg">Book Now</button>
+							   <button type="Submit" class="btn btn-block btn-primary btn-lg">Book Now</button>
 
 								  	 <div class="clearfix"> </div>
 							   </div>
 							</div>
 						  <div class="clearfix"> </div>
 						</div>
+					</form>
 		</div>
 	</div>
 </div>

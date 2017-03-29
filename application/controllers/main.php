@@ -48,4 +48,8 @@ class Main extends CI_Controller {
 		$this->load->view('contact');
 		$this->load->view('main/footer');
 	}
+
+	public function soon(){
+		$this->load->view('soon');
+	}
 }
