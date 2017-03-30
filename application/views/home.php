@@ -58,7 +58,7 @@
 							<div class="mask"> </div>
 					    </a>
 						<div class="item-img">
-								<img src="<?php echo base_url()?>assets/images/b7.jpg" class="img-responsive" alt="">
+								<img src="<?php echo base_url()?>assets/images/gallery.png" class="img-responsive" alt="">
 						</div>
 					</div>
 
@@ -76,7 +76,7 @@
 							<div class="mask"> </div>
 					    </a>
 						<div class="item-img">
-								<img src="<?php echo base_url()?>assets/images/b8.jpg" class="img-responsive" alt="">
+								<img src="<?php echo base_url()?>assets/images/gallery2.png" class="img-responsive" alt="">
 						</div>
 					</div>
 				</div>
@@ -93,7 +93,7 @@
 							<div class="mask"> </div>
 					    </a>
 						<div class="item-img">
-								<img src="<?php echo base_url()?>assets/images/b9.jpg" class="img-responsive" alt="">
+								<img src="<?php echo base_url()?>assets/images/gallery3.jpg" class="img-responsive" alt="">
 						</div>
 					</div>
 				</div>

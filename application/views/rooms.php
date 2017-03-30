@@ -123,25 +123,26 @@
 <!--about start here-->
 <div class="about">
 	<div class="container">
-		<form action="<?php echo base_url()?>index.php/wizard" method="post">
+		<form action="<?php echo base_url()?>index.php/login" method="post">
 		<div class="about-main">
 			<div class="about-top">
 				<h1>Standard Room</h1>
 			</div>
 			<div class="about-bottom">
 				<div class="col-md-5 about-left wow bounceInLeft" data-wow-delay="0.3s">
-					<img src="<?php echo base_url()?>assets/images/a1.jpg" alt="" class="img-responsive">
+					<img src="<?php echo base_url()?>assets/images/standar.png" alt="" class="img-responsive">
 				</div>
 				<div class="col-md-7 about-right wow bounceInRight" data-wow-delay="0.3s">
 					<h4>Penjelasan</h4>
-					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+					<p>Kamar dengan luas 20 m2, termasuk dengan fasilitas AC, Air panas dan televisi.</p>
 				    <div class="about-list">
 					  	<div class="about-img">
 					  		 <span class="abou-icon2"> </span>
 					  	</div>
 					  	<div class="about-text">
 					  		<h5>Detail Harga</h5>
-					  		<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam</p>
+					  		<p>Weekday : Rp. 300.000 <br>
+					  		   Weekend : Rp. 350.000 </p>
 					  	</div>
 					  	 <div class="clearfix"> </div>
 				   </div>
@@ -161,18 +162,19 @@
 				</div>
 				<div class="about-bottom">
 					<div class="col-md-5 about-left wow bounceInLeft" data-wow-delay="0.3s">
-						<img src="<?php echo base_url()?>assets/images/a1.jpg" alt="" class="img-responsive">
+						<img src="<?php echo base_url()?>assets/images/suit.jpg" alt="" class="img-responsive">
 					</div>
 					<div class="col-md-7 about-right wow bounceInRight" data-wow-delay="0.3s">
 						<h4>Penjelasan</h4>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+						<p>Suite Room Size: 4,6 m x 6 m (27,6 m2) Spring Bed: Double (1,8 m x 2 m)</p>
 					    <div class="about-list">
 						  	<div class="about-img">
 						  		 <span class="abou-icon2"> </span>
 						  	</div>
 						  	<div class="about-text">
 						  		<h5>Detail Harga</h5>
-						  		<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam</p>
+						  		<p>Weekday : Rp. 350.000 <br>
+						  		   Weekend : Rp. 400.000 </p>
 						  	</div>
 						  	 <div class="clearfix"> </div>
 					   </div>
@@ -192,18 +194,19 @@
 					</div>
 					<div class="about-bottom">
 						<div class="col-md-5 about-left wow bounceInLeft" data-wow-delay="0.3s">
-							<img src="<?php echo base_url()?>assets/images/a1.jpg" alt="" class="img-responsive">
+							<img src="<?php echo base_url()?>assets/images/superior.png" alt="" class="img-responsive">
 						</div>
 						<div class="col-md-7 about-right wow bounceInRight" data-wow-delay="0.3s">
 							<h4>Penjelasan</h4>
-							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+							<p>Superior Room</p>
 						    <div class="about-list">
 							  	<div class="about-img">
 							  		 <span class="abou-icon2"> </span>
 							  	</div>
 							  	<div class="about-text">
 							  		<h5>Detail Harga</h5>
-							  		<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam</p>
+							  		<p>Weekday : Rp. 330.000 <br>
+							  		   Weekend : Rp. 380.000</p>
 							  	</div>
 							  	 <div class="clearfix"> </div>
 						   </div>
@@ -223,18 +226,19 @@
 						</div>
 						<div class="about-bottom">
 							<div class="col-md-5 about-left wow bounceInLeft" data-wow-delay="0.3s">
-								<img src="<?php echo base_url()?>assets/images/a1.jpg" alt="" class="img-responsive">
+								<img src="<?php echo base_url()?>assets/images/deluxe.jpg" alt="" class="img-responsive">
 							</div>
 							<div class="col-md-7 about-right wow bounceInRight" data-wow-delay="0.3s">
 								<h4>Penjelasan</h4>
-								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+								<p>Family Triple Room</p>
 							    <div class="about-list">
 								  	<div class="about-img">
 								  		 <span class="abou-icon2"> </span>
 								  	</div>
 								  	<div class="about-text">
 								  		<h5>Detail Harga</h5>
-								  		<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam</p>
+								  		<p>Weekday : 450.000 <br>
+								  		   Weekend : 500.000</p>
 								  	</div>
 								  	 <div class="clearfix"> </div>
 							   </div>

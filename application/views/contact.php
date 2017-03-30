@@ -15,11 +15,14 @@
 					</form>
 				</div>
 				<div class="col-md-3 contact-right">
-					<h1>Address</h1>
-					<p>Company Office</p>
-					<p>voluptatem nesciunt.</p>
-					<p>+880 5558 568 78541</p>
-					<p><a href="mailto:info@example.com">user@gmail.com</a></p>
+					<h1>Hotel Cihampelas 2</h1>
+					<p>Jl. Cihampelas No.222 </p>
+				    <p>Bandung 40131 West Java,Indonesia </p><br>
+			     	<p>phone    : +62 22 2039 555 <br> 
+                       Whats App: +62 818 207 606, <br> +62 812 2000 832 <br>
+                       BBM      : D579B74A <br>
+                       Fax      : +62.22.2032998</p>
+					<p><a href="mailto:info@example.com">cihampelashotel@gmail.com</a></p>
 				</div>
 			  <div class="clearfix"> </div>
 			</div>
