@@ -79,7 +79,7 @@ class Dashboard extends CI_Controller {
                     }else if ($_POST['username']=='niteaudit') {
                         redirect('dashboard/niteaudit');
                     }else if ($_POST['username']=='keuangan') {
-                        redirect('dashboard/keuangan');
+                        redirect('masterdatatipekamar/keuangan');
                     }elseif ($_POST['username']=='resepsionis') {
                         redirect('dashboard/resepsionis');
                     }else {
@@ -121,9 +121,11 @@ class Dashboard extends CI_Controller {
         $this->load->view('niteaudit');
     }
 
-    public function keuangan(){
-        $this->load->view('keuangan');
-    }
+    // public function keuangan(){
+	// 	//$data['tipe_kamar'] = //$this->m_dashboard->tampil_dataTipeKamar()->result();
+	// 	// $this->load->view('keuangan',$data);
+	// 	$this->load->view('keuangan');
+    // }
 
     public function resepsionis(){
         $this->load->view('resepsionis');

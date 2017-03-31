@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="<?php echo base_url()?>admin/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="<?php echo base_url('assets2/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- daterange picker -->
@@ -371,7 +372,7 @@
 					<input type="text" name="tanggalIn" class="tanggal" />
                     <button type="Submit" class="btn btn-primary btn-xs">Cari </i></button>
 				</div>
-              <div class="box-tools">
+              <!-- <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
                   <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
@@ -379,30 +380,37 @@
                     <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
+            <div class="box-header">
+            <button class="btn btn-xs btn-success" onclick="add_kamar()"><i class="glyphicon glyphicon-plus"></i></button>
+            <button class="btn btn-xs btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i></button>
+        </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
-                <tr>
+              <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
                   <th>No</th>
                   <th>Tipe Kamar</th>
-                  <th>Harga</th>
+                  <th>Harga Weekday</th>
+                  <th>Harga Weekend</th>
                   <th>Aksi</th>
-                </tr>
+              </thead>
+              <tbody>
+                    <!-- <?php
+                        $no = 1;
+                        foreach($tipe_kamar as $a){
+                    ?>
                 <tr>
-                  <td>183</td>
-                  <td>John Doe</td>
-                  <td>1000000</td>
-                  <td><span class="label label-warning"><i class="glyphicon glyphicon-pencil"></i></span>&nbsp <span class="label label-danger"><i class="glyphicon glyphicon-trash"></i></span></td>
+                    <td><?php echo $no++ ?></td>
+                    <td><?php echo $a->nama_kamar ?></td>
+                    <td><?php echo $a->harga_kamar ?></td>
+                    <td><a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="#"><i class="glyphicon glyphicon-pencil"></i></a>&nbsp<a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="#"><i class="glyphicon glyphicon-trash"></i></a>
+                    </td>
                 </tr>
-                <tr>
-                  <td>219</td>
-                  <td>Alexander Pierce</td>
-                  <td>1000000</td>
-                  <td><span class="label label-warning"><i class="glyphicon glyphicon-pencil"></i></span>&nbsp <span class="label label-danger"><i class="glyphicon glyphicon-trash"></i></span></td>
-                </tr>
-              </table>
+                <?php } ?> -->
+            </tbody>
+                </table>
             </div>
             <!-- /.box-body -->
           </div>
@@ -615,7 +623,7 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-<script src="<?php echo base_url()?>assets/js/jquery-3.2.0.min.js"></script>
+<!-- <script src="<?php echo base_url()?>assets/js/jquery-3.2.0.min.js"></script>
         <script src="<?php echo base_url()?>assets/bootstrap/js/bootstrap.js"></script>
         <script src="<?php echo base_url()?>assets/datepicker/js/bootstrap-datepicker.js"></script>
         <script type="text/javascript">
@@ -625,7 +633,7 @@
                     autoclose:true
                 });
             });
-        </script>
+        </script> -->
 <!-- ./wrapper -->
 
 <!-- jQuery 2.2.3 -->
@@ -640,5 +648,200 @@
 <script src="<?php echo base_url()?>admin/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url()?>admin/dist/js/demo.js"></script>
+
+<script src="<?php echo base_url('assets2/datatables/js/jquery.dataTables.min.js')?>"></script>
+<script src="<?php echo base_url('assets2/datatables/js/dataTables.bootstrap.js')?>"></script>
+
+<script type="text/javascript">
+
+var save_method; //for save method string
+var table;
+
+$(document).ready(function() {
+
+    //datatables
+    table = $('#table').DataTable({
+
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+            "url": "<?php echo site_url('masterdatatipekamar/ajax_list')?>",
+            "type": "POST"
+        },
+
+        //Set column definition initialisation properties.
+        "columnDefs": [
+        {
+            "targets": [ -1 ], //last column
+            "orderable": false, //set not orderable
+        },
+        ],
+
+    });
+
+
+});
+
+
+
+function add_kamar()
+{
+    save_method = 'add';
+    $('#form')[0].reset(); // reset form on modals
+    $('.form-group').removeClass('has-error'); // clear error class
+    $('.help-block').empty(); // clear error string
+    $('#modal_form').modal('show'); // show bootstrap modal
+    $('.modal-title').text('Tambah Kamar'); // Set Title to Bootstrap modal title
+}
+
+function edit_tipe_kamar(id)
+{
+    save_method = 'update';
+    $('#form')[0].reset(); // reset form on modals
+    $('.form-group').removeClass('has-error'); // clear error class
+    $('.help-block').empty(); // clear error string
+
+    //Ajax Load data from ajax
+    $.ajax({
+        url : "<?php echo site_url('Masterdatatipekamar/ajax_edit/')?>/" + id,
+        type: "GET",
+        dataType: "JSON",
+        success: function(data)
+        {
+
+            $('[name="id_tipe_kamar"]').val(data.id_tipe_kamar);
+            $('[name="nama_kamar"]').val(data.nama_kamar);
+            $('[name="harga_kamar_weekday"]').val(data.harga_kamar_weekday);
+            $('[name="harga_kamar_weekend"]').val(data.harga_kamar_weekend);
+            $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
+            $('.modal-title').text('Edit Kamar'); // Set title to Bootstrap modal title
+
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            alert('Error get data from ajax');
+        }
+    });
+}
+
+function reload_table()
+{
+    table.ajax.reload(null,false); //reload datatable ajax
+}
+
+function save()
+{
+    $('#btnSave').text('saving...'); //change button text
+    $('#btnSave').attr('disabled',true); //set button disable
+    var url;
+
+    if(save_method == 'add') {
+        url = "<?php echo site_url('Masterdatatipekamar/ajax_add')?>";
+    } else {
+        url = "<?php echo site_url('Masterdatatipekamar/ajax_update')?>";
+    }
+
+    // ajax adding data to database
+    $.ajax({
+        url : url,
+        type: "POST",
+        data: $('#form').serialize(),
+        dataType: "JSON",
+        success: function(data)
+        {
+
+            if(data.status) //if success close modal and reload ajax table
+            {
+                $('#modal_form').modal('hide');
+                reload_table();
+            }
+
+            $('#btnSave').text('save'); //change button text
+            $('#btnSave').attr('disabled',false); //set button enable
+
+
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            alert('Error adding / update data');
+            $('#btnSave').text('save'); //change button text
+            $('#btnSave').attr('disabled',false); //set button enable
+
+        }
+    });
+}
+
+function delete_tipe_kamar(id)
+{
+    if(confirm('Are you sure delete this data?'))
+    {
+        // ajax delete data to database
+        $.ajax({
+            url : "<?php echo site_url('Masterdatatipekamar/ajax_delete')?>/"+id,
+            type: "POST",
+            dataType: "JSON",
+            success: function(data)
+            {
+                //if success reload ajax table
+                $('#modal_form').modal('hide');
+                reload_table();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                alert('Error deleting data');
+            }
+        });
+
+    }
+}
+
+</script>
+<!-- Bootstrap modal -->
+<div class="modal fade" id="modal_form" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">Form Kelola Kamar</h3>
+            </div>
+            <div class="modal-body form">
+                <form action="#" id="form" class="form-horizontal">
+                    <input type="hidden" value="" name="id_tipe_kamar"/>
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Tipe Kamar</label>
+                            <div class="col-md-9">
+                                <input name="nama_kamar" required="" placeholder="Tipe Kamar" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Harga Kamar Weekday</label>
+                            <div class="col-md-9">
+                                <input name="harga_kamar_weekday" placeholder="Harga Kamar Weekday" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Harga Kamar Weekend</label>
+                            <div class="col-md-9">
+                                <input name="harga_kamar_weekend" placeholder="Harga Kamar Weekend" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- End Bootstrap modal -->
 </body>
 </html>

@@ -123,7 +123,14 @@
 <!--about start here-->
 <div class="about">
 	<div class="container">
+		<?php if(isset($_SESSION['logged_in']))
+		{ ?>
+		<form action="<?php echo base_url()?>index.php/wizard" method="post">
+		<?php } else {
+		?>
 		<form action="<?php echo base_url()?>index.php/login" method="post">
+		<?php
+		} ?>
 		<div class="about-main">
 			<div class="about-top">
 				<h1>Standard Room</h1>
@@ -155,7 +162,14 @@
 			  <div class="clearfix"> </div>
 			</div>
 		</form>
+		<?php if(isset($_SESSION['logged_in']))
+		{ ?>
 		<form action="<?php echo base_url()?>index.php/wizard" method="post">
+		<?php } else {
+		?>
+		<form action="<?php echo base_url()?>index.php/login" method="post">
+		<?php
+		} ?>
 			<div class="about-main">
 				<div class="about-top">
 					<h1>Deluxe Room</h1>
@@ -187,7 +201,14 @@
 				  <div class="clearfix"> </div>
 				</div>
 			</form>
+			<?php if(isset($_SESSION['logged_in']))
+			{ ?>
 			<form action="<?php echo base_url()?>index.php/wizard" method="post">
+			<?php } else {
+			?>
+			<form action="<?php echo base_url()?>index.php/login" method="post">
+			<?php
+			} ?> method="post">
 				<div class="about-main">
 					<div class="about-top">
 						<h1>Superior Room</h1>
@@ -219,7 +240,14 @@
 					  <div class="clearfix"> </div>
 					</div>
 				</form>
+				<?php if(isset($_SESSION['logged_in']))
+				{ ?>
 				<form action="<?php echo base_url()?>index.php/wizard" method="post">
+				<?php } else {
+				?>
+				<form action="<?php echo base_url()?>index.php/login" method="post">
+				<?php
+				} ?>
 					<div class="about-main">
 						<div class="about-top">
 							<h1>Family Triple Room</h1>

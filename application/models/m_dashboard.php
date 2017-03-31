@@ -22,12 +22,8 @@ class m_dashboard extends CI_Model{
         return $res;
     }
 
-    public function tampil_dataAdmin(){
-		return $this->db->get('admin');
-	}
-
-    public function tampil_dataUser(){
-		return $this->db->get('user');
+    public function tampil_dataTipeKamar(){
+		return $this->db->get('tipe_kamar');
 	}
 
     public function insertPelanggan($dataUser, $dataPelanggan){
