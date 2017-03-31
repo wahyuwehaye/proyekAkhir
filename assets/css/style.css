@@ -259,7 +259,7 @@ nav a:focus {
 /*--header end here--*/
 /*--banner strat here--*/
 .banner {
-    background: url(..images/header.jpg)no-repeat;
+    background: url(..images/banner.jpg)no-repeat;
     min-height:660px;
     background-size: cover;
 }

@@ -79,7 +79,7 @@ class Dashboard extends CI_Controller {
                     }else if ($_POST['username']=='niteaudit') {
                         redirect('dashboard/niteaudit');
                     }else if ($_POST['username']=='keuangan') {
-                        redirect('masterdatatipekamar/keuangan');
+                        redirect('masterdatatipekamar');
                     }elseif ($_POST['username']=='resepsionis') {
                         redirect('dashboard/resepsionis');
                     }else {
