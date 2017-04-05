@@ -133,7 +133,14 @@ class Dashboard extends CI_Controller {
 
 	public function wizard(){
 		$this->load->view('main/header1');
-		$this->load->view('wizard');
+		$data['tglIn'] = $this->input->post('tglIn');
+		$data['tglOut'] = $this->input->post('tglOut');
+		$data['kamar'] = $this->input->post('kamar');
+		$data['nama_kamar'] = $this->input->post('nama_kamar');
+		$data['harga_kamar_weekend'] = $this->input->post('harga_kamar_weekend');
+		$data['tamu'] = $this->m_dashboard->tampil_dataTamu(($_SESSION['username']));
+		// $data['available'] = $this->m_dashboard->tampil_dataKamar()->result();
+		$this->load->view('wizard',$data);
 		$this->load->view('main/footer1');
 	}
 
@@ -145,6 +152,30 @@ class Dashboard extends CI_Controller {
 			'jenis_kelamin' => $this->input->post('username'),
 	        'username' => $this->input->post('username'),
 	        'password' => md5($this->input->post("password")),
+			);
+		$dataPelanggan = array(
+	 		'alamat' => $this->input->post('alamat'),
+	 		'phone' => $this->input->post('phone')
+	 	    );
+	    $this->m_dashboard->insertPelanggan($dataUser, $dataPelanggan);
+	    redirect('dashboard/login');
+		echo json_encode(array("status" => TRUE));
+		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
+	}
+
+	public function insertBook(){
+		$this->load->database();
+	    $this->load->model('m_dashboard');
+	    $dataTamu = array(
+			'nama_tamu' => $this->input->post('nama'),
+			'alamat_tamu' => $this->input->post('username'),
+	        'no_hp' => $this->input->post('username'),
+	        'tgl_masuk' => md5($this->input->post("password")),
+			'tgl_keluar' => md5($this->input->post("password")),
+			'tipe_kamar' => md5($this->input->post("password")),
+			'fasilitas' => md5($this->input->post("password")),
+			'harga_kamar' => md5($this->input->post("password")),
+			'jumlah_kamar' => md5($this->input->post("password")),
 			);
 		$dataPelanggan = array(
 	 		'alamat' => $this->input->post('alamat'),

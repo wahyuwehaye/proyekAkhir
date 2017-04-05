@@ -9,34 +9,41 @@
     </div>
 </div>
 <!--BANNER END HERE-->
-<!--swiming-->
-<div class="swimming">
+<!--leaves start here-->
+<div class="leaves">
 	<div class="container">
-		<div class="swimming-main wow zoomIn" data-wow-delay="0.3s">
-			<div class="swimming-top">
-				<h3>Pilih Tanggal</h3>
+		<div class="leaves-main wow zoomIn" data-wow-delay="0.3s">
+		<form action="<?php echo base_url()?>index.php/main/rooms" method="post" name="inputtgl">
+			<h1>Pilih Tanggal</h1>
+			<div class="col-md-4 swimming-grid">
+				<h4>Tanggal Check In</h4>
+				<input type="text" name="tanggalIn" class="tanggal" />
 			</div>
-			<form action="<?php echo base_url()?>index.php/rooms" method="post">
-			<div class="swimmimg-bot">
-				<div class="col-md-6 swimming-grid">
-					<h4>Tanggal Check In</h4>
-					<input type="text" name="tanggalIn" class="tanggal" />
-				</div>
-				<div class="col-md-6 swimming-grid">
-					<h4>Tanggal Check Out</h4>
-					<input type="text" name="tanggalOut" class="tanggal"/>
-				</div>
-				<div class="col-md-12 swimming-grid">
-					<h4></h4>
-					<button type="Submit" class="btn btn-block btn-primary btn-lg">Simpan &nbsp<i class="glyphicon glyphicon-chevron-right"></i></button>
-				</div>
-				<div class="clearfix"> </div>
+			<div class="col-md-4 swimming-grid">
+				<h4>Tanggal Check Out</h4>
+				<input type="text" name="tanggalOut" class="tanggal"/>
 			</div>
-			</form>
+			<div class="col-md-4 swimming-grid">
+				<h4>Kamar</h4>
+				<select name="kamar" id="kamar" class="form-control">
+	                                    <option value="">--</option>
+	                                    <option value="1">1</option>
+	                                    <option value="2">2</option>
+										<option value="3">3</option>
+	                                    <option value="4">4</option>
+										<option value="5">5</option>
+	                                    <option value="6">6</option>
+										<option value="7">7</option>
+	                                    <option value="8">8</option>
+	                                </select>
+			</div>
+			<h1>- - -</h1>
+		   <button type="Submit" class="hvr-push btn btn-success btn-lg">Discover More</button>
+		</form>
 		</div>
 	</div>
 </div>
-<!--swimmg emd here-->
+<!--leaves end here-->
 <!--homegrids start here-->
 <div class="home-block">
 	<div class="container">

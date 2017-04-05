@@ -384,7 +384,7 @@
             </div>
             <div class="box-header">
             <button class="btn btn-xs btn-success" onclick="add_kamar()"><i class="glyphicon glyphicon-plus"></i></button>
-            <button class="btn btn-xs btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i></button>
+            <button class="btn btn-xs btn-warning" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i></button>
         </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
@@ -394,6 +394,7 @@
                   <th>Tipe Kamar</th>
                   <th>Harga Weekday</th>
                   <th>Harga Weekend</th>
+                  <th>Penjelasan</th>
                   <th>Aksi</th>
               </thead>
               <tbody>
@@ -716,6 +717,7 @@ function edit_tipe_kamar(id)
             $('[name="nama_kamar"]').val(data.nama_kamar);
             $('[name="harga_kamar_weekday"]').val(data.harga_kamar_weekday);
             $('[name="harga_kamar_weekend"]').val(data.harga_kamar_weekend);
+            $('[name="penjelasan"]').val(data.penjelasan);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Kamar'); // Set title to Bootstrap modal title
 
@@ -829,6 +831,13 @@ function delete_tipe_kamar(id)
                             <label class="control-label col-md-3">Harga Kamar Weekend</label>
                             <div class="col-md-9">
                                 <input name="harga_kamar_weekend" placeholder="Harga Kamar Weekend" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Penjelasan Kamar</label>
+                            <div class="col-md-9">
+                                <input name="penjelasan" placeholder="Penjelasan Kamar" class="form-control" type="textarea">
                                 <span class="help-block"></span>
                             </div>
                         </div>

@@ -222,14 +222,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="leaves">
 	<div class="container">
 		<div class="leaves-main wow zoomIn" data-wow-delay="0.3s">
+		<form action="<?php echo base_url()?>index.php/rooms" method="post">
 			<h1>You Never Leave Us</h1>
 			<h6>100% Friendly services</h6>
 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</p>
-		   <a href="single.html" class="hvr-push">Discover More</a>
+		   <button type="Submit" class="hvr-push btn btn-success btn-lg">Discover More</button>
+		</form>
 		</div>
 	</div>
 </div>
 <!--leaves end here-->
+<!--swiming-->
+<div class="swimming">
+	<div class="container">
+		<div class="swimming-main wow zoomIn" data-wow-delay="0.3s">
+			<div class="swimming-top">
+				<h3>Pilih Tanggal</h3>
+			</div>
+			<form action="<?php echo base_url()?>index.php/rooms" method="post">
+			<div class="swimmimg-bot">
+				<div class="col-md-6 swimming-grid">
+					<h4>Tanggal Check In</h4>
+					<input type="text" name="tanggalIn" class="tanggal" />
+				</div>
+				<div class="col-md-6 swimming-grid">
+					<h4>Tanggal Check Out</h4>
+					<input type="text" name="tanggalOut" class="tanggal"/>
+				</div>
+				<div class="col-md-12 swimming-grid">
+					<h4></h4>
+					<button type="Submit" class="btn btn-block btn-primary btn-lg">Simpan &nbsp<i class="glyphicon glyphicon-chevron-right"></i></button>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!--swimmg emd here-->
 <!--branches start here-->
 <div class="branches">
 		<div class="branches-main wow zoomIn" data-wow-delay="0.3s">

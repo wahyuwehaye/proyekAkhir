@@ -26,6 +26,19 @@ class m_dashboard extends CI_Model{
 		return $this->db->get('tipe_kamar');
 	}
 
+    public function tampil_dataKamar(){
+        return $this->db->get('tipe_kamar');
+    }
+
+    public function tampil_dataTamu($tamu){
+            $query = $this->db->query("SELECT *
+                                    FROM pelanggan
+                                    JOIN user
+                                    USING ( id_user )
+                                    where ( username = '$tamu') ");
+            return $query;
+    }
+
     public function insertPelanggan($dataUser, $dataPelanggan){
         $this->db->insert('user',$dataUser);
         $dataPelanggan['id_user'] = $this->db->insert_id();

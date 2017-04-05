@@ -120,9 +120,28 @@
 	</div>
 </div>
 <!--gallery end here-->
+<!--leaves start here-->
+<div class="leaves">
+	<div class="container">
+		<div class="leaves-main wow zoomIn" data-wow-delay="0.3s">
+			<?php
+			// if (isset($_POST['inputtgl'])) {
+			// 	$tglIn = $_POST['tanggalIn'];
+			// 	$tglOut = $_POST['tanggalOut'];
+			// 	$kamar = $_POST['kamar'];
+			// 	echo "<h1>Tanggal : <b>".$tglIn." </b></h1>";
+			// }
+			// ?>
+			<h1>Pemesanan Pada Tanggal : <?php echo $tglIn; ?>&nbsp s/d &nbsp<?php echo $tglOut; ?>&nbsp untuk <?php echo $kamar; ?> kamar</h1>
+			<!-- <h1>You Never Leave Us</h1> -->
+		</div>
+	</div>
+</div>
+<!--leaves end here-->
 <!--about start here-->
 <div class="about">
 	<div class="container">
+		<?php foreach($available as $a){ ?>
 		<?php if(isset($_SESSION['logged_in']))
 		{ ?>
 		<form action="<?php echo base_url()?>index.php/wizard" method="post">
@@ -133,23 +152,28 @@
 		} ?>
 		<div class="about-main">
 			<div class="about-top">
-				<h1>Standard Room</h1>
+				<input type="hidden" value="<?php echo $tglIn; ?>" name="tglIn"/>
+				<input type="hidden" value="<?php echo $tglOut; ?>" name="tglOut"/>
+				<input type="hidden" value="<?php echo $kamar; ?>" name="kamar"/>
+				<input type="hidden" value="<?php echo $a->nama_kamar; ?>" name="nama_kamar"/>
+				<h1><?php echo $a->nama_kamar; ?> Room</h1>
 			</div>
 			<div class="about-bottom">
 				<div class="col-md-5 about-left wow bounceInLeft" data-wow-delay="0.3s">
-					<img src="<?php echo base_url()?>assets/images/standar.png" alt="" class="img-responsive">
+					<img src="<?php echo base_url()?>assets/images/<?php echo $a->nama_kamar; ?>.png" alt="" class="img-responsive">
 				</div>
 				<div class="col-md-7 about-right wow bounceInRight" data-wow-delay="0.3s">
 					<h4>Penjelasan</h4>
-					<p>Kamar dengan luas 20 m2, termasuk dengan fasilitas AC, Air panas dan televisi.</p>
+					<p><?php echo $a->penjelasan; ?></p>
 				    <div class="about-list">
 					  	<div class="about-img">
 					  		 <span class="abou-icon2"> </span>
 					  	</div>
 					  	<div class="about-text">
 					  		<h5>Detail Harga</h5>
-					  		<p>Weekday : Rp. 300.000 <br>
-					  		   Weekend : Rp. 350.000 </p>
+					  		<p>Weekday : Rp. <?php echo $a->harga_kamar_weekday; ?> <br>
+					  		   Weekend : Rp. <?php echo $a->harga_kamar_weekend; ?> </p>
+							   <input type="hidden" value="<?php echo $a->harga_kamar_weekend; ?>" name="harga_kamar_weekend"/>
 					  	</div>
 					  	 <div class="clearfix"> </div>
 				   </div>
@@ -162,7 +186,8 @@
 			  <div class="clearfix"> </div>
 			</div>
 		</form>
-		<?php if(isset($_SESSION['logged_in']))
+		<?php } ?>
+		<!-- <?php if(isset($_SESSION['logged_in']))
 		{ ?>
 		<form action="<?php echo base_url()?>index.php/wizard" method="post">
 		<?php } else {
@@ -176,7 +201,7 @@
 				</div>
 				<div class="about-bottom">
 					<div class="col-md-5 about-left wow bounceInLeft" data-wow-delay="0.3s">
-						<img src="<?php echo base_url()?>assets/images/suit.jpg" alt="" class="img-responsive">
+						<img src="<?php echo base_url()?>assets/images/Deluxe.jpg" alt="" class="img-responsive">
 					</div>
 					<div class="col-md-7 about-right wow bounceInRight" data-wow-delay="0.3s">
 						<h4>Penjelasan</h4>
@@ -215,7 +240,7 @@
 					</div>
 					<div class="about-bottom">
 						<div class="col-md-5 about-left wow bounceInLeft" data-wow-delay="0.3s">
-							<img src="<?php echo base_url()?>assets/images/superior.png" alt="" class="img-responsive">
+							<img src="<?php echo base_url()?>assets/images/Superior.png" alt="" class="img-responsive">
 						</div>
 						<div class="col-md-7 about-right wow bounceInRight" data-wow-delay="0.3s">
 							<h4>Penjelasan</h4>
@@ -278,7 +303,7 @@
 							</div>
 						  <div class="clearfix"> </div>
 						</div>
-					</form>
+					</form> -->
 		</div>
 	</div>
 </div>

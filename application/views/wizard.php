@@ -1,3 +1,24 @@
+<!--features strat here-->
+<div class="features">
+	<div class="container">
+		<div class="features-main">
+			<div class="features-bottom wow slideInRight" data-wow-delay="0.3s">
+				<div class="col-md-12 featur-grid">
+					<h4>Data Pemesanan</h4>
+					<ul>
+						<li>Tanggal Check In <a href="#"><?php echo $tglIn; ?></a></li>
+						<li>Tanggal Check Out <a href="#"><?php echo $tglOut; ?></a></li>
+						<li>Jumlah Kamar <a href="#"><?php echo $kamar; ?></a></li>
+						<li>Tipe Kamar <a href="#"><?php echo $nama_kamar; ?></a></li>
+                        <li>Harga Kamar <a href="#"><?php echo $harga_kamar_weekend; ?></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--features end here-->
 <!-- Top content -->
         <div class="top-content">
             <div class="container">
@@ -28,38 +49,46 @@
                     				<p>Data Pemesanan</p>
                     			</div>
                     		</div>
-
+                            <?php foreach($tamu->result_array() as $row) { ?>
                     		<fieldset>
                     		    <h4>Rincian Data Pemesanan</h4>
                     			<div class="form-group">
                     			    <label class="sr-only" for="f1-first-name">Nama Lengkap</label>
-                                    <input type="text" name="f1-first-name" placeholder="Nama Lengkap" class="f1-first-name form-control" id="f1-first-name">
+                                    <input type="text" name="nama_tamu" placeholder="Nama Lengkap" value="<?php echo $row['nama'];?>" class="f1-first-name form-control" id="nama_tamu">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-last-name">Alamat</label>
-                                    <input type="text" name="f1-last-name" placeholder="Alamat" class="f1-last-name form-control" id="f1-last-name">
+                                    <input type="text" name="alamat_tamu" placeholder="Alamat" value="<?php echo $row['alamat'];?>" class="f1-last-name form-control" id="alamat_tamu">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-about-yourself">ID Identitas</label>
-                                    <input type="text" name="f1-last-name" placeholder="ID Identitas" class="f1-last-name form-control" id="f1-last-name">
+                                    <input type="text" name="id_user" placeholder="ID Identitas" value="<?php echo $row['id_user'];?>" class="f1-last-name form-control" id="id_user">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-about-yourself">Nomor Telepon</label>
-                                    <input type="text" name="f1-last-name" placeholder="Nomor Telepon" class="f1-last-name form-control" id="f1-last-name">
+                                    <input type="text" name="phone" placeholder="Nomor Telepon" value="<?php echo $row['phone'];?>" class="f1-last-name form-control" id="phone">
                                 </div>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-next">Next</button>
                                 </div>
                             </fieldset>
-
+                            <?php }?>
                             <fieldset>
                                 <h4>Metode Pembayaran</h4>
                                 <div class="form-group">
-                                    <button type="button" class="btn btn-block btn-primary btn-sm">Debit</button>
+                    			    <label class="sr-only" for="f1-first-name">DP</label>
+                                    <input type="text" name="dp" placeholder="DP" class="f1-first-name form-control" id="dp">
                                 </div>
                                 <div class="form-group">
-                                    <button type="button" class="btn btn-block btn-info btn-sm">Kredit</button>
+                                    <label class="sr-only" for="f1-last-name">Total Bayar</label>
+                                    <input type="text" name="total" placeholder="Total Bayar" value="<?php echo $harga_kamar_weekend; ?>" class="f1-last-name form-control" id="total" name="total">
                                 </div>
+                                <h4>Transfer dapat dilakukan melalui Bank berikut :</h4>
+                                <input type="radio" name="bayar" value="BCA"/>BCA<br/>
+                                <input type="radio" name="bayar" value="BRI"/>BRI<br/>
+                                <input type="radio" name="bayar" value="BNI"/>BNI<br/>
+                                <input type="radio" name="bayar" value="Mandiri"/>Mandiri<br/>
+                                <br/>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>
                                     <button type="button" class="btn btn-next">Next</button>
@@ -82,6 +111,15 @@
                             <fieldset>
                                 <h4>Rincian Data Pemesanan</h4
                                 <div class="f1-buttons">
+                                    <h5>ID Tamu : <?php echo $row['id_user'];?></h5>
+                                    <h5>Nama : <?php echo $row['nama'];?></h5>
+                                    <h5>Alamat : <?php echo $row['alamat'];?></h5>
+                                    <h5>Nomor Telepon : <?php echo $row['phone'];?></h5>
+                                    <h5>Tanggal Masuk : <?php echo $tglIn; ?></h5>
+                                    <h5>Tanggal Keluar : <?php echo $tglOut; ?></h5>
+                                    <h5>Jumlah Kamar : <?php echo $kamar; ?></h5>
+                                    <h5>Tipe Kamar : <?php echo $nama_kamar; ?></h5>
+                                    <h5>Harga Total : <?php echo $harga_kamar_weekend; ?></h5>
                                     <button type="button" class="btn btn-previous">Previous</button>
                                     <button type="submit" class="btn btn-submit">Submit</button>
                                 </div>

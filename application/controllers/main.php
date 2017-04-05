@@ -38,8 +38,13 @@ class Main extends CI_Controller {
 	}
 
 	public function rooms(){
+		$this->load->model('m_dashboard');
 		$this->load->view('main/header');
-		$this->load->view('rooms');
+		$data['tglIn'] = $this->input->post('tanggalIn');
+		$data['tglOut'] = $this->input->post('tanggalOut');
+		$data['kamar'] = $this->input->post('kamar');
+		$data['available'] = $this->m_dashboard->tampil_dataKamar()->result();
+		$this->load->view('rooms',$data);
 		$this->load->view('main/footer');
 	}
 
