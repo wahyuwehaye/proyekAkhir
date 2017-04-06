@@ -44,5 +44,11 @@ class m_dashboard extends CI_Model{
         $dataPelanggan['id_user'] = $this->db->insert_id();
         $this->db->insert('pelanggan', $dataPelanggan);
     }
+
+    public function insertTamu($dataTamu){
+        $this->db->insert('data_tamu',$dataTamu);
+        // $dataPelanggan['id_user'] = $this->db->insert_id();
+        // $this->db->insert('pelanggan', $dataPelanggan);
+    }
 }
 ?>

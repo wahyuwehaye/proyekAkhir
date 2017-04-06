@@ -121,11 +121,11 @@ class Dashboard extends CI_Controller {
         $this->load->view('niteaudit');
     }
 
-    // public function keuangan(){
-	// 	//$data['tipe_kamar'] = //$this->m_dashboard->tampil_dataTipeKamar()->result();
-	// 	// $this->load->view('keuangan',$data);
-	// 	$this->load->view('keuangan');
-    // }
+    public function keuangan(){
+		//$data['tipe_kamar'] = //$this->m_dashboard->tampil_dataTipeKamar()->result();
+		// $this->load->view('keuangan',$data);
+		$this->load->view('keuangan');
+    }
 
     public function resepsionis(){
         $this->load->view('resepsionis');
@@ -167,22 +167,23 @@ class Dashboard extends CI_Controller {
 		$this->load->database();
 	    $this->load->model('m_dashboard');
 	    $dataTamu = array(
-			'nama_tamu' => $this->input->post('nama'),
-			'alamat_tamu' => $this->input->post('username'),
-	        'no_hp' => $this->input->post('username'),
-	        'tgl_masuk' => md5($this->input->post("password")),
-			'tgl_keluar' => md5($this->input->post("password")),
-			'tipe_kamar' => md5($this->input->post("password")),
-			'fasilitas' => md5($this->input->post("password")),
-			'harga_kamar' => md5($this->input->post("password")),
-			'jumlah_kamar' => md5($this->input->post("password")),
+			'tgl_input' => $this->input->post("tgl_input"),
+			'nama_tamu' => $this->input->post('nama_tamu'),
+			'alamat_tamu' => $this->input->post('alamat_tamu'),
+	        'no_hp' => $this->input->post('no_hp'),
+	        'tgl_masuk' => $this->input->post("tgl_masuk"),
+			'tgl_keluar' => $this->input->post("tgl_keluar"),
+			'tipe_kamar' => $this->input->post("tipe_kamar"),
+			'harga_kamar' => $this->input->post("harga_kamar"),
+			'jumlah_kamar' => $this->input->post("jumlah_kamar"),
 			);
-		$dataPelanggan = array(
-	 		'alamat' => $this->input->post('alamat'),
-	 		'phone' => $this->input->post('phone')
-	 	    );
-	    $this->m_dashboard->insertPelanggan($dataUser, $dataPelanggan);
-	    redirect('dashboard/login');
+		// $dataPelanggan = array(
+	 // 		'alamat' => $this->input->post('alamat'),
+	 // 		'phone' => $this->input->post('phone')
+	 	  //   );
+	    // $this->m_dashboard->insertTamu($dataTamu, $dataPelanggan);
+		$this->m_dashboard->insertTamu($dataTamu);
+	    redirect('dashboard');
 		echo json_encode(array("status" => TRUE));
 		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
 	}

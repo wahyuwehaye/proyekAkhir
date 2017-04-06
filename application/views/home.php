@@ -38,7 +38,7 @@
 	                                </select>
 			</div>
 			<h1>- - -</h1>
-		   <button type="Submit" class="hvr-push btn btn-success btn-lg">Discover More</button>
+		   <button type="Submit" class="hvr-push btn btn-success btn-lg">Book Now</button>
 		</form>
 		</div>
 	</div>
