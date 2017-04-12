@@ -79,7 +79,7 @@ class Dashboard extends CI_Controller {
                     }else if ($_POST['username']=='niteaudit') {
                         redirect('dashboard/niteaudit');
                     }else if ($_POST['username']=='keuangan') {
-                        redirect('masterdatatipekamar');
+                        redirect('dashboard/keuangan');
                     }elseif ($_POST['username']=='resepsionis') {
                         redirect('dashboard/resepsionis');
                     }else {
@@ -176,6 +176,7 @@ class Dashboard extends CI_Controller {
 			'tipe_kamar' => $this->input->post("tipe_kamar"),
 			'harga_kamar' => $this->input->post("harga_kamar"),
 			'jumlah_kamar' => $this->input->post("jumlah_kamar"),
+			'status' => $this->input->post("status"),
 			);
 		// $dataPelanggan = array(
 	 // 		'alamat' => $this->input->post('alamat'),
@@ -183,7 +184,7 @@ class Dashboard extends CI_Controller {
 	 	  //   );
 	    // $this->m_dashboard->insertTamu($dataTamu, $dataPelanggan);
 		$this->m_dashboard->insertTamu($dataTamu);
-	    redirect('dashboard');
+	    redirect('/');
 		echo json_encode(array("status" => TRUE));
 		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
 	}

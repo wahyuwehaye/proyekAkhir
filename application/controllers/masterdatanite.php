@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Masterdatapesanan extends CI_Controller {
+class Masterdatanite extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m_pesanan','pesanan');
+		$this->load->model('m_niteaudit','nite');
 	}
 
 	public function index()
@@ -17,33 +17,33 @@ class Masterdatapesanan extends CI_Controller {
 
 	public function ajax_list()
 	{
-		$list = $this->pesanan->get_datatables();
+		$list = $this->nite->get_datatables();
 		$data = array();
 		$no = $_POST['start'];
-		foreach ($list as $pesanan) {
+		foreach ($list as $nite) {
 			$no++;
 			$row = array();
             $row[] = $no;
-			$row[] = $pesanan->tgl_input;
-			$row[] = $pesanan->nama_tamu;
-            $row[] = $pesanan->tipe_kamar;
-			$row[] = $pesanan->no_hp;
-            $row[] = $pesanan->alamat_tamu;
-			$row[] = $pesanan->tgl_masuk;
-            $row[] = $pesanan->tgl_keluar;
-			$row[] = $pesanan->status;
-
-			//add html for action
-			$row[] = '<a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
-				  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
+			$row[] = $nite->tgl_input;
+			$row[] = $nite->nama_tamu;
+            $row[] = $nite->tipe_kamar;
+			$row[] = $nite->no_hp;
+            $row[] = $nite->alamat_tamu;
+			$row[] = $nite->tgl_masuk;
+            $row[] = $nite->tgl_keluar;
+			// $row[] = $nite->status;
+            //
+			// //add html for action
+			// $row[] = '<a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_nite('."'".$nite->id_tamu."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
+			// 	  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_nite('."'".$nite->id_tamu."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
 
 			$data[] = $row;
 		}
 
 		$output = array(
 						"draw" => $_POST['draw'],
-						"recordsTotal" => $this->pesanan->count_all(),
-						"recordsFiltered" => $this->pesanan->count_filtered(),
+						"recordsTotal" => $this->nite->count_all(),
+						"recordsFiltered" => $this->nite->count_filtered(),
 						"data" => $data,
 				);
 		//output to json format
@@ -52,7 +52,7 @@ class Masterdatapesanan extends CI_Controller {
 
 	public function ajax_edit($id)
 	{
-		$data = $this->pesanan->get_by_id($id);
+		$data = $this->nite->get_by_id($id);
 		echo json_encode($data);
 	}
 
@@ -68,9 +68,9 @@ class Masterdatapesanan extends CI_Controller {
 				'tipe_kamar' => $this->input->post('tipe_kamar'),
                 'harga_kamar' => $this->input->post('harga_kamar'),
 				'jumlah_kamar' => $this->input->post('jumlah_kamar'),
-                'status' => $this->input->post('status'),
+                // 'status' => $this->input->post('status'),
 			);
-		$insert = $this->pesanan->save($data);
+		$insert = $this->nite->save($data);
 		echo json_encode(array("status" => TRUE));
 	}
 
@@ -86,15 +86,15 @@ class Masterdatapesanan extends CI_Controller {
             'tipe_kamar' => $this->input->post('tipe_kamar'),
             'harga_kamar' => $this->input->post('harga_kamar'),
             'jumlah_kamar' => $this->input->post('jumlah_kamar'),
-            'status' => $this->input->post('status'),
+            // 'status' => $this->input->post('status'),
 			);
-		$this->pesanan->update(array('id_tamu' => $this->input->post('id_tamu')), $data);
+		$this->nite->update(array('id_tamu' => $this->input->post('id_tamu')), $data);
 		echo json_encode(array("status" => TRUE));
 	}
 
 	public function ajax_delete($id)
 	{
-		$this->pesanan->delete_by_id($id);
+		$this->nite->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
 	}
 

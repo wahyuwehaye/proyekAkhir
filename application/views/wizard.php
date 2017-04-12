@@ -101,7 +101,7 @@
                                     <label class="sr-only" for="f1-facebook">Upload</label>
                                     <input type="file" name="f1-facebook" placeholder="Upload" class="f1-facebook form-control" id="f1-facebook">
                                 </div>
-                                <button type="button" class="btn btn-block btn-primary btn-sm">Primary</button>
+                                <!-- <button type="button" class="btn btn-block btn-primary btn-sm">Primary</button> -->
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>
                                     <button type="button" class="btn btn-next">Next</button>
@@ -116,12 +116,13 @@
                                     <h5>Alamat : <?php echo $row['alamat'];?></h5>
                                     <h5>Nomor Telepon : <?php echo $row['phone'];?></h5>
                                     <h5>Tanggal Masuk : <?php echo $tglIn; ?></h5>
-									<input type="hidden" name="tgl_input" value="<?php echo '7-04-2017' ?>">
-									<input type="hidden" name="tgl_masuk" value="<?php echo $tglIn; ?>">
-									<input type="hidden" name="tgl_keluar" value="<?php echo $tglOut; ?>">
+									<input type="hidden" name="tgl_input" value="<?php echo date('Y-m-d') ?>">
+									<input type="hidden" name="tgl_masuk" value="<?php echo date('Y-m-d', strtotime($tglIn)); ?>">
+									<input type="hidden" name="tgl_keluar" value="<?php echo date('Y-m-d', strtotime($tglOut)); ?>">
 									<input type="hidden" name="jumlah_kamar" value="<?php echo $kamar; ?>">
 									<input type="hidden" name="tipe_kamar" value="<?php echo $nama_kamar; ?>">
 									<input type="hidden" name="harga_kamar" value="<?php echo $harga_kamar_weekend; ?>">
+									<input type="hidden" name="status" value="Booking">
                                     <h5>Tanggal Keluar : <?php echo $tglOut; ?></h5>
                                     <h5>Jumlah Kamar : <?php echo $kamar; ?></h5>
                                     <h5>Tipe Kamar : <?php echo $nama_kamar; ?></h5>

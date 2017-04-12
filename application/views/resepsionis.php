@@ -360,6 +360,10 @@
 
 
           <div class="box">
+              <!-- <div class="box-header">
+              <button class="btn btn-xs btn-success" onclick="add_pesanan()"><i class="glyphicon glyphicon-plus"></i></button>
+              <button class="btn btn-xs btn-warning" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i></button>
+          </div> -->
             <!-- /.box-header -->
             <div class="box-body">
               <table id="table" class="table table-bordered table-striped">
@@ -420,6 +424,9 @@
                 </tr>
                 </tfoot>
               </table>
+              <div class="col-md-4 swimming-grid">
+                  <button type="button" class="btn btn-success">Kirim</button>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>
@@ -834,7 +841,7 @@ function delete_pesanan(id)
                         <div class="form-group">
                             <label class="control-label col-md-3">Tanggal Masuk</label>
                             <div class="col-md-9">
-                                <input name="tgl_masuk" required="" placeholder="Tanggal Masuk" class="form-control" type="date">
+                                <input name="tgl_input" required="" placeholder="Tanggal Masuk" class="form-control" type="date">
                                 <span class="help-block"></span>
                             </div>
                         </div>
@@ -891,6 +898,13 @@ function delete_pesanan(id)
                             <label class="control-label col-md-3">Jumlah Kamar</label>
                             <div class="col-md-9">
                                 <input name="jumlah_kamar" placeholder="Jumlah Kamar" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Status</label>
+                            <div class="col-md-9">
+                                <input name="status" placeholder="Status" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
