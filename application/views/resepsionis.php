@@ -826,6 +826,7 @@ function delete_pesanan(id)
 }
 
 </script>
+<!-- <div></div> -->
 <!-- Bootstrap modal -->
 <div class="modal fade" id="modal_form" role="dialog">
     <div class="modal-dialog">
