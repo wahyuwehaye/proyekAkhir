@@ -50,6 +50,41 @@ class Masterdatapesanan extends CI_Controller {
 		echo json_encode($output);
 	}
 
+	public function ajax_listbyTgl()
+	{
+		$list = $this->pesanan->get_by_tgl();
+		$data = array();
+		$no = $_POST['start'];
+		foreach ($list as $pesanan) {
+			$no++;
+			$row = array();
+            $row[] = $no;
+			$row[] = $pesanan->tgl_input;
+			$row[] = $pesanan->nama_tamu;
+            $row[] = $pesanan->tipe_kamar;
+			$row[] = $pesanan->no_hp;
+            $row[] = $pesanan->alamat_tamu;
+			$row[] = $pesanan->tgl_masuk;
+            $row[] = $pesanan->tgl_keluar;
+			$row[] = $pesanan->status;
+
+			//add html for action
+			$row[] = '<a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
+				  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
+
+			$data[] = $row;
+		}
+
+		$output = array(
+						"draw" => $_POST['draw'],
+						"recordsTotal" => $this->pesanan->count_all(),
+						"recordsFiltered" => $this->pesanan->count_filtered(),
+						"data" => $data,
+				);
+		//output to json format
+		echo json_encode($output);
+	}
+
 	public function ajax_edit($id)
 	{
 		$data = $this->pesanan->get_by_id($id);

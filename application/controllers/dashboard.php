@@ -131,6 +131,14 @@ class Dashboard extends CI_Controller {
         $this->load->view('resepsionis');
     }
 
+	public function onsite(){
+        $this->load->view('onsite');
+    }
+
+	public function lapharian(){
+        $this->load->view('lapharian');
+    }
+
 	public function wizard(){
 		$this->load->view('main/header1');
 		$data['tglIn'] = $this->input->post('tglIn');

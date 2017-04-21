@@ -84,6 +84,19 @@ class m_pesanan extends CI_Model {
 		return $query->row();
 	}
 
+	public function get_by_tgl()
+	{
+		$date = new DateTime("now");
+
+		 $curr_date = $date->format('Y-m-d ');
+
+		 $this->db->select('*');
+		 $this->db->from('data_tamu');
+		 $this->db->where((date('Y-m-d', 'tgl_input')),$curr_date);//use date function
+		 $query = $this->db->get();
+		    return $query->result();
+	}
+
 	public function save($data)
 	{
 		$this->db->insert($this->table, $data);

@@ -331,9 +331,9 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/resepsionis"><i class="fa fa-circle-o"></i> Data Pemesanan</a></li>
-            <li><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-circle-o"></i> Reservasi Onsite</a></li>
-            <li><a href="<?php echo base_url()?>index.php/dashboard/lapharian"><i class="fa fa-circle-o"></i> Laporan Harian</a></li>
+              <li><a href="<?php echo base_url()?>index.php/dashboard/resepsionis"><i class="fa fa-circle-o"></i> Data Pemesanan</a></li>
+              <li><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-circle-o"></i> Reservasi Onsite</a></li>
+              <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/lapharian"><i class="fa fa-circle-o"></i> Laporan Harian</a></li>
           </ul>
         </li>
 
@@ -347,12 +347,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Pemesanan
+        Laporan Harian
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Pemesanan</a></li>
-        <li class="active">Data Pemesanan</li>
+        <li class="active">Laporan Harian</li>
       </ol>
     </section>
 

@@ -62,4 +62,6 @@ $route['index'] = 'dashboard/index';
 $route['niteaudit'] = 'dashboard/niteaudit';
 $route['keuangan'] = 'dashboard/keuangan';
 $route['resepsionis'] = 'dashboard/resepsionis';
+$route['onsite'] = 'dashboard/onsite';
+$route['lapharian'] = 'dashboard/lapharian';
 $route['wizard'] = 'dashboard/wizard';
