@@ -369,121 +369,23 @@
         <li class="active">Reservasi Onsite</li>
       </ol>
     </section>
-    <div class="pad margin no-print">
-      <div class="callout callout-info" style="margin-bottom: 0!important;">
-        <h4><i class="fa fa-info"></i> Note:</h4>
-        Halaman ini untuk Pemesanan Kamar Onsite
-      </div>
-    </div>
     <section class="content">
-    <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/dataonsite">
     <div class="box">
-    <div class="box box-primary">
       <div class="box-header">
-        <h3 class="box-title">Pilihan Kamar Tersedia</h3>
+        <h3 class="box-title">Data Pelanggan</h3>
       </div>
       <div class="box-body">
-          <div class="col-md-3">
-              <h2><span class="label label-primary"> Pilih Tanggal : </span></h2>
-          </div>
-
-          <div class="col-md-4">
-              <!-- Date -->
-              <div class="form-group">
-                <label>DateCheck In:</label>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input name="tglIn" type="text" class="form-control pull-right" id="datepicker">
-                </div>
+          <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-check"></i> Rincian Data Pemesanan</h4>
+                Success menmbahkan data Pesanan
               </div>
-              <!-- /.form group -->
-          </div>
-
-          <div class="col-md-4">
-              <!-- Date -->
-              <div class="form-group">
-                <label>Date Check Out:</label>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input name="tglOut" type="text" class="form-control pull-right" id="datepicker1">
-                </div>
-              </div>
-              <!-- /.form group -->
-          </div>
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-12">
-          <h2 align="center"><span class="label label-success"> Tipe Kamar Tersedia : </span></h2>
-           </div>
-           <?php foreach($available as $a){ ?>
-           <!-- KAMAR 1 -->
-          <div class="col-md-2">
-              <div class="media">
-                                <div class="media-left">
-                                    <a href="javascript:void(0);">
-                                        <img class="media-object" src="<?php echo base_url()?>assets/images/<?php echo $a->nama_kamar; ?>.png" width="40" height="40">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><?php echo $a->nama_kamar; ?></h4><a href="#"> Detail...</a>
-                                </div>
-                            </div>
-                            <input type="hidden" value="<?php echo $a->nama_kamar; ?>" name="tipe_kamar"/>
-                            <input type="hidden" value="<?php echo $a->harga_kamar_weekend; ?>" name="harga_kamar"/>
-                            <input type="hidden" name="status" value="Lunas">
-          </div>
-
-          <div class="col-md-1">
-              <input name="kamar" id="kamar" type="number" class="form-control pull-right">
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <button type="submit" class="btn  btn-primary">Kirim</button>
-          </div>
-          <!-- TUTUP KAMAR 1 -->
-
-          <div class="col-md-12">
-          </div>
-         <?php } ?>
-
 
       </div>
       <!-- /.box-body -->
     </div>
     <!-- /.box -->
-    </div>
-    </form>
     </section>
-    
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">

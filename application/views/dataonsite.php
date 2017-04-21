@@ -376,114 +376,65 @@
       </div>
     </div>
     <section class="content">
-    <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/dataonsite">
     <div class="box">
     <div class="box box-primary">
-      <div class="box-header">
-        <h3 class="box-title">Pilihan Kamar Tersedia</h3>
-      </div>
-      <div class="box-body">
-          <div class="col-md-3">
-              <h2><span class="label label-primary"> Pilih Tanggal : </span></h2>
-          </div>
-
-          <div class="col-md-4">
-              <!-- Date -->
-              <div class="form-group">
-                <label>DateCheck In:</label>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input name="tglIn" type="text" class="form-control pull-right" id="datepicker">
+            <div class="box-header with-border">
+              <h3 class="box-title">Input Data Pelanggan</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/insertBookOnsite">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="nama_tamu">Nama Lengkap</label>
+                  <input type="text" class="form-control" id="nama_tamu" name="nama_tamu" placeholder="Nama Lengkap">
                 </div>
-              </div>
-              <!-- /.form group -->
-          </div>
-
-          <div class="col-md-4">
-              <!-- Date -->
-              <div class="form-group">
-                <label>Date Check Out:</label>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input name="tglOut" type="text" class="form-control pull-right" id="datepicker1">
+                <div class="form-group">
+                  <label for="alamat_tamu">Alamat</label>
+                  <input type="text" class="form-control" id="alamat_tamu" name="alamat_tamu" placeholder="Alamat">
                 </div>
+                <div class="form-group">
+                  <label for="id_tamu">ID Identitas</label>
+                  <input type="text" class="form-control" id="id_tamu" name="id_tamu" placeholder="ID Identitas">
+                </div>
+                <div class="form-group">
+                  <label for="no_hp">Nomor HP</label>
+                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Nomor HP">
+                </div>
+                <div class="form-group">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                      Tunai
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                      Debit
+                    </label>
+                  </div>
+                </div>
+                <input type="hidden" name="tgl_input" value="<?php echo date('Y-m-d') ?>">
+                  <input type="hidden" name="tgl_masuk" value="<?php echo date('Y-m-d', strtotime($tglIn)); ?>">
+                  <input type="hidden" name="tgl_keluar" value="<?php echo date('Y-m-d', strtotime($tglOut)); ?>">
+                  <input type="hidden" name="jumlah_kamar" value="<?php echo $kamar; ?>">
+                  <input type="hidden" name="tipe_kamar" value="<?php echo $tipe_kamar; ?>">
+                  <input type="hidden" name="harga_kamar" value="<?php echo $harga_kamar; ?>">
+                  <input type="hidden" name="status" value="Lunas">
               </div>
-              <!-- /.form group -->
-          </div>
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-12">
-          <h2 align="center"><span class="label label-success"> Tipe Kamar Tersedia : </span></h2>
-           </div>
-           <?php foreach($available as $a){ ?>
-           <!-- KAMAR 1 -->
-          <div class="col-md-2">
-              <div class="media">
-                                <div class="media-left">
-                                    <a href="javascript:void(0);">
-                                        <img class="media-object" src="<?php echo base_url()?>assets/images/<?php echo $a->nama_kamar; ?>.png" width="40" height="40">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><?php echo $a->nama_kamar; ?></h4><a href="#"> Detail...</a>
-                                </div>
-                            </div>
-                            <input type="hidden" value="<?php echo $a->nama_kamar; ?>" name="tipe_kamar"/>
-                            <input type="hidden" value="<?php echo $a->harga_kamar_weekend; ?>" name="harga_kamar"/>
-                            <input type="hidden" name="status" value="Lunas">
-          </div>
+              <!-- /.box-body -->
 
-          <div class="col-md-1">
-              <input name="kamar" id="kamar" type="number" class="form-control pull-right">
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+              </div>
+            </form>
           </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <button type="submit" class="btn  btn-primary">Kirim</button>
-          </div>
-          <!-- TUTUP KAMAR 1 -->
-
-          <div class="col-md-12">
-          </div>
-         <?php } ?>
-
-
-      </div>
-      <!-- /.box-body -->
-    </div>
+          <!-- /.box -->
     <!-- /.box -->
     </div>
-    </form>
     </section>
-    
+   
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">

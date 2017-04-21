@@ -64,4 +64,6 @@ $route['keuangan'] = 'dashboard/keuangan';
 $route['resepsionis'] = 'dashboard/resepsionis';
 $route['onsite'] = 'dashboard/onsite';
 $route['lapharian'] = 'dashboard/lapharian';
+$route['dataonsite'] = 'dashboard/dataonsite';
+$route['detailonsite'] = 'dashboard/detailonsite';
 $route['wizard'] = 'dashboard/wizard';

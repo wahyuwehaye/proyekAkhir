@@ -132,11 +132,26 @@ class Dashboard extends CI_Controller {
     }
 
 	public function onsite(){
-        $this->load->view('onsite');
+		$this->load->model('m_dashboard');
+		$data['available'] = $this->m_dashboard->tampil_dataKamar()->result();
+        $this->load->view('onsite',$data);
     }
 
 	public function lapharian(){
         $this->load->view('lapharian');
+    }
+
+    public function dataonsite(){
+    	$data['tglIn'] = $this->input->post('tglIn');
+		$data['tglOut'] = $this->input->post('tglOut');
+		$data['kamar'] = $this->input->post('kamar');
+		$data['tipe_kamar'] = $this->input->post('tipe_kamar');
+		$data['harga_kamar'] = $this->input->post('harga_kamar');
+        $this->load->view('dataonsite',$data);
+    }
+
+    public function detailonsite(){
+        $this->load->view('detailonsite');
     }
 
 	public function wizard(){
@@ -193,6 +208,32 @@ class Dashboard extends CI_Controller {
 	    // $this->m_dashboard->insertTamu($dataTamu, $dataPelanggan);
 		$this->m_dashboard->insertTamu($dataTamu);
 	    redirect('/');
+		echo json_encode(array("status" => TRUE));
+		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
+	}
+
+	public function insertBookOnsite(){
+		$this->load->database();
+	    $this->load->model('m_dashboard');
+	    $dataTamu = array(
+			'tgl_input' => $this->input->post("tgl_input"),
+			'nama_tamu' => $this->input->post('nama_tamu'),
+			'alamat_tamu' => $this->input->post('alamat_tamu'),
+	        'no_hp' => $this->input->post('no_hp'),
+	        'tgl_masuk' => $this->input->post("tgl_masuk"),
+			'tgl_keluar' => $this->input->post("tgl_keluar"),
+			'tipe_kamar' => $this->input->post("tipe_kamar"),
+			'harga_kamar' => $this->input->post("harga_kamar"),
+			'jumlah_kamar' => $this->input->post("jumlah_kamar"),
+			'status' => $this->input->post("status"),
+			);
+		// $dataPelanggan = array(
+	 // 		'alamat' => $this->input->post('alamat'),
+	 // 		'phone' => $this->input->post('phone')
+	 	  //   );
+	    // $this->m_dashboard->insertTamu($dataTamu, $dataPelanggan);
+		$this->m_dashboard->insertTamu($dataTamu);
+	    redirect('/Dashboard/detailonsite');
 		echo json_encode(array("status" => TRUE));
 		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
 	}
