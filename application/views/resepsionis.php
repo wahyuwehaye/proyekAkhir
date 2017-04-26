@@ -737,7 +737,7 @@ function edit_pesanan(id)
             $('[name="tgl_input"]').val(data.tgl_input);
             $('[name="nama_tamu"]').val(data.nama_tamu);
             $('[name="alamat_tamu"]').val(data.alamat_tamu);
-            $('[name="no_hp"]').val(data.np_hp);
+            $('[name="no_hp"]').val(data.no_hp);
             $('[name="tgl_masuk"]').val(data.tgl_masuk);
             $('[name="tgl_keluar"]').val(data.tgl_keluar);
             $('[name="tipe_kamar"]').val(data.tipe_kamar);
@@ -754,6 +754,44 @@ function edit_pesanan(id)
         }
     });
 }
+
+function detail_pesanan(id)
+{
+    save_method = 'detail';
+    $('#form1')[0].reset(); // reset form on modals
+    $('.form-group').removeClass('has-error'); // clear error class
+    $('.help-block').empty(); // clear error string
+
+    //Ajax Load data from ajax
+    $.ajax({
+        url : "<?php echo site_url('Masterdatapesanan/ajax_detail/')?>/" + id,
+        type: "GET",
+        dataType: "JSON",
+        success: function(data)
+        {
+            $('[name="id_tamu"]').val(data.id_tamu);
+            $('[name="tgl_input"]').val(data.tgl_input);
+            $('[name="nama_tamu"]').val(data.nama_tamu);
+            $('[name="alamat_tamu"]').val(data.alamat_tamu);
+            $('[name="no_hp"]').val(data.no_hp);
+            $('[name="tgl_masuk"]').val(data.tgl_masuk);
+            $('[name="tgl_keluar"]').val(data.tgl_keluar);
+            $('[name="tipe_kamar"]').val(data.tipe_kamar);
+            $('[name="harga_kamar"]').val(data.harga_kamar);
+            $('[name="jumlah_kamar"]').val(data.jumlah_kamar);
+            $('[name="status"]').val(data.status);
+            $('#modal_form1').modal('show'); // show bootstrap modal when complete loaded
+            $('.modal-title').text('Detail Pesanan'); // Set title to Bootstrap modal title
+
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            alert('Error get data from ajax');
+        }
+    });
+}
+
+
 
 function reload_table()
 {
@@ -828,9 +866,103 @@ function delete_pesanan(id)
 
 </script>
 <!-- <div></div> -->
+<span class="label label-danger"><input type="checkbox" class="minimal"> 404</span>
+<!-- Detail  Pesanan Modal-->
+<div class="modal fade" id="modal_form1" role="dialog">
+    <div class="modal-dialog modal-success">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">Form Kelola Kamar</h3>
+            </div>
+            <div class="modal-body form1">
+                <form action="#" id="form1" class="form-horizontal">
+                    <input type="hidden" value="" name="id_tamu"/>
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Tanggal Masuk</label>
+                            <div class="col-md-9">
+                                <input disabled name="tgl_input" required="" placeholder="Tanggal Masuk" class="form-control" type="date">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Nama Tamu</label>
+                            <div class="col-md-9">
+                                <input disabled name="nama_tamu" placeholder="Nama Tamu" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Alamat Tamu</label>
+                            <div class="col-md-9">
+                                <input disabled name="alamat_tamu" placeholder="Alamat Tamu" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Nomor HP</label>
+                            <div class="col-md-9">
+                                <input disabled name="no_hp" placeholder="Nomor HP" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Tanggal Masuk</label>
+                            <div class="col-md-9">
+                                <input disabled name="tgl_masuk" placeholder="Tanggal Masuk" class="form-control" type="date">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Tanggal Keluar</label>
+                            <div class="col-md-9">
+                                <input disabled name="tgl_keluar" placeholder="Tanggal Keluar" class="form-control" type="date">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Tipe Kamar</label>
+                            <div class="col-md-9">
+                                <input disabled name="tipe_kamar" placeholder="Tipe Kamar" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Harga Kamar </label>
+                            <div class="col-md-9">
+                                <input disabled name="harga_kamar" placeholder="Harga Kamar " class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Jumlah Kamar</label>
+                            <div class="col-md-9">
+                                <input disabled name="jumlah_kamar" placeholder="Jumlah Kamar" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Status</label>
+                            <div class="col-md-9">
+                                <input disabled name="status" placeholder="Status" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 <!-- Bootstrap modal -->
 <div class="modal fade" id="modal_form" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-info">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>

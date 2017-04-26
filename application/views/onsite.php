@@ -384,7 +384,7 @@
       </div>
       <div class="box-body">
           <div class="col-md-3">
-              <h2><span class="label label-primary"> Pilih Tanggal : </span></h2>
+              <h2><span class="label label-info"> Pilih Tanggal : </span></h2>
           </div>
 
           <div class="col-md-4">
@@ -419,7 +419,7 @@
           <div class="col-md-1">
           </div>
           <div class="col-md-12">
-          <h2 align="center"><span class="label label-success"> Tipe Kamar Tersedia : </span></h2>
+          <h2 align="center"><span class="label label-info"> Tipe Kamar Tersedia : </span></h2>
            </div>
            <?php foreach($available as $a){ ?>
            <!-- KAMAR 1 -->
@@ -443,45 +443,68 @@
               <input name="kamar" id="kamar" type="number" class="form-control pull-right">
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"> 404</span></h4>
+              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal"> 404</span></h4>
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
+              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
+              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"> 404</span></h4>
+              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal"> 404</span></h4>
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
+              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
+              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"> 404</span></h4>
+              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"> 404</span></h4>
+              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
           </div>
-          <div class="col-md-1">
-              <button type="submit" class="btn  btn-primary">Kirim</button>
-          </div>
+          
           <!-- TUTUP KAMAR 1 -->
 
           <div class="col-md-12">
           </div>
          <?php } ?>
 
-
+          <div class="col-md-2" style="float:right;">
+              <button type="submit" class="btn btn-block btn-info">Kirim</button>
+          </div>
       </div>
       <!-- /.box-body -->
     </div>
     <!-- /.box -->
     </div>
     </form>
+
+    <!-- iCheck -->
+          <div class="box box-success">
+            <div class="box-header">
+              <h3 class="box-title">Keterangan</h3>
+            </div>
+            <div class="box-body">
+              <!-- Minimal style -->
+
+              <!-- checkbox -->
+              <div class="form-group">
+                <div class="col-md-4">
+                    <h4 align="center"><span class="label label-danger"> Warna Merah untuk dengan Status Check In</span></h4>
+                </div>
+                <div class="col-md-4">
+                    <h4 align="center"><span class="label label-success"> Warna Merah untuk dengan Status Tersedia</span></h4>
+                </div>
+                <div class="col-md-4">
+                    <h4 align="center"><span class="label label-warning"> Warna Merah untuk dengan Status Booking</span></h4>
+                </div>
+              </div>
+          </div>
+          <!-- /.box -->
     </section>
     
   </div>

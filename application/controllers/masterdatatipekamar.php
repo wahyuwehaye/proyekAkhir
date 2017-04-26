@@ -28,6 +28,7 @@ class Masterdatatipekamar extends CI_Controller {
 			$row[] = $tipe_kamar->harga_kamar_weekday;
             $row[] = $tipe_kamar->harga_kamar_weekend;
 			$row[] = $tipe_kamar->penjelasan;
+			$row[] = $tipe_kamar->jumlah;
 
 			//add html for action
 			$row[] = '<a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_tipe_kamar('."'".$tipe_kamar->id_tipe_kamar."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
@@ -59,6 +60,7 @@ class Masterdatatipekamar extends CI_Controller {
 				'harga_kamar_weekday' => $this->input->post('harga_kamar_weekday'),
                 'harga_kamar_weekend' => $this->input->post('harga_kamar_weekend'),
 				'penjelasan' => $this->input->post('penjelasan'),
+				'jumlah' => $this->input->post('jumlah'),
 			);
 		$insert = $this->tipe_kamar->save($data);
 		echo json_encode(array("status" => TRUE));
@@ -71,6 +73,7 @@ class Masterdatatipekamar extends CI_Controller {
             'harga_kamar_weekday' => $this->input->post('harga_kamar_weekday'),
             'harga_kamar_weekend' => $this->input->post('harga_kamar_weekend'),
 			'penjelasan' => $this->input->post('penjelasan'),
+			'jumlah' => $this->input->post('jumlah'),
 			);
 		$this->tipe_kamar->update(array('id_tipe_kamar' => $this->input->post('id_tipe_kamar')), $data);
 		echo json_encode(array("status" => TRUE));

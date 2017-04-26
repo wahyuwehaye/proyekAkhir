@@ -34,7 +34,8 @@ class Masterdatapesanan extends CI_Controller {
 			$row[] = $pesanan->status;
 
 			//add html for action
-			$row[] = '<a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
+			$row[] = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Detail" onclick="detail_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-info-sign"></i></a>
+			<a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
 				  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
 
 			$data[] = $row;
@@ -86,6 +87,12 @@ class Masterdatapesanan extends CI_Controller {
 	}
 
 	public function ajax_edit($id)
+	{
+		$data = $this->pesanan->get_by_id($id);
+		echo json_encode($data);
+	}
+
+	public function ajax_detail($id)
 	{
 		$data = $this->pesanan->get_by_id($id);
 		echo json_encode($data);

@@ -404,16 +404,20 @@
                 <div class="form-group">
                   <div class="radio">
                     <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                      <input type="radio" onclick="javascript:yesnoCheck();" name="optionsRadios" id="optionsRadios1" value="option1">
                       Tunai
                     </label>
                   </div>
                   <div class="radio">
                     <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                      <input type="radio" onclick="javascript:yesCheck();" name="optionsRadios" id="optionsRadios2" value="option2">
                       Debit
                     </label>
                   </div>
+                  <div id="debit" style="visibility:hidden" class="form-group">
+                  <label for="debit">Nomor Kartu Debit Anda</label>
+                  <input type="text" class="form-control" id="debit" name="debit" placeholder="Masukkan Nomor Kartu Debit Anda">
+                </div>
                 </div>
                 <input type="hidden" name="tgl_input" value="<?php echo date('Y-m-d') ?>">
                   <input type="hidden" name="tgl_masuk" value="<?php echo date('Y-m-d', strtotime($tglIn)); ?>">
@@ -904,6 +908,22 @@ function delete_pesanan(id)
             }
         });
 
+    }
+}
+
+function yesnoCheck() {
+    if (document.getElementById('optionsRadios1').checked) {
+        document.getElementById('debit').style.visibility = 'hidden';
+    } else {
+        document.getElementById('debit').style.visibility = 'visible';
+    }
+}
+
+function yesCheck() {
+    if (document.getElementById('optionsRadios2').checked) {
+        document.getElementById('debit').style.visibility = 'visible';
+    } else {
+        document.getElementById('debit').style.visibility = 'hidden';
     }
 }
 

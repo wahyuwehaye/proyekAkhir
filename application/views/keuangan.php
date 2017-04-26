@@ -395,6 +395,7 @@
                   <th>Harga Weekday</th>
                   <th>Harga Weekend</th>
                   <th>Penjelasan</th>
+                  <th>Jumlah Kamar</th>
                   <th>Aksi</th>
               </thead>
               <tbody>
@@ -718,6 +719,7 @@ function edit_tipe_kamar(id)
             $('[name="harga_kamar_weekday"]').val(data.harga_kamar_weekday);
             $('[name="harga_kamar_weekend"]').val(data.harga_kamar_weekend);
             $('[name="penjelasan"]').val(data.penjelasan);
+            $('[name="jumlah"]').val(data.jumlah);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Kamar'); // Set title to Bootstrap modal title
 
@@ -838,6 +840,13 @@ function delete_tipe_kamar(id)
                             <label class="control-label col-md-3">Penjelasan Kamar</label>
                             <div class="col-md-9">
                                 <input name="penjelasan" placeholder="Penjelasan Kamar" class="form-control" type="textarea">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Jumlah Kamar</label>
+                            <div class="col-md-9">
+                                <input name="jumlah" placeholder="Jumlah Kamar" class="form-control" type="textarea">
                                 <span class="help-block"></span>
                             </div>
                         </div>
