@@ -30,7 +30,7 @@
 				  <ul class="ftr-icons">
 				 	<li><a href="<?php echo base_url(); ?>#"><span class="fa"> </span></a></li>
 				 	<li><a href="<?php echo base_url(); ?>#"><span class="tw"> </span></a></li>
-				 	<li><a href="<?php echo base_url(); ?>#"><span class="link"> </span></a></li>
+				 	<!--<li><a href="<?php echo base_url(); ?>#"><span class="link"> </span></a></li>-->
 				 	<li><a href="<?php echo base_url(); ?>#"><span class="gmail"> </span></a></li>
 				 </ul>
 			</div>

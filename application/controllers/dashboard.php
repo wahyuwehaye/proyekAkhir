@@ -81,22 +81,14 @@ class Dashboard extends CI_Controller {
                     }else if ($_POST['username']=='keuangan') {
                         redirect('dashboard/keuangan');
                     }elseif ($_POST['username']=='resepsionis') {
-                        redirect('dashboard/resepsionis');
+                        redirect('dashboard/onsite');
                     }else {
                     	redirect('main/index');
                     }
 
 				}else{
+					$_SESSION['error'] = '';
 					redirect('Dashboard/login');
-					echo "
-					<script>
-					swal({
-					  title: 'Error!',
-					  text: 'Here my error message!',
-					  type: 'error',
-					  confirmButtonText: 'Cool'
-					});
-					</script>";
 				}
     }
 
@@ -131,6 +123,22 @@ class Dashboard extends CI_Controller {
         $this->load->view('resepsionis');
     }
 
+    public function databooking(){
+        $this->load->view('databooking');
+    }
+
+    public function datacheckin(){
+        $this->load->view('datacheckin');
+    }
+
+    public function datacheckout(){
+        $this->load->view('datacheckout');
+    }
+
+    public function formcheckout(){
+        $this->load->view('formcheckout');
+    }
+
 	public function onsite(){
 		$this->load->model('m_dashboard');
 		$data['available'] = $this->m_dashboard->tampil_dataKamar()->result();
@@ -139,6 +147,38 @@ class Dashboard extends CI_Controller {
 
 	public function lapharian(){
         $this->load->view('lapharian');
+    }
+
+    public function lapbulanan(){
+    	$this->load->model('mread');
+    	$data['report'] = $this->mread->report();
+        $this->load->view('lapbulanan', $data);
+    }
+
+    public function buktibayar(){
+        $this->load->view('buktibayar');
+    }
+
+    public function sendsms(){
+        $this->load->view('sendsms');
+    }
+
+    public function daftarsms(){
+        $this->load->view('daftarsms');
+    }
+
+    public function promosi(){
+        $this->load->view('promosi');
+    }
+
+    public function laporharian(){
+        $this->load->view('laporharian');
+    }
+
+    public function laporbulanan(){
+    	$this->load->model('mread');
+    	$data['report'] = $this->mread->report();
+        $this->load->view('laporbulanan', $data);
     }
 
     public function dataonsite(){

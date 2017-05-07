@@ -336,7 +336,7 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
 
-        <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-location-arrow"></i> <span> Reservasi Onsite</span></a></li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-location-arrow"></i> <span> Reservasi Onsite</span></a></li>
         <li><a href="<?php echo base_url()?>index.php/dashboard/databooking"><i class="fa fa-list-ol"></i> <span> Data Booking</span></a></li>
         <li><a href="<?php echo base_url()?>index.php/dashboard/datacheckin"><i class="fa fa-list-alt"></i> <span> Data Check In</span></a></li>
         <li class="treeview">
@@ -353,7 +353,7 @@
         </li>
         <li><a href="<?php echo base_url()?>index.php/dashboard/lapharian"><i class="fa fa-list"></i> <span> Laporan Harian</span></a></li>
         <li><a href="<?php echo base_url()?>index.php/dashboard/lapbulanan"><i class="fa fa-bar-chart-o"></i> <span> Laporan Bulanan</span></a></li>
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#">
             <i class="fa fa-whatsapp"></i> <span> SMS Gateway</span>
                 <span class="pull-right-container">
@@ -361,11 +361,11 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url()?>index.php/dashboard/sendsms"><i class="fa fa-send"></i> Send SMS Gateway</a></li>
+            <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/sendsms"><i class="fa fa-send"></i> Send SMS Gateway</a></li>
             <li><a href="<?php echo base_url()?>index.php/dashboard/daftarsms"><i class="fa fa-th-list"></i> Lihat Daftar SMS Gateway</a></li>
           </ul>
         </li>
-        <li><a href="documentation/index.html"><i class="fa fa-file-image-o"></i> <span> Foto Bukti Pembayaran</span></a></li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/buktibayar"><i class="fa fa-file-image-o"></i> <span> Foto Bukti Pembayaran</span></a></li>
 
       </ul>
     </section>
@@ -378,151 +378,49 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Reservasi Onsite
+        Send SMS Gateway
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Reservasi Onsite</li>
+        <li><a href="#"> SMS Gateway</a></li>
+        <li class="active"> Send SMS Gateway</li>
       </ol>
     </section>
     <div class="pad margin no-print">
       <div class="callout callout-info" style="margin-bottom: 0!important;">
         <h4><i class="fa fa-info"></i> Note:</h4>
-        Halaman ini untuk Pemesanan Kamar Onsite
+        Isi data dengan benar
       </div>
     </div>
     <section class="content">
-    <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/dataonsite">
     <div class="box">
     <div class="box box-primary">
-      <div class="box-header">
-        <h3 class="box-title">Pilihan Kamar Tersedia</h3>
-      </div>
-      <div class="box-body">
-          <div class="col-md-3">
-              <h2><span class="label label-info"> Pilih Tanggal : </span></h2>
-          </div>
-
-          <div class="col-md-4">
-              <!-- Date -->
-              <div class="form-group">
-                <label>DateCheck In:</label>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input name="tglIn" type="text" class="form-control pull-right" id="datepicker">
+            <div class="box-header with-border">
+              <h3 class="box-title">Input Message</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/insertBookOnsite">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="nama_tamu">Nomor Handphone</label>
+                  <input type="text" class="form-control" id="nama_tamu" name="nama_tamu" placeholder="Nomor Handphone">
                 </div>
-              </div>
-              <!-- /.form group -->
-          </div>
-
-          <div class="col-md-4">
-              <!-- Date -->
-              <div class="form-group">
-                <label>Date Check Out:</label>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input name="tglOut" type="text" class="form-control pull-right" id="datepicker1">
+                <div class="form-group">
+                  <label for="alamat_tamu">Message</label>
+                  <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
                 </div>
+              <div class="box-footer " style="float:right;">
+                <button type="submit" class="btn btn-primary">Kirim</button>
               </div>
-              <!-- /.form group -->
+            <!-- /.box-body -->
           </div>
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-12">
-          <h2 align="center"><span class="label label-info"> Tipe Kamar Tersedia : </span></h2>
-           </div>
-           <?php foreach($available as $a){ ?>
-           <!-- KAMAR 1 -->
-          <div class="col-md-2">
-              <div class="media">
-                                <div class="media-left">
-                                    <a href="javascript:void(0);">
-                                        <img class="media-object" src="<?php echo base_url()?>assets/images/<?php echo $a->nama_kamar; ?>.png" width="40" height="40">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><?php echo $a->nama_kamar; ?></h4><a href="#"> Detail...</a>
-                                </div>
-                            </div>
-                            <input type="hidden" value="<?php echo $a->nama_kamar; ?>" name="tipe_kamar"/>
-                            <input type="hidden" value="<?php echo $a->harga_kamar_weekend; ?>" name="harga_kamar"/>
-                            <input type="hidden" name="status" value="Lunas">
-          </div>
-
-          <div class="col-md-1">
-              <input name="kamar" id="kamar" type="number" class="form-control pull-right">
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          
-          <!-- TUTUP KAMAR 1 -->
-
-          <div class="col-md-12">
-          </div>
-         <?php } ?>
-
-          <div class="col-md-2" style="float:right;">
-              <button type="submit" class="btn btn-block btn-info">Kirim</button>
-          </div>
-      </div>
-      <!-- /.box-body -->
-    </div>
+          </form>
+          <!-- /.box -->
     <!-- /.box -->
     </div>
-    </form>
-
-    <!-- iCheck -->
-          <div class="box box-success">
-            <div class="box-header">
-              <h3 class="box-title">Keterangan</h3>
-            </div>
-            <div class="box-body">
-              <!-- Minimal style -->
-
-              <!-- checkbox -->
-              <div class="form-group">
-                <div class="col-md-4">
-                    <h4 align="center"><span class="label label-danger"> Warna Merah untuk Status Terisi</span></h4>
-                </div>
-                <div class="col-md-4">
-                    <h4 align="center"><span class="label label-success"> Warna Hijau untuk Status Tersedia</span></h4>
-                </div>
-                <div class="col-md-4">
-                    <h4 align="center"><span class="label label-warning"> Warna Kuning untuk Status Booking</span></h4>
-                </div>
-              </div>
-          </div>
-          <!-- /.box -->
     </section>
-    
+   
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -759,336 +657,6 @@
 <script src="<?php echo base_url()?>admin/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url()?>admin/dist/js/demo.js"></script>
-<!-- page script -->
-<script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-</script>
 
-<script type="text/javascript">
-
-var save_method; //for save method string
-var table;
-
-$(document).ready(function() {
-
-    //datatables
-    table = $('#table').DataTable({
-
-        "processing": true, //Feature control the processing indicator.
-        "serverSide": true, //Feature control DataTables' server-side processing mode.
-        "order": [], //Initial no order.
-
-        // Load data for the table's content from an Ajax source
-        "ajax": {
-            "url": "<?php echo site_url('masterdatapesanan/ajax_list')?>",
-            "type": "POST"
-        },
-
-        //Set column definition initialisation properties.
-        "columnDefs": [
-        {
-            "targets": [ -1 ], //last column
-            "orderable": false, //set not orderable
-        },
-        ],
-
-    });
-
-    //Initialize Select2 Elements
-    $(".select2").select2();
-
-    //Datemask dd/mm/yyyy
-    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-    //Datemask2 mm/dd/yyyy
-    $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
-    //Money Euro
-    $("[data-mask]").inputmask();
-
-    //Date range picker
-    $('#reservation').daterangepicker();
-    //Date range picker with time picker
-    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
-    //Date range as a button
-    $('#daterange-btn').daterangepicker(
-        {
-          ranges: {
-            'Today': [moment(), moment()],
-            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
-            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-          },
-          startDate: moment().subtract(29, 'days'),
-          endDate: moment()
-        },
-        function (start, end) {
-          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        }
-    );
-
-    //Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    });
-
-    //Date picker
-    $('#datepicker1').datepicker({
-      autoclose: true
-    });
-
-    //iCheck for checkbox and radio inputs
-    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-      checkboxClass: 'icheckbox_minimal-blue',
-      radioClass: 'iradio_minimal-blue'
-    });
-    //Red color scheme for iCheck
-    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-      checkboxClass: 'icheckbox_minimal-red',
-      radioClass: 'iradio_minimal-red'
-    });
-    //Flat red color scheme for iCheck
-    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-      checkboxClass: 'icheckbox_flat-green',
-      radioClass: 'iradio_flat-green'
-    });
-
-    //Colorpicker
-    $(".my-colorpicker1").colorpicker();
-    //color picker with addon
-    $(".my-colorpicker2").colorpicker();
-
-    //Timepicker
-    $(".timepicker").timepicker({
-      showInputs: false
-    });
-
-
-});
-
-
-
-function add_pesanan()
-{
-    save_method = 'add';
-    $('#form')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-    $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Pesanan'); // Set Title to Bootstrap modal title
-}
-
-function edit_pesanan(id)
-{
-    save_method = 'update';
-    $('#form')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-
-    //Ajax Load data from ajax
-    $.ajax({
-        url : "<?php echo site_url('Masterdatapesanan/ajax_edit/')?>/" + id,
-        type: "GET",
-        dataType: "JSON",
-        success: function(data)
-        {
-            $('[name="id_tamu"]').val(data.id_tamu);
-            $('[name="tgl_input"]').val(data.tgl_input);
-            $('[name="nama_tamu"]').val(data.nama_tamu);
-            $('[name="alamat_tamu"]').val(data.alamat_tamu);
-            $('[name="no_hp"]').val(data.np_hp);
-            $('[name="tgl_masuk"]').val(data.tgl_masuk);
-            $('[name="tgl_keluar"]').val(data.tgl_keluar);
-            $('[name="tipe_kamar"]').val(data.tipe_kamar);
-            $('[name="harga_kamar"]').val(data.harga_kamar);
-            $('[name="jumlah_kamar"]').val(data.jumlah_kamar);
-            $('[name="status"]').val(data.status);
-            $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Pesanan'); // Set title to Bootstrap modal title
-
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error get data from ajax');
-        }
-    });
-}
-
-function reload_table()
-{
-    table.ajax.reload(null,false); //reload datatable ajax
-}
-
-function save()
-{
-    $('#btnSave').text('saving...'); //change button text
-    $('#btnSave').attr('disabled',true); //set button disable
-    var url;
-
-    if(save_method == 'add') {
-        url = "<?php echo site_url('Masterdatapesanan/ajax_add')?>";
-    } else {
-        url = "<?php echo site_url('Masterdatapesanan/ajax_update')?>";
-    }
-
-    // ajax adding data to database
-    $.ajax({
-        url : url,
-        type: "POST",
-        data: $('#form').serialize(),
-        dataType: "JSON",
-        success: function(data)
-        {
-
-            if(data.status) //if success close modal and reload ajax table
-            {
-                $('#modal_form').modal('hide');
-                reload_table();
-            }
-
-            $('#btnSave').text('save'); //change button text
-            $('#btnSave').attr('disabled',false); //set button enable
-
-
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error adding / update data');
-            $('#btnSave').text('save'); //change button text
-            $('#btnSave').attr('disabled',false); //set button enable
-
-        }
-    });
-}
-
-function delete_pesanan(id)
-{
-    if(confirm('Are you sure delete this data?'))
-    {
-        // ajax delete data to database
-        $.ajax({
-            url : "<?php echo site_url('Masterdatapesanan/ajax_delete')?>/"+id,
-            type: "POST",
-            dataType: "JSON",
-            success: function(data)
-            {
-                //if success reload ajax table
-                $('#modal_form').modal('hide');
-                reload_table();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-                alert('Error deleting data');
-            }
-        });
-
-    }
-}
-
-</script>
-<!-- <div></div> -->
-<!-- Bootstrap modal -->
-<div class="modal fade" id="modal_form" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Form Kelola Kamar</h3>
-            </div>
-            <div class="modal-body form">
-                <form action="#" id="form" class="form-horizontal">
-                    <input type="hidden" value="" name="id_tamu"/>
-                    <div class="form-body">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Tanggal Masuk</label>
-                            <div class="col-md-9">
-                                <input name="tgl_input" required="" placeholder="Tanggal Masuk" class="form-control" type="date">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Nama Tamu</label>
-                            <div class="col-md-9">
-                                <input name="nama_tamu" placeholder="Nama Tamu" class="form-control" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Alamat Tamu</label>
-                            <div class="col-md-9">
-                                <input name="alamat_tamu" placeholder="Alamat Tamu" class="form-control" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Nomor HP</label>
-                            <div class="col-md-9">
-                                <input name="no_hp" placeholder="Nomor HP" class="form-control" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Tanggal Masuk</label>
-                            <div class="col-md-9">
-                                <input name="tgl_masuk" placeholder="Tanggal Masuk" class="form-control" type="date">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Tanggal Keluar</label>
-                            <div class="col-md-9">
-                                <input name="tgl_keluar" placeholder="Tanggal Keluar" class="form-control" type="date">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Tipe Kamar</label>
-                            <div class="col-md-9">
-                                <input name="tipe_kamar" placeholder="Tipe Kamar" class="form-control" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Harga Kamar </label>
-                            <div class="col-md-9">
-                                <input name="harga_kamar" placeholder="Harga Kamar " class="form-control" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Jumlah Kamar</label>
-                            <div class="col-md-9">
-                                <input name="jumlah_kamar" placeholder="Jumlah Kamar" class="form-control" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Status</label>
-                            <div class="col-md-9">
-                                <input name="status" placeholder="Status" class="form-control" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- End Bootstrap modal -->
 </body>
 </html>

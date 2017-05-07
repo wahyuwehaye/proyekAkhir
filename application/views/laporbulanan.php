@@ -3,23 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin | Keuangan</title>
+  <title>Admin | Resepsionis</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="<?php echo base_url()?>admin/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="<?php echo base_url('assets2/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url()?>assets/bootstrap/css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="<?php echo base_url()?>assets/datepicker/css/bootstrap-datepicker3.css"/>
-  <link rel="stylesheet" href="<?php echo base_url()?>plugins/daterangepicker/daterangepicker.css">
-  <!-- daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url()?>assets/bootstrap/css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="<?php echo base_url()?>assets/datepicker/css/bootstrap-datepicker3.css"/>
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url()?>admin/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -42,7 +34,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Cihampelas 2 </b> Hotel</span>
+      <span class="logo-lg"><b>Cihampelas</b>Hotel</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -70,7 +62,7 @@
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="<?php echo base_url()?>admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -80,54 +72,6 @@
                     </a>
                   </li>
                   <!-- end message -->
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        AdminLTE Design Team
-                        <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Developers
-                        <small><i class="fa fa-clock-o"></i> Today</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Sales Department
-                        <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="<?php echo base_url()?>admin/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Reviewers
-                        <small><i class="fa fa-clock-o"></i> 2 days</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
                 </ul>
               </li>
               <li class="footer"><a href="#">See All Messages</a></li>
@@ -147,27 +91,6 @@
                   <li>
                     <a href="#">
                       <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                      page and may cause design problems
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-red"></i> 5 new members joined
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-user text-red"></i> You changed your username
                     </a>
                   </li>
                 </ul>
@@ -192,51 +115,9 @@
                         Design some buttons
                         <small class="pull-right">20%</small>
                       </h3>
-                      <div class="progress progress-xs">
+                      <div class="progress xs">
                         <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                           <span class="sr-only">20% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Create a nice theme
-                        <small class="pull-right">40%</small>
-                      </h3>
-                      <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">40% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Some task I need to do
-                        <small class="pull-right">60%</small>
-                      </h3>
-                      <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Make beautiful transitions
-                        <small class="pull-right">80%</small>
-                      </h3>
-                      <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">80% Complete</span>
                         </div>
                       </div>
                     </a>
@@ -261,7 +142,7 @@
                 <img src="<?php echo base_url()?>admin/dist/img/avatar2.png" class="img-circle" alt="User Image">
 
                 <p>
-                  Ajeng Puritasari - Keuangan
+                  Ajeng Pursitasari - Resepsionis
                   <small>January, 2017</small>
                 </p>
               </li>
@@ -327,7 +208,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-calculator"></i> <span>Kelola Kamar</span>
             <span class="pull-right-container">
@@ -335,11 +216,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/keuangan"><i class="fa fa-edit"></i> Update Data</a></li>
+            <li><a href="<?php echo base_url()?>index.php/dashboard/keuangan"><i class="fa fa-edit"></i> Update Data</a></li>
             <li><a href="<?php echo base_url()?>index.php/dashboard/promosi"><i class="fa fa-money"></i> Promosi</a></li>
           </ul>
         </li>
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#">
             <i class="fa fa-line-chart"></i> <span>Laporan</span>
             <span class="pull-right-container">
@@ -348,7 +229,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url()?>index.php/dashboard/laporharian"><i class="fa fa-list-ol"></i> Harian</a></li>
-            <li><a href="<?php echo base_url()?>index.php/dashboard/laporbulanan"><i class="fa fa-bar-chart"></i> Bulanan</a></li>
+            <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/laporbulanan"><i class="fa fa-bar-chart"></i> Bulanan</a></li>
           </ul>
         </li>
 
@@ -362,75 +243,100 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Update Tipe Kamar dan Harga
+        Laporan Bulanan
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Kelola Kamar</a></li>
-        <li class="active">Update Kamar</li>
+        <li><a href="#"> Laporan</a></li>
+        <li class="active"> Laporan Bulanan</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-
       <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
+        <div class="col-md-12">
+          
+        <div class="box box-primary">
+            <div class="box-header with-border">
+          <label>Cari </label>
+          <input type="text" name="cari" class="cari" />
+          <button type="Submit" class="btn btn-primary btn-xs">Cari </i></button>
+        
 
-                <div class="col-md-6 swimming-grid">
-					<label>Show</label>
-					<input type="text" name="tanggalIn" class="tanggal" />
-                    <button type="Submit" class="btn btn-primary btn-xs">Cari </i></button>
-				</div>
-              <!-- <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-              </div> -->
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
             </div>
-            <div class="box-header">
-            <button class="btn btn-xs btn-success" onclick="add_kamar()"><i class="glyphicon glyphicon-plus"></i></button>
-            <button class="btn btn-xs btn-warning" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i></button>
-        </div>
-            <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-              <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                <thead>
-                  <th>No</th>
-                  <th>Tipe Kamar</th>
-                  <th>Harga Weekday</th>
-                  <th>Harga Weekend</th>
-                  <th>Penjelasan</th>
-                  <th>Jumlah Kamar</th>
-                  <th>Aksi</th>
-              </thead>
-              <tbody>
-                    <!-- <?php
-                        $no = 1;
-                        foreach($tipe_kamar as $a){
-                    ?>
-                <tr>
-                    <td><?php echo $no++ ?></td>
-                    <td><?php echo $a->nama_kamar ?></td>
-                    <td><?php echo $a->harga_kamar ?></td>
-                    <td><a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="#"><i class="glyphicon glyphicon-pencil"></i></a>&nbsp<a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="#"><i class="glyphicon glyphicon-trash"></i></a>
-                    </td>
-                </tr>
-                <?php } ?> -->
-            </tbody>
-                </table>
+            <div class="box-body">
+              <div class="chart">
+                <?php
+            /* Mengambil query report*/
+            foreach($report as $result){
+                $bulan[] = $result->kamar; //ambil bulan
+                $value[] = (float) $result->jumlah; //ambil nilai
+            }
+            /* end mengambil query*/
+             
+        ?>
+         
+        <!-- Load chart dengan menggunakan ID -->
+        <div id="report1"></div>
+        <!-- END load chart -->
+              </div>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
+
         </div>
+        <!-- /.col (LEFT) -->
+
+        <!-- BOX 2 -->
+
+        <div class="col-md-12">
+          
+        <div class="box box-primary">
+            <div class="box-header with-border">
+          <label>Cari </label>
+          <input type="text" name="cari" class="cari" />
+          <button type="Submit" class="btn btn-primary btn-xs">Cari </i></button>
+        
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <?php
+            /* Mengambil query report*/
+            foreach($report as $result){
+                $bulan[] = $result->kamar; //ambil bulan
+                $value[] = (float) $result->jumlah; //ambil nilai
+            }
+            /* end mengambil query*/
+             
+        ?>
+         
+        <!-- Load chart dengan menggunakan ID -->
+        <div id="report"></div>
+        <!-- END load chart -->
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col (LEFT) -->
       </div>
+      <!-- /.row -->
+
     </section>
     <!-- /.content -->
   </div>
@@ -637,241 +543,169 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-<!-- <script src="<?php echo base_url()?>assets/js/jquery-3.2.0.min.js"></script>
-        <script src="<?php echo base_url()?>assets/bootstrap/js/bootstrap.js"></script>
-        <script src="<?php echo base_url()?>assets/datepicker/js/bootstrap-datepicker.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('.tanggal').datepicker({
-                    format: "dd-mm-yyyy",
-                    autoclose:true
-                });
-            });
-        </script> -->
 <!-- ./wrapper -->
 
+<!-- load library jquery dan highcharts -->
+<script src="<?php echo base_url();?>assets/jschart/jquery.js"></script>
+<script src="<?php echo base_url();?>assets/jschart/highcharts.js"></script>
+<!-- end load library -->
+
 <!-- jQuery 2.2.3 -->
-<script src="<?php echo base_url()?>admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- <script src="<?php echo base_url()?>admin/plugins/jQuery/jquery-2.2.3.min.js"></script> -->
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo base_url()?>admin/bootstrap/js/bootstrap.min.js"></script>
-<!-- Slimscroll -->
-<script src="<?php echo base_url()?>admin/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- ChartJS 1.0.1 -->
+<script src="<?php echo base_url()?>admin/plugins/chartjs/Chart.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url()?>admin/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url()?>admin/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url()?>admin/dist/js/demo.js"></script>
-
-<script src="<?php echo base_url('assets2/datatables/js/jquery.dataTables.min.js')?>"></script>
-<script src="<?php echo base_url('assets2/datatables/js/dataTables.bootstrap.js')?>"></script>
-
+<!-- page script -->
+<!-- Script untuk memanggil library Highcharts -->
 <script type="text/javascript">
-
-var save_method; //for save method string
-var table;
-
-$(document).ready(function() {
-
-    //datatables
-    table = $('#table').DataTable({
-
-        "processing": true, //Feature control the processing indicator.
-        "serverSide": true, //Feature control DataTables' server-side processing mode.
-        "order": [], //Initial no order.
-
-        // Load data for the table's content from an Ajax source
-        "ajax": {
-            "url": "<?php echo site_url('masterdatatipekamar/ajax_list')?>",
-            "type": "POST"
-        },
-
-        //Set column definition initialisation properties.
-        "columnDefs": [
-        {
-            "targets": [ -1 ], //last column
-            "orderable": false, //set not orderable
-        },
-        ],
-
-    });
-
-
-});
-
-
-
-function add_kamar()
-{
-    save_method = 'add';
-    $('#form')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-    $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Kamar'); // Set Title to Bootstrap modal title
-}
-
-function edit_tipe_kamar(id)
-{
-    save_method = 'update';
-    $('#form')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-
-    //Ajax Load data from ajax
-    $.ajax({
-        url : "<?php echo site_url('Masterdatatipekamar/ajax_edit/')?>/" + id,
-        type: "GET",
-        dataType: "JSON",
-        success: function(data)
-        {
-
-            $('[name="id_tipe_kamar"]').val(data.id_tipe_kamar);
-            $('[name="nama_kamar"]').val(data.nama_kamar);
-            $('[name="harga_kamar_weekday"]').val(data.harga_kamar_weekday);
-            $('[name="harga_kamar_weekend"]').val(data.harga_kamar_weekend);
-            $('[name="penjelasan"]').val(data.penjelasan);
-            $('[name="jumlah"]').val(data.jumlah);
-            $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Kamar'); // Set title to Bootstrap modal title
-
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error get data from ajax');
-        }
-    });
-}
-
-function reload_table()
-{
-    table.ajax.reload(null,false); //reload datatable ajax
-}
-
-function save()
-{
-    $('#btnSave').text('saving...'); //change button text
-    $('#btnSave').attr('disabled',true); //set button disable
-    var url;
-
-    if(save_method == 'add') {
-        url = "<?php echo site_url('Masterdatatipekamar/ajax_add')?>";
-    } else {
-        url = "<?php echo site_url('Masterdatatipekamar/ajax_update')?>";
-    }
-
-    // ajax adding data to database
-    $.ajax({
-        url : url,
-        type: "POST",
-        data: $('#form').serialize(),
-        dataType: "JSON",
-        success: function(data)
-        {
-
-            if(data.status) //if success close modal and reload ajax table
-            {
-                $('#modal_form').modal('hide');
-                reload_table();
+$(function () {
+    $('#report').highcharts({
+        chart: {
+            type: 'column',
+            margin: 75,
+            options3d: {
+                enabled: false,
+                alpha: 10,
+                beta: 25,
+                depth: 70
             }
-
-            $('#btnSave').text('save'); //change button text
-            $('#btnSave').attr('disabled',false); //set button enable
-
-
         },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error adding / update data');
-            $('#btnSave').text('save'); //change button text
-            $('#btnSave').attr('disabled',false); //set button enable
-
-        }
-    });
-}
-
-function delete_tipe_kamar(id)
-{
-    if(confirm('Are you sure delete this data?'))
-    {
-        // ajax delete data to database
-        $.ajax({
-            url : "<?php echo site_url('Masterdatatipekamar/ajax_delete')?>/"+id,
-            type: "POST",
-            dataType: "JSON",
-            success: function(data)
-            {
-                //if success reload ajax table
-                $('#modal_form').modal('hide');
-                reload_table();
+        title: {
+            text: 'Laporan Bulan January',
+            style: {
+                    fontSize: '18px',
+                    fontFamily: 'Verdana, sans-serif'
+            }
+        },
+        subtitle: {
+           text: 'Penyewaan Kamar Hotel',
+           style: {
+                    fontSize: '15px',
+                    fontFamily: 'Verdana, sans-serif'
+            }
+        },
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        xAxis: {
+            categories:  <?php echo json_encode($bulan);?>
+        },
+        exporting: { 
+            enabled: false 
+        },
+        yAxis: {
+            title: {
+                text: 'Jumlah'
             },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-                alert('Error deleting data');
+        },
+        tooltip: {
+             formatter: function() {
+                 return 'The value for <b>' + this.x + '</b> is <b>' + Highcharts.numberFormat(this.y,0) + '</b>, in '+ this.series.name;
+             }
+          },
+        series: [{
+            name: 'Report Data',
+            data: <?php echo json_encode($value);?>,
+            shadow : true,
+            dataLabels: {
+                enabled: true,
+                color: '#045396',
+                align: 'center',
+                formatter: function() {
+                     return Highcharts.numberFormat(this.y, 0);
+                }, // one decimal
+                y: 0, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
             }
-        });
+        }]
+    });
 
-    }
-}
+    // BOX 2
 
-</script>
-<!-- Bootstrap modal -->
-<div class="modal fade" id="modal_form" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Form Kelola Kamar</h3>
-            </div>
-            <div class="modal-body form">
-                <form action="#" id="form" class="form-horizontal">
-                    <input type="hidden" value="" name="id_tipe_kamar"/>
-                    <div class="form-body">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Tipe Kamar</label>
-                            <div class="col-md-9">
-                                <input name="nama_kamar" required="" placeholder="Tipe Kamar" class="form-control" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Harga Kamar Weekday</label>
-                            <div class="col-md-9">
-                                <input name="harga_kamar_weekday" placeholder="Harga Kamar Weekday" class="form-control" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Harga Kamar Weekend</label>
-                            <div class="col-md-9">
-                                <input name="harga_kamar_weekend" placeholder="Harga Kamar Weekend" class="form-control" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Penjelasan Kamar</label>
-                            <div class="col-md-9">
-                                <input name="penjelasan" placeholder="Penjelasan Kamar" class="form-control" type="textarea">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Jumlah Kamar</label>
-                            <div class="col-md-9">
-                                <input name="jumlah" placeholder="Jumlah Kamar" class="form-control" type="textarea">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- End Bootstrap modal -->
+    $('#report1').highcharts({
+        chart: {
+            type: 'column',
+            margin: 75,
+            options3d: {
+                enabled: false,
+                alpha: 10,
+                beta: 25,
+                depth: 70
+            }
+        },
+        title: {
+            text: 'Laporan Bulan February',
+            style: {
+                    fontSize: '18px',
+                    fontFamily: 'Verdana, sans-serif'
+            }
+        },
+        subtitle: {
+           text: 'Penyewaan Kamar Hotel',
+           style: {
+                    fontSize: '15px',
+                    fontFamily: 'Verdana, sans-serif'
+            }
+        },
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        xAxis: {
+            categories:  <?php echo json_encode($bulan);?>
+        },
+        exporting: { 
+            enabled: false 
+        },
+        yAxis: {
+            title: {
+                text: 'Jumlah'
+            },
+        },
+        tooltip: {
+             formatter: function() {
+                 return 'The value for <b>' + this.x + '</b> is <b>' + Highcharts.numberFormat(this.y,0) + '</b>, in '+ this.series.name;
+             }
+          },
+        series: [{
+            name: 'Report Data',
+            data: <?php echo json_encode($value);?>,
+            shadow : true,
+            dataLabels: {
+                enabled: true,
+                color: '#045396',
+                align: 'center',
+                formatter: function() {
+                     return Highcharts.numberFormat(this.y, 0);
+                }, // one decimal
+                y: 0, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }]
+    });
+});
+        </script>
 </body>
 </html>

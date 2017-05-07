@@ -4,7 +4,7 @@
 		<div class="banner-main wow zoomIn" data-wow-delay="0.3s">
 			<h2>Cihampelas 2 Hotels</h2>
 			<h6>Welcome To Our Hotels</h6>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+			<h6> Comfortable, Affordable and Strategic</h6>
 		</div>
     </div>
 </div>
@@ -24,7 +24,7 @@
 				<input type="text" name="tanggalOut" class="tanggal"/>
 			</div>
 			<div class="col-md-4 swimming-grid">
-				<h4>Kamar</h4>
+				<h4>Jumlah Kamar</h4>
 				<select name="kamar" id="kamar" class="form-control">
 	                                    <option value="">--</option>
 	                                    <option value="1">1</option>

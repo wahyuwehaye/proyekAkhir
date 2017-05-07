@@ -247,17 +247,17 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Ajeng Puspitasari</span>
+              <img src="<?php echo base_url()?>admin/dist/img/avatar2.png" class="user-image" alt="User Image">
+              <span class="hidden-xs">Ajeng Pursitasari</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo base_url()?>admin/dist/img/avatar2.png" class="img-circle" alt="User Image">
 
                 <p>
-                  Ajeng Puspitasari - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  Ajeng Pursitasari - Resepsionis
+                  <small>January, 2017</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -300,11 +300,12 @@
     <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
+
         <div class="pull-left image">
-          <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+          <img src="<?php echo base_url()?>admin/dist/img/avatar2.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Ajeng Puspitasari</p>
+          <p>Ajeng Pursitasari</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -323,19 +324,36 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
 
+        <li><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-location-arrow"></i> <span> Reservasi Onsite</span></a></li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/resepsionis"><i class="fa fa-list-ol"></i> <span> Data Booking</span></a></li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/resepsionis"><i class="fa fa-list-alt"></i> <span> Data Check In</span></a></li>
         <li class="treeview active">
           <a href="#">
-            <i class="fa fa-table"></i> <span> Pemesanan</span>
+            <i class="fa fa-check-square-o"></i> <span> Check Out</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/resepsionis"><i class="fa fa-circle-o"></i> Data Pemesanan</a></li>
-            <li><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-circle-o"></i> Reservasi Onsite</a></li>
-            <li><a href="<?php echo base_url()?>index.php/dashboard/lapharian"><i class="fa fa-circle-o"></i> Laporan Harian</a></li>
+            <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/formcheckout"><i class="fa fa-credit-card"></i> Form Check Out</a></li>
+            <li><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-list-ul"></i> Data Check Out</a></li>
           </ul>
         </li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/lapharian"><i class="fa fa-list"></i> <span> Laporan Harian</span></a></li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/lapbulanan"><i class="fa fa-bar-chart-o"></i> <span> Laporan Bulanan</span></a></li>
+        <li class="treeview active">
+          <a href="#">
+            <i class="fa fa-whatsapp"></i> <span> SMS Gateway</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/resepsionis"><i class="fa fa-edit"></i> Send SMS Gateway</a></li>
+            <li><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-th-list"></i> Lihat Daftar SMS Gateway</a></li>
+          </ul>
+        </li>
+        <li><a href="documentation/index.html"><i class="fa fa-file-image-o"></i> <span> Foto Bukti Pembayaran</span></a></li>
 
       </ul>
     </section>

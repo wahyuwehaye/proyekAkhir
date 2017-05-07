@@ -14,19 +14,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/datatables/dataTables.bootstrap.css">
-  <!-- daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/daterangepicker/daterangepicker.css">
-  <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/datepicker/datepicker3.css">
-  <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/iCheck/all.css">
-  <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/colorpicker/bootstrap-colorpicker.min.css">
-  <!-- Bootstrap time Picker -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/timepicker/bootstrap-timepicker.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/select2/select2.min.css">
-  <!-- Theme style -->
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url()?>admin/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -260,17 +247,17 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url()?>admin/dist/img/avatar2.png" class="user-image" alt="User Image">
-              <span class="hidden-xs">Ajeng Pursitasari</span>
+              <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs">Ajeng Puspitasari</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo base_url()?>admin/dist/img/avatar2.png" class="img-circle" alt="User Image">
+                <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Ajeng Pursitasari - Resepsionis
-                  <small>January, 2017</small>
+                  Ajeng Puspitasari - Web Developer
+                  <small>Member since Nov. 2012</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -314,10 +301,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url()?>admin/dist/img/avatar2.png" class="img-circle" alt="User Image">
+          <img src="<?php echo base_url()?>admin/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Ajeng Pursitasari</p>
+          <p>Ajeng Puspitasari</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -335,37 +322,30 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-
-        <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-location-arrow"></i> <span> Reservasi Onsite</span></a></li>
-        <li><a href="<?php echo base_url()?>index.php/dashboard/databooking"><i class="fa fa-list-ol"></i> <span> Data Booking</span></a></li>
-        <li><a href="<?php echo base_url()?>index.php/dashboard/datacheckin"><i class="fa fa-list-alt"></i> <span> Data Check In</span></a></li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-check-square-o"></i> <span> Check Out</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
+            <i class="fa fa-calculator"></i> <span>Kelola Kamar</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url()?>index.php/dashboard/formcheckout"><i class="fa fa-credit-card"></i> Form Check Out</a></li>
-            <li><a href="<?php echo base_url()?>index.php/dashboard/datacheckout"><i class="fa fa-list-ul"></i> Data Check Out</a></li>
+            <li><a href="<?php echo base_url()?>index.php/dashboard/keuangan"><i class="fa fa-edit"></i> Update Data</a></li>
+            <li><a href="<?php echo base_url()?>index.php/dashboard/promosi"><i class="fa fa-money"></i> Promosi</a></li>
           </ul>
         </li>
-        <li><a href="<?php echo base_url()?>index.php/dashboard/lapharian"><i class="fa fa-list"></i> <span> Laporan Harian</span></a></li>
-        <li><a href="<?php echo base_url()?>index.php/dashboard/lapbulanan"><i class="fa fa-bar-chart-o"></i> <span> Laporan Bulanan</span></a></li>
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#">
-            <i class="fa fa-whatsapp"></i> <span> SMS Gateway</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
+            <i class="fa fa-line-chart"></i> <span>Laporan</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url()?>index.php/dashboard/sendsms"><i class="fa fa-send"></i> Send SMS Gateway</a></li>
-            <li><a href="<?php echo base_url()?>index.php/dashboard/daftarsms"><i class="fa fa-th-list"></i> Lihat Daftar SMS Gateway</a></li>
+            <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/laporharian"><i class="fa fa-list-ol"></i> Harian</a></li>
+            <li><a href="<?php echo base_url()?>index.php/dashboard/laporbulanan"><i class="fa fa-bar-chart"></i> Bulanan</a></li>
           </ul>
         </li>
-        <li><a href="documentation/index.html"><i class="fa fa-file-image-o"></i> <span> Foto Bukti Pembayaran</span></a></li>
 
       </ul>
     </section>
@@ -374,155 +354,175 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Reservasi Onsite
+        Laporan Harian
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Reservasi Onsite</li>
+        <li><a href="#"> Laporan</a></li>
+        <li class="active"> Laporan Harian</li>
       </ol>
     </section>
-    <div class="pad margin no-print">
-      <div class="callout callout-info" style="margin-bottom: 0!important;">
-        <h4><i class="fa fa-info"></i> Note:</h4>
-        Halaman ini untuk Pemesanan Kamar Onsite
-      </div>
-    </div>
+
+    <!-- Main content -->
     <section class="content">
-    <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/dataonsite">
-    <div class="box">
-    <div class="box box-primary">
-      <div class="box-header">
-        <h3 class="box-title">Pilihan Kamar Tersedia</h3>
-      </div>
-      <div class="box-body">
-          <div class="col-md-3">
-              <h2><span class="label label-info"> Pilih Tanggal : </span></h2>
-          </div>
 
-          <div class="col-md-4">
-              <!-- Date -->
-              <div class="form-group">
-                <label>DateCheck In:</label>
 
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input name="tglIn" type="text" class="form-control pull-right" id="datepicker">
-                </div>
-              </div>
-              <!-- /.form group -->
-          </div>
-
-          <div class="col-md-4">
-              <!-- Date -->
-              <div class="form-group">
-                <label>Date Check Out:</label>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input name="tglOut" type="text" class="form-control pull-right" id="datepicker1">
-                </div>
-              </div>
-              <!-- /.form group -->
-          </div>
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-12">
-          <h2 align="center"><span class="label label-info"> Tipe Kamar Tersedia : </span></h2>
-           </div>
-           <?php foreach($available as $a){ ?>
-           <!-- KAMAR 1 -->
-          <div class="col-md-2">
-              <div class="media">
-                                <div class="media-left">
-                                    <a href="javascript:void(0);">
-                                        <img class="media-object" src="<?php echo base_url()?>assets/images/<?php echo $a->nama_kamar; ?>.png" width="40" height="40">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><?php echo $a->nama_kamar; ?></h4><a href="#"> Detail...</a>
-                                </div>
-                            </div>
-                            <input type="hidden" value="<?php echo $a->nama_kamar; ?>" name="tipe_kamar"/>
-                            <input type="hidden" value="<?php echo $a->harga_kamar_weekend; ?>" name="harga_kamar"/>
-                            <input type="hidden" name="status" value="Lunas">
-          </div>
-
-          <div class="col-md-1">
-              <input name="kamar" id="kamar" type="number" class="form-control pull-right">
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          
-          <!-- TUTUP KAMAR 1 -->
-
-          <div class="col-md-12">
-          </div>
-         <?php } ?>
-
-          <div class="col-md-2" style="float:right;">
-              <button type="submit" class="btn btn-block btn-info">Kirim</button>
-          </div>
-      </div>
-      <!-- /.box-body -->
-    </div>
-    <!-- /.box -->
-    </div>
-    </form>
-
-    <!-- iCheck -->
-          <div class="box box-success">
-            <div class="box-header">
-              <h3 class="box-title">Keterangan</h3>
+          <div class="box">
+              <!-- <div class="box-header">
+              <button class="btn btn-xs btn-success" onclick="add_pesanan()"><i class="glyphicon glyphicon-plus"></i></button>
+              <button class="btn btn-xs btn-warning" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i></button>
+          </div> -->
+          <div class="box-header">
+              <h3 class="box-title">Bulan January</h3>
             </div>
+            <!-- /.box-header -->
             <div class="box-body">
-              <!-- Minimal style -->
-
-              <!-- checkbox -->
-              <div class="form-group">
-                <div class="col-md-4">
-                    <h4 align="center"><span class="label label-danger"> Warna Merah untuk Status Terisi</span></h4>
-                </div>
-                <div class="col-md-4">
-                    <h4 align="center"><span class="label label-success"> Warna Hijau untuk Status Tersedia</span></h4>
-                </div>
-                <div class="col-md-4">
-                    <h4 align="center"><span class="label label-warning"> Warna Kuning untuk Status Booking</span></h4>
-                </div>
-              </div>
+              <table id="table" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Data Input</th>
+                  <th>Nama</th>
+                  <th>Tipe Kamar</th>
+                  <th>Nomor HP</th>
+                  <th>Alamat</th>
+                  <th>Check In</th>
+                  <th>Check Out</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>PSP</td>
+                  <td>-</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td><a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="#"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+				  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>U</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td><a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="#"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+				  </td>
+                </tr> -->
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th>No</th>
+                    <th>Data Input</th>
+                    <th>Nama</th>
+                    <th>Tipe Kamar</th>
+                    <th>Nomor HP</th>
+                    <th>Alamat</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
           </div>
           <!-- /.box -->
+
+          <!-- BOX 2 -->
+
+          <div class="box">
+              <!-- <div class="box-header">
+              <button class="btn btn-xs btn-success" onclick="add_pesanan()"><i class="glyphicon glyphicon-plus"></i></button>
+              <button class="btn btn-xs btn-warning" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i></button>
+          </div> -->
+          <div class="box-header">
+              <h3 class="box-title">Bulan February</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="table1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Data Input</th>
+                  <th>Nama</th>
+                  <th>Tipe Kamar</th>
+                  <th>Nomor HP</th>
+                  <th>Alamat</th>
+                  <th>Check In</th>
+                  <th>Check Out</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>PSP</td>
+                  <td>-</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td><a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="#"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+          </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>U</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td><a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="#"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+          </td>
+                </tr> -->
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th>No</th>
+                    <th>Data Input</th>
+                    <th>Nama</th>
+                    <th>Tipe Kamar</th>
+                    <th>Nomor HP</th>
+                    <th>Alamat</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
     </section>
-    
+    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -736,21 +736,6 @@
 <!-- DataTables -->
 <script src="<?php echo base_url()?>admin/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url()?>admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url()?>admin/plugins/select2/select2.full.min.js"></script>
-<!-- InputMask -->
-<script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.js"></script>
-<script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-<!-- date-range-picker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="<?php echo base_url()?>admin/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- bootstrap datepicker -->
-<script src="<?php echo base_url()?>admin/plugins/datepicker/bootstrap-datepicker.js"></script>
-<!-- bootstrap color picker -->
-<script src="<?php echo base_url()?>admin/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
-<!-- bootstrap time picker -->
-<script src="<?php echo base_url()?>admin/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url()?>admin/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -804,73 +789,32 @@ $(document).ready(function() {
 
     });
 
-    //Initialize Select2 Elements
-    $(".select2").select2();
 
-    //Datemask dd/mm/yyyy
-    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-    //Datemask2 mm/dd/yyyy
-    $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
-    //Money Euro
-    $("[data-mask]").inputmask();
+});
 
-    //Date range picker
-    $('#reservation').daterangepicker();
-    //Date range picker with time picker
-    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
-    //Date range as a button
-    $('#daterange-btn').daterangepicker(
-        {
-          ranges: {
-            'Today': [moment(), moment()],
-            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
-            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-          },
-          startDate: moment().subtract(29, 'days'),
-          endDate: moment()
+$(document).ready(function() {
+
+    //datatables
+    table = $('#table1').DataTable({
+
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+            "url": "<?php echo site_url('masterdatapesanan/ajax_list')?>",
+            "type": "POST"
         },
-        function (start, end) {
-          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        }
-    );
 
-    //Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    });
+        //Set column definition initialisation properties.
+        "columnDefs": [
+        {
+            "targets": [ -1 ], //last column
+            "orderable": false, //set not orderable
+        },
+        ],
 
-    //Date picker
-    $('#datepicker1').datepicker({
-      autoclose: true
-    });
-
-    //iCheck for checkbox and radio inputs
-    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-      checkboxClass: 'icheckbox_minimal-blue',
-      radioClass: 'iradio_minimal-blue'
-    });
-    //Red color scheme for iCheck
-    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-      checkboxClass: 'icheckbox_minimal-red',
-      radioClass: 'iradio_minimal-red'
-    });
-    //Flat red color scheme for iCheck
-    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-      checkboxClass: 'icheckbox_flat-green',
-      radioClass: 'iradio_flat-green'
-    });
-
-    //Colorpicker
-    $(".my-colorpicker1").colorpicker();
-    //color picker with addon
-    $(".my-colorpicker2").colorpicker();
-
-    //Timepicker
-    $(".timepicker").timepicker({
-      showInputs: false
     });
 
 
@@ -906,7 +850,7 @@ function edit_pesanan(id)
             $('[name="tgl_input"]').val(data.tgl_input);
             $('[name="nama_tamu"]').val(data.nama_tamu);
             $('[name="alamat_tamu"]').val(data.alamat_tamu);
-            $('[name="no_hp"]').val(data.np_hp);
+            $('[name="no_hp"]').val(data.no_hp);
             $('[name="tgl_masuk"]').val(data.tgl_masuk);
             $('[name="tgl_keluar"]').val(data.tgl_keluar);
             $('[name="tipe_kamar"]').val(data.tipe_kamar);

@@ -336,19 +336,36 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
 
-        <li class="treeview active">
+        <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-location-arrow"></i> <span> Reservasi Onsite</span></a></li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/databooking"><i class="fa fa-list-ol"></i> <span> Data Booking</span></a></li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/datacheckin"><i class="fa fa-list-alt"></i> <span> Data Check In</span></a></li>
+        <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span> Pemesanan</span>
+            <i class="fa fa-check-square-o"></i> <span> Check Out</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
           </a>
           <ul class="treeview-menu">
-              <li><a href="<?php echo base_url()?>index.php/dashboard/resepsionis"><i class="fa fa-circle-o"></i> Data Pemesanan</a></li>
-              <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-circle-o"></i> Reservasi Onsite</a></li>
-              <li><a href="<?php echo base_url()?>index.php/dashboard/lapharian"><i class="fa fa-circle-o"></i> Laporan Harian</a></li>
+            <li><a href="<?php echo base_url()?>index.php/dashboard/formcheckout"><i class="fa fa-credit-card"></i> Form Check Out</a></li>
+            <li><a href="<?php echo base_url()?>index.php/dashboard/datacheckout"><i class="fa fa-list-ul"></i> Data Check Out</a></li>
           </ul>
         </li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/lapharian"><i class="fa fa-list"></i> <span> Laporan Harian</span></a></li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/lapbulanan"><i class="fa fa-bar-chart-o"></i> <span> Laporan Bulanan</span></a></li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-whatsapp"></i> <span> SMS Gateway</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url()?>index.php/dashboard/sendsms"><i class="fa fa-send"></i> Send SMS Gateway</a></li>
+            <li><a href="<?php echo base_url()?>index.php/dashboard/daftarsms"><i class="fa fa-th-list"></i> Lihat Daftar SMS Gateway</a></li>
+          </ul>
+        </li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/buktibayar"><i class="fa fa-file-image-o"></i> <span> Foto Bukti Pembayaran</span></a></li>
 
       </ul>
     </section>

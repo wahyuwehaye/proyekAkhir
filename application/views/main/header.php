@@ -97,7 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			    	<li><h5>Follow Us :</h5></li>
 			    	<li><a href="#"><span class="fb"> </span></a></li>
 			    	<li><a href="#"><span class="tw"> </span></a></li>
-			    	<li><a href="#"><span class="in"> </span></a></li>
+			    	<!--<li><a href="#"><span class="in"> </span></a></li> -->
 			    	<li><a href="#"><span class="gmail"> </span></a></li>
 			    </ul>
 			</div>
@@ -130,7 +130,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<ul class="nav navbar-nav">
 				<!-- inser more links here -->
 				<li><a class="cd-signup" href="<?php echo base_url()?>" data-hover="Home">Home</a></li>
-				<li><a class="cd-signup" href="<?php echo base_url()?>index.php/fasilities" data-hover="Fasilities">Fasilities</a></li>
+				<li><a class="cd-signup" href="<?php echo base_url()?>index.php/fasilities" data-hover="Fasilities">About Us</a></li>
         <li><a class="cd-signup" href="<?php echo base_url()?>index.php/rooms" data-hover="Rooms">Rooms</a></li>
 				<li><a class="cd-signup" href="<?php echo base_url()?>index.php/contact" data-hover="Contact">Contact</a></li>
 				<?php if(isset($_SESSION['logged_in']))

@@ -336,10 +336,10 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
 
-        <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-location-arrow"></i> <span> Reservasi Onsite</span></a></li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-location-arrow"></i> <span> Reservasi Onsite</span></a></li>
         <li><a href="<?php echo base_url()?>index.php/dashboard/databooking"><i class="fa fa-list-ol"></i> <span> Data Booking</span></a></li>
         <li><a href="<?php echo base_url()?>index.php/dashboard/datacheckin"><i class="fa fa-list-alt"></i> <span> Data Check In</span></a></li>
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#">
             <i class="fa fa-check-square-o"></i> <span> Check Out</span>
                 <span class="pull-right-container">
@@ -347,7 +347,7 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url()?>index.php/dashboard/formcheckout"><i class="fa fa-credit-card"></i> Form Check Out</a></li>
+            <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/formcheckout"><i class="fa fa-credit-card"></i> Form Check Out</a></li>
             <li><a href="<?php echo base_url()?>index.php/dashboard/datacheckout"><i class="fa fa-list-ul"></i> Data Check Out</a></li>
           </ul>
         </li>
@@ -365,7 +365,7 @@
             <li><a href="<?php echo base_url()?>index.php/dashboard/daftarsms"><i class="fa fa-th-list"></i> Lihat Daftar SMS Gateway</a></li>
           </ul>
         </li>
-        <li><a href="documentation/index.html"><i class="fa fa-file-image-o"></i> <span> Foto Bukti Pembayaran</span></a></li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/buktibayar"><i class="fa fa-file-image-o"></i> <span> Foto Bukti Pembayaran</span></a></li>
 
       </ul>
     </section>
@@ -378,151 +378,138 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Reservasi Onsite
+        Form Check Out Kamar
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Reservasi Onsite</li>
+        <li><a href="#">Check Out</a></li>
+        <li class="active">Form Check Out Kamar</li>
       </ol>
     </section>
     <div class="pad margin no-print">
       <div class="callout callout-info" style="margin-bottom: 0!important;">
         <h4><i class="fa fa-info"></i> Note:</h4>
-        Halaman ini untuk Pemesanan Kamar Onsite
+        Isi data dengan benar
       </div>
     </div>
     <section class="content">
-    <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/dataonsite">
     <div class="box">
     <div class="box box-primary">
-      <div class="box-header">
-        <h3 class="box-title">Pilihan Kamar Tersedia</h3>
-      </div>
-      <div class="box-body">
-          <div class="col-md-3">
-              <h2><span class="label label-info"> Pilih Tanggal : </span></h2>
-          </div>
-
-          <div class="col-md-4">
-              <!-- Date -->
+            <div class="box-header with-border">
+              <h3 class="box-title">Input Data Pelanggan</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="col-md-12 swimming-grid">
+          <label>Nomor Kamar</label>
+          <input type="text" name="cari" class="cari" />
+                    <button type="Submit" class="btn btn-primary btn-xs">Cari </i></button>
+        </div>
+        </br></br></br>
+            <!-- form start -->
+            <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/insertBookOnsite">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="nama_tamu">Nama Lengkap</label>
+                  <input type="text" class="form-control" id="nama_tamu" name="nama_tamu" placeholder="Nama Lengkap">
+                </div>
+                <div class="form-group">
+                  <label for="alamat_tamu">Alamat</label>
+                  <input type="text" class="form-control" id="alamat_tamu" name="alamat_tamu" placeholder="Alamat">
+                </div>
+                <div class="form-group">
+                  <label for="id_tamu">ID Identitas</label>
+                  <input type="text" class="form-control" id="id_tamu" name="id_tamu" placeholder="ID Identitas">
+                </div>
+                <div class="form-group">
+                  <label for="no_hp">Nomor HP</label>
+                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Nomor HP">
+                </div>
+                <div class="form-group">
+                  <label for="no_hp">Tanggal Check In</label>
+                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Tanggal Check In">
+                </div>
+                <!-- Date -->
               <div class="form-group">
-                <label>DateCheck In:</label>
+                <label>Tanggal Check Out</label>
 
                 <div class="input-group date">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input name="tglIn" type="text" class="form-control pull-right" id="datepicker">
+                  <input type="text" class="form-control pull-right" id="datepicker">
                 </div>
+                <!-- /.input group -->
               </div>
               <!-- /.form group -->
-          </div>
-
-          <div class="col-md-4">
-              <!-- Date -->
               <div class="form-group">
-                <label>Date Check Out:</label>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input name="tglOut" type="text" class="form-control pull-right" id="datepicker1">
-                </div>
+                  <label for="no_hp">Total Malam</label>
+                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Total Malam">
               </div>
-              <!-- /.form group -->
-          </div>
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-12">
-          <h2 align="center"><span class="label label-info"> Tipe Kamar Tersedia : </span></h2>
-           </div>
-           <?php foreach($available as $a){ ?>
-           <!-- KAMAR 1 -->
-          <div class="col-md-2">
-              <div class="media">
-                                <div class="media-left">
-                                    <a href="javascript:void(0);">
-                                        <img class="media-object" src="<?php echo base_url()?>assets/images/<?php echo $a->nama_kamar; ?>.png" width="40" height="40">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><?php echo $a->nama_kamar; ?></h4><a href="#"> Detail...</a>
-                                </div>
-                            </div>
-                            <input type="hidden" value="<?php echo $a->nama_kamar; ?>" name="tipe_kamar"/>
-                            <input type="hidden" value="<?php echo $a->harga_kamar_weekend; ?>" name="harga_kamar"/>
-                            <input type="hidden" name="status" value="Lunas">
-          </div>
+              <div class="form-group">
+              <h3 class="box-title">Data Pemesanan Kamar</h3>
+              </div>
+              <div class="form-group col-md-2">
+                  <label for="no_hp">Nomor Kamar</label>
+                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Nomor Kamar">
+              </div>
+              <div class="form-group col-md-2">
+                  <label for="no_hp">Harga Kamar</label>
+                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Harga Kamar">
+              </div>
+              <div class="form-group col-md-2">
+                  <label for="no_hp">Extra Bed</label>
+                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Extra Bed">
+              </div>
+              <div class="form-group col-md-2">
+                  <label for="no_hp">Restaurant</label>
+                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Restaurant">
+              </div>
+              <div class="form-group col-md-2">
+                  <label for="no_hp">Lain-lain</label>
+                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Lain-lain">
+              </div>
+              <div class="form-group col-md-2">
+                  <label for="no_hp">Subtotal</label>
+                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Subtotal">
+              </div>
+              <div class="col-md-7">
+              </div>
+              <div class="form-group form-horizontal">
+                  <label for="total" class="col-md-2 control-label">Total</label>
 
-          <div class="col-md-1">
-              <input name="kamar" id="kamar" type="number" class="form-control pull-right">
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          
-          <!-- TUTUP KAMAR 1 -->
+                  <div class="col-md-3">
+                    <input type="text" class="form-control" id="total" placeholder="Total">
+                  </div>
+              </div>
+              <div class="col-md-7">
+              </div>
+              <div class="form-group form-horizontal">
+                  <label for="paid" class="col-md-2 control-label">Paid</label>
 
-          <div class="col-md-12">
-          </div>
-         <?php } ?>
+                  <div class="col-md-3">
+                    <input type="text" class="form-control" id="paid" placeholder="Paid">
+                  </div>
+              </div>
+              <div class="col-md-7">
+              </div>
+              <div class="form-group form-horizontal">
+                  <label for="total_due" class="col-md-2 control-label">Total Due</label>
 
-          <div class="col-md-2" style="float:right;">
-              <button type="submit" class="btn btn-block btn-info">Kirim</button>
+                  <div class="col-md-3">
+                    <input type="text" class="form-control" id="total_due" placeholder="Total Due">
+                  </div>
+              </div>
+              <div class="box-footer " style="float:right;">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+              </div>
+            <!-- /.box-body -->
           </div>
-      </div>
-      <!-- /.box-body -->
-    </div>
+          </form>
+          <!-- /.box -->
     <!-- /.box -->
     </div>
-    </form>
-
-    <!-- iCheck -->
-          <div class="box box-success">
-            <div class="box-header">
-              <h3 class="box-title">Keterangan</h3>
-            </div>
-            <div class="box-body">
-              <!-- Minimal style -->
-
-              <!-- checkbox -->
-              <div class="form-group">
-                <div class="col-md-4">
-                    <h4 align="center"><span class="label label-danger"> Warna Merah untuk Status Terisi</span></h4>
-                </div>
-                <div class="col-md-4">
-                    <h4 align="center"><span class="label label-success"> Warna Hijau untuk Status Tersedia</span></h4>
-                </div>
-                <div class="col-md-4">
-                    <h4 align="center"><span class="label label-warning"> Warna Kuning untuk Status Booking</span></h4>
-                </div>
-              </div>
-          </div>
-          <!-- /.box -->
     </section>
-    
+   
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -992,6 +979,22 @@ function delete_pesanan(id)
             }
         });
 
+    }
+}
+
+function yesnoCheck() {
+    if (document.getElementById('optionsRadios1').checked) {
+        document.getElementById('debit').style.visibility = 'hidden';
+    } else {
+        document.getElementById('debit').style.visibility = 'visible';
+    }
+}
+
+function yesCheck() {
+    if (document.getElementById('optionsRadios2').checked) {
+        document.getElementById('debit').style.visibility = 'visible';
+    } else {
+        document.getElementById('debit').style.visibility = 'hidden';
     }
 }
 

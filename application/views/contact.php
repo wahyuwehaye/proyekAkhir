@@ -33,7 +33,7 @@
 <!--map start here-->
 <div class="map">
   <div class="container">
-	 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.007583421!2d-73.97800349999999!3d40.7056308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1415253431785"  frameborder="0" style="border:0"> </iframe>
+	 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.0044683441283!2d107.60209531424564!3d-6.890066995021248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65bebfc9499%3A0xddf69d37119dc5d2!2sCihampelas+hotel+2!5e0!3m2!1sid!2sid!4v1493945239350" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
  </div>
 </div>
 <!--map end here-->

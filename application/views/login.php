@@ -19,6 +19,7 @@
     <link href="<?php echo base_url()?>alert/css/plugins/morris.css" rel="stylesheet">
 
       <link rel="stylesheet" href="<?php echo base_url()?>uilogin/css/style.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>sweetalert/dist/sweetalert.css">
 
 
 </head>
@@ -127,6 +128,22 @@
     </form>
 </div> <!-- /form -->
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+  <!-- //session untuk menampilkan pesan error -->
+<?php
+    if (isset($_SESSION['error'])) {
+?>
+    <body onload='swal({title: "Login Gagal!",
+                        text: "Silakan coba lagi",
+                        // timer: 3000,
+                        type: "error",
+                        showConfirmButton: true });'>
+                        <!-- sweetAlert("Oops...", "Something went wrong!", "error"); -->
+<?php
+    unset($_SESSION['error']);
+    }
+?>
+<script src="<?php echo base_url()?>sweetalert/dist/sweetalert.min.js"></script>
 
     <script src="<?php echo base_url()?>uilogin/js/index.js"></script>
     <script src="<?php echo base_url()?>alert/js/jquery-1.11.0.js"></script>

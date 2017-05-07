@@ -14,19 +14,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/datatables/dataTables.bootstrap.css">
-  <!-- daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/daterangepicker/daterangepicker.css">
-  <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/datepicker/datepicker3.css">
-  <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/iCheck/all.css">
-  <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/colorpicker/bootstrap-colorpicker.min.css">
-  <!-- Bootstrap time Picker -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/timepicker/bootstrap-timepicker.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/select2/select2.min.css">
-  <!-- Theme style -->
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url()?>admin/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -313,6 +300,7 @@
     <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
+
         <div class="pull-left image">
           <img src="<?php echo base_url()?>admin/dist/img/avatar2.png" class="img-circle" alt="User Image">
         </div>
@@ -336,8 +324,8 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
 
-        <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-location-arrow"></i> <span> Reservasi Onsite</span></a></li>
-        <li><a href="<?php echo base_url()?>index.php/dashboard/databooking"><i class="fa fa-list-ol"></i> <span> Data Booking</span></a></li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-location-arrow"></i> <span> Reservasi Onsite</span></a></li>
+        <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/databooking"><i class="fa fa-list-ol"></i> <span> Data Booking</span></a></li>
         <li><a href="<?php echo base_url()?>index.php/dashboard/datacheckin"><i class="fa fa-list-alt"></i> <span> Data Check In</span></a></li>
         <li class="treeview">
           <a href="#">
@@ -365,7 +353,7 @@
             <li><a href="<?php echo base_url()?>index.php/dashboard/daftarsms"><i class="fa fa-th-list"></i> Lihat Daftar SMS Gateway</a></li>
           </ul>
         </li>
-        <li><a href="documentation/index.html"><i class="fa fa-file-image-o"></i> <span> Foto Bukti Pembayaran</span></a></li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/buktibayar"><i class="fa fa-file-image-o"></i> <span> Foto Bukti Pembayaran</span></a></li>
 
       </ul>
     </section>
@@ -374,155 +362,99 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Reservasi Onsite
+        Data Booking Kamar
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Reservasi Onsite</li>
+        <li class="active">Data Booking Kamar</li>
       </ol>
     </section>
-    <div class="pad margin no-print">
-      <div class="callout callout-info" style="margin-bottom: 0!important;">
-        <h4><i class="fa fa-info"></i> Note:</h4>
-        Halaman ini untuk Pemesanan Kamar Onsite
-      </div>
-    </div>
+
+    <!-- Main content -->
     <section class="content">
-    <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/dataonsite">
-    <div class="box">
-    <div class="box box-primary">
-      <div class="box-header">
-        <h3 class="box-title">Pilihan Kamar Tersedia</h3>
-      </div>
-      <div class="box-body">
-          <div class="col-md-3">
-              <h2><span class="label label-info"> Pilih Tanggal : </span></h2>
-          </div>
 
-          <div class="col-md-4">
-              <!-- Date -->
-              <div class="form-group">
-                <label>DateCheck In:</label>
 
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input name="tglIn" type="text" class="form-control pull-right" id="datepicker">
-                </div>
-              </div>
-              <!-- /.form group -->
-          </div>
-
-          <div class="col-md-4">
-              <!-- Date -->
-              <div class="form-group">
-                <label>Date Check Out:</label>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input name="tglOut" type="text" class="form-control pull-right" id="datepicker1">
-                </div>
-              </div>
-              <!-- /.form group -->
-          </div>
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-12">
-          <h2 align="center"><span class="label label-info"> Tipe Kamar Tersedia : </span></h2>
-           </div>
-           <?php foreach($available as $a){ ?>
-           <!-- KAMAR 1 -->
-          <div class="col-md-2">
-              <div class="media">
-                                <div class="media-left">
-                                    <a href="javascript:void(0);">
-                                        <img class="media-object" src="<?php echo base_url()?>assets/images/<?php echo $a->nama_kamar; ?>.png" width="40" height="40">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><?php echo $a->nama_kamar; ?></h4><a href="#"> Detail...</a>
-                                </div>
-                            </div>
-                            <input type="hidden" value="<?php echo $a->nama_kamar; ?>" name="tipe_kamar"/>
-                            <input type="hidden" value="<?php echo $a->harga_kamar_weekend; ?>" name="harga_kamar"/>
-                            <input type="hidden" name="status" value="Lunas">
-          </div>
-
-          <div class="col-md-1">
-              <input name="kamar" id="kamar" type="number" class="form-control pull-right">
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
-          
-          <!-- TUTUP KAMAR 1 -->
-
-          <div class="col-md-12">
-          </div>
-         <?php } ?>
-
-          <div class="col-md-2" style="float:right;">
-              <button type="submit" class="btn btn-block btn-info">Kirim</button>
-          </div>
-      </div>
-      <!-- /.box-body -->
-    </div>
-    <!-- /.box -->
-    </div>
-    </form>
-
-    <!-- iCheck -->
-          <div class="box box-success">
-            <div class="box-header">
-              <h3 class="box-title">Keterangan</h3>
-            </div>
+          <div class="box">
+              <!-- <div class="box-header">
+              <button class="btn btn-xs btn-success" onclick="add_pesanan()"><i class="glyphicon glyphicon-plus"></i></button>
+              <button class="btn btn-xs btn-warning" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i></button>
+          </div> -->
+            <!-- /.box-header -->
             <div class="box-body">
-              <!-- Minimal style -->
-
-              <!-- checkbox -->
-              <div class="form-group">
-                <div class="col-md-4">
-                    <h4 align="center"><span class="label label-danger"> Warna Merah untuk Status Terisi</span></h4>
-                </div>
-                <div class="col-md-4">
-                    <h4 align="center"><span class="label label-success"> Warna Hijau untuk Status Tersedia</span></h4>
-                </div>
-                <div class="col-md-4">
-                    <h4 align="center"><span class="label label-warning"> Warna Kuning untuk Status Booking</span></h4>
-                </div>
+              <table id="table" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Data Input</th>
+                  <th>Nama</th>
+                  <th>Tipe Kamar</th>
+                  <th>Nomor HP</th>
+                  <th>Alamat</th>
+                  <th>Check In</th>
+                  <th>Check Out</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>PSP</td>
+                  <td>-</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td><a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="#"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+          </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>U</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td><a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="#"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+          </td>
+                </tr> -->
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th>No</th>
+                    <th>Data Input</th>
+                    <th>Nama</th>
+                    <th>Tipe Kamar</th>
+                    <th>Nomor HP</th>
+                    <th>Alamat</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+                </tfoot>
+              </table>
+              <div class="col-md-4 swimming-grid">
+                  <button type="button" class="btn btn-success">Kirim</button>
               </div>
+            </div>
+            <!-- /.box-body -->
           </div>
           <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
     </section>
-    
+    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -736,21 +668,6 @@
 <!-- DataTables -->
 <script src="<?php echo base_url()?>admin/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url()?>admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url()?>admin/plugins/select2/select2.full.min.js"></script>
-<!-- InputMask -->
-<script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.js"></script>
-<script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-<!-- date-range-picker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="<?php echo base_url()?>admin/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- bootstrap datepicker -->
-<script src="<?php echo base_url()?>admin/plugins/datepicker/bootstrap-datepicker.js"></script>
-<!-- bootstrap color picker -->
-<script src="<?php echo base_url()?>admin/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
-<!-- bootstrap time picker -->
-<script src="<?php echo base_url()?>admin/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url()?>admin/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -804,75 +721,6 @@ $(document).ready(function() {
 
     });
 
-    //Initialize Select2 Elements
-    $(".select2").select2();
-
-    //Datemask dd/mm/yyyy
-    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-    //Datemask2 mm/dd/yyyy
-    $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
-    //Money Euro
-    $("[data-mask]").inputmask();
-
-    //Date range picker
-    $('#reservation').daterangepicker();
-    //Date range picker with time picker
-    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
-    //Date range as a button
-    $('#daterange-btn').daterangepicker(
-        {
-          ranges: {
-            'Today': [moment(), moment()],
-            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
-            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-          },
-          startDate: moment().subtract(29, 'days'),
-          endDate: moment()
-        },
-        function (start, end) {
-          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        }
-    );
-
-    //Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    });
-
-    //Date picker
-    $('#datepicker1').datepicker({
-      autoclose: true
-    });
-
-    //iCheck for checkbox and radio inputs
-    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-      checkboxClass: 'icheckbox_minimal-blue',
-      radioClass: 'iradio_minimal-blue'
-    });
-    //Red color scheme for iCheck
-    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-      checkboxClass: 'icheckbox_minimal-red',
-      radioClass: 'iradio_minimal-red'
-    });
-    //Flat red color scheme for iCheck
-    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-      checkboxClass: 'icheckbox_flat-green',
-      radioClass: 'iradio_flat-green'
-    });
-
-    //Colorpicker
-    $(".my-colorpicker1").colorpicker();
-    //color picker with addon
-    $(".my-colorpicker2").colorpicker();
-
-    //Timepicker
-    $(".timepicker").timepicker({
-      showInputs: false
-    });
-
 
 });
 
@@ -906,7 +754,7 @@ function edit_pesanan(id)
             $('[name="tgl_input"]').val(data.tgl_input);
             $('[name="nama_tamu"]').val(data.nama_tamu);
             $('[name="alamat_tamu"]').val(data.alamat_tamu);
-            $('[name="no_hp"]').val(data.np_hp);
+            $('[name="no_hp"]').val(data.no_hp);
             $('[name="tgl_masuk"]').val(data.tgl_masuk);
             $('[name="tgl_keluar"]').val(data.tgl_keluar);
             $('[name="tipe_kamar"]').val(data.tipe_kamar);
@@ -923,6 +771,44 @@ function edit_pesanan(id)
         }
     });
 }
+
+function detail_pesanan(id)
+{
+    save_method = 'detail';
+    $('#form1')[0].reset(); // reset form on modals
+    $('.form-group').removeClass('has-error'); // clear error class
+    $('.help-block').empty(); // clear error string
+
+    //Ajax Load data from ajax
+    $.ajax({
+        url : "<?php echo site_url('Masterdatapesanan/ajax_detail/')?>/" + id,
+        type: "GET",
+        dataType: "JSON",
+        success: function(data)
+        {
+            $('[name="id_tamu"]').val(data.id_tamu);
+            $('[name="tgl_input"]').val(data.tgl_input);
+            $('[name="nama_tamu"]').val(data.nama_tamu);
+            $('[name="alamat_tamu"]').val(data.alamat_tamu);
+            $('[name="no_hp"]').val(data.no_hp);
+            $('[name="tgl_masuk"]').val(data.tgl_masuk);
+            $('[name="tgl_keluar"]').val(data.tgl_keluar);
+            $('[name="tipe_kamar"]').val(data.tipe_kamar);
+            $('[name="harga_kamar"]').val(data.harga_kamar);
+            $('[name="jumlah_kamar"]').val(data.jumlah_kamar);
+            $('[name="status"]').val(data.status);
+            $('#modal_form1').modal('show'); // show bootstrap modal when complete loaded
+            $('.modal-title').text('Detail Pesanan'); // Set title to Bootstrap modal title
+
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            alert('Error get data from ajax');
+        }
+    });
+}
+
+
 
 function reload_table()
 {
@@ -997,9 +883,102 @@ function delete_pesanan(id)
 
 </script>
 <!-- <div></div> -->
+<!-- Detail  Pesanan Modal-->
+<div class="modal fade" id="modal_form1" role="dialog">
+    <div class="modal-dialog modal-success">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">Form Kelola Kamar</h3>
+            </div>
+            <div class="modal-body form1">
+                <form action="#" id="form1" class="form-horizontal">
+                    <input type="hidden" value="" name="id_tamu"/>
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Tanggal Masuk</label>
+                            <div class="col-md-9">
+                                <input disabled name="tgl_input" required="" placeholder="Tanggal Masuk" class="form-control" type="date">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Nama Tamu</label>
+                            <div class="col-md-9">
+                                <input disabled name="nama_tamu" placeholder="Nama Tamu" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Alamat Tamu</label>
+                            <div class="col-md-9">
+                                <input disabled name="alamat_tamu" placeholder="Alamat Tamu" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Nomor HP</label>
+                            <div class="col-md-9">
+                                <input disabled name="no_hp" placeholder="Nomor HP" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Tanggal Masuk</label>
+                            <div class="col-md-9">
+                                <input disabled name="tgl_masuk" placeholder="Tanggal Masuk" class="form-control" type="date">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Tanggal Keluar</label>
+                            <div class="col-md-9">
+                                <input disabled name="tgl_keluar" placeholder="Tanggal Keluar" class="form-control" type="date">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Tipe Kamar</label>
+                            <div class="col-md-9">
+                                <input disabled name="tipe_kamar" placeholder="Tipe Kamar" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Harga Kamar </label>
+                            <div class="col-md-9">
+                                <input disabled name="harga_kamar" placeholder="Harga Kamar " class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Jumlah Kamar</label>
+                            <div class="col-md-9">
+                                <input disabled name="jumlah_kamar" placeholder="Jumlah Kamar" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Status</label>
+                            <div class="col-md-9">
+                                <input disabled name="status" placeholder="Status" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 <!-- Bootstrap modal -->
 <div class="modal fade" id="modal_form" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-info">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
