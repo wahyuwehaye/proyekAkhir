@@ -1,3 +1,48 @@
+<?php
+    $CI =& get_instance();
+    $CI->load->model('m_dashboard');
+    $CI->load->model('m_pesanan');  
+
+$harganya = 0;
+$date = date('Y-m-d');
+$timestamp = strtotime($date);
+$weekday= date("l", $timestamp );
+$normalized_weekday = strtolower($weekday);
+// echo $normalized_weekday ;
+if (($normalized_weekday == "saturday") || ($normalized_weekday == "sunday")) {
+    $harganya = $harga_kamar_weekend;
+} else {
+    $harganya = $harga_kamar_weekday;
+}
+
+$start_date = new DateTime($tglIn);
+$end_date = new DateTime($tglOut);
+$interval = $start_date->diff($end_date);
+// echo "$interval->days hari "; // hasil : 217 hari
+$jumlahmalamnya = $interval->days;
+// echo $jumlahmalamnya;
+
+$total = ($harganya * $jumlahmalamnya)*$kamar;
+// echo $total;
+
+$gettipekamar = $CI->db->query('select id_tipe_kamar from tipe_kamar where nama_kamar="'.$nama_kamar.'"');
+// $tipekamar = $gettipekamar->result_array();
+foreach ($gettipekamar->result() as $row){
+    $dapetid = $row->id_tipe_kamar;
+    break;
+}
+
+$getnomorkamar =$CI->db->query('select nomor_kamar from kamar where id_tipe_kamar='.$dapetid.' and status = "kosong"');
+// $nomorkamar=$getnomorkamar->result_array();
+foreach ($getnomorkamar->result() as $row){
+    $dapetnomor = $row->nomor_kamar;
+    break;
+}
+
+ // echo $dapetnomor;
+
+?>
+
 <!--features strat here-->
 <div class="features">
 	<div class="container">
@@ -10,7 +55,7 @@
 						<li>Tanggal Check Out <a href="#"><?php echo $tglOut; ?></a></li>
 						<li>Jumlah Kamar <a href="#"><?php echo $kamar; ?></a></li>
 						<li>Tipe Kamar <a href="#"><?php echo $nama_kamar; ?></a></li>
-                        <li>Harga Kamar <a href="#"><?php echo $harga_kamar_weekend; ?></a></li>
+                        <li>Harga Kamar <a href="#"><?php echo $harganya; ?></a></li>
 					</ul>
 				</div>
 			</div>
@@ -25,7 +70,7 @@
 
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
-                    	<form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/insertBook">
+                    	<form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/insertBooking">
 
                     		<h3>Pemesanan Hotel Cihampelas 2</h3>
                     		<div class="f1-steps">
@@ -53,19 +98,19 @@
                     		<fieldset>
                     		    <h4>Rincian Data Pemesanan</h4>
                     			<div class="form-group">
-                    			    <label class="sr-only" for="f1-first-name">Nama Lengkap</label>
-                                    <input type="text" name="nama_tamu" placeholder="Nama Lengkap" value="<?php echo $row['nama'];?>" class="f1-first-name form-control" id="nama_tamu">
+                    			    <label for="f1-first-name">Nama Lengkap</label>
+                                    <input type="text" name="nama" placeholder="Nama Lengkap" value="<?php echo $row['nama'];?>" class="f1-first-name form-control" id="nama">
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only" for="f1-last-name">Alamat</label>
-                                    <input type="text" name="alamat_tamu" placeholder="Alamat" value="<?php echo $row['alamat'];?>" class="f1-last-name form-control" id="alamat_tamu">
+                                    <label for="f1-last-name">Alamat</label>
+                                    <input type="text" name="alamat" placeholder="Alamat" value="<?php echo $row['alamat'];?>" class="f1-last-name form-control" id="alamat">
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only" for="f1-about-yourself">ID Identitas</label>
+                                    <label for="f1-about-yourself">ID Identitas</label>
                                     <input type="text" name="id_user" placeholder="ID Identitas" value="<?php echo $row['id_user'];?>" class="f1-last-name form-control" id="id_user">
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only" for="f1-about-yourself">Nomor Telepon</label>
+                                    <label for="f1-about-yourself">Nomor Telepon</label>
                                     <input type="text" name="no_hp" placeholder="Nomor Telepon" value="<?php echo $row['phone'];?>" class="f1-last-name form-control" id="no_hp">
                                 </div>
                                 <div class="f1-buttons">
@@ -76,19 +121,38 @@
                             <fieldset>
                                 <h4>Metode Pembayaran</h4>
                                 <div class="form-group">
-                    			    <label class="sr-only" for="f1-first-name">DP</label>
-                                    <input type="text" name="dp" placeholder="DP" class="f1-first-name form-control" id="dp">
+                    			    <label for="f1-first-name">DP</label>
+                                    <input type="text" name="dp" id="dp" placeholder="DP" class="f1-first-name form-control" id="dp">
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only" for="f1-last-name">Total Bayar</label>
-                                    <input type="text" name="total" placeholder="Total Bayar" value="<?php echo $harga_kamar_weekend; ?>" class="f1-last-name form-control" id="total">
+                                    <label for="f1-last-name">Harga Per Malam</label>
+                                    <input type="text" name="harga" placeholder="Harga Per Malam" value="<?php echo $harganya; ?>" class="f1-last-name form-control" id="harga">
+                                </div>
+                                <div class="form-group">
+                                    <label for="f1-last-name">Total Bayar</label>
+                                    <input type="text" name="total" placeholder="Total Bayar" value="<?php echo $total; ?>" class="f1-last-name form-control" id="harga">
                                 </div>
                                 <h4>Transfer dapat dilakukan melalui Bank berikut :</h4>
-                                <input type="radio" name="bayar" value="BCA"/>BCA<br/>
-                                <input type="radio" name="bayar" value="BRI"/>BRI<br/>
-                                <input type="radio" name="bayar" value="BNI"/>BNI<br/>
-                                <input type="radio" name="bayar" value="Mandiri"/>Mandiri<br/>
-                                <br/>
+                                <input type="radio" onclick="javascript:yesCheck1();" name="bayar" id="bayar1" value="BCA"/> BCA
+                                <div id="debit1" style="visibility:hidden" class="form-group">
+                                  <label for="debit">Silakan Transfer Ke Nomor Rekening BCA 1234567890 an Ajeng Puspitasari</label>
+                                  <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening BCA">
+                                </div>
+                                <input type="radio" onclick="javascript:yesCheck2();" name="bayar" id="bayar2" value="BRI"/> BRI
+                                <div id="debit2" style="visibility:hidden" class="form-group">
+                                  <label for="debit">Silakan Transfer Ke Nomor Rekening BRI 1234567890 an Ajeng Puspitasari</label>
+                                  <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening BRI">
+                                </div>
+                                <input type="radio" onclick="javascript:yesCheck3();" name="bayar" id="bayar3" value="BNI"/> BNI
+                                <div id="debit3" style="visibility:hidden" class="form-group">
+                                  <label for="debit">Silakan Transfer Ke Nomor Rekening BNI 1234567890 an Ajeng Puspitasari</label>
+                                  <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening BNI">
+                                </div>
+                                <input type="radio" onclick="javascript:yesCheck4();" name="bayar" id="bayar4" value="Mandiri"/> Mandiri
+                                <div id="debit4" style="visibility:hidden" class="form-group">
+                                  <label for="debit">Silakan Transfer Ke Nomor Rekening Mandiri 1234567890 an Ajeng Puspitasari</label>
+                                  <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening Mandiri">
+                                </div>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>
                                     <button type="button" class="btn btn-next">Next</button>
@@ -120,13 +184,17 @@
 									<input type="hidden" name="tgl_masuk" value="<?php echo date('Y-m-d', strtotime($tglIn)); ?>">
 									<input type="hidden" name="tgl_keluar" value="<?php echo date('Y-m-d', strtotime($tglOut)); ?>">
 									<input type="hidden" name="jumlah_kamar" value="<?php echo $kamar; ?>">
+                                    <input type="hidden" name="jumlah_malam" value="<?php echo $jumlahmalamnya; ?>">
 									<input type="hidden" name="tipe_kamar" value="<?php echo $nama_kamar; ?>">
-									<input type="hidden" name="harga_kamar" value="<?php echo $harga_kamar_weekend; ?>">
+									<input type="hidden" name="harga" value="<?php echo $harganya; ?>">
+                                    <input type="hidden" name="nomor_kamar" value="<?php echo $dapetnomor; ?>">
 									<input type="hidden" name="status" value="Booking">
+                                    <input type="hidden" name="no_kartu" value="">
+                                    <input type="hidden" name="ket" value=" DP">
                                     <h5>Tanggal Keluar : <?php echo $tglOut; ?></h5>
                                     <h5>Jumlah Kamar : <?php echo $kamar; ?></h5>
                                     <h5>Tipe Kamar : <?php echo $nama_kamar; ?></h5>
-                                    <h5>Harga Total : <?php echo $harga_kamar_weekend; ?></h5>
+                                    <h5>Harga Total : <?php echo $harganya; ?></h5>
                                     <button type="button" class="btn btn-previous">Previous</button>
                                     <button type="submit" class="btn btn-submit">Submit</button>
                                 </div>
@@ -138,3 +206,58 @@
 
             </div>
         </div>
+<script type="text/javascript">
+
+function yesCheck1() {
+    if (document.getElementById('bayar1').checked) {
+        document.getElementById('debit1').style.visibility = 'visible';
+        document.getElementById('debit2').style.visibility = 'hidden';
+        document.getElementById('debit3').style.visibility = 'hidden';
+        document.getElementById('debit4').style.visibility = 'hidden';
+    } else {
+        document.getElementById('debit2').style.visibility = 'hidden';
+        document.getElementById('debit3').style.visibility = 'hidden';
+        document.getElementById('debit4').style.visibility = 'hidden';
+    }
+}
+
+function yesCheck2() {
+    if (document.getElementById('bayar2').checked) {
+        document.getElementById('debit2').style.visibility = 'visible';
+        document.getElementById('debit1').style.visibility = 'hidden';
+        document.getElementById('debit3').style.visibility = 'hidden';
+        document.getElementById('debit4').style.visibility = 'hidden';
+    } else {
+        document.getElementById('debit1').style.visibility = 'hidden';
+        document.getElementById('debit3').style.visibility = 'hidden';
+        document.getElementById('debit4').style.visibility = 'hidden';
+    }
+}
+
+function yesCheck3() {
+    if (document.getElementById('bayar3').checked) {
+        document.getElementById('debit3').style.visibility = 'visible';
+        document.getElementById('debit1').style.visibility = 'hidden';
+        document.getElementById('debit2').style.visibility = 'hidden';
+        document.getElementById('debit4').style.visibility = 'hidden';
+    } else {
+        document.getElementById('debit1').style.visibility = 'hidden';
+        document.getElementById('debit2').style.visibility = 'hidden';
+        document.getElementById('debit4').style.visibility = 'hidden';
+    }
+}
+
+function yesCheck4() {
+    if (document.getElementById('bayar4').checked) {
+        document.getElementById('debit4').style.visibility = 'visible';
+        document.getElementById('debit1').style.visibility = 'hidden';
+        document.getElementById('debit2').style.visibility = 'hidden';
+        document.getElementById('debit3').style.visibility = 'hidden';
+    } else {
+        document.getElementById('debit1').style.visibility = 'hidden';
+        document.getElementById('debit2').style.visibility = 'hidden';
+        document.getElementById('debit3').style.visibility = 'hidden';
+    }
+}
+
+</script>

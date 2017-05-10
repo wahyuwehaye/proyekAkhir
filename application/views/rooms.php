@@ -173,6 +173,7 @@
 					  		<h5>Detail Harga</h5>
 					  		<p>Weekday : Rp. <?php echo $a->harga_kamar_weekday; ?> <br>
 					  		   Weekend : Rp. <?php echo $a->harga_kamar_weekend; ?> </p>
+							   <input type="hidden" value="<?php echo $a->harga_kamar_weekday; ?>" name="harga_kamar_weekday"/>
 							   <input type="hidden" value="<?php echo $a->harga_kamar_weekend; ?>" name="harga_kamar_weekend"/>
 					  	</div>
 					  	 <div class="clearfix"> </div>

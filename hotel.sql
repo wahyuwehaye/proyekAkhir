@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2017 at 01:54 AM
+-- Generation Time: May 10, 2017 at 07:45 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -28,14 +28,41 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `booking` (
   `id_booking` int(5) NOT NULL,
+  `tgl_input` date NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `tipe_kamar` varchar(100) NOT NULL,
+  `no_hp` varchar(12) NOT NULL,
+  `alamat` text NOT NULL,
   `tgl_masuk` date NOT NULL,
   `tgl_keluar` date NOT NULL,
   `jumlah_kamar` int(10) NOT NULL,
+  `jumlah_malam` int(5) NOT NULL,
+  `nomor_kamar` int(5) NOT NULL,
+  `harga` int(15) NOT NULL,
   `dp` int(15) NOT NULL,
   `total` int(20) NOT NULL,
-  `metode_bayar` varchar(25) NOT NULL,
+  `metode_bayar` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `no_kartu` varchar(100) NOT NULL,
+  `ket` text NOT NULL,
   `id_user` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`id_booking`, `tgl_input`, `nama`, `tipe_kamar`, `no_hp`, `alamat`, `tgl_masuk`, `tgl_keluar`, `jumlah_kamar`, `jumlah_malam`, `nomor_kamar`, `harga`, `dp`, `total`, `metode_bayar`, `status`, `no_kartu`, `ket`, `id_user`) VALUES
+(4, '2017-05-10', 'ngubaid', 'Standard', '08131212121', 'kebumen', '2017-05-11', '2017-05-12', 2, 1, 0, 250000, 250000, 500000, 'Booking Transfer Ke Nomor', 'Check In', '', ' DP', 0),
+(5, '2017-05-10', 'ngubaid', 'Family Triple', '08131212121', 'kebumen', '2017-05-18', '2017-05-20', 4, 2, 0, 400000, 1500000, 3200000, 'Booking Transfer Ke Nomor Rekening Mandiri', 'Booking', '', ' DP', 0),
+(6, '2017-05-10', 'ngubaid', 'Family Triple', '08131212121', 'kebumen', '2017-05-25', '2017-05-27', 3, 2, 501, 400000, 1500000, 2400000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', ' DP', 0),
+(7, '2017-05-10', 'ngubaid', 'Family Suite', '08131212121', 'kebumen', '2017-05-25', '2017-05-27', 3, 2, 601, 450000, 1500000, 2700000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', ' DP', 0),
+(8, '2017-05-10', 'ngubaid', 'Standard', '08131212121', 'kebumen', '2017-05-24', '2017-05-26', 1, 2, 101, 250000, 250000, 500000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', ' DP', 0),
+(9, '2017-05-10', 'ngubaid', 'Standard', '08131212121', 'kebumen', '2017-05-24', '2017-05-26', 1, 2, 101, 250000, 250000, 500000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', ' DP', 0),
+(10, '2017-05-10', 'ngubaid', 'Standard', '08131212121', 'kebumen', '2017-05-24', '2017-05-26', 1, 2, 101, 250000, 250000, 500000, 'Transfer Ke Nomor Rekening Mandiri', 'Check In', '', ' DP', 0),
+(11, '2017-05-10', 'ngubaid', 'Standard', '08131212121', 'kebumen', '2017-05-31', '2017-06-02', 2, 2, 102, 250000, 1500000, 1500000, 'Transfer Ke Nomor Rekening Mandiri', 'Check In', '', ' DP', 0),
+(12, '2017-05-10', 'ngubaid', 'Standard', '08131212121', 'kebumen', '2017-05-04', '2017-05-06', 3, 2, 103, 250000, 1500000, 1500000, 'Transfer Ke Nomor Rekening Mandiri', 'Check Out', '', 'Lunas', 0),
+(13, '2017-05-10', 'ajeng', 'Deluxe', '081312777381', 'bandung', '2017-05-11', '2017-05-13', 2, 2, 201, 249000, 500000, 996000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', 'DP', 0);
 
 -- --------------------------------------------------------
 
@@ -67,10 +94,14 @@ CREATE TABLE `checkin_out` (
   `id_check` int(5) NOT NULL,
   `tgl_check` date NOT NULL,
   `no_transaksi` int(10) NOT NULL,
+  `total_malam` int(5) NOT NULL,
   `restaurant` varchar(100) NOT NULL,
   `extra_bed` int(5) NOT NULL,
   `lain2` varchar(100) NOT NULL,
+  `subtotal` int(20) NOT NULL,
   `total` int(20) NOT NULL,
+  `paid` int(20) NOT NULL,
+  `total_due` int(20) NOT NULL,
   `status` varchar(25) NOT NULL,
   `id_booking` int(5) NOT NULL,
   `id_user` int(5) NOT NULL
@@ -166,12 +197,68 @@ INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
 --
 
 CREATE TABLE `kamar` (
-  `no_kamar` int(5) NOT NULL,
+  `id_kamar` int(5) NOT NULL,
+  `nomor_kamar` int(5) NOT NULL,
   `id_fasilitas` int(5) NOT NULL,
   `id_tipe_kamar` int(5) NOT NULL,
-  `jumlah_kamar` int(5) NOT NULL,
+  `status` varchar(20) NOT NULL,
   `id_booking` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kamar`
+--
+
+INSERT INTO `kamar` (`id_kamar`, `nomor_kamar`, `id_fasilitas`, `id_tipe_kamar`, `status`, `id_booking`) VALUES
+(27, 101, 0, 1, 'Booking', 0),
+(28, 102, 0, 1, 'Booking', 0),
+(29, 103, 0, 1, 'Booking', 0),
+(30, 104, 0, 1, 'kosong', 0),
+(31, 105, 0, 1, 'kosong', 0),
+(32, 106, 0, 1, 'kosong', 0),
+(33, 107, 0, 1, 'kosong', 0),
+(34, 201, 0, 2, 'Booking', 0),
+(35, 202, 0, 2, 'kosong', 0),
+(36, 203, 0, 2, 'kosong', 0),
+(37, 204, 0, 2, 'kosong', 0),
+(38, 205, 0, 2, 'kosong', 0),
+(39, 206, 0, 2, 'kosong', 0),
+(40, 207, 0, 2, 'kosong', 0),
+(41, 208, 0, 2, 'kosong', 0),
+(42, 209, 0, 2, 'kosong', 0),
+(43, 210, 0, 2, 'kosong', 0),
+(44, 211, 0, 2, 'kosong', 0),
+(45, 212, 0, 2, 'kosong', 0),
+(46, 213, 0, 2, 'kosong', 0),
+(47, 214, 0, 2, 'kosong', 0),
+(48, 215, 0, 2, 'kosong', 0),
+(49, 216, 0, 2, 'kosong', 0),
+(50, 217, 0, 2, 'kosong', 0),
+(51, 218, 0, 2, 'kosong', 0),
+(52, 219, 0, 2, 'kosong', 0),
+(53, 220, 0, 2, 'kosong', 0),
+(54, 221, 0, 2, 'kosong', 0),
+(55, 222, 0, 2, 'kosong', 0),
+(56, 223, 0, 2, 'kosong', 0),
+(57, 224, 0, 2, 'kosong', 0),
+(58, 225, 0, 2, 'kosong', 0),
+(59, 226, 0, 2, 'kosong', 0),
+(60, 227, 0, 2, 'kosong', 0),
+(61, 228, 0, 2, 'kosong', 0),
+(62, 229, 0, 2, 'kosong', 0),
+(63, 230, 0, 2, 'kosong', 0),
+(64, 231, 0, 2, 'kosong', 0),
+(65, 301, 0, 3, 'kosong', 0),
+(66, 302, 0, 3, 'kosong', 0),
+(67, 303, 0, 3, 'kosong', 0),
+(68, 304, 0, 3, 'kosong', 0),
+(69, 401, 0, 4, 'kosong', 0),
+(70, 402, 0, 4, 'kosong', 0),
+(71, 501, 0, 5, 'kosong', 0),
+(72, 502, 0, 5, 'kosong', 0),
+(73, 503, 0, 5, 'kosong', 0),
+(74, 601, 0, 6, '', 0),
+(75, 602, 0, 6, 'kosong', 0);
 
 -- --------------------------------------------------------
 
@@ -260,11 +347,12 @@ CREATE TABLE `tipe_kamar` (
 --
 
 INSERT INTO `tipe_kamar` (`id_tipe_kamar`, `nama_kamar`, `harga_kamar_weekday`, `harga_kamar_weekend`, `penjelasan`, `jumlah`) VALUES
-(1, 'Standard', 440000, 500000, 'butuh penjelasan ya?', 8),
-(2, 'Deluxe', 510000, 550000, 'apa aja tersedia disini', 8),
-(3, 'Superior', 540000, 560000, 'Kamar dengan luas 20 m2, termasuk dengan fasilitas AC, Air panas dan televisi.', 8),
-(4, 'Suite', 500000, 600000, 'kamar hanya untuk berdua sajah', 8),
-(5, 'Family', 600000, 800000, 'kamarnya luas banget dan pastinya bersih dan ngangenin', 8);
+(1, 'Standard', 250000, 440000, 'terdapat 2 jenis spring bed yaitu King dan twin. Jenis spring bed King  yaitu spring bed yang berukuran 1,8m x 2m. Jenis Spring Bed Twin yaitu spring bed  berukuran 0,9m x 2m.', 7),
+(2, 'Deluxe', 249000, 510000, 'terdapat 2 jenis spring bed yaitu King dan twin. Jenis spring bed King  yaitu spring bed yang berukuran 1,8m x 2m. Jenis Spring Bed Twin yaitu spring bed  berukuran 0,9m x 2m.', 31),
+(3, 'Superior', 330000, 540000, 'terdapat 2 jenis spring bed yaitu King dan twin. Jenis spring bed King  yaitu spring bed yang berukuran 1,8m x 2m. Jenis Spring Bed Twin yaitu spring bed  berukuran 0,9m x 2m.', 4),
+(4, 'Suite', 350000, 580000, 'terdapat 2 jenis spring bed yaitu King dan twin. Jenis spring bed King  yaitu spring bed yang berukuran 1,8m x 2m. Jenis Spring Bed Twin yaitu spring bed  berukuran 0,9m x 2m.', 2),
+(5, 'Family Triple', 400000, 640000, 'terdapat 2 jenis spring bed yaitu King dan twin. Jenis spring bed King  yaitu spring bed yang berukuran 1,8m x 2m. Jenis Spring Bed Twin yaitu spring bed  berukuran 0,9m x 2m.', 3),
+(6, 'Family Suite', 450000, 710000, 'terdapat 2 jenis spring bed yaitu King dan twin. Jenis spring bed King  yaitu spring bed yang berukuran 1,8m x 2m. Jenis Spring Bed Twin yaitu spring bed  berukuran 0,9m x 2m.', 2);
 
 -- --------------------------------------------------------
 
@@ -340,10 +428,10 @@ ALTER TABLE `jabatan`
 -- Indexes for table `kamar`
 --
 ALTER TABLE `kamar`
-  ADD PRIMARY KEY (`no_kamar`),
-  ADD KEY `id_booking` (`id_booking`),
+  ADD PRIMARY KEY (`id_kamar`),
   ADD KEY `tipe_kamar_fk` (`id_tipe_kamar`),
-  ADD KEY `fasilitas_foreign` (`id_fasilitas`);
+  ADD KEY `fasilitas_foreign` (`id_fasilitas`),
+  ADD KEY `id_booking` (`id_booking`);
 
 --
 -- Indexes for table `lapkamar`
@@ -384,7 +472,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id_booking` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_booking` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `buktibayar`
 --
@@ -414,7 +502,7 @@ ALTER TABLE `jabatan`
 -- AUTO_INCREMENT for table `kamar`
 --
 ALTER TABLE `kamar`
-  MODIFY `no_kamar` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kamar` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 --
 -- AUTO_INCREMENT for table `lapkamar`
 --
@@ -434,7 +522,7 @@ ALTER TABLE `pelanggan`
 -- AUTO_INCREMENT for table `tipe_kamar`
 --
 ALTER TABLE `tipe_kamar`
-  MODIFY `id_tipe_kamar` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_tipe_kamar` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `user`
 --
@@ -445,25 +533,10 @@ ALTER TABLE `user`
 --
 
 --
--- Constraints for table `booking`
---
-ALTER TABLE `booking`
-  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `pelanggan` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `checkin_out`
---
-ALTER TABLE `checkin_out`
-  ADD CONSTRAINT `checkin_out_ibfk_1` FOREIGN KEY (`id_booking`) REFERENCES `booking` (`id_booking`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `checkin_out_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `pegawai` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `kamar`
 --
 ALTER TABLE `kamar`
-  ADD CONSTRAINT `kamar_ibfk_1` FOREIGN KEY (`id_booking`) REFERENCES `booking` (`id_booking`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `kamar_ibfk_2` FOREIGN KEY (`id_tipe_kamar`) REFERENCES `tipe_kamar` (`id_tipe_kamar`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `kamar_ibfk_3` FOREIGN KEY (`id_fasilitas`) REFERENCES `fasilitas` (`id_fasilitas`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `kamar_ibfk_2` FOREIGN KEY (`id_tipe_kamar`) REFERENCES `tipe_kamar` (`id_tipe_kamar`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pegawai`

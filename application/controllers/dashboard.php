@@ -186,7 +186,8 @@ class Dashboard extends CI_Controller {
 		$data['tglOut'] = $this->input->post('tglOut');
 		$data['kamar'] = $this->input->post('kamar');
 		$data['tipe_kamar'] = $this->input->post('tipe_kamar');
-		$data['harga_kamar'] = $this->input->post('harga_kamar');
+		$data['harga_kamar_weekday'] = $this->input->post('harga_kamar_weekday');
+		$data['harga_kamar_weekend'] = $this->input->post('harga_kamar_weekend');
         $this->load->view('dataonsite',$data);
     }
 
@@ -200,6 +201,7 @@ class Dashboard extends CI_Controller {
 		$data['tglOut'] = $this->input->post('tglOut');
 		$data['kamar'] = $this->input->post('kamar');
 		$data['nama_kamar'] = $this->input->post('nama_kamar');
+		$data['harga_kamar_weekday'] = $this->input->post('harga_kamar_weekday');
 		$data['harga_kamar_weekend'] = $this->input->post('harga_kamar_weekend');
 		$data['tamu'] = $this->m_dashboard->tampil_dataTamu(($_SESSION['username']));
 		// $data['available'] = $this->m_dashboard->tampil_dataKamar()->result();
@@ -274,6 +276,55 @@ class Dashboard extends CI_Controller {
 	    // $this->m_dashboard->insertTamu($dataTamu, $dataPelanggan);
 		$this->m_dashboard->insertTamu($dataTamu);
 	    redirect('/Dashboard/detailonsite');
+		echo json_encode(array("status" => TRUE));
+		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
+	}
+
+	public function insertBooking(){
+		$this->load->database();
+	    $this->load->model('m_dashboard');
+	    $datakamar = array(
+	    	'nomor_kamar' => $this->input->post("nomor_kamar"),
+	    	);
+	    $dataupdate = array(
+	    	'status' => "Booking",
+	    	);
+	    $keterangan="";
+	    if (($this->input->post("dp"))===($this->input->post("total"))) {
+				$keterangan = "Lunas";
+			}else{
+				$keterangan = "DP";
+			}
+	    $dataTamu = array(
+			'tgl_input' => $this->input->post("tgl_input"),
+			'nama' => $this->input->post("nama"),
+			'alamat' => $this->input->post("alamat"),
+	        'no_hp' => $this->input->post("no_hp"),
+	        'tgl_masuk' => $this->input->post("tgl_masuk"),
+			'tgl_keluar' => $this->input->post("tgl_keluar"),
+			'tipe_kamar' => $this->input->post("tipe_kamar"),
+			'jumlah_kamar' => $this->input->post("jumlah_kamar"),
+			'jumlah_malam' => $this->input->post("jumlah_malam"),
+			'nomor_kamar' => $this->input->post("nomor_kamar"),
+			'harga' => $this->input->post("harga"),
+			'dp' => $this->input->post("dp"),
+			'total' => $this->input->post("total"),
+			'metode_bayar' => $this->input->post("metode_bayar"),
+			'status' => $this->input->post("status"),
+			'no_kartu' => $this->input->post("no_kartu"),
+			'ket' => $keterangan,
+			// $namakamar = $this->input->post("tipe_kamar");
+			// $tipekamar=$this->db->query('select id_tipe_kamar')
+			// $nomorkamar=$this->db->get_where('kamar',array('token'=>$token));
+			);
+		// $dataPelanggan = array(
+	 // 		'alamat' => $this->input->post('alamat'),
+	 // 		'phone' => $this->input->post('phone')
+	 	  //   );
+	    // $this->m_dashboard->insertTamu($dataTamu, $dataPelanggan);
+		$this->m_dashboard->insertTamu($dataTamu);
+		$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+	    redirect('/');
 		echo json_encode(array("status" => TRUE));
 		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
 	}

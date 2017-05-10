@@ -379,7 +379,7 @@
 
           <div class="box">
               <!-- <div class="box-header">
-              <button class="btn btn-xs btn-success" onclick="add_pesanan()"><i class="glyphicon glyphicon-plus"></i></button>
+              <button class="btn btn-xs btn-success" onclick="add_booking()"><i class="glyphicon glyphicon-plus"></i></button>
               <button class="btn btn-xs btn-warning" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i></button>
           </div> -->
             <!-- /.box-header -->
@@ -396,6 +396,8 @@
                   <th>Check In</th>
                   <th>Check Out</th>
                   <th>Status</th>
+                  <th>Nomor Kartu</th>
+                  <th>Keterangan</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
@@ -438,6 +440,8 @@
                     <th>Check In</th>
                     <th>Check Out</th>
                     <th>Status</th>
+                    <th>Nomor Kartu</th>
+                    <th>Keterangan</th>
                     <th>Aksi</th>
                 </tr>
                 </tfoot>
@@ -707,7 +711,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('masterdatapesanan/ajax_list')?>",
+            "url": "<?php echo site_url('Masterbooking/ajax_list')?>",
             "type": "POST"
         },
 
@@ -726,17 +730,17 @@ $(document).ready(function() {
 
 
 
-function add_pesanan()
+function add_booking()
 {
     save_method = 'add';
     $('#form')[0].reset(); // reset form on modals
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Pesanan'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Tambah booking'); // Set Title to Bootstrap modal title
 }
 
-function edit_pesanan(id)
+function edit_booking(id)
 {
     save_method = 'update';
     $('#form')[0].reset(); // reset form on modals
@@ -745,24 +749,29 @@ function edit_pesanan(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Masterdatapesanan/ajax_edit/')?>/" + id,
+        url : "<?php echo site_url('Masterbooking/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
-            $('[name="id_tamu"]').val(data.id_tamu);
+            $('[name="id_booking"]').val(data.id_booking);
             $('[name="tgl_input"]').val(data.tgl_input);
-            $('[name="nama_tamu"]').val(data.nama_tamu);
-            $('[name="alamat_tamu"]').val(data.alamat_tamu);
+            $('[name="nama"]').val(data.nama);
+            $('[name="alamat"]').val(data.alamat);
             $('[name="no_hp"]').val(data.no_hp);
             $('[name="tgl_masuk"]').val(data.tgl_masuk);
             $('[name="tgl_keluar"]').val(data.tgl_keluar);
             $('[name="tipe_kamar"]').val(data.tipe_kamar);
-            $('[name="harga_kamar"]').val(data.harga_kamar);
             $('[name="jumlah_kamar"]').val(data.jumlah_kamar);
+            $('[name="metode_bayar"]').val(data.metode_bayar);
+            $('[name="harga"]').val(data.harga);
+            $('[name="dp"]').val(data.dp);
+            $('[name="total"]').val(data.total);
+            $('[name="no_kartu"]').val(data.no_kartu);
             $('[name="status"]').val(data.status);
+            $('[name="ket"]').val(data.ket);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Pesanan'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Edit booking'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
@@ -772,7 +781,7 @@ function edit_pesanan(id)
     });
 }
 
-function detail_pesanan(id)
+function detail_booking(id)
 {
     save_method = 'detail';
     $('#form1')[0].reset(); // reset form on modals
@@ -781,24 +790,29 @@ function detail_pesanan(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Masterdatapesanan/ajax_detail/')?>/" + id,
+        url : "<?php echo site_url('Masterbooking/ajax_detail/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
-            $('[name="id_tamu"]').val(data.id_tamu);
+             $('[name="id_booking"]').val(data.id_booking);
             $('[name="tgl_input"]').val(data.tgl_input);
-            $('[name="nama_tamu"]').val(data.nama_tamu);
-            $('[name="alamat_tamu"]').val(data.alamat_tamu);
+            $('[name="nama"]').val(data.nama);
+            $('[name="alamat"]').val(data.alamat);
             $('[name="no_hp"]').val(data.no_hp);
             $('[name="tgl_masuk"]').val(data.tgl_masuk);
             $('[name="tgl_keluar"]').val(data.tgl_keluar);
             $('[name="tipe_kamar"]').val(data.tipe_kamar);
-            $('[name="harga_kamar"]').val(data.harga_kamar);
             $('[name="jumlah_kamar"]').val(data.jumlah_kamar);
+            $('[name="metode_bayar"]').val(data.metode_bayar);
+            $('[name="harga"]').val(data.harga);
+            $('[name="dp"]').val(data.dp);
+            $('[name="total"]').val(data.total);
+            $('[name="no_kartu"]').val(data.no_kartu);
             $('[name="status"]').val(data.status);
+            $('[name="ket"]').val(data.ket);
             $('#modal_form1').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Detail Pesanan'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Detail booking'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
@@ -822,9 +836,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('Masterdatapesanan/ajax_add')?>";
+        url = "<?php echo site_url('Masterbooking/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('Masterdatapesanan/ajax_update')?>";
+        url = "<?php echo site_url('Masterbooking/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -857,13 +871,13 @@ function save()
     });
 }
 
-function delete_pesanan(id)
+function delete_booking(id)
 {
     if(confirm('Are you sure delete this data?'))
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('Masterdatapesanan/ajax_delete')?>/"+id,
+            url : "<?php echo site_url('Masterbooking/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -883,7 +897,7 @@ function delete_pesanan(id)
 
 </script>
 <!-- <div></div> -->
-<!-- Detail  Pesanan Modal-->
+<!-- Detail  booking Modal-->
 <div class="modal fade" id="modal_form1" role="dialog">
     <div class="modal-dialog modal-success">
         <div class="modal-content">
@@ -893,7 +907,7 @@ function delete_pesanan(id)
             </div>
             <div class="modal-body form1">
                 <form action="#" id="form1" class="form-horizontal">
-                    <input type="hidden" value="" name="id_tamu"/>
+                    <input type="hidden" value="" name="id_booking"/>
                     <div class="form-body">
                         <div class="form-group">
                             <label class="control-label col-md-3">Tanggal Masuk</label>
@@ -905,14 +919,14 @@ function delete_pesanan(id)
                         <div class="form-group">
                             <label class="control-label col-md-3">Nama Tamu</label>
                             <div class="col-md-9">
-                                <input disabled name="nama_tamu" placeholder="Nama Tamu" class="form-control" type="text">
+                                <input disabled name="nama" placeholder="Nama Tamu" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Alamat Tamu</label>
                             <div class="col-md-9">
-                                <input disabled name="alamat_tamu" placeholder="Alamat Tamu" class="form-control" type="text">
+                                <input disabled name="alamat" placeholder="Alamat Tamu" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
@@ -945,16 +959,44 @@ function delete_pesanan(id)
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Harga Kamar </label>
+                            <label class="control-label col-md-3">Jumlah Kamar </label>
                             <div class="col-md-9">
-                                <input disabled name="harga_kamar" placeholder="Harga Kamar " class="form-control" type="text">
+                                <input disabled name="jumlah_kamar" placeholder="Jumlah Kamar " class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Jumlah Kamar</label>
+                            <label class="control-label col-md-3">Metode Bayar </label>
                             <div class="col-md-9">
-                                <input disabled name="jumlah_kamar" placeholder="Jumlah Kamar" class="form-control" type="text">
+                                <input disabled name="metode_bayar" placeholder="Metode Bayar " class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Harga Kamar </label>
+                            <div class="col-md-9">
+                                <input disabled name="harga" placeholder="Harga Kamar " class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">DP Kamar </label>
+                            <div class="col-md-9">
+                                <input disabled name="dp" placeholder="DP Kamar " class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Harga Total </label>
+                            <div class="col-md-9">
+                                <input disabled name="total" placeholder="Harga Total " class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Nomor Kartu </label>
+                            <div class="col-md-9">
+                                <input disabled name="no_kartu" placeholder="Nomor Kartu " class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
@@ -962,6 +1004,13 @@ function delete_pesanan(id)
                             <label class="control-label col-md-3">Status</label>
                             <div class="col-md-9">
                                 <input disabled name="status" placeholder="Status" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Keterangan Kamar </label>
+                            <div class="col-md-9">
+                                <input disabled name="ket" placeholder="Keterangan Kamar " class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
@@ -986,7 +1035,7 @@ function delete_pesanan(id)
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
-                    <input type="hidden" value="" name="id_tamu"/>
+                    <input type="hidden" value="" name="id_booking"/>
                     <div class="form-body">
                         <div class="form-group">
                             <label class="control-label col-md-3">Tanggal Masuk</label>
@@ -998,14 +1047,14 @@ function delete_pesanan(id)
                         <div class="form-group">
                             <label class="control-label col-md-3">Nama Tamu</label>
                             <div class="col-md-9">
-                                <input name="nama_tamu" placeholder="Nama Tamu" class="form-control" type="text">
+                                <input name="nama" placeholder="Nama Tamu" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Alamat Tamu</label>
                             <div class="col-md-9">
-                                <input name="alamat_tamu" placeholder="Alamat Tamu" class="form-control" type="text">
+                                <input name="alamat" placeholder="Alamat Tamu" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
@@ -1038,23 +1087,68 @@ function delete_pesanan(id)
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="control-label col-md-3">Jumlah Kamar </label>
+                            <div class="col-md-9">
+                                <input name="jumlah_kamar" placeholder="Jumlah Kamar " class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Metode Bayar </label>
+                            <div class="col-md-9">
+                                <input name="metode_bayar" placeholder="Metode Bayar " class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label col-md-3">Harga Kamar </label>
                             <div class="col-md-9">
-                                <input name="harga_kamar" placeholder="Harga Kamar " class="form-control" type="text">
+                                <input name="harga" placeholder="Harga Kamar " class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Jumlah Kamar</label>
+                            <label class="control-label col-md-3">DP Kamar </label>
                             <div class="col-md-9">
-                                <input name="jumlah_kamar" placeholder="Jumlah Kamar" class="form-control" type="text">
+                                <input name="dp" placeholder="DP Kamar " class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="control-label col-md-3">Harga Total </label>
+                            <div class="col-md-9">
+                                <input name="total" placeholder="Harga Total " class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Nomor Kartu </label>
+                            <div class="col-md-9">
+                                <input name="no_kartu" placeholder="Nomor Kartu " class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
                             <label class="control-label col-md-3">Status</label>
                             <div class="col-md-9">
                                 <input name="status" placeholder="Status" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div> -->
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Status</label>
+                            <div class="col-md-9">
+                            <select name="status" id="status" class="form-control">
+                              <option value="Booking">Booking</option>
+                              <option value="Check In">Check In</option>
+                              <option value="Check Out">Check Out</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Keterangan Kamar </label>
+                            <div class="col-md-9">
+                                <input name="ket" placeholder="Keterangan Kamar " class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>

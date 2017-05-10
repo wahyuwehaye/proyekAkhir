@@ -400,15 +400,15 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/insertBookOnsite">
+            <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/insertBooking">
               <div class="box-body">
                 <div class="form-group">
                   <label for="nama_tamu">Nama Lengkap</label>
-                  <input type="text" class="form-control" id="nama_tamu" name="nama_tamu" placeholder="Nama Lengkap">
+                  <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">
                 </div>
                 <div class="form-group">
                   <label for="alamat_tamu">Alamat</label>
-                  <input type="text" class="form-control" id="alamat_tamu" name="alamat_tamu" placeholder="Alamat">
+                  <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat">
                 </div>
                 <div class="form-group">
                   <label for="id_tamu">ID Identitas</label>
@@ -432,8 +432,8 @@
                     </label>
                   </div>
                   <div id="debit" style="visibility:hidden" class="form-group">
-                  <label for="debit">Nomor Kartu Debit Anda</label>
-                  <input type="text" class="form-control" id="debit" name="debit" placeholder="Masukkan Nomor Kartu Debit Anda">
+                  <label for="no_kartu">Nomor Kartu Debit Anda</label>
+                  <input type="text" class="form-control" id="no_kartu" name="no_kartu" placeholder="Masukkan Nomor Kartu Debit Anda">
                 </div>
                 </div>
                 <input type="hidden" name="tgl_input" value="<?php echo date('Y-m-d') ?>">
