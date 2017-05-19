@@ -456,7 +456,7 @@
           </div>
 
           <div class="col-md-1">
-              <input name="kamar" id="kamar" type="number" class="form-control pull-right">
+              <input name="kamar" id="kamar" type="number" value="1" class="form-control pull-right">
           </div>
           <div class="col-md-1">
               <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal"> 404</span></h4>

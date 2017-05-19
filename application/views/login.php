@@ -37,7 +37,7 @@
         <div id="signup">
           <h1>Sign Up for Member</h1>
 
-          <form action="<?php echo base_url()?>index.php/Dashboard/insert" method="post">
+          <form action="<?php echo base_url()?>index.php/Dashboard/cekUser" method="post">
 
               <input type="hidden"required autocomplete="off" name="id_user"/>
 
@@ -65,7 +65,7 @@
           </div>
 
           <div class="field-wrap">
-            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
+            <select name="jenis_kelamin" id="jenis_kelamin" required class="form-control">
                                     <option value="">--Pilih Jenis Kelamin--</option>
                                     <option value="Laki-Laki">Laki-Laki</option>
                                     <option value="Perempuan">Perempuan</option>
@@ -83,7 +83,7 @@
             <label>
               No Handphone<span class="req">*</span>
             </label>
-            <input type="text" required autocomplete="off" name="phone"/>
+            <input type="text" pattern="[0-9]+" required autocomplete="off" name="phone"/>
           </div>
 
           <button type="submit" class="button button-block"/>Get Started</button>
@@ -129,7 +129,7 @@
 </div> <!-- /form -->
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-  <!-- //session untuk menampilkan pesan error -->
+<!-- //session untuk menampilkan pesan error ketika username / pass salah -->
 <?php
     if (isset($_SESSION['error'])) {
 ?>
@@ -143,6 +143,52 @@
     unset($_SESSION['error']);
     }
 ?>
+
+<!-- //session untuk menampilkan pesan error ketika username pelanggan double-->
+<?php
+    if (isset($_SESSION['adaadmin'])) {
+?>
+    <body onload='swal({title: "Username Sudah Digunakan",
+                        text: "Silakan coba lagi",
+                        // timer: 3000,
+                        type: "error",
+                        showConfirmButton: true });'>
+                        <!-- sweetAlert("Oops...", "Something went wrong!", "error"); -->
+<?php
+    unset($_SESSION['adaadmin']);
+    }
+?>
+
+<!-- //session untuk menampilkan pesan error ketika email pelanggan double-->
+<?php
+    if (isset($_SESSION['adaphone'])) {
+?>
+    <body onload='swal({title: "Nomor HP Sudah Digunakan",
+                        text: "Silakan coba lagi",
+                        // timer: 3000,
+                        type: "error",
+                        showConfirmButton: true });'>
+                        <!-- sweetAlert("Oops...", "Something went wrong!", "error"); -->
+<?php
+    unset($_SESSION['adaphone']);
+    }
+?>
+
+<!-- //session untuk menampilkan pesan ketika Sukses Input-->
+<?php
+    if (isset($_SESSION['suksesinput'])) {
+?>
+    <body onload='swal({title: "Sukses Input Data",
+                        text: "Selamat! Akun anda berhasil didaftarkan.",
+                        // timer: 3000,
+                        type: "success",
+                        showConfirmButton: true });'>
+                        <!-- sweetAlert("Oops...", "Something went wrong!", "error"); -->
+<?php
+    unset($_SESSION['suksesinput']);
+    }
+?>
+
 <script src="<?php echo base_url()?>sweetalert/dist/sweetalert.min.js"></script>
 
     <script src="<?php echo base_url()?>uilogin/js/index.js"></script>

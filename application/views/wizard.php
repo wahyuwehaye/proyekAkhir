@@ -4,7 +4,8 @@
     $CI->load->model('m_pesanan');  
 
 $harganya = 0;
-$date = date('Y-m-d');
+// $date = date('Y-m-d');
+$date = $tglIn;
 $timestamp = strtotime($date);
 $weekday= date("l", $timestamp );
 $normalized_weekday = strtolower($weekday);

@@ -30,6 +30,24 @@ class m_dashboard extends CI_Model{
         return $this->db->get('tipe_kamar');
     }
 
+    // public function tampil_noKamar(){
+    //     return $this->db->get('kamar');
+    // }
+
+    // public function tampil_noKamar()
+    // {
+    //     $this->db->from($this->kamar);
+    //     $this->db->where('status','kosong');
+    //     $query = $this->db->get();
+
+    //     return $query->row();
+    // }
+
+    public function tampil_noKamar(){
+              return $this->db->get_where('kamar', array('status' => 'kosong'));
+              // return $query->result_array();
+    }
+
     public function tampil_dataTamu($tamu){
             $query = $this->db->query("SELECT *
                                     FROM pelanggan

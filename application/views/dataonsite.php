@@ -1,3 +1,8 @@
+<?php
+    $CI =& get_instance();
+    $CI->load->model('m_dashboard');
+    $CI->load->model('m_pesanan'); 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -398,6 +403,51 @@
             <div class="box-header with-border">
               <h3 class="box-title">Input Data Pelanggan</h3>
             </div>
+
+            <?php
+                $CI =& get_instance();
+                $CI->load->model('m_dashboard');
+                $CI->load->model('m_pesanan');
+                
+                $harganya = 0;
+                // $date = date('Y-m-d');
+                $date = $tglIn;
+                $timestamp = strtotime($date);
+                $weekday= date("l", $timestamp );
+                $normalized_weekday = strtolower($weekday);
+                // echo $normalized_weekday ;
+                if (($normalized_weekday == "saturday") || ($normalized_weekday == "sunday")) {
+                    $harganya = $harga_kamar_weekend;
+                } else {
+                    $harganya = $harga_kamar_weekday;
+                }
+
+                $start_date = new DateTime($tglIn);
+                $end_date = new DateTime($tglOut);
+                $interval = $start_date->diff($end_date);
+                // echo "$interval->days hari "; // hasil : 217 hari
+                $jumlahmalamnya = $interval->days;
+                // echo $jumlahmalamnya;
+
+                $total = ($harganya * $jumlahmalamnya)*$kamar;
+                // echo $total;
+                $dapetid="";
+                $dapetnomor="";
+                $gettipekamar = $CI->db->query('select id_tipe_kamar from tipe_kamar where nama_kamar="'.$nama_kamar.'"');
+                // $tipekamar = $gettipekamar->result_array();
+                foreach ($gettipekamar->result() as $row){
+                    $dapetid = $row->id_tipe_kamar;
+                    break;
+                }
+
+                $getnomorkamar =$CI->db->query('select nomor_kamar from kamar where id_tipe_kamar='.$dapetid.' and status = "kosong"');
+                // $nomorkamar=$getnomorkamar->result_array();
+                foreach ($getnomorkamar->result() as $row){
+                    $dapetnomor = $row->nomor_kamar;
+                    break;
+                }
+            ?>
+
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/insertBooking">
@@ -423,12 +473,14 @@
                     <label>
                       <input type="radio" onclick="javascript:yesnoCheck();" name="optionsRadios" id="optionsRadios1" value="option1">
                       Tunai
+                      <input type="hidden" name="metode_bayar" value="Tunai">
                     </label>
                   </div>
                   <div class="radio">
                     <label>
                       <input type="radio" onclick="javascript:yesCheck();" name="optionsRadios" id="optionsRadios2" value="option2">
                       Debit
+                      <input type="hidden" name="metode_bayar" value="Debit">
                     </label>
                   </div>
                   <div id="debit" style="visibility:hidden" class="form-group">
@@ -440,6 +492,13 @@
                   <input type="hidden" name="tgl_masuk" value="<?php echo date('Y-m-d', strtotime($tglIn)); ?>">
                   <input type="hidden" name="tgl_keluar" value="<?php echo date('Y-m-d', strtotime($tglOut)); ?>">
                   <input type="hidden" name="jumlah_kamar" value="<?php echo $kamar; ?>">
+                  <input type="hidden" name="jumlah_malam" value="<?php echo $jumlahmalamnya; ?>">
+                  <input type="hidden" name="harga" value="<?php echo $harganya; ?>">
+                  <input type="hidden" name="dp" value="0">
+                  <input type="hidden" name="total" value="<?php echo $total; ?>">
+                  <input type="hidden" name="status" value="Check In">
+                  <input type="hidden" name="ket" value=" Lunas">
+                  <input type="hidden" name="nomor_kamar" value="<?php echo $dapetnomor; ?>">
                   <input type="hidden" name="tipe_kamar" value="<?php echo $tipe_kamar; ?>">
                   <input type="hidden" name="harga_kamar" value="<?php echo $harga_kamar; ?>">
                   <input type="hidden" name="status" value="Lunas">

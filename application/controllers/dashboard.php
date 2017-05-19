@@ -109,6 +109,22 @@ class Dashboard extends CI_Controller {
 		$this->load->view('lockscreen');
 	}
 
+	public function cekUser(){
+		$this->load->library('session');
+		$this->load->model('m_login');
+				$data1=$this->m_login->checkLogin();
+				$data2=$this->m_login->cekNoHpUser();
+				if($data1>0){
+					$_SESSION['adaadmin'] = '';
+					redirect('dashboard/login');
+				}elseif ($data2>0) {
+					$_SESSION['adaphone'] = '';
+					redirect('dashboard/login');
+				}else{
+					$this->insert();
+				}
+	}
+
     public function niteaudit(){
         $this->load->view('niteaudit');
     }
@@ -142,6 +158,7 @@ class Dashboard extends CI_Controller {
 	public function onsite(){
 		$this->load->model('m_dashboard');
 		$data['available'] = $this->m_dashboard->tampil_dataKamar()->result();
+		$data['kamarkosong'] = $this->m_dashboard->tampil_noKamar()->result();
         $this->load->view('onsite',$data);
     }
 
@@ -185,9 +202,11 @@ class Dashboard extends CI_Controller {
     	$data['tglIn'] = $this->input->post('tglIn');
 		$data['tglOut'] = $this->input->post('tglOut');
 		$data['kamar'] = $this->input->post('kamar');
+		$data['nama_kamar'] = $this->input->post('nama_kamar');
 		$data['tipe_kamar'] = $this->input->post('tipe_kamar');
 		$data['harga_kamar_weekday'] = $this->input->post('harga_kamar_weekday');
 		$data['harga_kamar_weekend'] = $this->input->post('harga_kamar_weekend');
+		$data['harga_kamar'] = $this->input->post('harga_kamar');
         $this->load->view('dataonsite',$data);
     }
 
@@ -223,9 +242,10 @@ class Dashboard extends CI_Controller {
 	 		'phone' => $this->input->post('phone')
 	 	    );
 	    $this->m_dashboard->insertPelanggan($dataUser, $dataPelanggan);
+	    $_SESSION['suksesinput'] = '';
 	    redirect('dashboard/login');
-		echo json_encode(array("status" => TRUE));
-		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
+		// echo json_encode(array("status" => TRUE));
+		// echo '<script type="text/javascript">alert("Data has been submitted");</script>';
 	}
 
 	public function insertBook(){

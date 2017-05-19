@@ -27,6 +27,12 @@ class m_login extends CI_Model {
             return $query->num_rows();
     }
 
+    public function cekNoHpUser(){
+            $phone=$_POST['phone'];
+            $query = $this->db->get_where('pelanggan', array('phone'=> $phone));
+            return $query->num_rows();
+    }
+
     public function findByDynamicColumn($array){
             $query = $this->db->get_where('user', $array);
             return $query->result_array();
