@@ -450,8 +450,10 @@
                                     <h4 class="media-heading"><?php echo $a->nama_kamar; ?></h4><a href="#"> Detail...</a>
                                 </div>
                             </div>
+                            <input type="hidden" value="<?php echo $a->nama_kamar; ?>" name="nama_kamar"/>
                             <input type="hidden" value="<?php echo $a->nama_kamar; ?>" name="tipe_kamar"/>
-                            <input type="hidden" value="<?php echo $a->harga_kamar_weekend; ?>" name="harga_kamar"/>
+                            <input type="hidden" value="<?php echo $a->harga_kamar_weekend; ?>" name="harga_kamar_weekend"/>
+                            <input type="hidden" value="<?php echo $a->harga_kamar_weekday; ?>" name="harga_kamar_weekday"/>
                             <input type="hidden" name="status" value="Lunas">
           </div>
 

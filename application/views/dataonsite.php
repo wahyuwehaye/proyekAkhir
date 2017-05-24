@@ -1,8 +1,4 @@
-<?php
-    $CI =& get_instance();
-    $CI->load->model('m_dashboard');
-    $CI->load->model('m_pesanan'); 
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -406,8 +402,6 @@
 
             <?php
                 $CI =& get_instance();
-                $CI->load->model('m_dashboard');
-                $CI->load->model('m_pesanan');
                 
                 $harganya = 0;
                 // $date = date('Y-m-d');
@@ -450,7 +444,7 @@
 
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/insertBooking">
+            <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/insertOnsite">
               <div class="box-body">
                 <div class="form-group">
                   <label for="nama_tamu">Nama Lengkap</label>
@@ -501,7 +495,6 @@
                   <input type="hidden" name="nomor_kamar" value="<?php echo $dapetnomor; ?>">
                   <input type="hidden" name="tipe_kamar" value="<?php echo $tipe_kamar; ?>">
                   <input type="hidden" name="harga_kamar" value="<?php echo $harga_kamar; ?>">
-                  <input type="hidden" name="status" value="Lunas">
               </div>
               <!-- /.box-body -->
 
