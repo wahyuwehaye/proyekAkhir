@@ -461,28 +461,28 @@
               <input name="kamar" id="kamar" type="number" value="1" class="form-control pull-right">
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal"> 404</span></h4>
+              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal" disabled="true"> 404</span></h4>
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
+              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal" disabled="true"> 404</span></h4>
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
+              <h4 align="center"><span class="label label-primary"><input type="checkbox" class="minimal"> 404</span></h4>
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal"> 404</span></h4>
+              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal" disabled="true"> 404</span></h4>
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
+              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal" disabled="true"> 404</span></h4>
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
+              <h4 align="center"><span class="label label-primary"><input type="checkbox" class="minimal"> 404</span></h4>
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal"> 404</span></h4>
+              <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal" disabled="true"> 404</span></h4>
           </div>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-success"><input type="checkbox" class="minimal"> 404</span></h4>
+              <h4 align="center"><span class="label label-primary"><input type="checkbox" class="minimal"> 404</span></h4>
           </div>
           
           <!-- TUTUP KAMAR 1 -->
@@ -492,7 +492,7 @@
          <?php } ?>
 
           <div class="col-md-2" style="float:right;">
-              <button type="submit" class="btn btn-block btn-info">Kirim</button>
+              <button type="submit" class="btn btn-block btn-primary">Kirim</button>
           </div>
       </div>
       <!-- /.box-body -->
@@ -515,7 +515,7 @@
                     <h4 align="center"><span class="label label-danger"> Warna Merah untuk Status Terisi</span></h4>
                 </div>
                 <div class="col-md-4">
-                    <h4 align="center"><span class="label label-success"> Warna Hijau untuk Status Tersedia</span></h4>
+                    <h4 align="center"><span class="label label-primary"> Warna Biru untuk Status Tersedia</span></h4>
                 </div>
                 <div class="col-md-4">
                     <h4 align="center"><span class="label label-warning"> Warna Kuning untuk Status Booking</span></h4>

@@ -111,7 +111,7 @@
             <input type="password"required autocomplete="off" name="password"/>
           </div>
 
-          <p class="forgot"><a href="#">Forgot Password?</a></p>
+          <!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->
 
           <button type="submit" class="button button-block" onclick="save()"/>Log In</button>
 

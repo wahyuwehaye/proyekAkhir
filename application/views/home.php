@@ -38,14 +38,14 @@
 	                                </select>
 			</div>
 			<h1>- - -</h1>
-		   <button type="Submit" class="hvr-push btn btn-success btn-lg">Book Now</button>
+		   <button type="Submit" class="hvr-push btn btn-warning btn-lg">Book Now</button>
 		</form>
 		</div>
 	</div>
 </div>
 <!--leaves end here-->
 <!--homegrids start here-->
-<div class="home-block">
+<div class="leaves">
 	<div class="container">
 		<div class="home-main">
 			<div class="home-top">

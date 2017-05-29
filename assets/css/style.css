@@ -11,7 +11,7 @@ p {margin: 0;}
 html, body{
  font-family: 'Hind', sans-serif;
    font-size: 100%;
-   background:#fff;
+   background:#472408;
 }
 a {
   text-decoration: none;
@@ -98,7 +98,7 @@ a:hover {
 }
 .top-header {
     padding: 1em 0em;
-    background:#e9a820;
+    background:#472408;
 }
 .header-address h6 {
     font-size: 1em;
@@ -315,7 +315,7 @@ nav a:focus {
 /*--information end here--*/
 /*--leaves start here--*/
 .leaves {
-    background:#696A88;
+    background:#472408;
     padding: 5em 0em;
     text-align: center;
 }
@@ -577,7 +577,7 @@ span.swim-icon-4 {
 /*--home grid end here--*/
 /*--footer start here--*/
 .footer {
-    background:#6F6F8C;
+    background:#472408;
     padding: 5em 0em;
 }
 .ftr-grid h3 {
@@ -668,7 +668,7 @@ span.swim-icon-4 {
 	color:#fff;
 }
 .ftr-grid ul.ftr-nav li a:hover{
-	color:#e9a820;
+	color:#894814;
 }
 .ftr-grid input[type="text"] {
     font-size: 1em;
@@ -683,7 +683,7 @@ span.swim-icon-4 {
     color: #FFF;
     padding: 0.32em 1em;
     border: none;
-    background:#e9a820;
+    background:#894814;
     outline: none;
     width: 30%;
 }
@@ -702,7 +702,7 @@ span.swim-icon-4 {
 }
 /*--footer end here--*/
 .copy-right {
-    background:#e9a820;
+    background:#894814;
     padding: 1.5em 0em;
     text-align: center;
 }
