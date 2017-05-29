@@ -1,5 +1,5 @@
 <!--services strat here-->
-<div class="services">
+<div class="leaves">
 	<div class="container">
 		<div class="services-man">
 			<div class="services-top">
@@ -90,7 +90,7 @@
 </div>
 <!--services strip end here-->
 <!--features strat here-->
-<div class="features">
+<div class="leaves">
 	<div class="container">
 		<div class="features-main">
 			<div class="features-top wow slideInLeft" data-wow-delay="0.3s">

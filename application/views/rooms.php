@@ -139,7 +139,7 @@
 </div>
 <!--leaves end here-->
 <!--about start here-->
-<div class="about">
+<div class="leaves">
 	<div class="container">
 		<?php foreach($available as $a){ ?>
 		<?php if(isset($_SESSION['logged_in']))
