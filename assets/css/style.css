@@ -315,7 +315,7 @@ nav a:focus {
 /*--information end here--*/
 /*--leaves start here--*/
 .leaves {
-    background:#472408;
+    background:#894814;
     padding: 5em 0em;
     text-align: center;
 }
@@ -571,18 +571,18 @@ span.swim-icon-4 {
 }
 .home-top h3 {
     font-size: 3em;
-    color: #6F6F8C;
+    color: #fff;
     font-family: 'Aladin', cursive;
 }
 /*--home grid end here--*/
 /*--footer start here--*/
 .footer {
-    background:#472408;
+    background:#894814;
     padding: 5em 0em;
 }
 .ftr-grid h3 {
     font-size: 2.5em;
-    color:#e9a820;
+    color:#fff;
     margin-bottom: 0.5em;
     font-family: 'Aladin', cursive;
 }
@@ -702,7 +702,7 @@ span.swim-icon-4 {
 }
 /*--footer end here--*/
 .copy-right {
-    background:#894814;
+    background:#472408;
     padding: 1.5em 0em;
     text-align: center;
 }
@@ -777,13 +777,13 @@ span.swim-icon-4 {
 }
 .about-top h1 {
     font-size: 3em;
-    color:#6F6F8C;
+    color:#fff;
     margin-bottom:0.3em;
     font-family: 'Aladin', cursive;
 }
 .about-right p {
     font-size: 1em;
-    color:#737373;
+    color:#fff;
     line-height: 1.8em;
 }
 span.abou-icon1 {
@@ -810,7 +810,7 @@ span.abou-icon2 {
     padding-top: 1.5em;
 }
 .about-text h5 {
-    color: #000;
+    color: #E9A820;
     font-size: 1.3em;
     margin-bottom: 0.3em;
     font-family: 'Aladin', cursive;
@@ -1569,7 +1569,7 @@ h3.typo1 {
 .contact-top h2 {
     font-size: 3em;
     margin: 0em 0em 0.2em 0em;
-    color: #6F6F8C;
+    color: #fff;
     font-family: 'Aladin', cursive;
 }
 .contact-top p {
@@ -1630,11 +1630,11 @@ h3.typo1 {
 }
 .contact-right  p {
   font-size: 1em;
-  color:#737373;
+  color:#fff;
   line-height: 1.8em;
 }
 .contact-right  p a{
-  color: #7B7B7B;
+  color: #fff;
 }
 .contact-right  p a:hover{
   color:#F5AF33;
