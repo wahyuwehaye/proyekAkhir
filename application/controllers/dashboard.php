@@ -228,6 +228,28 @@ class Dashboard extends CI_Controller {
 		$this->load->view('main/footer1');
 	}
 
+	private function _do_upload()
+	{
+		$config['upload_path']          = 'upload/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 1000000; //set max size allowed in Kilobyte
+        $config['max_width']            = 100000; // set max width image allowed
+        $config['max_height']           = 100000; // set max height allowed
+        $config['file_name']            = round(microtime(true) * 1000); //just milisecond timestamp fot unique name
+
+        $this->load->library('upload', $config);
+
+        if(!$this->upload->do_upload('photo')) //upload and validate
+        {
+            $data['inputerror'][] = 'photo';
+			$data['error_string'][] = 'Upload error: '.$this->upload->display_errors('',''); //show ajax error
+			$data['status'] = FALSE;
+			echo json_encode($data);
+			exit();
+		}
+		return $this->upload->data('file_name');
+	}
+
 	public function insert(){
 		$this->load->database();
 	    $this->load->model('m_dashboard');
@@ -342,8 +364,17 @@ class Dashboard extends CI_Controller {
 	 // 		'phone' => $this->input->post('phone')
 	 	  //   );
 	    // $this->m_dashboard->insertTamu($dataTamu, $dataPelanggan);
+	    $databukti = array(
+	    	'id_transaksi' => "123",
+	    	);
+	    if(!empty($_FILES['photo']['name']))
+		{
+			$upload = $this->_do_upload();
+			$databukti['photo'] = $upload;
+		}
 		$this->m_dashboard->insertTamu($dataTamu);
 		$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+		$insert = $this->m_dashboard->save($databukti);
 	    redirect('/');
 		echo json_encode(array("status" => TRUE));
 		echo '<script type="text/javascript">alert("Data has been submitted");</script>';

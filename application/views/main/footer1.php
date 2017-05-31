@@ -65,6 +65,51 @@
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
 
+<script type="text/javascript">
+
+Dropzone.autoDiscover = false;
+var id_transaksi = $("#id_transaksi").val();
+var foto_upload= new Dropzone(".dropzone",{
+// url: "<?php echo base_url() ?>index.php/upload/proses_upload"+id_transaksi,
+url: "<?php echo base_url() ?>index.php/upload/proses_upload",
+maxFilesize: 2,
+method:"post",
+acceptedFiles:"image/*",
+paramName:"userfile",
+dictInvalidFileType:"Type file ini tidak dizinkan",
+addRemoveLinks:true,
+});
+
+
+//Event ketika Memulai mengupload
+foto_upload.on("sending",function(a,b,c){
+	a.token=Math.random();
+	c.append("token_foto",a.token); //Menmpersiapkan token untuk masing masing foto
+});
+
+
+//Event ketika foto dihapus
+foto_upload.on("removedfile",function(a){
+	var token=a.token;
+	$.ajax({
+		type:"post",
+		data:{token:token},
+		url:"<?php echo base_url('index.php/upload/remove_foto') ?>",
+		cache:false,
+		dataType: 'json',
+		success: function(){
+			console.log("Foto terhapus");
+		},
+		error: function(){
+			console.log("Error");
+
+		}
+	});
+});
+
+
+</script>
+
     </body>
 
 </html>

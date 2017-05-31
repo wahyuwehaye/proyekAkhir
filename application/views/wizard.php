@@ -42,6 +42,15 @@ foreach ($getnomorkamar->result() as $row){
 
  // echo $dapetnomor;
 
+$getidtrans = $CI->db->query('SELECT * FROM booking ORDER BY id_booking DESC LIMIT 1');
+foreach ($getidtrans->result() as $cari) {
+    $datetidtrans = $cari->id_booking;
+    break;
+}
+$idtransbaru = $datetidtrans+1;
+// echo $idtransbaru;
+
+
 ?>
 
 <!--features strat here-->
@@ -134,25 +143,25 @@ foreach ($getnomorkamar->result() as $row){
                                     <input type="text" name="total" placeholder="Total Bayar" value="<?php echo $total; ?>" class="f1-last-name form-control" id="harga">
                                 </div>
                                 <h4>Transfer dapat dilakukan melalui Bank berikut :</h4>
-                                <input type="radio" onclick="javascript:yesCheck1();" name="bayar" id="bayar1" value="BCA"/> BCA
+                                <input type="radio" onclick="javascript:yesCheck1();" name="metode_bayar" id="bayar1" value="Transfer Ke Nomor Rekening BCA"/> BCA
                                 <div id="debit1" style="visibility:hidden" class="form-group">
                                   <label for="debit">Silakan Transfer Ke Nomor Rekening BCA 1234567890 an Ajeng Puspitasari</label>
-                                  <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening BCA">
+                                  <!-- <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening BCA"> -->
                                 </div>
-                                <input type="radio" onclick="javascript:yesCheck2();" name="bayar" id="bayar2" value="BRI"/> BRI
+                                <input type="radio" onclick="javascript:yesCheck2();" name="metode_bayar" id="bayar2" value="Transfer Ke Nomor Rekening BRI"/> BRI
                                 <div id="debit2" style="visibility:hidden" class="form-group">
                                   <label for="debit">Silakan Transfer Ke Nomor Rekening BRI 1234567890 an Ajeng Puspitasari</label>
-                                  <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening BRI">
+                                  <!-- <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening BRI"> -->
                                 </div>
-                                <input type="radio" onclick="javascript:yesCheck3();" name="bayar" id="bayar3" value="BNI"/> BNI
+                                <input type="radio" onclick="javascript:yesCheck3();" name="metode_bayar" id="bayar3" value="Transfer Ke Nomor Rekening BNI"/> BNI
                                 <div id="debit3" style="visibility:hidden" class="form-group">
                                   <label for="debit">Silakan Transfer Ke Nomor Rekening BNI 1234567890 an Ajeng Puspitasari</label>
-                                  <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening BNI">
+                                  <!-- <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening BNI"> -->
                                 </div>
-                                <input type="radio" onclick="javascript:yesCheck4();" name="bayar" id="bayar4" value="Mandiri"/> Mandiri
+                                <input type="radio" onclick="javascript:yesCheck4();" name="metode_bayar" id="bayar4" value="Transfer Ke Nomor Rekening Mandiri"/> Mandiri
                                 <div id="debit4" style="visibility:hidden" class="form-group">
                                   <label for="debit">Silakan Transfer Ke Nomor Rekening Mandiri 1234567890 an Ajeng Puspitasari</label>
-                                  <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening Mandiri">
+                                  <!-- <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening Mandiri"> -->
                                 </div>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>
@@ -162,9 +171,17 @@ foreach ($getnomorkamar->result() as $row){
 
                             <fieldset>
                                 <h4>Konfirmasi Pembayaran</h4>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="sr-only" for="f1-facebook">Upload</label>
-                                    <input type="file" name="f1-facebook" placeholder="Upload" class="f1-facebook form-control" id="f1-facebook">
+                                    <input type="file" name="photo" id="photo" placeholder="Upload" class="form-control">
+                                </div> -->
+                                <div class="dropzone">
+
+                                  <div class="dz-message">
+                                   <h3> Klik atau Drop Bukti Pembayaran disini</h3>
+                                   <!-- <input type="hidden" id="id_transaksi" name="id_transaksi" value="<?php echo $idtransbaru; ?>"> -->
+                                  </div>
+
                                 </div>
                                 <!-- <button type="button" class="btn btn-block btn-primary btn-sm">Primary</button> -->
                                 <div class="f1-buttons">

@@ -64,6 +64,28 @@
     <link href='//fonts.googleapis.com/css?family=Hind:400,300' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Aladin' rel='stylesheet' type='text/css'>
     <!--google fonts-->
+<!-- upload foto -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/dropzone.min.css') ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/basic.min.css') ?>">
+
+<script type="text/javascript" src="<?php echo base_url('assets/jquery.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/dropzone.min.js') ?>"></script>
+
+<style type="text/css">
+
+body{
+    background-color: #E8E9EC;
+}
+
+.dropzone {
+    margin-top: 100px;
+    border: 2px dashed #0087F7;
+}
+
+</style>
+
+<!-- end upload foto -->
+
     <!-- animated-css -->
     		<link href="<?php echo base_url()?>assets/css/animate.css" rel="stylesheet" type="text/css" media="all">
     		<script src="<?php echo base_url()?>assets/js/wow.min.js"></script>
