@@ -365,7 +365,7 @@
             <li><a href="<?php echo base_url()?>index.php/dashboard/daftarsms"><i class="fa fa-th-list"></i> Lihat Daftar SMS Gateway</a></li>
           </ul>
         </li>
-        <li><a href="documentation/index.html"><i class="fa fa-file-image-o"></i> <span> Foto Bukti Pembayaran</span></a></li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/buktibayar"><i class="fa fa-file-image-o"></i> <span> Foto Bukti Pembayaran</span></a></li>
 
       </ul>
     </section>
