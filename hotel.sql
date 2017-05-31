@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2017 at 07:45 AM
+-- Generation Time: May 31, 2017 at 05:32 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -58,11 +58,30 @@ INSERT INTO `booking` (`id_booking`, `tgl_input`, `nama`, `tipe_kamar`, `no_hp`,
 (6, '2017-05-10', 'ngubaid', 'Family Triple', '08131212121', 'kebumen', '2017-05-25', '2017-05-27', 3, 2, 501, 400000, 1500000, 2400000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', ' DP', 0),
 (7, '2017-05-10', 'ngubaid', 'Family Suite', '08131212121', 'kebumen', '2017-05-25', '2017-05-27', 3, 2, 601, 450000, 1500000, 2700000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', ' DP', 0),
 (8, '2017-05-10', 'ngubaid', 'Standard', '08131212121', 'kebumen', '2017-05-24', '2017-05-26', 1, 2, 101, 250000, 250000, 500000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', ' DP', 0),
-(9, '2017-05-10', 'ngubaid', 'Standard', '08131212121', 'kebumen', '2017-05-24', '2017-05-26', 1, 2, 101, 250000, 250000, 500000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', ' DP', 0),
+(9, '2017-05-10', 'ngubaid', 'Standard', '08131212121', 'kebumen', '2017-05-24', '2017-05-26', 1, 2, 101, 250000, 250000, 500000, 'Transfer Ke Nomor Rekening Mandiri', 'Check Out', '', ' DP', 0),
 (10, '2017-05-10', 'ngubaid', 'Standard', '08131212121', 'kebumen', '2017-05-24', '2017-05-26', 1, 2, 101, 250000, 250000, 500000, 'Transfer Ke Nomor Rekening Mandiri', 'Check In', '', ' DP', 0),
 (11, '2017-05-10', 'ngubaid', 'Standard', '08131212121', 'kebumen', '2017-05-31', '2017-06-02', 2, 2, 102, 250000, 1500000, 1500000, 'Transfer Ke Nomor Rekening Mandiri', 'Check In', '', ' DP', 0),
-(12, '2017-05-10', 'ngubaid', 'Standard', '08131212121', 'kebumen', '2017-05-04', '2017-05-06', 3, 2, 103, 250000, 1500000, 1500000, 'Transfer Ke Nomor Rekening Mandiri', 'Check Out', '', 'Lunas', 0),
-(13, '2017-05-10', 'ajeng', 'Deluxe', '081312777381', 'bandung', '2017-05-11', '2017-05-13', 2, 2, 201, 249000, 500000, 996000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', 'DP', 0);
+(12, '2017-05-10', 'ngubaid', 'Standard', '08131212121', 'kebumen', '2017-05-04', '2017-05-06', 3, 2, 103, 250000, 1500000, 1500000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', 'Lunas', 0),
+(13, '2017-05-10', 'ajeng', 'Deluxe', '081312777381', 'bandung', '2017-05-11', '2017-05-13', 2, 2, 201, 249000, 500000, 996000, 'Transfer Ke Nomor Rekening Mandiri', 'Check In', '', 'DP', 0),
+(14, '2017-05-13', 'ajeng', 'Deluxe', '081312777381', 'bandung', '2017-05-18', '2017-05-20', 1, 2, 202, 510000, 500000, 1020000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', 'DP', 0),
+(15, '2017-05-19', 'admin', 'Superior', '081312555467', 'bandung', '2017-05-27', '2017-05-28', 2, 1, 301, 330000, 250000, 660000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '343242234234234', 'DP', 0),
+(16, '2017-05-20', 'fadil', 'Family Triple', '08131313131', 'bandung', '2017-05-25', '2017-05-26', 2, 1, 501, 400000, 250000, 800000, 'Transfer Ke Nomor Rekening Mandiri', 'Check In', '', 'DP', 0),
+(17, '2017-05-24', 'Wahyu Saepuloh', 'Family Suite', '081312555467', 'bandung raya', '2017-05-29', '2017-05-30', 1, 1, 104, 0, 0, 0, 'Debit', 'Check In', '234567890', 'Lunas', 0),
+(18, '2017-05-24', 'Wahyu Saepuloh', 'Family Suite', '111111111111', 'dfghjkl', '2017-05-25', '2017-05-26', 1, 1, 105, 0, 0, 0, 'Debit', 'Check In', '111111111', 'Lunas', 0),
+(19, '2017-05-24', 'Wahyu Saepuloh', 'Family Suite', '081312555467', 'dfghjk', '2017-05-28', '2017-05-31', 1, 3, 106, 0, 0, 0, 'Debit', 'Check In', '77777777777777777', 'Lunas', 0),
+(20, '2017-05-24', 'puspita', 'Family Suite', '456789', 'jhdskdb', '2017-05-21', '2017-05-27', 1, 6, 107, 710000, 0, 4260000, 'Debit', 'Check In', '34567890', 'DP', 0),
+(23, '2017-05-24', 'ajeng puspita', 'Family Suite', '4567890', 'bandung', '2017-05-22', '2017-05-24', 1, 2, 601, 450000, 0, 900000, 'Debit', 'Check In', '5678977777', 'DP', 0),
+(24, '2017-05-31', 'ajeng', 'Deluxe', '081312777381', 'bandung', '2017-06-06', '2017-06-07', 2, 1, 203, 249000, 120000, 498000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', 'DP', 0),
+(25, '2017-05-31', 'ajeng', 'Superior', '081312777381', 'bandung', '2017-06-09', '2017-06-10', 1, 1, 302, 330000, 250000, 330000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', 'DP', 0),
+(26, '2017-05-31', 'ajeng', 'Deluxe', '081312777381', 'bandung', '2017-06-08', '2017-06-09', 1, 1, 204, 249000, 120000, 249000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', 'DP', 0),
+(27, '2017-05-31', 'ajeng', 'Deluxe', '081312777381', 'bandung', '2017-06-04', '2017-06-05', 2, 1, 205, 510000, 500000, 1020000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', 'DP', 0),
+(28, '2017-05-31', 'ajeng', 'Deluxe', '081312777381', 'bandung', '2017-06-20', '2017-06-21', 1, 1, 206, 249000, 120000, 249000, 'Transfer Ke Nomor Rekening BRI', 'Booking', '', 'DP', 0),
+(29, '2017-05-31', 'ajeng', 'Deluxe', '081312777381', 'bandung', '2017-05-30', '2017-05-31', 1, 1, 207, 249000, 120000, 249000, 'Transfer Ke Nomor Rekening BCA', 'Booking', '', 'DP', 0),
+(30, '2017-05-31', 'ajeng', 'Deluxe', '081312777381', 'bandung', '2017-05-24', '2017-05-25', 1, 1, 208, 249000, 120000, 249000, 'Transfer Ke Nomor Rekening BCA', 'Booking', '', 'DP', 0),
+(31, '2017-05-31', 'ajeng', 'Deluxe', '081312777381', 'bandung', '2017-06-01', '2017-06-02', 1, 1, 209, 249000, 250000, 249000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', 'DP', 0),
+(32, '2017-05-31', 'fadil', 'Deluxe', '08131313131', 'bandung', '2017-06-08', '2017-06-09', 1, 1, 210, 249000, 250000, 249000, 'Transfer Ke Nomor Rekening BRI', 'Booking', '', 'DP', 0),
+(33, '2017-05-31', 'fadil', 'Deluxe', '08131313131', 'bandung', '2017-06-05', '2017-06-06', 1, 1, 211, 249000, 250000, 249000, 'Transfer Ke Nomor Rekening BCA', 'Booking', '', 'DP', 0),
+(34, '2017-05-31', 'ngubaid', 'Deluxe', '08131212121', 'kebumen', '2017-05-31', '2017-06-01', 1, 1, 212, 249000, 120000, 249000, 'Transfer Ke Nomor Rekening BCA', 'Booking', '', 'DP', 0);
 
 -- --------------------------------------------------------
 
@@ -72,7 +91,8 @@ INSERT INTO `booking` (`id_booking`, `tgl_input`, `nama`, `tipe_kamar`, `no_hp`,
 
 CREATE TABLE `buktibayar` (
   `id_bukti` int(5) NOT NULL,
-  `bukti` varchar(250) NOT NULL,
+  `photo` varchar(250) DEFAULT NULL,
+  `token` varchar(200) NOT NULL,
   `tgl` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_transaksi` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -81,8 +101,16 @@ CREATE TABLE `buktibayar` (
 -- Dumping data for table `buktibayar`
 --
 
-INSERT INTO `buktibayar` (`id_bukti`, `bukti`, `tgl`, `id_transaksi`) VALUES
-(1, 'sdsfsdfsd', '2017-05-07 17:02:49', 1);
+INSERT INTO `buktibayar` (`id_bukti`, `photo`, `token`, `tgl`, `id_transaksi`) VALUES
+(1, 'sdsfsdfsd', '', '2017-05-07 17:02:49', 1),
+(2, '', '', '2017-05-31 00:22:03', 123),
+(3, NULL, '', '2017-05-31 00:27:06', 123),
+(4, NULL, '', '2017-05-31 00:30:01', 123),
+(5, NULL, '', '2017-05-31 00:37:59', 123),
+(6, 'Screenshot_30.png', '0.6404162537139315', '2017-05-31 02:26:36', 0),
+(7, 'Screenshot_52.png', '0.8933404312576325', '2017-05-31 03:10:06', 0),
+(8, 'Screenshot_28.png', '0.05621189809620031', '2017-05-31 03:22:01', 0),
+(9, NULL, '', '2017-05-31 03:22:15', 123);
 
 -- --------------------------------------------------------
 
@@ -213,22 +241,22 @@ INSERT INTO `kamar` (`id_kamar`, `nomor_kamar`, `id_fasilitas`, `id_tipe_kamar`,
 (27, 101, 0, 1, 'Booking', 0),
 (28, 102, 0, 1, 'Booking', 0),
 (29, 103, 0, 1, 'Booking', 0),
-(30, 104, 0, 1, 'kosong', 0),
-(31, 105, 0, 1, 'kosong', 0),
-(32, 106, 0, 1, 'kosong', 0),
-(33, 107, 0, 1, 'kosong', 0),
+(30, 104, 0, 1, 'Booking', 0),
+(31, 105, 0, 1, 'Booking', 0),
+(32, 106, 0, 1, 'Booking', 0),
+(33, 107, 0, 1, 'Booking', 0),
 (34, 201, 0, 2, 'Booking', 0),
-(35, 202, 0, 2, 'kosong', 0),
-(36, 203, 0, 2, 'kosong', 0),
-(37, 204, 0, 2, 'kosong', 0),
-(38, 205, 0, 2, 'kosong', 0),
-(39, 206, 0, 2, 'kosong', 0),
-(40, 207, 0, 2, 'kosong', 0),
-(41, 208, 0, 2, 'kosong', 0),
-(42, 209, 0, 2, 'kosong', 0),
-(43, 210, 0, 2, 'kosong', 0),
-(44, 211, 0, 2, 'kosong', 0),
-(45, 212, 0, 2, 'kosong', 0),
+(35, 202, 0, 2, 'Booking', 0),
+(36, 203, 0, 2, 'Booking', 0),
+(37, 204, 0, 2, 'Booking', 0),
+(38, 205, 0, 2, 'Booking', 0),
+(39, 206, 0, 2, 'Booking', 0),
+(40, 207, 0, 2, 'Booking', 0),
+(41, 208, 0, 2, 'Booking', 0),
+(42, 209, 0, 2, 'Booking', 0),
+(43, 210, 0, 2, 'Booking', 0),
+(44, 211, 0, 2, 'Booking', 0),
+(45, 212, 0, 2, 'Booking', 0),
 (46, 213, 0, 2, 'kosong', 0),
 (47, 214, 0, 2, 'kosong', 0),
 (48, 215, 0, 2, 'kosong', 0),
@@ -248,16 +276,16 @@ INSERT INTO `kamar` (`id_kamar`, `nomor_kamar`, `id_fasilitas`, `id_tipe_kamar`,
 (62, 229, 0, 2, 'kosong', 0),
 (63, 230, 0, 2, 'kosong', 0),
 (64, 231, 0, 2, 'kosong', 0),
-(65, 301, 0, 3, 'kosong', 0),
-(66, 302, 0, 3, 'kosong', 0),
+(65, 301, 0, 3, 'Booking', 0),
+(66, 302, 0, 3, 'Booking', 0),
 (67, 303, 0, 3, 'kosong', 0),
 (68, 304, 0, 3, 'kosong', 0),
 (69, 401, 0, 4, 'kosong', 0),
 (70, 402, 0, 4, 'kosong', 0),
-(71, 501, 0, 5, 'kosong', 0),
+(71, 501, 0, 5, 'Booking', 0),
 (72, 502, 0, 5, 'kosong', 0),
 (73, 503, 0, 5, 'kosong', 0),
-(74, 601, 0, 6, '', 0),
+(74, 601, 0, 6, 'Booking', 0),
 (75, 602, 0, 6, 'kosong', 0);
 
 -- --------------------------------------------------------
@@ -325,7 +353,10 @@ INSERT INTO `pelanggan` (`id_user`, `alamat`, `phone`) VALUES
 (1, 'bandung', '081312555467'),
 (5, 'bandung', '081312777381'),
 (6, 'cihampelas', '08131827364'),
-(7, 'kebumen', '08131212121');
+(7, 'kebumen', '08131212121'),
+(8, 'a', '121'),
+(9, 'q', '123'),
+(10, 'bandung', '08131313131');
 
 -- --------------------------------------------------------
 
@@ -379,7 +410,10 @@ INSERT INTO `user` (`id_user`, `nama`, `jenis_kelamin`, `username`, `password`) 
 (4, 'resepsionis', 'perempuan', 'resepsionis', '3aeff485f68b360d076de3d73f9247ad'),
 (5, 'ajeng', 'ajeng', 'ajeng', '43317d3fd0d3344a7152250b9fd0dc2f'),
 (6, 'gugun', 'gugun', 'gugun', '8705817beca124687368eefdfe615019'),
-(7, 'ngubaid', 'ubed', 'ubed', '6212d5318f5fdf0445677251356d3296');
+(7, 'ngubaid', 'ubed', 'ubed', '6212d5318f5fdf0445677251356d3296'),
+(8, 'a', 'a', 'a', '0cc175b9c0f1b6a831c399e269772661'),
+(9, 'q', 'q', 'q', '7694f4a66316e53c8cdd9d9954bd611d'),
+(10, 'fadil', 'fadil', 'fadil', 'd0503276f86a627d6c29bc963106570e');
 
 --
 -- Indexes for dumped tables
@@ -472,12 +506,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id_booking` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_booking` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `buktibayar`
 --
 ALTER TABLE `buktibayar`
-  MODIFY `id_bukti` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_bukti` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `checkin_out`
 --
@@ -517,7 +551,7 @@ ALTER TABLE `pegawai`
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `tipe_kamar`
 --
@@ -527,7 +561,7 @@ ALTER TABLE `tipe_kamar`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Constraints for dumped tables
 --
