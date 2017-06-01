@@ -379,11 +379,11 @@
           <div class="box">
             <div class="box-header">
 
-                <div class="col-md-6 swimming-grid">
+                <!-- <div class="col-md-6 swimming-grid">
 					<label>Show</label>
 					<input type="text" name="tanggalIn" class="tanggal" />
                     <button type="Submit" class="btn btn-primary btn-xs">Cari </i></button>
-				</div>
+				</div> -->
               <!-- <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
                   <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">

@@ -361,11 +361,11 @@
           <div class="box">
             <!-- /.box-header -->
             <div class="box-header">
-            <div class="col-md-6 swimming-grid">
+           <!--  <div class="col-md-6 swimming-grid">
                 <label>Show</label>
                 <input type="text" name="tanggalIn" class="tanggal" />
                 <button type="Submit" class="btn btn-primary btn-xs">Cari </i></button>
-            </div>
+            </div> -->
         </div>
             <div class="box-body">
 
