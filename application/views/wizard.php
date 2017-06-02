@@ -145,22 +145,22 @@ $idtransbaru = $datetidtrans+1;
                                 <h4>Transfer dapat dilakukan melalui Bank berikut :</h4>
                                 <input type="radio" onclick="javascript:yesCheck1();" name="metode_bayar" id="bayar1" value="Transfer Ke Nomor Rekening BCA"/> BCA
                                 <div id="debit1" style="visibility:hidden" class="form-group">
-                                  <label for="debit">Silakan Transfer Ke Nomor Rekening BCA 1234567890 an Ajeng Puspitasari</label>
+                                  <label for="debit">Silakan Transfer Ke Nomor Rekening BCA 1680-02-006244-1 an Ajeng Pursitasari</label>
                                   <!-- <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening BCA"> -->
                                 </div>
                                 <input type="radio" onclick="javascript:yesCheck2();" name="metode_bayar" id="bayar2" value="Transfer Ke Nomor Rekening BRI"/> BRI
                                 <div id="debit2" style="visibility:hidden" class="form-group">
-                                  <label for="debit">Silakan Transfer Ke Nomor Rekening BRI 1234567890 an Ajeng Puspitasari</label>
+                                  <label for="debit">Silakan Transfer Ke Nomor Rekening BRI 1680-02-006245-2 an Ajeng Pursitasari</label>
                                   <!-- <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening BRI"> -->
                                 </div>
                                 <input type="radio" onclick="javascript:yesCheck3();" name="metode_bayar" id="bayar3" value="Transfer Ke Nomor Rekening BNI"/> BNI
                                 <div id="debit3" style="visibility:hidden" class="form-group">
-                                  <label for="debit">Silakan Transfer Ke Nomor Rekening BNI 1234567890 an Ajeng Puspitasari</label>
+                                  <label for="debit">Silakan Transfer Ke Nomor Rekening BNI 1680-02-006246-3 an Ajeng Pursitasari</label>
                                   <!-- <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening BNI"> -->
                                 </div>
                                 <input type="radio" onclick="javascript:yesCheck4();" name="metode_bayar" id="bayar4" value="Transfer Ke Nomor Rekening Mandiri"/> Mandiri
                                 <div id="debit4" style="visibility:hidden" class="form-group">
-                                  <label for="debit">Silakan Transfer Ke Nomor Rekening Mandiri 1234567890 an Ajeng Puspitasari</label>
+                                  <label for="debit">Silakan Transfer Ke Nomor Rekening Mandiri 1680-02-006247-4 an Ajeng Pursitasari</label>
                                   <!-- <input type="hidden" name="metode_bayar" value="Transfer Ke Nomor Rekening Mandiri"> -->
                                 </div>
                                 <div class="f1-buttons">
