@@ -35,7 +35,7 @@
 
       <div class="tab-content">
         <div id="signup">
-          <h1>Sign Up for Member</h1>
+          <h1>Registrasi</h1>
 
           <form action="<?php echo base_url()?>index.php/Dashboard/cekUser" method="post">
 
