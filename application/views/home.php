@@ -4,7 +4,7 @@
 		<div class="banner-main wow zoomIn" data-wow-delay="0.3s">
 			<h2>Cihampelas 2 Hotels</h2>
 			<h6>Welcome To Our Hotels</h6>
-			<h6> Comfortable, Affordable and Strategic</h6>
+			<h6> Comfortable, Affordable and Strategic then Beautiful</h6>
 		</div>
     </div>
 </div>
