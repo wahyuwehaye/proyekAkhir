@@ -284,7 +284,7 @@
          <?php } ?>
 
           <div class="col-md-2" style="float:right;">
-              <button type="submit" class="btn btn-block btn-primary">Kirim</button>
+              <button type="submit" class="btn btn-block btn-primary">Simpan</button>
           </div>
       </div>
       <!-- /.box-body -->
