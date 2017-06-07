@@ -24,6 +24,7 @@ class Masterbukti extends CI_Controller {
 			$no++;
 			$row = array();
             $row[] = $no;
+            $row[] = $bukti->id_transaksi;
 			// $row[] = $bukti->photo;
 			if($bukti->photo)
 				$row[] = '<a href="'.base_url('upload-foto/'.$bukti->photo).'" target="_blank"><img src="'.base_url('upload-foto/'.$bukti->photo).'" class="img-responsive" /></a>';

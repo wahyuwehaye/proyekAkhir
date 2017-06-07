@@ -332,7 +332,7 @@ class Dashboard extends CI_Controller {
 	    	'status' => "Booking",
 	    	);
 	    $keterangan="";
-	    if (($this->input->post("dp"))===($this->input->post("total"))) {
+	    if (($this->input->post("dp"))>=($this->input->post("total"))) {
 				$keterangan = "Lunas";
 			}else{
 				$keterangan = "DP";
@@ -374,7 +374,7 @@ class Dashboard extends CI_Controller {
 		}
 		$this->m_dashboard->insertTamu($dataTamu);
 		$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
-		$insert = $this->m_dashboard->save($databukti);
+		// $insert = $this->m_dashboard->save($databukti);
 	    redirect('/');
 		echo json_encode(array("status" => TRUE));
 		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
@@ -389,12 +389,12 @@ class Dashboard extends CI_Controller {
 	    $dataupdate = array(
 	    	'status' => "Booking",
 	    	);
-	    $keterangan="";
-	    if (($this->input->post("dp"))===($this->input->post("total"))) {
-				$keterangan = "Lunas";
-			}else{
-				$keterangan = "DP";
-			}
+	    $keterangan="Lunas";
+	  //   if (($this->input->post("dp"))===($this->input->post("total"))) {
+			// 	$keterangan = "Lunas";
+			// }else{
+			// 	$keterangan = "DP";
+			// }
 	    $dataTamu = array(
 			'tgl_input' => $this->input->post("tgl_input"),
 			'nama' => $this->input->post("nama"),

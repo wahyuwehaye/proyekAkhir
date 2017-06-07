@@ -42,7 +42,7 @@ class Upload extends CI_Controller
 
 
 	//Untuk proses upload foto
-	function proses_upload(){
+	function proses_upload($id_transaksi){
 
         $config['upload_path']   = FCPATH.'/upload-foto/';
         $config['allowed_types'] = 'gif|jpg|png|ico';
@@ -51,7 +51,8 @@ class Upload extends CI_Controller
         if($this->upload->do_upload('userfile')){
         	$token=$this->input->post('token_foto');
         	$nama=$this->upload->data('file_name');
-        	$this->db->insert('buktibayar',array('photo'=>$nama,'token'=>$token));
+        	// $this->db->insert('buktibayar',array('photo'=>$nama,'token'=>$token));
+        	$this->db->insert('buktibayar',array('photo'=>$nama,'token'=>$token,'id_transaksi'=>$id_transaksi));
         }
 
 

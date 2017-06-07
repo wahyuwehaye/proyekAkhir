@@ -104,11 +104,16 @@ class M_checkout extends CI_Model {
 		return $this->db->insert_id();
 	}
 
-	public function update($where, $data)
-	{
-		$this->db->update($this->table, $data, $where);
-		return $this->db->affected_rows();
-	}
+	// public function update($where, $data)
+	// {
+	// 	$this->db->update($this->table, $data, $where);
+	// 	return $this->db->affected_rows();
+	// }
+
+	public function Update($table, $data, $where){
+        $res = $this->db->update($table, $data, $where); // Kode ini digunakan untuk merubah record yang sudah ada dalam sebuah tabel
+        return $res;
+    }
 
 	public function delete_by_id($id)
 	{

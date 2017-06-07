@@ -7,6 +7,7 @@ class Mastercheckout extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('M_checkout','checkout');
+		$this->load->model(array('m_dashboard'));
 	}
 
 	public function index()
@@ -183,6 +184,33 @@ class Mastercheckout extends CI_Controller {
                 'ket' => $this->input->post('ket'),
 			);
 		$this->checkout->update(array('id_booking' => $this->input->post('id_booking')), $data);
+		echo json_encode(array("status" => TRUE));
+	}
+
+	public function ajax_update_cekout()
+	{
+		$this->load->database();
+		$this->load->model('M_formcekout'); //load model mkota yang berada di folder model
+	    $this->load->model('m_dashboard');
+	    $databooking = $this->M_formcekout->ambilbooking($this->input->post("kode"))->row();
+	    $nomorkamar = $databooking->nomor_kamar;
+		$datakamar = array(
+	    	'nomor_kamar' => $nomorkamar,
+	    	);
+		$id = array(
+	    	'id_booking' => $this->input->post("kode"),
+	    	);
+	    $dataupdate = array(
+	    	'status' => "kosong",
+	    	);
+		$data = array(
+                'tgl_keluar' => $this->input->post("datepicker"),
+				'status' => 'Check Out',
+                'ket' => 'Lunas',
+			);
+		$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+		$this->checkout->Update('booking',$data,$id);
+		redirect('dashboard/datacheckout');
 		echo json_encode(array("status" => TRUE));
 	}
 

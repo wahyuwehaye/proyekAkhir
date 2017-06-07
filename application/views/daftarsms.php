@@ -179,6 +179,7 @@
                 <thead>
                 <tr>
                   <th>No</th>
+                  <th>ID Booking</th>
                   <th>Bukti Pembayaran</th>
                   <th>Tanggal Pembayaran</th>
                   <th>Aksi</th>
@@ -215,6 +216,7 @@
                 <tfoot>
                 <tr>
                     <th>No</th>
+                    <th>ID Booking</th>
                     <th>Bukti Pembayaran</th>
                     <th>Tanggal Pembayaran</th>
                     <th>Aksi</th>

@@ -33,6 +33,29 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url()?>admin/dist/css/skins/_all-skins.min.css">
 
+  <!-- <script>
+     $(function () {
+        $("#kode").autocomplete({    //id kode sebagai key autocomplete yang akan dibawa ke source url
+            minLength:0,
+            delay:0,
+            source:'<?php echo site_url('FormCekout/get_alldata'); ?>',   //nama source kita ambil langsung memangil fungsi get_allkota
+            select:function(event, ui){
+                $('#nama').val(ui.item.nama);
+                $('#alamat').val(ui.item.alamat);
+                $('#id_booking').val(ui.item.id_booking);
+                $('#no_hp').val(ui.item.no_hp);
+                $('#tgl_masuk').val(ui.item.tgl_masuk);
+                // $('#tgl_keluar').val(ui.item.tgl_keluar);
+                $('#nomor_kamar').val(ui.item.nomor_kamar);
+                $('#jumlah_malam').val(ui.item.jumlah_malam);
+                $('#harga').val(ui.item.harga);
+                $('#total').val(ui.item.total);
+                }
+            });
+        });
+    </script> -->
+<!-- - See more at: http://fabernainggolan.net/input-dinamis-autocomplete-pada-codeignitermysql-dengan-jquer#sthash.X5a3zWkM.dpuf -->
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -191,35 +214,50 @@
               <h3 class="box-title">Input Data Pelanggan</h3>
             </div>
             <!-- /.box-header -->
+            <form method="POST" action="<?php echo base_url()?>index.php/Mastercheckout/ajax_update_cekout" id="form">
             <div class="col-md-12 swimming-grid">
-          <label>Nomor Kamar</label>
-          <input type="text" name="cari" class="cari" />
+          <label>ID Booking</label>
+          <input type="text" name="kode" id="kode" onkeyup="cobacoba()" />
                     <button type="Submit" class="btn btn-primary btn-xs">Cari </i></button>
         </div>
-        </br></br></br>
+        </br></br>
             <!-- form start -->
-            <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/insertBookOnsite">
+            
               <div class="box-body">
+              <div id="cekout">
                 <div class="form-group">
-                  <label for="nama_tamu">Nama Lengkap</label>
-                  <input type="text" class="form-control" id="nama_tamu" name="nama_tamu" placeholder="Nama Lengkap">
+                  <label for="nama">Nama Lengkap</label>
+                  <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">
                 </div>
                 <div class="form-group">
-                  <label for="alamat_tamu">Alamat</label>
-                  <input type="text" class="form-control" id="alamat_tamu" name="alamat_tamu" placeholder="Alamat">
+                  <label for="alamat">Alamat</label>
+                  <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat">
                 </div>
                 <div class="form-group">
-                  <label for="id_tamu">ID Identitas</label>
-                  <input type="text" class="form-control" id="id_tamu" name="id_tamu" placeholder="ID Identitas">
+                  <label for="id_booking">ID Identitas</label>
+                  <input type="text" class="form-control" id="id_booking" name="id_booking" placeholder="ID Identitas">
                 </div>
                 <div class="form-group">
                   <label for="no_hp">Nomor HP</label>
                   <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Nomor HP">
                 </div>
                 <div class="form-group">
-                  <label for="no_hp">Tanggal Check In</label>
-                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Tanggal Check In">
+                  <label for="tgl_masuk">Tanggal Check In</label>
+                  <input type="text" class="form-control" id="tgl_masuk" name="tgl_masuk" placeholder="Tanggal Check In">
                 </div>
+                <div class="form-group">
+                  <label for="jumlah_malam">Total Malam</label>
+                  <input type="text" class="form-control" id="jumlah_malam" name="jumlah_malam" placeholder="Total Malam">
+                </div>
+                <div class="form-group">
+                  <label for="nomor_kamar">Nomor Kamar</label>
+                  <input type="text" class="form-control" id="nomor_kamar" name="nomor_kamar" placeholder="Nomor Kamar">
+                </div>
+                <div class="form-group">
+                    <label for="harga">Harga Sewa Kamar</label>
+                    <input type="text" class="form-control" id="harga" name="harga" placeholder="Harga Kamar">
+                </div>
+              </div>
                 <!-- Date -->
               <div class="form-group">
                 <label>Tanggal Check Out</label>
@@ -228,41 +266,39 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control pull-right" id="datepicker">
+                  <input type="text" name="datepicker" class="form-control pull-right" id="datepicker">
                 </div>
                 <!-- /.input group -->
               </div>
               <!-- /.form group -->
-              <div class="form-group">
-                  <label for="no_hp">Total Malam</label>
-                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Total Malam">
-              </div>
+              
               <div class="form-group">
               <h3 class="box-title">Data Pemesanan Kamar</h3>
               </div>
-              <div class="form-group col-md-2">
-                  <label for="no_hp">Nomor Kamar</label>
-                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Nomor Kamar">
+              <!-- <div class="form-group col-md-2">
+                  <label for="nomor_kamar">Nomor Kamar</label>
+                  <input type="text" class="form-control" id="nomor_kamar" name="nomor_kamar" placeholder="Nomor Kamar">
               </div>
               <div class="form-group col-md-2">
-                  <label for="no_hp">Harga Kamar</label>
-                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Harga Kamar">
+                  <label for="harga">Harga Sewa Kamar</label>
+                  <input type="text" class="form-control" id="harga" name="harga" placeholder="Harga Kamar">
+              </div> -->
+              <div class="form-group col-md-2">
+                  <label for="extra_bed">Extra Bed</label>
+                  <input type="text" class="form-control" id="extra_bed" name="extra_bed" placeholder="Extra Bed">
               </div>
               <div class="form-group col-md-2">
-                  <label for="no_hp">Extra Bed</label>
-                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Extra Bed">
+                  <label for="restaurant">Restaurant</label>
+                  <input type="text" class="form-control" id="restaurant" name="restaurant" placeholder="Restaurant">
               </div>
               <div class="form-group col-md-2">
-                  <label for="no_hp">Restaurant</label>
-                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Restaurant">
+                  <label for="lain2">Lain-lain</label>
+                  <input type="text" class="form-control" id="lain2" name="lain2" placeholder="Lain-lain" onkeyup="ambiltotal()">
               </div>
+              <div id="gettotal">
               <div class="form-group col-md-2">
-                  <label for="no_hp">Lain-lain</label>
-                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Lain-lain">
-              </div>
-              <div class="form-group col-md-2">
-                  <label for="no_hp">Subtotal</label>
-                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Subtotal">
+                  <label for="total">Subtotal</label>
+                  <input type="text" class="form-control" id="total" name="total" placeholder="Subtotal">
               </div>
               <div class="col-md-7">
               </div>
@@ -270,8 +306,9 @@
                   <label for="total" class="col-md-2 control-label">Total</label>
 
                   <div class="col-md-3">
-                    <input type="text" class="form-control" id="total" placeholder="Total">
+                    <input type="text" class="form-control" id="totalall" placeholder="Total">
                   </div>
+              </div>
               </div>
               <div class="col-md-7">
               </div>
@@ -279,11 +316,12 @@
                   <label for="paid" class="col-md-2 control-label">Paid</label>
 
                   <div class="col-md-3">
-                    <input type="text" class="form-control" id="paid" placeholder="Paid">
+                    <input type="text" class="form-control" id="paid" placeholder="Paid" onkeyup="caritotaldue()">
                   </div>
               </div>
               <div class="col-md-7">
               </div>
+              <div id="gettotaldue">
               <div class="form-group form-horizontal">
                   <label for="total_due" class="col-md-2 control-label">Total Due</label>
 
@@ -291,8 +329,9 @@
                     <input type="text" class="form-control" id="total_due" placeholder="Total Due">
                   </div>
               </div>
+              </div>
               <div class="box-footer " style="float:right;">
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" id="btnSave" class="btn btn-primary">Simpan</button>
               </div>
             <!-- /.box-body -->
           </div>
@@ -508,113 +547,122 @@
 </div>
 <!-- ./wrapper -->
 
+  <script src="<?php echo base_url()?>assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/js/jquery-ui.js" type="text/javascript"></script>
 <!-- jQuery 2.2.3 -->
-<script src="<?php echo base_url()?>admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- <script src="<?php echo base_url()?>admin/plugins/jQuery/jquery-2.2.3.min.js"></script> -->
 <!-- Bootstrap 3.3.6 -->
-<script src="<?php echo base_url()?>admin/bootstrap/js/bootstrap.min.js"></script>
+<!-- <script src="<?php echo base_url()?>admin/bootstrap/js/bootstrap.min.js"></script> -->
 <!-- DataTables -->
-<script src="<?php echo base_url()?>admin/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url()?>admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- <script src="<?php echo base_url()?>admin/plugins/datatables/jquery.dataTables.min.js"></script> -->
+<!-- <script src="<?php echo base_url()?>admin/plugins/datatables/dataTables.bootstrap.min.js"></script> -->
 <!-- Select2 -->
-<script src="<?php echo base_url()?>admin/plugins/select2/select2.full.min.js"></script>
+<!-- <script src="<?php echo base_url()?>admin/plugins/select2/select2.full.min.js"></script> -->
 <!-- InputMask -->
-<script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.js"></script>
-<script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<!-- <script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.js"></script> -->
+<!-- <script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.date.extensions.js"></script> -->
+<!-- <script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.extensions.js"></script> -->
 <!-- date-range-picker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="<?php echo base_url()?>admin/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script> -->
+<!-- <script src="<?php echo base_url()?>admin/plugins/daterangepicker/daterangepicker.js"></script> -->
 <!-- bootstrap datepicker -->
 <script src="<?php echo base_url()?>admin/plugins/datepicker/bootstrap-datepicker.js"></script>
 <!-- bootstrap color picker -->
-<script src="<?php echo base_url()?>admin/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+<!-- <script src="<?php echo base_url()?>admin/plugins/colorpicker/bootstrap-colorpicker.min.js"></script> -->
 <!-- bootstrap time picker -->
-<script src="<?php echo base_url()?>admin/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<!-- <script src="<?php echo base_url()?>admin/plugins/timepicker/bootstrap-timepicker.min.js"></script> -->
 <!-- SlimScroll -->
-<script src="<?php echo base_url()?>admin/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- <script src="<?php echo base_url()?>admin/plugins/slimScroll/jquery.slimscroll.min.js"></script> -->
 <!-- FastClick -->
-<script src="<?php echo base_url()?>admin/plugins/fastclick/fastclick.js"></script>
+<!-- <script src="<?php echo base_url()?>admin/plugins/fastclick/fastclick.js"></script> -->
 <!-- AdminLTE App -->
-<script src="<?php echo base_url()?>admin/dist/js/app.min.js"></script>
+<!-- <script src="<?php echo base_url()?>admin/dist/js/app.min.js"></script> -->
 <!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url()?>admin/dist/js/demo.js"></script>
+<!-- <script src="<?php echo base_url()?>admin/dist/js/demo.js"></script> -->
 <!-- page script -->
-<script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-</script>
 
 <script type="text/javascript">
 
-var save_method; //for save method string
-var table;
+// var save_method; //for save method string
+// var table;
 
 $(document).ready(function() {
 
-    //datatables
-    table = $('#table').DataTable({
-
-        "processing": true, //Feature control the processing indicator.
-        "serverSide": true, //Feature control DataTables' server-side processing mode.
-        "order": [], //Initial no order.
-
-        // Load data for the table's content from an Ajax source
-        "ajax": {
-            "url": "<?php echo site_url('masterdatapesanan/ajax_list')?>",
-            "type": "POST"
-        },
-
-        //Set column definition initialisation properties.
-        "columnDefs": [
-        {
-            "targets": [ -1 ], //last column
-            "orderable": false, //set not orderable
-        },
-        ],
-
+  $("#kode").autocomplete({    //id kode sebagai key autocomplete yang akan dibawa ke source url
+            minLength:0,
+            delay:0,
+            source:'<?php echo site_url('FormCekout/get_alldata'); ?>',   //nama source kita ambil langsung memangil fungsi get_allkota
+            select:function(event, ui){
+                $('#nama').val(ui.item.nama);
+                $('#alamat').val(ui.item.alamat);
+                $('#id_booking').val(ui.item.id_booking);
+                $('#no_hp').val(ui.item.no_hp);
+                $('#tgl_masuk').val(ui.item.tgl_masuk);
+                // $('#tgl_keluar').val(ui.item.tgl_keluar);
+                $('#nomor_kamar').val(ui.item.nomor_kamar);
+                $('#jumlah_malam').val(ui.item.jumlah_malam);
+                $('#harga').val(ui.item.harga);
+                $('#total').val(ui.item.total);
+                }
     });
 
-    //Initialize Select2 Elements
-    $(".select2").select2();
+  
 
-    //Datemask dd/mm/yyyy
-    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-    //Datemask2 mm/dd/yyyy
-    $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
-    //Money Euro
-    $("[data-mask]").inputmask();
+//     //datatables
+//     table = $('#table').DataTable({
 
-    //Date range picker
-    $('#reservation').daterangepicker();
-    //Date range picker with time picker
-    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
-    //Date range as a button
-    $('#daterange-btn').daterangepicker(
-        {
-          ranges: {
-            'Today': [moment(), moment()],
-            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
-            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-          },
-          startDate: moment().subtract(29, 'days'),
-          endDate: moment()
-        },
-        function (start, end) {
-          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        }
-    );
+//         "processing": true, //Feature control the processing indicator.
+//         "serverSide": true, //Feature control DataTables' server-side processing mode.
+//         "order": [], //Initial no order.
+
+//         // Load data for the table's content from an Ajax source
+//         "ajax": {
+//             "url": "<?php echo site_url('masterdatapesanan/ajax_list')?>",
+//             "type": "POST"
+//         },
+
+//         //Set column definition initialisation properties.
+//         "columnDefs": [
+//         {
+//             "targets": [ -1 ], //last column
+//             "orderable": false, //set not orderable
+//         },
+//         ],
+
+//     });
+
+//     //Initialize Select2 Elements
+//     $(".select2").select2();
+
+//     //Datemask dd/mm/yyyy
+//     $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+//     //Datemask2 mm/dd/yyyy
+//     $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+//     //Money Euro
+//     $("[data-mask]").inputmask();
+
+    // //Date range picker
+    // $('#reservation').daterangepicker();
+    // //Date range picker with time picker
+    // $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+    // //Date range as a button
+    // $('#daterange-btn').daterangepicker(
+    //     {
+    //       ranges: {
+    //         'Today': [moment(), moment()],
+    //         'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+    //         'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+    //         'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+    //         'This Month': [moment().startOf('month'), moment().endOf('month')],
+    //         'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    //       },
+    //       startDate: moment().subtract(29, 'days'),
+    //       endDate: moment()
+    //     },
+    //     function (start, end) {
+    //       $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+    //     }
+    // );
 
     //Date picker
     $('#datepicker').datepicker({
@@ -626,86 +674,209 @@ $(document).ready(function() {
       autoclose: true
     });
 
-    //iCheck for checkbox and radio inputs
-    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-      checkboxClass: 'icheckbox_minimal-blue',
-      radioClass: 'iradio_minimal-blue'
-    });
-    //Red color scheme for iCheck
-    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-      checkboxClass: 'icheckbox_minimal-red',
-      radioClass: 'iradio_minimal-red'
-    });
-    //Flat red color scheme for iCheck
-    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-      checkboxClass: 'icheckbox_flat-green',
-      radioClass: 'iradio_flat-green'
-    });
+    // //iCheck for checkbox and radio inputs
+    // $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+    //   checkboxClass: 'icheckbox_minimal-blue',
+    //   radioClass: 'iradio_minimal-blue'
+    // });
+    // //Red color scheme for iCheck
+    // $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+    //   checkboxClass: 'icheckbox_minimal-red',
+    //   radioClass: 'iradio_minimal-red'
+    // });
+    // //Flat red color scheme for iCheck
+    // $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+    //   checkboxClass: 'icheckbox_flat-green',
+    //   radioClass: 'iradio_flat-green'
+    // });
 
-    //Colorpicker
-    $(".my-colorpicker1").colorpicker();
-    //color picker with addon
-    $(".my-colorpicker2").colorpicker();
+    // //Colorpicker
+    // $(".my-colorpicker1").colorpicker();
+    // //color picker with addon
+    // $(".my-colorpicker2").colorpicker();
 
-    //Timepicker
-    $(".timepicker").timepicker({
-      showInputs: false
-    });
+    // //Timepicker
+    // $(".timepicker").timepicker({
+    //   showInputs: false
+    // });
 
 
 });
 
 
 
-function add_pesanan()
-{
-    save_method = 'add';
-    $('#form')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-    $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Pesanan'); // Set Title to Bootstrap modal title
+// function add_pesanan()
+// {
+//     save_method = 'add';
+//     $('#form')[0].reset(); // reset form on modals
+//     $('.form-group').removeClass('has-error'); // clear error class
+//     $('.help-block').empty(); // clear error string
+//     $('#modal_form').modal('show'); // show bootstrap modal
+//     $('.modal-title').text('Tambah Pesanan'); // Set Title to Bootstrap modal title
+// }
+
+// function edit_pesanan(id)
+// {
+//     save_method = 'update';
+//     $('#form')[0].reset(); // reset form on modals
+//     $('.form-group').removeClass('has-error'); // clear error class
+//     $('.help-block').empty(); // clear error string
+
+//     //Ajax Load data from ajax
+//     $.ajax({
+//         url : "<?php echo site_url('Masterdatapesanan/ajax_edit/')?>/" + id,
+//         type: "GET",
+//         dataType: "JSON",
+//         success: function(data)
+//         {
+//             $('[name="id_tamu"]').val(data.id_tamu);
+//             $('[name="tgl_input"]').val(data.tgl_input);
+//             $('[name="nama_tamu"]').val(data.nama_tamu);
+//             $('[name="alamat_tamu"]').val(data.alamat_tamu);
+//             $('[name="no_hp"]').val(data.np_hp);
+//             $('[name="tgl_masuk"]').val(data.tgl_masuk);
+//             $('[name="tgl_keluar"]').val(data.tgl_keluar);
+//             $('[name="tipe_kamar"]').val(data.tipe_kamar);
+//             $('[name="harga_kamar"]').val(data.harga_kamar);
+//             $('[name="jumlah_kamar"]').val(data.jumlah_kamar);
+//             $('[name="status"]').val(data.status);
+//             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
+//             $('.modal-title').text('Edit Pesanan'); // Set title to Bootstrap modal title
+
+//         },
+//         error: function (jqXHR, textStatus, errorThrown)
+//         {
+//             alert('Error get data from ajax');
+//         }
+//     });
+// }
+
+// function reload_table()
+// {
+//     table.ajax.reload(null,false); //reload datatable ajax
+// }
+
+// function save()
+// {
+//     $('#btnSave').text('saving...'); //change button text
+//     $('#btnSave').attr('disabled',true); //set button disable
+//     var url;
+
+//     if(save_method == 'add') {
+//         url = "<?php echo site_url('Masterdatapesanan/ajax_add')?>";
+//     } else {
+//         url = "<?php echo site_url('Masterdatapesanan/ajax_update')?>";
+//     }
+
+//     // ajax adding data to database
+//     $.ajax({
+//         url : url,
+//         type: "POST",
+//         data: $('#form').serialize(),
+//         dataType: "JSON",
+//         success: function(data)
+//         {
+
+//             if(data.status) //if success close modal and reload ajax table
+//             {
+//                 $('#modal_form').modal('hide');
+//                 reload_table();
+//             }
+
+//             $('#btnSave').text('save'); //change button text
+//             $('#btnSave').attr('disabled',false); //set button enable
+
+
+//         },
+//         error: function (jqXHR, textStatus, errorThrown)
+//         {
+//             alert('Error adding / update data');
+//             $('#btnSave').text('save'); //change button text
+//             $('#btnSave').attr('disabled',false); //set button enable
+
+//         }
+//     });
+// }
+
+// function delete_pesanan(id)
+// {
+//     if(confirm('Are you sure delete this data?'))
+//     {
+//         // ajax delete data to database
+//         $.ajax({
+//             url : "<?php echo site_url('Masterdatapesanan/ajax_delete')?>/"+id,
+//             type: "POST",
+//             dataType: "JSON",
+//             success: function(data)
+//             {
+//                 //if success reload ajax table
+//                 $('#modal_form').modal('hide');
+//                 reload_table();
+//             },
+//             error: function (jqXHR, textStatus, errorThrown)
+//             {
+//                 alert('Error deleting data');
+//             }
+//         });
+
+//     }
+// }
+
+// function yesnoCheck() {
+//     if (document.getElementById('optionsRadios1').checked) {
+//         document.getElementById('debit').style.visibility = 'hidden';
+//     } else {
+//         document.getElementById('debit').style.visibility = 'visible';
+//     }
+// }
+
+// function yesCheck() {
+//     if (document.getElementById('optionsRadios2').checked) {
+//         document.getElementById('debit').style.visibility = 'visible';
+//     } else {
+//         document.getElementById('debit').style.visibility = 'hidden';
+//     }
+// }
+
+function cobacoba(){
+       var kode = $("#kode").val();
+       if(kode !=''){
+       $.ajax({
+           url:"<?php echo base_url()?>index.php/FormCekout/cobacek/"+kode,
+           success:function(data){
+               $("#cekout").html(data);
+           }
+       });
+       }
 }
 
-function edit_pesanan(id)
-{
-    save_method = 'update';
-    $('#form')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-
-    //Ajax Load data from ajax
-    $.ajax({
-        url : "<?php echo site_url('Masterdatapesanan/ajax_edit/')?>/" + id,
-        type: "GET",
-        dataType: "JSON",
-        success: function(data)
-        {
-            $('[name="id_tamu"]').val(data.id_tamu);
-            $('[name="tgl_input"]').val(data.tgl_input);
-            $('[name="nama_tamu"]').val(data.nama_tamu);
-            $('[name="alamat_tamu"]').val(data.alamat_tamu);
-            $('[name="no_hp"]').val(data.np_hp);
-            $('[name="tgl_masuk"]').val(data.tgl_masuk);
-            $('[name="tgl_keluar"]').val(data.tgl_keluar);
-            $('[name="tipe_kamar"]').val(data.tipe_kamar);
-            $('[name="harga_kamar"]').val(data.harga_kamar);
-            $('[name="jumlah_kamar"]').val(data.jumlah_kamar);
-            $('[name="status"]').val(data.status);
-            $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Pesanan'); // Set title to Bootstrap modal title
-
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error get data from ajax');
-        }
-    });
+function ambiltotal(){
+    var kode = $("#kode").val();
+    var extra_bed = $("#extra_bed").val();
+    var restaurant = $("#restaurant").val();
+    var lain2 = $("#lain2").val();
+       if(kode !=''){
+       $.ajax({
+           url:"<?php echo base_url()?>index.php/FormCekout/gettotalnya/"+kode+"/"+extra_bed+"/"+restaurant+"/"+lain2,
+           success:function(data){
+               $("#gettotal").html(data);
+           }
+       });
+       }
 }
 
-function reload_table()
-{
-    table.ajax.reload(null,false); //reload datatable ajax
+function caritotaldue(){
+  var kode = $("#kode").val();
+  var paid = $("#paid").val();
+  var total = $("#total").val();
+       if(kode !=''){
+       $.ajax({
+           url:"<?php echo base_url()?>index.php/FormCekout/totaldue/"+kode+"/"+paid+"/"+total,
+           success:function(data){
+               $("#gettotaldue").html(data);
+           }
+       });
+       }
 }
 
 function save()
@@ -714,11 +885,7 @@ function save()
     $('#btnSave').attr('disabled',true); //set button disable
     var url;
 
-    if(save_method == 'add') {
-        url = "<?php echo site_url('Masterdatapesanan/ajax_add')?>";
-    } else {
-        url = "<?php echo site_url('Masterdatapesanan/ajax_update')?>";
-    }
+        url = "<?php echo site_url('Mastercheckout/ajax_update_cekout')?>";
 
     // ajax adding data to database
     $.ajax({
@@ -731,8 +898,7 @@ function save()
 
             if(data.status) //if success close modal and reload ajax table
             {
-                $('#modal_form').modal('hide');
-                reload_table();
+                
             }
 
             $('#btnSave').text('save'); //change button text
@@ -748,46 +914,6 @@ function save()
 
         }
     });
-}
-
-function delete_pesanan(id)
-{
-    if(confirm('Are you sure delete this data?'))
-    {
-        // ajax delete data to database
-        $.ajax({
-            url : "<?php echo site_url('Masterdatapesanan/ajax_delete')?>/"+id,
-            type: "POST",
-            dataType: "JSON",
-            success: function(data)
-            {
-                //if success reload ajax table
-                $('#modal_form').modal('hide');
-                reload_table();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-                alert('Error deleting data');
-            }
-        });
-
-    }
-}
-
-function yesnoCheck() {
-    if (document.getElementById('optionsRadios1').checked) {
-        document.getElementById('debit').style.visibility = 'hidden';
-    } else {
-        document.getElementById('debit').style.visibility = 'visible';
-    }
-}
-
-function yesCheck() {
-    if (document.getElementById('optionsRadios2').checked) {
-        document.getElementById('debit').style.visibility = 'visible';
-    } else {
-        document.getElementById('debit').style.visibility = 'hidden';
-    }
 }
 
 </script>
@@ -883,7 +1009,8 @@ function yesCheck() {
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+</div>
+<!-- /.modal -->
 <!-- End Bootstrap modal -->
 </body>
 </html>

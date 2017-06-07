@@ -70,8 +70,8 @@
 Dropzone.autoDiscover = false;
 var id_transaksi = $("#id_transaksi").val();
 var foto_upload= new Dropzone(".dropzone",{
-// url: "<?php echo base_url() ?>index.php/upload/proses_upload"+id_transaksi,
-url: "<?php echo base_url() ?>index.php/upload/proses_upload",
+url: "<?php echo base_url() ?>index.php/upload/proses_upload/"+id_transaksi,
+// url: "<?php echo base_url() ?>index.php/upload/proses_upload",
 maxFilesize: 2,
 method:"post",
 acceptedFiles:"image/*",
