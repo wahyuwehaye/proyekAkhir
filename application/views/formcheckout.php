@@ -218,7 +218,7 @@
             <div class="col-md-12 swimming-grid">
           <label>ID Booking</label>
           <input type="text" name="kode" id="kode" onkeyup="cobacoba()" />
-                    <button type="Submit" class="btn btn-primary btn-xs">Cari </i></button>
+                    <button type="Button" class="btn btn-primary btn-xs">Cari </i></button>
         </div>
         </br></br>
             <!-- form start -->

@@ -25,9 +25,14 @@ class M_formcekout extends CI_Model {
     // }
 
     function ambilbooking($kode){
-            $query = $this->db->query("select * from booking where id_booking='$kode'");
+            $query = $this->db->query("select * from booking where id_booking='$kode' and (status = 'Check In')");
             return $query;
         }
+
+    function hitungbooking($kode){
+        $query = $this->db->query("select COUNT(id_booking) as jumlah from booking where id_booking='$kode' and (status = 'Check In')");
+        return $query;
+    }
 }
 ?>
 <!-- - See more at: http://fabernainggolan.net/input-dinamis-autocomplete-pada-codeignitermysql-dengan-jquer#sthash.X5a3zWkM.dpuf -->

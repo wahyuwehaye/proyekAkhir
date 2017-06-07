@@ -49,8 +49,10 @@ class FormCekout extends CI_Controller
 
     public function cobacek($kode){
         // $data = $this->M_formcekout->ambilbooking($idanggota);
-
-        $databooking = $this->M_formcekout->ambilbooking($kode)->row();
+        $jumlahbooking = $this->M_formcekout->hitungbooking($kode)->row();
+        $jumlahbookingnya = $jumlahbooking->jumlah;
+        if ($jumlahbookingnya>=1) {
+            $databooking = $this->M_formcekout->ambilbooking($kode)->row();
         echo '<div class="form-group">
                   <label for="nama">Nama Lengkap</label>
                   <input type="text" class="form-control" id="nama" name="nama" disabled placeholder="Nama Lengkap" value="'.$databooking->nama.'">
@@ -83,6 +85,14 @@ class FormCekout extends CI_Controller
                     <label for="harga">Harga Sewa Kamar</label>
                     <input type="text" class="form-control" id="harga" name="harga" disabled placeholder="Harga Kamar"value="'.$databooking->harga.'">
                 </div>';
+        }else{
+            echo '<div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                ID Booking yang anda masukkan tidak ada dalam data Check In, Silakan cek terlebih dahulu Pada Data Check In lalu kemudian lakukan kembali untuk pengisian Form Check Out nya. (Hanya Data dengan Status Check In yang bisa di proses pada Form Check Out ini.)
+              </div>';
+        }
+        
     }
 
     public function gettotalnya($kode,$extra_bed,$restaurant,$lain2){
