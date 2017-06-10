@@ -240,19 +240,19 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="nama_tamu">Nama Lengkap</label>
-                  <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">
+                  <input type="text" class="form-control" id="nama" name="nama" required placeholder="Nama Lengkap">
                 </div>
                 <div class="form-group">
                   <label for="alamat_tamu">Alamat</label>
-                  <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat">
+                  <input type="text" class="form-control" id="alamat" name="alamat" required placeholder="Alamat">
                 </div>
                 <div class="form-group">
                   <label for="id_tamu">ID Identitas</label>
-                  <input type="text" class="form-control" id="id_tamu" name="id_tamu" placeholder="ID Identitas">
+                  <input type="text" class="form-control" id="id_tamu" name="id_tamu" required placeholder="ID Identitas">
                 </div>
                 <div class="form-group">
                   <label for="no_hp">Nomor HP</label>
-                  <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Nomor HP">
+                  <input type="text" class="form-control" id="no_hp" name="no_hp" required placeholder="Nomor HP">
                 </div>
                 <div class="form-group">
                   <div class="radio">
