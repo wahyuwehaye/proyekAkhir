@@ -4,19 +4,21 @@
 		<div class="footer-main">
 			<div class="col-md-3 ftr-grid wow zoomIn" data-wow-delay="0.3s">
 				<div class="ftr-logo">
-				<img src="<?php echo base_url(); ?>assets/images/ftr-logo.png"  alt="">
+				<img src="<?php echo base_url(); ?>assets/images/Ch2.png"  alt="">
 				</div>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+				<p>Dekat halte bus, hotel ini berjarak 6 km dari pusat perbelanjaan di Jalan Braga, 3.4 km dari batu dan fosil di Museum Geologi dan 2.9 km dari kebun binatang Bandung.</p>
 				<a href="<?php echo base_url(); ?>/single.html" class="ftr-btn">Read More</a>
 			</div>
 			<div class="col-md-3 ftr-grid ftr-mid wow zoomIn" data-wow-delay="0.3s">
 				 <h3>Address</h3>
 				 <span class="ftr-line flm"> </span>
-				<p>Cihampelas</p>
-				<p>5875 Bandung </p>
-				<p>Jawa Barat 23226 </p>
-				<p>(804) 287-4216 </p>
-				<p>Ajeng Puspitasari</p>
+				<p>Cihampelas Hotel 2</p>
+				<p>Jl. Cihampelas No.222 </p>
+				<p>Bandung 40131 West Java,Indonesia </p>
+				<p>phone    : +62 22 2039 555 <br> 
+                   Whats App: +62 818 207 606, <br> +62 812 2000 832 <br>
+                   BBM      : D579B74A <br>
+                   Fax      : +62.22.2032998</p>
 
 			</div>
 			<div class="col-md-3 ftr-grid ftr-rit wow zoomIn" data-wow-delay="0.3s">
