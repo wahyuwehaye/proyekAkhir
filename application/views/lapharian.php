@@ -179,6 +179,7 @@
                 <thead>
                 <tr>
                   <th>No</th>
+                  <th>ID Booking</th>
                   <th>Data Input</th>
                   <th>Nama</th>
                   <th>Tipe Kamar</th>
@@ -221,7 +222,8 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>No</th>
+                  <th>No</th>
+                  <th>ID Booking</th>
                   <th>Data Input</th>
                   <th>Nama</th>
                   <th>Tipe Kamar</th>
@@ -236,7 +238,9 @@
                 </tfoot>
               </table>
               <div class="col-md-4 swimming-grid">
-                  <button type="button" class="btn btn-success">Kirim</button>
+              <form method="POST" action="<?php echo base_url()?>index.php/Mastercheckout/ajax_update_ke_nite" id="form">
+                  <button type="submit" class="btn btn-success">Kirim</button>
+              </form>
               </div>
             </div>
             <!-- /.box-body -->

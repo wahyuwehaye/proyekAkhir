@@ -116,16 +116,16 @@
         <li class="header">MAIN NAVIGATION</li>
 
         <li class="treeview active">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
+          <a href="<?php echo base_url()?>index.php/dashboard/niteaudit">
+            <i class="fa fa-table"></i> <span>Laporan Harian</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
+          <!-- <ul class="treeview-menu">
             <li class="active"><a href="simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
             <li><a href="data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-          </ul>
+          </ul> -->
         </li>
 
       </ul>
@@ -166,6 +166,7 @@
                 <thead>
                 <tr>
                   <th>No</th>
+                  <th>ID Booking</th>
                   <th>Data Input</th>
                   <th>Nama</th>
                   <th>Tipe Kamar</th>
@@ -173,6 +174,9 @@
                   <th>Alamat</th>
                   <th>Check In</th>
                   <th>Check Out</th>
+                  <th>Status</th>
+                  <th>Nomor Kartu</th>
+                  <th>Keterangan</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -199,20 +203,30 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>No</th>
-                    <th>Data Input</th>
-                    <th>Nama</th>
-                    <th>Tipe Kamar</th>
-                    <th>Nomor HP</th>
-                    <th>Alamat</th>
-                    <th>Check In</th>
-                    <th>Check Out</th>
+                  <th>No</th>
+                  <th>ID Booking</th>
+                  <th>Data Input</th>
+                  <th>Nama</th>
+                  <th>Tipe Kamar</th>
+                  <th>Nomor HP</th>
+                  <th>Alamat</th>
+                  <th>Check In</th>
+                  <th>Check Out</th>
+                  <th>Status</th>
+                  <th>Nomor Kartu</th>
+                  <th>Keterangan</th>
                 </tr>
                 </tfoot>
               </table>
-              <div class="col-md-12 swimming-grid">
-                  <button type="button" class="btn btn-primary">Di Ulang</button>
-                  <button type="button" class="btn btn-success">Approve</button>
+              <div class="col-md-1 swimming-grid">
+              <form method="POST" action="<?php echo base_url()?>index.php/Masterdatanite/ajax_update_ke_resepsionis" id="form">
+                  <button type="submit" class="btn btn-primary">Di Ulang</button>
+              </form>
+              </div>
+              <div class="col-md-1 swimming-grid">
+              <form method="POST" action="<?php echo base_url()?>index.php/Masterdatanite/ajax_update_ke_keuangan" id="form">
+                  <button type="submit" class="btn btn-success">Approve</button>
+              </form>
               </div>
             </div>
             <!-- /.box-body -->
@@ -461,7 +475,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('masterdatanite/ajax_list')?>",
+            "url": "<?php echo site_url('Masterdatanite/ajax_list')?>",
             "type": "POST"
         },
 

@@ -266,7 +266,8 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" name="datepicker" class="form-control pull-right" id="datepicker">
+                  <input type="text" onclick="filltgl()" name="datepicker" class="form-control pull-right" id="datepicker">
+                  <!-- <input type="text" name="tgl_keluar" class="form-control pull-right" id="tgl_keluar"> -->
                 </div>
                 <!-- /.input group -->
               </div>
@@ -914,6 +915,11 @@ function save()
 
         }
     });
+}
+
+function filltgl(){
+  var total = $("#datepicker").val();
+    $("#tgl_keluar").val(total);
 }
 
 </script>

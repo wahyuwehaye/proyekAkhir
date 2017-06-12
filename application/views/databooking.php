@@ -179,6 +179,7 @@
                 <thead>
                 <tr>
                   <th>No</th>
+                  <th>ID Booking</th>
                   <th>Data Input</th>
                   <th>Nama</th>
                   <th>Tipe Kamar</th>
@@ -223,6 +224,7 @@
                 <tfoot>
                 <tr>
                     <th>No</th>
+                    <th>ID Booking</th>
                     <th>Data Input</th>
                     <th>Nama</th>
                     <th>Tipe Kamar</th>

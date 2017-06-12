@@ -171,8 +171,8 @@
 					  	</div>
 					  	<div class="about-text">
 					  		<h5>Detail Harga</h5>
-					  		<p>Weekday : Rp. <?php echo $a->harga_kamar_weekday; ?> <br>
-					  		   Weekend : Rp. <?php echo $a->harga_kamar_weekend; ?> </p>
+					  		<p>Weekday : Rp. <?php echo number_format($a->harga_kamar_weekday, 1, ",", "."); ?> <br>
+					  		   Weekend : Rp. <?php echo number_format($a->harga_kamar_weekend, 1, ",", "."); ?> </p>
 							   <input type="hidden" value="<?php echo $a->harga_kamar_weekday; ?>" name="harga_kamar_weekday"/>
 							   <input type="hidden" value="<?php echo $a->harga_kamar_weekend; ?>" name="harga_kamar_weekend"/>
 					  	</div>

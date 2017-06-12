@@ -179,6 +179,7 @@
                 <thead>
                 <tr>
                   <th>No</th>
+                  <th>ID Booking</th>
                   <th>Data Input</th>
                   <th>Nama</th>
                   <th>Tipe Kamar</th>
@@ -223,6 +224,7 @@
                 <tfoot>
                 <tr>
                     <th>No</th>
+                    <th>ID Booking</th>
                   <th>Data Input</th>
                   <th>Nama</th>
                   <th>Tipe Kamar</th>
@@ -932,7 +934,7 @@ function delete_checkin(id)
                             <select name="status" id="status" class="form-control">
                               <option value="Booking">Booking</option>
                               <option value="Check In">Check In</option>
-                              <option value="Check Out">Check Out</option>
+                              <!-- <option value="Check Out">Check Out</option> -->
                             </select>
                           </div>
                         </div>

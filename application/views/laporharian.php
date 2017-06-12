@@ -176,6 +176,7 @@
                 <thead>
                 <tr>
                   <th>No</th>
+                  <th>ID Booking</th>
                   <th>Data Input</th>
                   <th>Nama</th>
                   <th>Tipe Kamar</th>
@@ -184,7 +185,8 @@
                   <th>Check In</th>
                   <th>Check Out</th>
                   <th>Status</th>
-                  <th>Aksi</th>
+                  <th>Nomor Kartu</th>
+                  <th>Keterangan</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -217,16 +219,18 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>No</th>
-                    <th>Data Input</th>
-                    <th>Nama</th>
-                    <th>Tipe Kamar</th>
-                    <th>Nomor HP</th>
-                    <th>Alamat</th>
-                    <th>Check In</th>
-                    <th>Check Out</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
+                  <th>No</th>
+                  <th>ID Booking</th>
+                  <th>Data Input</th>
+                  <th>Nama</th>
+                  <th>Tipe Kamar</th>
+                  <th>Nomor HP</th>
+                  <th>Alamat</th>
+                  <th>Check In</th>
+                  <th>Check Out</th>
+                  <th>Status</th>
+                  <th>Nomor Kartu</th>
+                  <th>Keterangan</th>
                 </tr>
                 </tfoot>
               </table>
@@ -237,20 +241,21 @@
 
           <!-- BOX 2 -->
 
-          <div class="box">
+          <!-- <div class="box"> -->
               <!-- <div class="box-header">
               <button class="btn btn-xs btn-success" onclick="add_pesanan()"><i class="glyphicon glyphicon-plus"></i></button>
               <button class="btn btn-xs btn-warning" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i></button>
           </div> -->
-          <div class="box-header">
+          <!-- <div class="box-header">
               <h3 class="box-title">Bulan February</h3>
-            </div>
+            </div> -->
             <!-- /.box-header -->
-            <div class="box-body">
+           <!--  <div class="box-body">
               <table id="table1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>No</th>
+                  <th>ID Booking</th>
                   <th>Data Input</th>
                   <th>Nama</th>
                   <th>Tipe Kamar</th>
@@ -259,10 +264,11 @@
                   <th>Check In</th>
                   <th>Check Out</th>
                   <th>Status</th>
-                  <th>Aksi</th>
+                  <th>Nomor Kartu</th>
+                  <th>Keterangan</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody> -->
                 <!-- <tr>
                   <td>1</td>
                   <td>1</td>
@@ -289,25 +295,27 @@
                   <td><a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="#"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
           </td>
                 </tr> -->
-                </tbody>
+                <!-- </tbody>
                 <tfoot>
                 <tr>
-                    <th>No</th>
-                    <th>Data Input</th>
-                    <th>Nama</th>
-                    <th>Tipe Kamar</th>
-                    <th>Nomor HP</th>
-                    <th>Alamat</th>
-                    <th>Check In</th>
-                    <th>Check Out</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
+                  <th>No</th>
+                  <th>ID Booking</th>
+                  <th>Data Input</th>
+                  <th>Nama</th>
+                  <th>Tipe Kamar</th>
+                  <th>Nomor HP</th>
+                  <th>Alamat</th>
+                  <th>Check In</th>
+                  <th>Check Out</th>
+                  <th>Status</th>
+                  <th>Nomor Kartu</th>
+                  <th>Keterangan</th>
                 </tr>
                 </tfoot>
               </table>
-            </div>
+            </div> -->
             <!-- /.box-body -->
-          </div>
+          <!-- </div> -->
           <!-- /.box -->
         </div>
         <!-- /.col -->

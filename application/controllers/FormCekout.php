@@ -83,7 +83,7 @@ class FormCekout extends CI_Controller
                 </div>
                 <div class="form-group">
                     <label for="harga">Harga Sewa Kamar</label>
-                    <input type="text" class="form-control" id="harga" name="harga" disabled placeholder="Harga Kamar"value="'.$databooking->harga.'">
+                    <input type="text" class="form-control" id="harga" name="harga" disabled placeholder="Harga Kamar"value="Rp. '.number_format($databooking->harga, 1, ",", ".").'">
                 </div>';
         }else{
             echo '<div class="alert alert-danger alert-dismissible">
@@ -110,7 +110,7 @@ class FormCekout extends CI_Controller
                   <label for="total" class="col-md-2 control-label">Total</label>
 
                   <div class="col-md-3">
-                    <input type="text" class="form-control" id="totalall" disabled placeholder="Total" value="'.$totalsemua.'">
+                    <input type="text" class="form-control" id="totalall" disabled placeholder="Total" value="Rp. '.number_format($totalsemua, 1, ",", ".").'">
                   </div>
               </div>';
     }
@@ -126,7 +126,7 @@ class FormCekout extends CI_Controller
                   <label for="total_due" class="col-md-2 control-label">Kembalian</label>
 
                   <div class="col-md-3">
-                    <input type="text" class="form-control" id="total_due" disabled placeholder="Total Due" value="'.$totaldue.'">
+                    <input type="text" class="form-control" id="total_due" disabled placeholder="Total Due" value="Rp. '.number_format($totaldue, 1, ",", ".").'">
                   </div>
               </div>';
     }

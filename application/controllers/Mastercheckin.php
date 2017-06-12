@@ -24,6 +24,7 @@ class Mastercheckin extends CI_Controller {
 			$no++;
 			$row = array();
             $row[] = $no;
+            $row[] = $checkin->id_booking;
 			$row[] = $checkin->tgl_input;
 			$row[] = $checkin->nama;
             $row[] = $checkin->tipe_kamar;
@@ -62,6 +63,7 @@ class Mastercheckin extends CI_Controller {
 			$no++;
 			$row = array();
             $row[] = $no;
+            $row[] = $checkin->id_booking;
 			$row[] = $checkin->tgl_input;
 			$row[] = $checkin->nama;
             $row[] = $checkin->tipe_kamar;

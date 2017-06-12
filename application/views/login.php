@@ -39,6 +39,15 @@
 
           <form action="<?php echo base_url()?>index.php/Dashboard/cekUser" method="post">
 
+          <!-- Data Cookie -->
+                  <input type="hidden" name="tglIn" value="<?php echo date('Y-m-d', strtotime($tglIn)); ?>">
+                  <input type="hidden" name="tglOut" value="<?php echo date('Y-m-d', strtotime($tglOut)); ?>">
+                  <input type="hidden" name="kamar" value="<?php echo $kamar; ?>">
+                  <input type="hidden" name="nama_kamar" value="<?php echo $nama_kamar; ?>">
+                  <input type="hidden" name="harga_kamar_weekday" value="<?php echo $harga_kamar_weekday; ?>">
+                  <input type="hidden" name="harga_kamar_weekend" value="<?php echo $harga_kamar_weekend; ?>">
+          <!-- Data Cookie -->
+
               <input type="hidden"required autocomplete="off" name="id_user"/>
 
           <div class="top-row">
@@ -96,6 +105,15 @@
           <h1>Welcome Back!</h1>
 
           <form action="<?php echo base_url()?>index.php/Dashboard/loginAdmin" method="post">
+
+          <!-- Data Cookie -->
+                  <input type="hidden" name="tglIn" value="<?php echo date('Y-m-d', strtotime($tglIn)); ?>">
+                  <input type="hidden" name="tglOut" value="<?php echo date('Y-m-d', strtotime($tglOut)); ?>">
+                  <input type="hidden" name="kamar" value="<?php echo $kamar; ?>">
+                  <input type="hidden" name="nama_kamar" value="<?php echo $nama_kamar; ?>">
+                  <input type="hidden" name="harga_kamar_weekday" value="<?php echo $harga_kamar_weekday; ?>">
+                  <input type="hidden" name="harga_kamar_weekend" value="<?php echo $harga_kamar_weekend; ?>">
+          <!-- Data Cookie -->
 
             <div class="field-wrap">
             <label>

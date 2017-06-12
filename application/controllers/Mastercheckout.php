@@ -25,6 +25,7 @@ class Mastercheckout extends CI_Controller {
 			$no++;
 			$row = array();
             $row[] = $no;
+            $row[] = $checkout->id_booking;
 			$row[] = $checkout->tgl_input;
 			$row[] = $checkout->nama;
             $row[] = $checkout->tipe_kamar;
@@ -37,9 +38,9 @@ class Mastercheckout extends CI_Controller {
 			$row[] = $checkout->ket;
 
 			//add html for action
-			$row[] = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Detail" onclick="detail_checkout('."'".$checkout->id_booking."'".')"><i class="glyphicon glyphicon-info-sign"></i></a>
-			<a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_checkout('."'".$checkout->id_booking."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
-				  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_checkout('."'".$checkout->id_booking."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
+			// $row[] = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Detail" onclick="detail_checkout('."'".$checkout->id_booking."'".')"><i class="glyphicon glyphicon-info-sign"></i></a>
+			// <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_checkout('."'".$checkout->id_booking."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
+			// 	  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_checkout('."'".$checkout->id_booking."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
 
 			$data[] = $row;
 		}
@@ -56,13 +57,14 @@ class Mastercheckout extends CI_Controller {
 
 	public function ajax_listHarian()
 	{
-		$list = $this->checkout->get_datatables();
+		$list = $this->checkout->get_datatables_harian();
 		$data = array();
 		$no = $_POST['start'];
 		foreach ($list as $checkout) {
 			$no++;
 			$row = array();
             $row[] = $no;
+            $row[] = $checkout->id_booking;
 			$row[] = $checkout->tgl_input;
 			$row[] = $checkout->nama;
             $row[] = $checkout->tipe_kamar;
@@ -101,6 +103,7 @@ class Mastercheckout extends CI_Controller {
 			$no++;
 			$row = array();
             $row[] = $no;
+            $row[] = $checkout->id_booking;
 			$row[] = $checkout->tgl_input;
 			$row[] = $checkout->nama;
             $row[] = $checkout->tipe_kamar;
@@ -204,13 +207,29 @@ class Mastercheckout extends CI_Controller {
 	    	'status' => "kosong",
 	    	);
 		$data = array(
-                'tgl_keluar' => $this->input->post("datepicker"),
+                // 'tgl_keluar' => $this->input->post("tgl_keluar"),
 				'status' => 'Check Out',
                 'ket' => 'Lunas',
+                'acc' => 'Resepsionis',
 			);
 		$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
 		$this->checkout->Update('booking',$data,$id);
 		redirect('dashboard/datacheckout');
+		echo json_encode(array("status" => TRUE));
+	}
+
+	public function ajax_update_ke_nite(){
+		$this->load->database();
+		$this->load->model('M_formcekout'); //load model mkota yang berada di folder model
+	    $this->load->model('m_dashboard');
+	    $acc = array(
+	    	'acc' => 'Resepsionis',
+	    	);
+	    $data = array(
+                'acc' => 'Nite Audit',
+			);
+		$this->checkout->Update('booking',$data,$acc);
+		redirect('dashboard/lapharian');
 		echo json_encode(array("status" => TRUE));
 	}
 

@@ -24,6 +24,7 @@ class Masterbooking extends CI_Controller {
 			$no++;
 			$row = array();
             $row[] = $no;
+            $row[] = $booking->id_booking;
 			$row[] = $booking->tgl_input;
 			$row[] = $booking->nama;
             $row[] = $booking->tipe_kamar;
@@ -62,6 +63,7 @@ class Masterbooking extends CI_Controller {
 			$no++;
 			$row = array();
             $row[] = $no;
+            $row[] = $booking->id_booking;
 			$row[] = $booking->tgl_input;
 			$row[] = $booking->nama;
             $row[] = $booking->tipe_kamar;

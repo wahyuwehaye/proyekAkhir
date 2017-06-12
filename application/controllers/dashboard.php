@@ -39,7 +39,13 @@ class Dashboard extends CI_Controller {
 
     public function login()
 	{
-        $this->load->view('login');
+		$data['tglIn'] = $this->input->post('tglIn');
+		$data['tglOut'] = $this->input->post('tglOut');
+		$data['kamar'] = $this->input->post('kamar');
+		$data['nama_kamar'] = $this->input->post('nama_kamar');
+		$data['harga_kamar_weekday'] = $this->input->post('harga_kamar_weekday');
+		$data['harga_kamar_weekend'] = $this->input->post('harga_kamar_weekend');
+        $this->load->view('login',$data);
 	}
 
 	public function loginAdmin(){
@@ -60,7 +66,48 @@ class Dashboard extends CI_Controller {
         $this->load->library('session');
 		$this->load->model('m_login');
 				$data=$this->m_login->checkLogin();
-				if($data>0){
+				if (($this->input->post('nama_kamar'))!==""){
+					$this->datasementara();
+					if($data>0){
+					$sessionData=$this->m_login->findByDynamicColumn(array('username'=> $_POST['username'],'password'=> md5($_POST['password'])));
+
+					$newdata = array(
+						'username'  => $_POST['username'],
+						'logged_in' => TRUE,
+						// 'name'		=> $sessionData[0]['name'],
+						// 'id_session'=> $sessionData[0]['id']
+					);
+
+					$this->session->set_userdata($newdata);
+//					print_r($_SESSION);
+					//echo $_SESSION['logged_in']." asdfasdf";
+					//die();
+                    if($_POST['username']=='admin'){
+                    	if (($this->input->post('nama_kamar'))=="") {
+                    		redirect('main/index');
+                    	}else{
+                    		$this->wizard();
+                    	}
+                        
+                    }else if ($_POST['username']=='niteaudit') {
+                        redirect('dashboard/niteaudit');
+                    }else if ($_POST['username']=='keuangan') {
+                        redirect('dashboard/keuangan');
+                    }elseif ($_POST['username']=='resepsionis') {
+                        redirect('dashboard/onsite');
+                    }else {
+                    	if (($this->input->post('nama_kamar'))=="") {
+                    		redirect('main/index');
+                    	}else{
+                    		$this->wizard();
+                    	}
+                    }
+                    }else{
+						$_SESSION['error'] = '';
+						redirect('Dashboard/login');
+					}
+				}else{
+					if($data>0){
 					$sessionData=$this->m_login->findByDynamicColumn(array('username'=> $_POST['username'],'password'=> md5($_POST['password'])));
 
 					$newdata = array(
@@ -75,7 +122,7 @@ class Dashboard extends CI_Controller {
 					//echo $_SESSION['logged_in']." asdfasdf";
 					//die();
                     if($_POST['username']=='admin'){
-                        redirect('main/index');
+                    	redirect('main/index');
                     }else if ($_POST['username']=='niteaudit') {
                         redirect('dashboard/niteaudit');
                     }else if ($_POST['username']=='keuangan') {
@@ -86,10 +133,27 @@ class Dashboard extends CI_Controller {
                     	redirect('main/index');
                     }
 
-				}else{
-					$_SESSION['error'] = '';
-					redirect('Dashboard/login');
+					}else{
+						$_SESSION['error'] = '';
+						redirect('Dashboard/login');
+					}
 				}
+				
+    }
+
+    public function datasementara(){
+    	$this->load->database();
+	    $this->load->model('m_dashboard');
+	    $sementara = array(
+			'tglIn' => $this->input->post('tglIn'),
+			'tglOut' => $this->input->post('tglOut'),
+			'kamar' => $this->input->post('kamar'),
+			'nama_kamar' => $this->input->post('nama_kamar'),
+			'harga_kamar_weekday' => $this->input->post('harga_kamar_weekday'),
+			'harga_kamar_weekend' => $this->input->post('harga_kamar_weekend'),
+			'user' => $this->input->post('username'),
+			);
+	    $this->m_dashboard->insertSementara($sementara);
     }
 
 	public function logOut() {

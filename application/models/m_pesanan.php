@@ -3,10 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class m_pesanan extends CI_Model {
 
-	var $table = 'data_tamu';
-	var $column_order = array('tgl_input','nama_tamu','tipe_kamar','no_hp','alamat_tamu','tgl_masuk','tgl_keluar','status',null); //set column field database for datatable orderable
-	var $column_search = array('tgl_input','nama_tamu','tipe_kamar','no_hp','alamat_tamu','tgl_masuk','tgl_keluar','status'); //set column field database for datatable searchable just firstname , lastname , address are searchable
-	var $order = array('id_tamu' => 'desc'); // default order
+	var $table = 'booking';
+	var $column_order = array('tgl_input','nama','tipe_kamar','no_hp','alamat','tgl_masuk','tgl_keluar','status','no_kartu','ket',null); //set column field database for datatable orderable
+	var $column_search = array('tgl_input','nama','tipe_kamar','no_hp','alamat','tgl_masuk','tgl_keluar','status','no_kartu','ket'); //set column field database for datatable searchable just firstname , lastname , address are searchable
+	var $order = array('id_booking' => 'desc'); // default order
 
 	public function __construct()
 	{
@@ -18,6 +18,8 @@ class m_pesanan extends CI_Model {
 	{
 
 		$this->db->from($this->table);
+		$this->db->where('status','Check Out');
+		$this->db->where('acc','Keuangan');
 
 		$i = 0;
 

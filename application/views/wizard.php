@@ -131,16 +131,29 @@ $idtransbaru = $datetidtrans+1;
                             <fieldset>
                                 <h4>Metode Pembayaran</h4>
                                 <div class="form-group">
-                    			    <label for="f1-first-name">DP</label>
-                                    <input type="text" name="dp" id="dp" placeholder="DP" class="f1-first-name form-control" id="dp">
+                    			    <!-- <label for="f1-first-name">DP</label>
+                                    <input type="text" name="dp" id="dp" placeholder="DP" class="f1-first-name form-control" id="dp"> -->
+                                    <select onchange="cobaselect()" name="pembayaran" id="pembayaran" class="form-control">
+                                        <option value="">- Pilih Salah Satu -</option>
+                                        <option value="DP">DP</option>
+                                        <option value="Lunas">Lunas</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="f1-last-name">Harga Per Malam</label>
                                     <input type="text" name="harga" placeholder="Harga Per Malam" value="<?php echo $harganya; ?>" class="f1-last-name form-control" id="harga">
                                 </div>
                                 <div class="form-group">
+                                    <label for="f1-last-name">Jumlah Malam</label>
+                                    <input type="text" name="jumlah_malam" placeholder="Harga Per Malam" value="<?php echo $jumlahmalamnya; ?>" class="f1-last-name form-control" id="jumlah_malam">
+                                </div>
+                                <div class="form-group">
+                                    <label for="f1-last-name">Harga Total</label>
+                                    <input type="text" name="total" placeholder="Harga Per Malam" value="<?php echo $total; ?>" class="f1-last-name form-control" id="total">
+                                </div>
+                                <div class="form-group">
                                     <label for="f1-last-name">Total Bayar</label>
-                                    <input type="text" name="total" placeholder="Total Bayar" value="<?php echo $total; ?>" class="f1-last-name form-control" id="harga">
+                                    <input type="text" name="dp" placeholder="Total Bayar" value="" class="f1-last-name form-control" id="dp">
                                 </div>
                                 <h4>Transfer dapat dilakukan melalui Bank berikut :</h4>
                                 <input type="radio" onclick="javascript:yesCheck1();" name="metode_bayar" id="bayar1" value="Transfer Ke Nomor Rekening BCA"/> BCA
@@ -165,7 +178,7 @@ $idtransbaru = $datetidtrans+1;
                                 </div>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>
-                                    <button type="button" class="btn btn-next">Next</button>
+                                    <button type="button" onclick="bayardulu()" class="btn btn-next">Next</button>
                                 </div>
                             </fieldset>
 
@@ -212,7 +225,7 @@ $idtransbaru = $datetidtrans+1;
                                     <h5>Tanggal Keluar : <?php echo $tglOut; ?></h5>
                                     <h5>Jumlah Kamar : <?php echo $kamar; ?></h5>
                                     <h5>Tipe Kamar : <?php echo $nama_kamar; ?></h5>
-                                    <h5>Harga Total : <?php echo $harganya; ?></h5>
+                                    <h5>Harga Total : <?php echo $total; ?></h5>
                                     <button type="button" class="btn btn-previous">Previous</button>
                                     <button type="submit" class="btn btn-submit">Submit</button>
                                 </div>
@@ -224,6 +237,7 @@ $idtransbaru = $datetidtrans+1;
 
             </div>
         </div>
+        <script src="<?php echo base_url()?>sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
 
 function yesCheck1() {
@@ -276,6 +290,30 @@ function yesCheck4() {
         document.getElementById('debit2').style.visibility = 'hidden';
         document.getElementById('debit3').style.visibility = 'hidden';
     }
+}
+
+function cobaselect(){
+    // alert('wahyu');
+    var total = $("#total").val();
+    var pembayaran = $("#pembayaran").val();
+    var hasil = 0;
+    hasil = total /2;
+    // alert(hasil);
+    if (pembayaran=="DP") {
+        $("#dp").val(hasil);
+    }else{
+        $("#dp").val(total);
+    }
+}
+
+function bayardulu(){
+    swal({
+  title: "Transfer paling lambat dilakukan 1 jam setelah melakukan pemesanan ini!",
+  text: "I will close in 2 minutes.",
+  type: "warning",
+  timer: 120000,
+  showConfirmButton: true
+});
 }
 
 </script>

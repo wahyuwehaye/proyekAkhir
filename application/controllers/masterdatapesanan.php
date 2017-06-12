@@ -24,19 +24,22 @@ class Masterdatapesanan extends CI_Controller {
 			$no++;
 			$row = array();
             $row[] = $no;
+            $row[] = $pesanan->id_booking;
 			$row[] = $pesanan->tgl_input;
-			$row[] = $pesanan->nama_tamu;
+			$row[] = $pesanan->nama;
             $row[] = $pesanan->tipe_kamar;
 			$row[] = $pesanan->no_hp;
-            $row[] = $pesanan->alamat_tamu;
+            $row[] = $pesanan->alamat;
 			$row[] = $pesanan->tgl_masuk;
             $row[] = $pesanan->tgl_keluar;
 			$row[] = $pesanan->status;
+			$row[] = $pesanan->no_kartu;
+			$row[] = $pesanan->ket;
 
 			//add html for action
-			$row[] = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Detail" onclick="detail_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-info-sign"></i></a>
-			<a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
-				  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
+			// $row[] = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Detail" onclick="detail_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-info-sign"></i></a>
+			// <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
+			// 	  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
 
 			$data[] = $row;
 		}

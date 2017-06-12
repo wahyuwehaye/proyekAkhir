@@ -181,6 +181,7 @@
                 <thead>
                 <tr>
                   <th>No</th>
+                  <th>ID Booking</th>
                   <th>Data Input</th>
                   <th>Nama</th>
                   <th>Tipe Kamar</th>
@@ -191,7 +192,7 @@
                   <th>Status</th>
                   <th>Nomor Kartu</th>
                   <th>Keterangan</th>
-                  <th>Aksi</th>
+                  <!-- <th>Aksi</th> -->
                 </tr>
                 </thead>
                 <tbody>
@@ -224,7 +225,8 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>No</th>
+                  <th>No</th>
+                  <th>ID Booking</th>
                   <th>Data Input</th>
                   <th>Nama</th>
                   <th>Tipe Kamar</th>
@@ -235,13 +237,13 @@
                   <th>Status</th>
                   <th>Nomor Kartu</th>
                   <th>Keterangan</th>
-                  <th>Aksi</th>
+                  <!-- <th>Aksi</th> -->
                 </tr>
                 </tfoot>
               </table>
-              <div class="col-md-4 swimming-grid">
+              <!-- <div class="col-md-4 swimming-grid">
                   <button type="button" class="btn btn-success">Kirim</button>
-              </div>
+              </div> -->
             </div>
             <!-- /.box-body -->
           </div>

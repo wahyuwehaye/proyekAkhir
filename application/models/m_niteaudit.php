@@ -3,10 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class m_niteaudit extends CI_Model {
 
-	var $table = 'data_tamu';
-	var $column_order = array('tgl_input','nama_tamu','tipe_kamar','no_hp','alamat_tamu','tgl_masuk','tgl_keluar','status',null); //set column field database for datatable orderable
-	var $column_search = array('tgl_input','nama_tamu','tipe_kamar','no_hp','alamat_tamu','tgl_masuk','tgl_keluar','status'); //set column field database for datatable searchable just firstname , lastname , address are searchable
-	var $order = array('id_tamu' => 'desc'); // default order
+	var $table = 'booking';
+	var $column_order = array('tgl_input','nama','tipe_kamar','no_hp','alamat','tgl_masuk','tgl_keluar','status','no_kartu','ket',null); //set column field database for datatable orderable
+	var $column_search = array('tgl_input','nama','tipe_kamar','no_hp','alamat','tgl_masuk','tgl_keluar','status','no_kartu','ket'); //set column field database for datatable searchable just firstname , lastname , address are searchable
+	var $order = array('id_booking' => 'desc'); // default order
 
 	public function __construct()
 	{
@@ -18,6 +18,8 @@ class m_niteaudit extends CI_Model {
 	{
 
 		$this->db->from($this->table);
+		$this->db->where('status','Check Out');
+		$this->db->where('acc','Nite Audit');
 
 		$i = 0;
 
@@ -96,6 +98,11 @@ class m_niteaudit extends CI_Model {
 		$this->db->update($this->table, $data, $where);
 		return $this->db->affected_rows();
 	}
+
+	public function UpdateNite($table, $data, $where){
+        $res = $this->db->update($table, $data, $where); // Kode ini digunakan untuk merubah record yang sudah ada dalam sebuah tabel
+        return $res;
+    }
 
 	public function delete_by_id($id)
 	{

@@ -24,13 +24,17 @@ class Masterdatanite extends CI_Controller {
 			$no++;
 			$row = array();
             $row[] = $no;
+            $row[] = $nite->id_booking;
 			$row[] = $nite->tgl_input;
-			$row[] = $nite->nama_tamu;
+			$row[] = $nite->nama;
             $row[] = $nite->tipe_kamar;
 			$row[] = $nite->no_hp;
-            $row[] = $nite->alamat_tamu;
+            $row[] = $nite->alamat;
 			$row[] = $nite->tgl_masuk;
             $row[] = $nite->tgl_keluar;
+			$row[] = $nite->status;
+			$row[] = $nite->no_kartu;
+			$row[] = $nite->ket;
 			// $row[] = $nite->status;
             //
 			// //add html for action
@@ -89,6 +93,36 @@ class Masterdatanite extends CI_Controller {
             // 'status' => $this->input->post('status'),
 			);
 		$this->nite->update(array('id_tamu' => $this->input->post('id_tamu')), $data);
+		echo json_encode(array("status" => TRUE));
+	}
+
+	public function ajax_update_ke_resepsionis(){
+		$this->load->database();
+		$this->load->model('M_formcekout'); //load model mkota yang berada di folder model
+	    $this->load->model('m_dashboard');
+	    $acc = array(
+	    	'acc' => 'Nite Audit',
+	    	);
+	    $data = array(
+                'acc' => 'Resepsionis',
+			);
+		$this->nite->UpdateNite('booking',$data,$acc);
+		redirect('dashboard/niteaudit');
+		echo json_encode(array("status" => TRUE));
+	}
+
+	public function ajax_update_ke_keuangan(){
+		$this->load->database();
+		$this->load->model('M_formcekout'); //load model mkota yang berada di folder model
+	    $this->load->model('m_dashboard');
+	    $acc = array(
+	    	'acc' => 'Nite Audit',
+	    	);
+	    $data = array(
+                'acc' => 'Keuangan',
+			);
+		$this->nite->UpdateNite('booking',$data,$acc);
+		redirect('dashboard/niteaudit');
 		echo json_encode(array("status" => TRUE));
 	}
 

@@ -8,6 +8,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>BootZard - Bootstrap Wizard Template</title>
 
+        <!-- This is what you need -->
+    <script src="dist/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="<?php echo base_url()?>sweetalert/dist/sweetalert.css">
+
+    <script src="<?php echo base_url()?>sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>sweetalert/dist/sweetalert.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>sweetalert/dist/sweetalert.css">
+
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" href="<?php echo base_url()?>wizard/bootstrap/css/bootstrap.min.css">
