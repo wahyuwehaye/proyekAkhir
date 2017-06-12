@@ -52,6 +52,10 @@ class m_dashboard extends CI_Model{
         return $this->db->get('tipe_kamar');
     }
 
+    public function tampil_nomorKamar(){
+        return $this->db->get('kamar');
+    }
+
     // public function tampil_noKamar(){
     //     return $this->db->get('kamar');
     // }
@@ -67,6 +71,36 @@ class m_dashboard extends CI_Model{
 
     public function tampil_noKamar(){
               return $this->db->get_where('kamar', array('status' => 'kosong'));
+              // return $query->result_array();
+    }
+
+    public function tampil_noKamar1(){
+              return $this->db->get_where('kamar', array('status' => 'kosong','id_tipe_kamar' => '1'));
+              // return $query->result_array();
+    }
+
+    public function tampil_noKamar2(){
+              return $this->db->get_where('kamar', array('status' => 'kosong','id_tipe_kamar' => '2'));
+              // return $query->result_array();
+    }
+
+    public function tampil_noKamar3(){
+              return $this->db->get_where('kamar', array('status' => 'kosong','id_tipe_kamar' => '3'));
+              // return $query->result_array();
+    }
+
+    public function tampil_noKamar4(){
+              return $this->db->get_where('kamar', array('status' => 'kosong','id_tipe_kamar' => '4'));
+              // return $query->result_array();
+    }
+
+    public function tampil_noKamar5(){
+              return $this->db->get_where('kamar', array('status' => 'kosong','id_tipe_kamar' => '5'));
+              // return $query->result_array();
+    }
+
+    public function tampil_noKamar6(){
+              return $this->db->get_where('kamar', array('status' => 'kosong','id_tipe_kamar' => '6'));
               // return $query->result_array();
     }
 

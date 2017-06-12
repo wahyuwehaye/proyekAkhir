@@ -7,10 +7,10 @@
 			</div>
 			<div class="contact-bottom">
 				<div class="col-md-9 contact-left">
-					<form>
-						<input type="text" placeholder="Name">
-						<input type="text" class="email" placeholder="Email">
-						<textarea  placeholder="Message" required=""></textarea>
+					<form method="POST" action="<?php echo base_url()?>index.php/Mastersaran/ajax_add" id="form">
+						<input type="text" name="nama" id="nama" placeholder="Name" required="">
+						<input type="text" class="email" name="email" id="email" required="" placeholder="Email">
+						<textarea  placeholder="Message" name="message" id="message" required=""></textarea>
 						<input type="submit" value="Kirim">
 					</form>
 				</div>

@@ -54,6 +54,38 @@ class Masterdatapesanan extends CI_Controller {
 		echo json_encode($output);
 	}
 
+	public function ajax_list_saran()
+	{
+		$list = $this->pesanan->get_datatables_saran();
+		$data = array();
+		$no = $_POST['start'];
+		foreach ($list as $pesanan) {
+			$no++;
+			$row = array();
+            $row[] = $no;
+			$row[] = $pesanan->nama;
+			$row[] = $pesanan->email;
+            $row[] = $pesanan->message;
+            $row[] = $pesanan->tanggal;
+
+			//add html for action
+			// $row[] = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Detail" onclick="detail_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-info-sign"></i></a>
+			// <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
+			// 	  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_pesanan('."'".$pesanan->id_tamu."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
+
+			$data[] = $row;
+		}
+
+		$output = array(
+						"draw" => $_POST['draw'],
+						"recordsTotal" => $this->pesanan->count_all(),
+						"recordsFiltered" => $this->pesanan->count_filtered(),
+						"data" => $data,
+				);
+		//output to json format
+		echo json_encode($output);
+	}
+
 	public function ajax_listbyTgl()
 	{
 		$list = $this->pesanan->get_by_tgl();

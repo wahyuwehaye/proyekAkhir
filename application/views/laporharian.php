@@ -138,7 +138,7 @@
             <li><a href="<?php echo base_url()?>index.php/dashboard/laporbulanan"><i class="fa fa-bar-chart"></i> Bulanan</a></li>
           </ul>
         </li>
-
+        <li><a href="<?php echo base_url()?>index.php/dashboard/kritiksaran"><i class="fa fa-envelope"></i> <span> Kritik dan Saran</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

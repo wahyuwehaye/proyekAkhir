@@ -204,6 +204,10 @@ class Dashboard extends CI_Controller {
         $this->load->view('resepsionis');
     }
 
+    public function kritiksaran(){
+        $this->load->view('kritiksaran');
+    }
+
     public function databooking(){
     	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
         $this->load->view('databooking',$data);
@@ -229,7 +233,14 @@ class Dashboard extends CI_Controller {
 		$this->load->model('m_dashboard');
 		$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
 		$data['available'] = $this->m_dashboard->tampil_dataKamar()->result();
+		$data['tampilnokamar'] = $this->m_dashboard->tampil_nomorKamar()->result();
 		$data['kamarkosong'] = $this->m_dashboard->tampil_noKamar()->result();
+		$data['kamarkosong1'] = $this->m_dashboard->tampil_noKamar1()->result();
+		$data['kamarkosong2'] = $this->m_dashboard->tampil_noKamar2()->result();
+		$data['kamarkosong3'] = $this->m_dashboard->tampil_noKamar3()->result();
+		$data['kamarkosong4'] = $this->m_dashboard->tampil_noKamar4()->result();
+		$data['kamarkosong5'] = $this->m_dashboard->tampil_noKamar5()->result();
+		$data['kamarkosong6'] = $this->m_dashboard->tampil_noKamar6()->result();
         $this->load->view('onsite',$data);
     }
 
@@ -516,7 +527,7 @@ class Dashboard extends CI_Controller {
 	    // $this->m_dashboard->insertTamu($dataTamu, $dataPelanggan);
 		$this->m_dashboard->insertTamu($dataTamu);
 		$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
-	    redirect('dashboard/datacheckin');
+	    redirect('dashboard/detailonsite');
 		echo json_encode(array("status" => TRUE));
 		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
 	}

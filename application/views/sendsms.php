@@ -241,19 +241,21 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/insertBookOnsite">
+            <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Mastersms/ajax_add">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="nama_tamu">Nomor Handphone</label>
-                  <input type="text" class="form-control" id="nama_tamu" name="nama_tamu" placeholder="Nomor Handphone">
+                  <label for="DestinationNumber">Nomor Handphone</label>
+                  <input type="text" class="form-control" id="DestinationNumber" name="DestinationNumber" placeholder="Nomor Handphone">
                 </div>
                 <div class="form-group">
-                  <label for="alamat_tamu">Message</label>
-                  <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                  <label for="TextDecoded">Message</label>
+                  <textarea id="TextDecoded" name="TextDecoded" class="form-control" rows="3" placeholder="Enter ..."></textarea>
                 </div>
+                <input type="hidden" class="form-control" id="CreatorID" name="CreatorID" value="<?php echo ($_SESSION['username']); ?>" placeholder="Pengirim">
               <div class="box-footer " style="float:right;">
                 <button type="submit" class="btn btn-primary">Kirim</button>
               </div>
+
             <!-- /.box-body -->
           </div>
           </form>

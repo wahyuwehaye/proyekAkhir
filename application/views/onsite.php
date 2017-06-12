@@ -234,7 +234,7 @@
       </div>
     </div>
     <section class="content">
-    <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/dataonsite">
+    <!-- <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/dataonsite"> -->
     <div class="box">
     <div class="box box-primary">
       <div class="box-header">
@@ -242,36 +242,36 @@
       </div>
       <div class="box-body">
           <div class="col-md-3">
-              <h2><span class="label label-info"> Pilih Tanggal : </span></h2>
+              <!-- <h2><span class="label label-info"> Pilih Tanggal : </span></h2> -->
           </div>
 
           <div class="col-md-4">
               <!-- Date -->
               <div class="form-group">
-                <label>DateCheck In:</label>
+                <!-- <label>DateCheck In:</label> -->
 
-                <div class="input-group date">
+                <!-- <div class="input-group date">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input name="tglIn" type="text" class="form-control pull-right" id="datepicker">
-                </div>
+                  <input name="datepicker" onclick="masuktglIn()" type="text" class="form-control pull-right" id="datepicker">
+                </div> -->
               </div>
               <!-- /.form group -->
           </div>
 
           <div class="col-md-4">
               <!-- Date -->
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label>Date Check Out:</label>
 
                 <div class="input-group date">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input name="tglOut" type="text" class="form-control pull-right" id="datepicker1">
+                  <input name="datepicker1" onclick="masuktglOut()" type="text" class="form-control pull-right" id="datepicker1">
                 </div>
-              </div>
+              </div> -->
               <!-- /.form group -->
           </div>
           <div class="col-md-1">
@@ -279,8 +279,11 @@
           <div class="col-md-12">
           <h2 align="center"><span class="label label-info"> Tipe Kamar Tersedia : </span></h2>
            </div>
-           <?php foreach($available as $a){ ?>
+           <?php $tmp=0; foreach($available as $a){ $tmp++; ?>
+           <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/dataonsite">
            <!-- KAMAR 1 -->
+           <input type="hidden" name="tglIn" id="tglIn">
+           <input type="hidden" name="tglOut" id="tglOut">
           <div class="col-md-2">
               <div class="media">
                                 <div class="media-left">
@@ -300,12 +303,216 @@
           </div>
 
           <div class="col-md-1">
+              <input name="tglIn" onclick="masuktglIn()" type="text" class="form-control pull-right" placeholder="In" id="datepicker<?php echo $tmp; ?>">
+          </div>
+          <div class="col-md-1">
+              <input name="tglOut" onclick="masuktglOut()" type="text" class="form-control pull-right" placeholder="Out" id="datepicker1<?php echo $tmp; ?>">
+          </div>
+          <div class="col-md-1">
               <input name="kamar" id="kamar" type="number" value="1" class="form-control pull-right">
           </div>
+          <?php
+            if ($tmp==1) {
+              ?>
+                <?php $no=1; foreach($kamarkosong1 as $kmr1){ ?>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-danger"><input type="checkbox" class="minimal" disabled="true"> 404</span></h4>
+              <h4 align="center"><span class="label label-default"><input type="radio" name="radio" id="radio" class="minimal"> <?php echo $kmr1->nomor_kamar; ?></span></h4>
           </div>
+          <?php $no++;
+                if ($no>6) {
+                  break;
+                }
+          } ?>
+          <div class="col-md-1" style="float:center;">
+          <?php
+                                        $this->db->select('id_kamar');
+                                        $this->db->from('kamar');
+                                        $this->db->where('id_tipe_kamar',$tmp);
+                                        $this->db->where('status','kosong');
+                                        $hasil = $this->db->count_all_results();
+                    if ($hasil>=1) {
+                      ?>
+              <button type="submit" class="btn btn-sm-block btn-success">Simpan</button>
+          <?php
+                    }else{
+                      ?>
+              <button type="submit" disabled="" class="btn btn-sm-block btn-success">Not Available</button>
+          <?php
+                    }
+          ?>
+          </div>
+          <div class="col-md-12">
+          </div>
+              <?php
+            }else
+            if ($tmp==2) {
+              ?>
+                <?php $no=1; foreach($kamarkosong2 as $kmr2){ ?>
           <div class="col-md-1">
+              <h4 align="center"><span class="label label-default"><input type="radio" name="radio" id="radio" class="minimal"> <?php echo $kmr2->nomor_kamar; ?></span></h4>
+          </div>
+          <?php $no++;
+                if ($no>6) {
+                  break;
+                }
+          } ?>
+          <div class="col-md-1" style="float:center;">
+          <?php
+                                        $this->db->select('id_kamar');
+                                        $this->db->from('kamar');
+                                        $this->db->where('id_tipe_kamar',$tmp);
+                                        $this->db->where('status','kosong');
+                                        $hasil = $this->db->count_all_results();
+                    if ($hasil>=1) {
+                      ?>
+              <button type="submit" class="btn btn-sm-block btn-success">Simpan</button>
+          <?php
+                    }else{
+                      ?>
+              <button type="submit" disabled="" class="btn btn-sm-block btn-success">Not Available</button>
+          <?php
+                    }
+          ?>
+          </div>
+          <div class="col-md-12">
+          </div>
+              <?php
+            }else
+            if ($tmp==3) {
+              ?>
+                <?php $no=1; foreach($kamarkosong3 as $kmr3){ ?>
+          <div class="col-md-1">
+              <h4 align="center"><span class="label label-default"><input type="radio" name="radio" id="radio" class="minimal"> <?php echo $kmr3->nomor_kamar; ?></span></h4>
+          </div>
+          <?php $no++;
+                if ($no>6) {
+                  break;
+                }
+          } ?>
+          <div class="col-md-1" style="float:center;">
+          <?php
+                                        $this->db->select('id_kamar');
+                                        $this->db->from('kamar');
+                                        $this->db->where('id_tipe_kamar',$tmp);
+                                        $this->db->where('status','kosong');
+                                        $hasil = $this->db->count_all_results();
+                    if ($hasil>=1) {
+                      ?>
+              <button type="submit" class="btn btn-sm-block btn-success">Simpan</button>
+          <?php
+                    }else{
+                      ?>
+              <button type="submit" disabled="" class="btn btn-sm-block btn-success">Not Available</button>
+          <?php
+                    }
+          ?>
+          </div>
+          <div class="col-md-12">
+          </div>
+              <?php
+            }else
+            if ($tmp==4) {
+              ?>
+                <?php $no=1; foreach($kamarkosong4 as $kmr4){ ?>
+          <div class="col-md-1">
+              <h4 align="center"><span class="label label-default"><input type="radio" name="radio" id="radio" class="minimal"> <?php echo $kmr4->nomor_kamar; ?></span></h4>
+          </div>
+          <?php $no++;
+                if ($no>6) {
+                  break;
+                }
+          } ?>
+          <div class="col-md-1" style="float:center;">
+          <?php
+                                        $this->db->select('id_kamar');
+                                        $this->db->from('kamar');
+                                        $this->db->where('id_tipe_kamar',$tmp);
+                                        $this->db->where('status','kosong');
+                                        $hasil = $this->db->count_all_results();
+                    if ($hasil>=1) {
+                      ?>
+              <button type="submit" class="btn btn-sm-block btn-success">Simpan</button>
+          <?php
+                    }else{
+                      ?>
+              <button type="submit" disabled="" class="btn btn-sm-block btn-success">Not Available</button>
+          <?php
+                    }
+          ?>
+          </div>
+          <div class="col-md-12">
+          </div>
+              <?php
+            }else
+            if ($tmp==5) {
+              ?>
+                <?php $no=1; foreach($kamarkosong5 as $kmr5){ ?>
+          <div class="col-md-1">
+              <h4 align="center"><span class="label label-default"><input type="radio" name="radio" id="radio" class="minimal"> <?php echo $kmr5->nomor_kamar; ?></span></h4>
+          </div>
+          <?php $no++;
+                if ($no>6) {
+                  break;
+                }
+          } ?>
+          <div class="col-md-1" style="float:center;">
+          <?php
+                                        $this->db->select('id_kamar');
+                                        $this->db->from('kamar');
+                                        $this->db->where('id_tipe_kamar',$tmp);
+                                        $this->db->where('status','kosong');
+                                        $hasil = $this->db->count_all_results();
+                    if ($hasil>=1) {
+                      ?>
+              <button type="submit" class="btn btn-sm-block btn-success">Simpan</button>
+          <?php
+                    }else{
+                      ?>
+              <button type="submit" disabled="" class="btn btn-sm-block btn-success">Not Available</button>
+          <?php
+                    }
+          ?>
+          </div>
+          <div class="col-md-12">
+          </div>
+              <?php
+            }
+            if ($tmp==6) {
+              ?>
+                <?php $no=1; foreach($kamarkosong6 as $kmr6){ ?>
+          <div class="col-md-1">
+              <h4 align="center"><span class="label label-default"><input type="radio" name="radio" id="radio" class="minimal"> <?php echo $kmr6->nomor_kamar; ?></span></h4>
+          </div>
+          <?php $no++;
+                if ($no>6) {
+                  break;
+                }
+          } ?>
+          <div class="col-md-1" style="float:center;">
+          <?php
+                                        $this->db->select('id_kamar');
+                                        $this->db->from('kamar');
+                                        $this->db->where('id_tipe_kamar',$tmp);
+                                        $this->db->where('status','kosong');
+                                        $hasil = $this->db->count_all_results();
+                    if ($hasil>=1) {
+                      ?>
+              <button type="submit" class="btn btn-sm-block btn-success">Simpan</button>
+          <?php
+                    }else{
+                      ?>
+              <button type="submit" disabled="" class="btn btn-sm-block btn-success">Not Available</button>
+          <?php
+                    }
+          ?>
+          </div>
+          <div class="col-md-12">
+          </div>
+              <?php
+            }
+          ?>
+          
+          <!-- <div class="col-md-1">
               <h4 align="center"><span class="label label-warning"><input type="checkbox" class="minimal" disabled="true"> 404</span></h4>
           </div>
           <div class="col-md-1">
@@ -325,34 +532,38 @@
           </div>
           <div class="col-md-1">
               <h4 align="center"><span class="label label-primary"><input type="checkbox" class="minimal"> 404</span></h4>
-          </div>
+          </div> -->
+          <!-- <div class="col-md-1" style="float:center;">
+              <button type="submit" class="btn btn-sm-block btn-primary">Simpan</button>
+          </div> -->
           
           <!-- TUTUP KAMAR 1 -->
 
           <div class="col-md-12">
           </div>
+          </form>
          <?php } ?>
 
-          <div class="col-md-2" style="float:right;">
+          <!-- <div class="col-md-2" style="float:right;">
               <button type="submit" class="btn btn-block btn-primary">Simpan</button>
-          </div>
+          </div> -->
       </div>
       <!-- /.box-body -->
     </div>
     <!-- /.box -->
     </div>
-    </form>
+    
 
     <!-- iCheck -->
-          <div class="box box-success">
+          <!-- <div class="box box-success">
             <div class="box-header">
               <h3 class="box-title">Keterangan</h3>
             </div>
-            <div class="box-body">
+            <div class="box-body"> -->
               <!-- Minimal style -->
 
               <!-- checkbox -->
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <div class="col-md-4">
                     <h4 align="center"><span class="label label-danger"> Warna Merah untuk Status Terisi</span></h4>
                 </div>
@@ -363,7 +574,7 @@
                     <h4 align="center"><span class="label label-warning"> Warna Kuning untuk Status Booking</span></h4>
                 </div>
               </div>
-          </div>
+          </div> -->
           <!-- /.box -->
     </section>
     
@@ -691,6 +902,66 @@ $(document).ready(function() {
       autoclose: true
     });
 
+    //Date picker
+    $('#datepicker1').datepicker({
+      autoclose: true
+    });
+
+    //Date picker
+    $('#datepicker11').datepicker({
+      autoclose: true
+    });
+
+    //Date picker
+    $('#datepicker2').datepicker({
+      autoclose: true
+    });
+
+    //Date picker
+    $('#datepicker12').datepicker({
+      autoclose: true
+    });
+
+    //Date picker
+    $('#datepicker3').datepicker({
+      autoclose: true
+    });
+
+    //Date picker
+    $('#datepicker13').datepicker({
+      autoclose: true
+    });
+
+    //Date picker
+    $('#datepicker4').datepicker({
+      autoclose: true
+    });
+
+    //Date picker
+    $('#datepicker14').datepicker({
+      autoclose: true
+    });
+
+    //Date picker
+    $('#datepicker5').datepicker({
+      autoclose: true
+    });
+
+    //Date picker
+    $('#datepicker15').datepicker({
+      autoclose: true
+    });
+
+    //Date picker
+    $('#datepicker6').datepicker({
+      autoclose: true
+    });
+
+    //Date picker
+    $('#datepicker16').datepicker({
+      autoclose: true
+    });
+
     //iCheck for checkbox and radio inputs
     $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',
@@ -837,6 +1108,18 @@ function delete_pesanan(id)
         });
 
     }
+}
+
+function masuktglIn(){
+    // alert('wahyu');
+    var tglIn1 = $("#datepicker").val();
+    $("#tglIn").val(tglIn1);
+}
+
+function masuktglOut(){
+    // alert('wahyu');
+    var tglOut1 = $("#datepicker1").val();
+    $("#tglOut").val(tglOut1);
 }
 
 </script>

@@ -81,3 +81,4 @@ $route['wizard'] = 'dashboard/wizard';
 $route['kamarkosong'] = 'dashboard/kamarkosong';
 $route['kamarbooking'] = 'dashboard/kamarbooking';
 $route['kamarisi'] = 'dashboard/kamarisi';
+$route['kritiksaran'] = 'dashboard/kritiksaran';

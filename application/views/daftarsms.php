@@ -228,10 +228,10 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>ID Booking</th>
-                  <th>Bukti Pembayaran</th>
-                  <th>Tanggal Pembayaran</th>
-                  <th>Aksi</th>
+                  <th>Nomor HP Penerima</th>
+                  <th>Isi Pesan</th>
+                  <th>Pengirim</th>
+                  <th>Tanggal Pengiriman</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -264,11 +264,11 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>No</th>
-                    <th>ID Booking</th>
-                    <th>Bukti Pembayaran</th>
-                    <th>Tanggal Pembayaran</th>
-                    <th>Aksi</th>
+                  <th>No</th>
+                  <th>Nomor HP Penerima</th>
+                  <th>Isi Pesan</th>
+                  <th>Pengirim</th>
+                  <th>Tanggal Pengiriman</th>
                 </tr>
                 </tfoot>
               </table>
@@ -534,7 +534,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('masterbukti/ajax_list')?>",
+            "url": "<?php echo site_url('Mastersms/ajax_list')?>",
             "type": "POST"
         },
 

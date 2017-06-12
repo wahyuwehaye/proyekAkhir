@@ -141,7 +141,10 @@
 <!--about start here-->
 <div class="leaves">
 	<div class="container">
-		<?php foreach($available as $a){ ?>
+		<?php
+		$no=0;
+		foreach($available as $a){
+		?>
 		<?php if(isset($_SESSION['logged_in']))
 		{ ?>
 		<form action="<?php echo base_url()?>index.php/wizard" method="post">
@@ -178,8 +181,24 @@
 					  	</div>
 					  	 <div class="clearfix"> </div>
 				   </div>
-
-				   <button type="Submit" class="btn btn-block btn-primary btn-lg">Book Now</button>
+				   <?php
+				   $no=$no+1;
+                                        $this->db->select('id_kamar');
+                                        $this->db->from('kamar');
+                                        $this->db->where('id_tipe_kamar',$no);
+                                        $this->db->where('status','kosong');
+                                        $hasil = $this->db->count_all_results();
+                    if ($hasil>=1) {
+                    	?>
+                    	<button type="Submit" class="btn btn-block btn-primary btn-lg">Book Now</button>
+                    	<?php
+                    }else{
+                    	?>
+                    	<button type="Submit" disabled="" class="btn btn-block btn-primary btn-lg">Not Available</button>
+                    	<?php
+                    }
+                                      ?>
+				   
 
 					  	 <div class="clearfix"> </div>
 				   </div>
