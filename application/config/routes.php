@@ -78,3 +78,6 @@ $route['laporbulanan'] = 'dashboard/laporbulanan';
 $route['dataonsite'] = 'dashboard/dataonsite';
 $route['detailonsite'] = 'dashboard/detailonsite';
 $route['wizard'] = 'dashboard/wizard';
+$route['kamarkosong'] = 'dashboard/kamarkosong';
+$route['kamarbooking'] = 'dashboard/kamarbooking';
+$route['kamarisi'] = 'dashboard/kamarisi';

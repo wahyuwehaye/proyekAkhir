@@ -114,6 +114,7 @@ class Masterbooking extends CI_Controller {
 				'tgl_masuk' => $this->input->post('tgl_masuk'),
                 'tgl_keluar' => $this->input->post('tgl_keluar'),
 				'tipe_kamar' => $this->input->post('tipe_kamar'),
+				'nomor_kamar' => $this->input->post('nomor_kamar'),
 				'jumlah_kamar' => $this->input->post('jumlah_kamar'),
 				'metode_bayar' => $this->input->post('metode_bayar'),
 				'harga' => $this->input->post('harga'),
@@ -129,6 +130,14 @@ class Masterbooking extends CI_Controller {
 
 	public function ajax_update()
 	{
+		$this->load->database();
+	    $this->load->model('m_dashboard');
+		$datakamar = array(
+	    	'nomor_kamar' => $this->input->post("nomor_kamar"),
+	    	);
+	    $dataupdate = array(
+	    	'status' => $this->input->post('status'),
+	    	);
 		$data = array(
             	'tgl_input' => $this->input->post('tgl_input'),
 				'nama' => $this->input->post('nama'),
@@ -137,6 +146,7 @@ class Masterbooking extends CI_Controller {
 				'tgl_masuk' => $this->input->post('tgl_masuk'),
                 'tgl_keluar' => $this->input->post('tgl_keluar'),
 				'tipe_kamar' => $this->input->post('tipe_kamar'),
+				'nomor_kamar' => $this->input->post('nomor_kamar'),
 				'jumlah_kamar' => $this->input->post('jumlah_kamar'),
 				'metode_bayar' => $this->input->post('metode_bayar'),
 				'harga' => $this->input->post('harga'),
@@ -147,6 +157,7 @@ class Masterbooking extends CI_Controller {
                 'ket' => $this->input->post('ket'),
 			);
 		$this->booking->update(array('id_booking' => $this->input->post('id_booking')), $data);
+		$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
 		echo json_encode(array("status" => TRUE));
 	}
 

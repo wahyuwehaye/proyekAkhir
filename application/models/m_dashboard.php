@@ -30,6 +30,20 @@ class m_dashboard extends CI_Model{
         return $res;
     }
 
+    public function tampil_notif_resepsionis(){
+        // return $this->db->get('berita_terbaru');
+        // return $this->db->get('berita_terbaru')->order_by('id_berita', 'desc');
+        $query = $this->db->query("SELECT * FROM notifikasi where untuk='Resepsionis' order by id desc");
+            return $query;
+    }
+
+    public function tampil_notif_nite(){
+        // return $this->db->get('berita_terbaru');
+        // return $this->db->get('berita_terbaru')->order_by('id_berita', 'desc');
+        $query = $this->db->query("SELECT * FROM notifikasi where untuk='Nite Audit' order by id desc");
+            return $query;
+    }
+
     public function tampil_dataTipeKamar(){
 		return $this->db->get('tipe_kamar');
 	}

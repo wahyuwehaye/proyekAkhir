@@ -41,7 +41,7 @@ foreach ($getnomorkamar->result() as $row){
 }
 
  // echo $dapetnomor;
-
+$datetidtrans="";
 $getidtrans = $CI->db->query('SELECT * FROM booking ORDER BY id_booking DESC LIMIT 1');
 foreach ($getidtrans->result() as $cari) {
     $datetidtrans = $cari->id_booking;

@@ -190,7 +190,8 @@ class Dashboard extends CI_Controller {
 	}
 
     public function niteaudit(){
-        $this->load->view('niteaudit');
+    	$data['notif'] = $this->m_dashboard->tampil_notif_nite()->result();
+        $this->load->view('niteaudit',$data);
     }
 
     public function keuangan(){
@@ -204,48 +205,60 @@ class Dashboard extends CI_Controller {
     }
 
     public function databooking(){
-        $this->load->view('databooking');
+    	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
+        $this->load->view('databooking',$data);
     }
 
     public function datacheckin(){
-        $this->load->view('datacheckin');
+    	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
+        $this->load->view('datacheckin',$data);
     }
 
     public function datacheckout(){
-        $this->load->view('datacheckout');
+    	$this->load->model('m_dashboard');
+    	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
+        $this->load->view('datacheckout',$data);
     }
 
     public function formcheckout(){
-        $this->load->view('formcheckout');
+    	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
+        $this->load->view('formcheckout',$data);
     }
 
 	public function onsite(){
 		$this->load->model('m_dashboard');
+		$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
 		$data['available'] = $this->m_dashboard->tampil_dataKamar()->result();
 		$data['kamarkosong'] = $this->m_dashboard->tampil_noKamar()->result();
         $this->load->view('onsite',$data);
     }
 
 	public function lapharian(){
-        $this->load->view('lapharian');
+		$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
+        $this->load->view('lapharian',$data);
     }
 
     public function lapbulanan(){
     	$this->load->model('mread');
+    	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
     	$data['report'] = $this->mread->report();
         $this->load->view('lapbulanan', $data);
     }
 
     public function buktibayar(){
-        $this->load->view('buktibayar');
+    	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
+        $this->load->view('buktibayar',$data);
     }
 
     public function sendsms(){
-        $this->load->view('sendsms');
+    	$this->load->model('m_dashboard');
+    	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
+        $this->load->view('sendsms',$data);
     }
 
     public function daftarsms(){
-        $this->load->view('daftarsms');
+    	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
+        $this->load->view('daftarsms',$data);
     }
 
     public function promosi(){
@@ -254,6 +267,21 @@ class Dashboard extends CI_Controller {
 
     public function laporharian(){
         $this->load->view('laporharian');
+    }
+
+    public function kamarkosong(){
+    	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
+        $this->load->view('kamarkosong',$data);
+    }
+
+    public function kamarbooking(){
+    	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
+        $this->load->view('kamarbooking',$data);
+    }
+
+    public function kamarisi(){
+    	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
+        $this->load->view('kamarisi',$data);
     }
 
     public function laporbulanan(){

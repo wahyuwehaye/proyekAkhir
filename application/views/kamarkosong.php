@@ -14,19 +14,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/datatables/dataTables.bootstrap.css">
-  <!-- daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/daterangepicker/daterangepicker.css">
-  <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/datepicker/datepicker3.css">
-  <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/iCheck/all.css">
-  <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/colorpicker/bootstrap-colorpicker.min.css">
-  <!-- Bootstrap time Picker -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/timepicker/bootstrap-timepicker.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url()?>admin/plugins/select2/select2.min.css">
-  <!-- Theme style -->
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url()?>admin/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -113,7 +100,7 @@
 
                 <p>
                   Ajeng Pursitasari - Resepsionis
-                  <small>January, 2017</small>
+                  <small>Member since Nov. 2012</small>
                 </p>
               </li>
               
@@ -179,7 +166,7 @@
             <li><a href="<?php echo base_url()?>index.php/dashboard/datacheckout"><i class="fa fa-list-ul"></i> Data Check Out</a></li>
           </ul>
         </li>
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#">
             <i class="fa fa-hotel (alias)"></i> <span> Lihat Kamar</span>
                 <span class="pull-right-container">
@@ -187,14 +174,14 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url()?>index.php/dashboard/kamarkosong"><i class="fa  fa-heartbeat"></i> Kamar Kosong</a></li>
+            <li  class="active"><a href="<?php echo base_url()?>index.php/dashboard/kamarkosong"><i class="fa  fa-heartbeat"></i> Kamar Kosong</a></li>
             <li><a href="<?php echo base_url()?>index.php/dashboard/kamarbooking"><i class="fa fa-heart-o"></i> Kamar Booking</a></li>
             <li><a href="<?php echo base_url()?>index.php/dashboard/kamarisi"><i class="fa fa-heart"></i> Kamar Isi</a></li>
           </ul>
         </li>
         <li><a href="<?php echo base_url()?>index.php/dashboard/lapharian"><i class="fa fa-list"></i> <span> Laporan Harian</span></a></li>
         <li><a href="<?php echo base_url()?>index.php/dashboard/lapbulanan"><i class="fa fa-bar-chart-o"></i> <span> Laporan Bulanan</span></a></li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-whatsapp"></i> <span> SMS Gateway</span>
                 <span class="pull-right-container">
@@ -202,7 +189,7 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url()?>index.php/dashboard/sendsms"><i class="fa fa-send"></i> Send SMS Gateway</a></li>
+            <li><a href="<?php echo base_url()?>index.php/dashboard/sendsms"><i class="fa fa-send"></i> Send SMS Gateway</a></li>
             <li><a href="<?php echo base_url()?>index.php/dashboard/daftarsms"><i class="fa fa-th-list"></i> Lihat Daftar SMS Gateway</a></li>
           </ul>
         </li>
@@ -215,53 +202,89 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Send SMS Gateway
+        Kamar Kosong
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#"> SMS Gateway</a></li>
-        <li class="active"> Send SMS Gateway</li>
+        <li class="active">Kamar Kosong</li>
       </ol>
     </section>
-    <div class="pad margin no-print">
-      <div class="callout callout-info" style="margin-bottom: 0!important;">
-        <h4><i class="fa fa-info"></i> Note:</h4>
-        Isi data dengan benar
-      </div>
-    </div>
+
+    <!-- Main content -->
     <section class="content">
-    <div class="box">
-    <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Input Message</h3>
-            </div>
+
+
+          <div class="box">
+              <!-- <div class="box-header">
+              <button class="btn btn-xs btn-success" onclick="add_checkout()"><i class="glyphicon glyphicon-plus"></i></button>
+              <button class="btn btn-xs btn-warning" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i></button>
+          </div> -->
             <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/insertBookOnsite">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="nama_tamu">Nomor Handphone</label>
-                  <input type="text" class="form-control" id="nama_tamu" name="nama_tamu" placeholder="Nomor Handphone">
-                </div>
-                <div class="form-group">
-                  <label for="alamat_tamu">Message</label>
-                  <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                </div>
-              <div class="box-footer " style="float:right;">
-                <button type="submit" class="btn btn-primary">Kirim</button>
-              </div>
+            <div class="box-body">
+              <table id="table" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>No</th>
+                  <th>ID Kamar</th>
+                  <th>Nomor Kamar</th>
+                  <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>PSP</td>
+                  <td>-</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td><a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="#"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+				  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>U</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td>C</td>
+                  <td><a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="#"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+				  </td>
+                </tr> -->
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>No</th>
+                  <th>ID Kamar</th>
+                  <th>Nomor Kamar</th>
+                  <th>Status</th>
+                </tr>
+                </tfoot>
+              </table>
+              <!-- <div class="col-md-4 swimming-grid">
+              <form method="POST" action="<?php echo base_url()?>index.php/Mastercheckout/ajax_update_ke_nite" id="form">
+                  <button type="submit" class="btn btn-success">Kirim</button>
+              </form>
+              </div> -->
+            </div>
             <!-- /.box-body -->
           </div>
-          </form>
           <!-- /.box -->
-    <!-- /.box -->
-    </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
     </section>
-   
+    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -475,21 +498,6 @@
 <!-- DataTables -->
 <script src="<?php echo base_url()?>admin/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url()?>admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url()?>admin/plugins/select2/select2.full.min.js"></script>
-<!-- InputMask -->
-<script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.js"></script>
-<script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="<?php echo base_url()?>admin/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-<!-- date-range-picker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="<?php echo base_url()?>admin/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- bootstrap datepicker -->
-<script src="<?php echo base_url()?>admin/plugins/datepicker/bootstrap-datepicker.js"></script>
-<!-- bootstrap color picker -->
-<script src="<?php echo base_url()?>admin/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
-<!-- bootstrap time picker -->
-<script src="<?php echo base_url()?>admin/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url()?>admin/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -498,6 +506,45 @@
 <script src="<?php echo base_url()?>admin/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url()?>admin/dist/js/demo.js"></script>
+
+<script type="text/javascript">
+
+var save_method; //for save method string
+var table;
+
+$(document).ready(function() {
+
+    //datatables
+    table = $('#table').DataTable({
+
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+            "url": "<?php echo site_url('Masterkamar/ajax_list')?>",
+            "type": "POST"
+        },
+
+        //Set column definition initialisation properties.
+        "columnDefs": [
+        {
+            "targets": [ -1 ], //last column
+            "orderable": false, //set not orderable
+        },
+        ],
+
+    });
+
+
+});
+
+
+
+
+</script>
+<!-- <div></div> -->
 
 </body>
 </html>

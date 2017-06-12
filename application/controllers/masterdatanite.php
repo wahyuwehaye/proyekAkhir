@@ -106,6 +106,11 @@ class Masterdatanite extends CI_Controller {
 	    $data = array(
                 'acc' => 'Resepsionis',
 			);
+	    $notif = array(
+	    	'nama_notif' => 'Laporan Harian Harus Diulang',
+	    	'untuk' => 'Resepsionis',
+	    	);
+	    $this->nite->saveNotif($notif);
 		$this->nite->UpdateNite('booking',$data,$acc);
 		redirect('dashboard/niteaudit');
 		echo json_encode(array("status" => TRUE));
@@ -121,6 +126,11 @@ class Masterdatanite extends CI_Controller {
 	    $data = array(
                 'acc' => 'Keuangan',
 			);
+	    $notif = array(
+	    	'nama_notif' => 'Laporan Harian Sudah di Approve',
+	    	'untuk' => 'Resepsionis',
+	    	);
+	    $this->nite->saveNotif($notif);
 		$this->nite->UpdateNite('booking',$data,$acc);
 		redirect('dashboard/niteaudit');
 		echo json_encode(array("status" => TRUE));

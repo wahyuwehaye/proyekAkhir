@@ -48,7 +48,43 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          
+          <!-- Notifications: style can be found in dropdown.less -->
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning"><?php
+                                        $this->db->select('id');
+                                        $this->db->from('notifikasi');
+                                        $this->db->where('untuk','Resepsionis');
+                                        echo $this->db->count_all_results();
+                                      ?></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have <?php
+                                        $this->db->select('id');
+                                        $this->db->from('notifikasi');
+                                        $this->db->where('untuk','Resepsionis');
+                                        echo $this->db->count_all_results();
+                                      ?> notifications</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                <?php $no=1; foreach($notif as $a){ ?>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-warning text-yellow"></i> <?php echo $a->nama_notif; ?> <?php echo $a->tanggal; ?>
+                    </a>
+                  </li>
+                  <?php $no++;
+                if ($no>10) {
+                  break;
+                }
+                } ?>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
+          </li>
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -126,6 +162,19 @@
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url()?>index.php/dashboard/formcheckout"><i class="fa fa-credit-card"></i> Form Check Out</a></li>
             <li><a href="<?php echo base_url()?>index.php/dashboard/datacheckout"><i class="fa fa-list-ul"></i> Data Check Out</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-hotel (alias)"></i> <span> Lihat Kamar</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url()?>index.php/dashboard/kamarkosong"><i class="fa  fa-heartbeat"></i> Kamar Kosong</a></li>
+            <li><a href="<?php echo base_url()?>index.php/dashboard/kamarbooking"><i class="fa fa-heart-o"></i> Kamar Booking</a></li>
+            <li><a href="<?php echo base_url()?>index.php/dashboard/kamarisi"><i class="fa fa-heart"></i> Kamar Isi</a></li>
           </ul>
         </li>
         <li><a href="<?php echo base_url()?>index.php/dashboard/lapharian"><i class="fa fa-list"></i> <span> Laporan Harian</span></a></li>

@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class m_niteaudit extends CI_Model {
 
 	var $table = 'booking';
+	var $table1 = 'notifikasi';
 	var $column_order = array('tgl_input','nama','tipe_kamar','no_hp','alamat','tgl_masuk','tgl_keluar','status','no_kartu','ket',null); //set column field database for datatable orderable
 	var $column_search = array('tgl_input','nama','tipe_kamar','no_hp','alamat','tgl_masuk','tgl_keluar','status','no_kartu','ket'); //set column field database for datatable searchable just firstname , lastname , address are searchable
 	var $order = array('id_booking' => 'desc'); // default order
@@ -90,6 +91,12 @@ class m_niteaudit extends CI_Model {
 	public function save($data)
 	{
 		$this->db->insert($this->table, $data);
+		return $this->db->insert_id();
+	}
+
+	public function saveNotif($data)
+	{
+		$this->db->insert($this->table1, $data);
 		return $this->db->insert_id();
 	}
 

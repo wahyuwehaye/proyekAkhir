@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Mastercheckout extends CI_Controller {
+class Masterkamar extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('M_checkout','checkout');
+		$this->load->model('M_kamar','kamar');
 		$this->load->model(array('m_dashboard'));
 	}
 
@@ -18,114 +18,90 @@ class Mastercheckout extends CI_Controller {
 
 	public function ajax_list()
 	{
-		$list = $this->checkout->get_datatables();
+		$list = $this->kamar->get_datatables();
 		$data = array();
 		$no = $_POST['start'];
-		foreach ($list as $checkout) {
+		foreach ($list as $kamar) {
 			$no++;
 			$row = array();
             $row[] = $no;
-            $row[] = $checkout->id_booking;
-			$row[] = $checkout->tgl_input;
-			$row[] = $checkout->nama;
-            $row[] = $checkout->tipe_kamar;
-			$row[] = $checkout->no_hp;
-            $row[] = $checkout->alamat;
-			$row[] = $checkout->tgl_masuk;
-            $row[] = $checkout->tgl_keluar;
-			$row[] = $checkout->status;
-			$row[] = $checkout->no_kartu;
-			$row[] = $checkout->ket;
+            $row[] = $kamar->id_kamar;
+			$row[] = $kamar->nomor_kamar;
+			$row[] = $kamar->status;
 
 			//add html for action
-			// $row[] = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Detail" onclick="detail_checkout('."'".$checkout->id_booking."'".')"><i class="glyphicon glyphicon-info-sign"></i></a>
-			// <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_checkout('."'".$checkout->id_booking."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
-			// 	  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_checkout('."'".$checkout->id_booking."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
+			// $row[] = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Detail" onclick="detail_kamar('."'".$kamar->id_booking."'".')"><i class="glyphicon glyphicon-info-sign"></i></a>
+			// <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_kamar('."'".$kamar->id_booking."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
+			// 	  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_kamar('."'".$kamar->id_booking."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
 
 			$data[] = $row;
 		}
 
 		$output = array(
 						"draw" => $_POST['draw'],
-						"recordsTotal" => $this->checkout->count_all(),
-						"recordsFiltered" => $this->checkout->count_filtered(),
+						"recordsTotal" => $this->kamar->count_all(),
+						"recordsFiltered" => $this->kamar->count_filtered(),
 						"data" => $data,
 				);
 		//output to json format
 		echo json_encode($output);
 	}
 
-	public function ajax_listHarian()
+	public function ajax_list_booking()
 	{
-		$list = $this->checkout->get_datatables_harian();
+		$list = $this->kamar->get_datatables_booking();
 		$data = array();
 		$no = $_POST['start'];
-		foreach ($list as $checkout) {
+		foreach ($list as $kamar) {
 			$no++;
 			$row = array();
             $row[] = $no;
-            $row[] = $checkout->id_booking;
-			$row[] = $checkout->tgl_input;
-			$row[] = $checkout->nama;
-            $row[] = $checkout->tipe_kamar;
-			$row[] = $checkout->no_hp;
-            $row[] = $checkout->alamat;
-			$row[] = $checkout->tgl_masuk;
-            $row[] = $checkout->tgl_keluar;
-			$row[] = $checkout->status;
-			$row[] = $checkout->no_kartu;
-			$row[] = $checkout->ket;
+            $row[] = $kamar->id_kamar;
+			$row[] = $kamar->nomor_kamar;
+			$row[] = $kamar->status;
 
 			//add html for action
-			// $row[] = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Detail" onclick="detail_checkout('."'".$checkout->id_booking."'".')"><i class="glyphicon glyphicon-info-sign"></i></a>
-			// <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_checkout('."'".$checkout->id_booking."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
-			// 	  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_checkout('."'".$checkout->id_booking."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
+			// $row[] = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Detail" onclick="detail_kamar('."'".$kamar->id_booking."'".')"><i class="glyphicon glyphicon-info-sign"></i></a>
+			// <a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_kamar('."'".$kamar->id_booking."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
+			// 	  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_kamar('."'".$kamar->id_booking."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
 
 			$data[] = $row;
 		}
 
 		$output = array(
 						"draw" => $_POST['draw'],
-						"recordsTotal" => $this->checkout->count_all(),
-						"recordsFiltered" => $this->checkout->count_filtered(),
+						"recordsTotal" => $this->kamar->count_all(),
+						"recordsFiltered" => $this->kamar->count_filtered(),
 						"data" => $data,
 				);
 		//output to json format
 		echo json_encode($output);
 	}
 
-	public function ajax_listbyTgl()
+	public function ajax_list_isi()
 	{
-		$list = $this->checkout->get_by_tgl();
+		$list = $this->kamar->get_datatables_isi();
 		$data = array();
 		$no = $_POST['start'];
-		foreach ($list as $checkout) {
+		foreach ($list as $kamar) {
 			$no++;
 			$row = array();
             $row[] = $no;
-            $row[] = $checkout->id_booking;
-			$row[] = $checkout->tgl_input;
-			$row[] = $checkout->nama;
-            $row[] = $checkout->tipe_kamar;
-			$row[] = $checkout->no_hp;
-            $row[] = $checkout->alamat;
-			$row[] = $checkout->tgl_masuk;
-            $row[] = $checkout->tgl_keluar;
-			$row[] = $checkout->status;
-			$row[] = $checkout->no_kartu;
-			$row[] = $checkout->ket;
+            $row[] = $kamar->id_kamar;
+			$row[] = $kamar->nomor_kamar;
+			$row[] = $kamar->status;
 
 			//add html for action
-			$row[] = '<a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_checkout('."'".$checkout->id_booking."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
-				  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_checkout('."'".$checkout->id_booking."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
+			// $row[] = '<a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_kamar('."'".$kamar->id_booking."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
+			// 	  <a class="btn btn-xs btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_kamar('."'".$kamar->id_booking."'".')"><i class="glyphicon glyphicon-trash"></i></a>';
 
 			$data[] = $row;
 		}
 
 		$output = array(
 						"draw" => $_POST['draw'],
-						"recordsTotal" => $this->checkout->count_all(),
-						"recordsFiltered" => $this->checkout->count_filtered(),
+						"recordsTotal" => $this->kamar->count_all(),
+						"recordsFiltered" => $this->kamar->count_filtered(),
 						"data" => $data,
 				);
 		//output to json format
@@ -134,13 +110,13 @@ class Mastercheckout extends CI_Controller {
 
 	public function ajax_edit($id)
 	{
-		$data = $this->checkout->get_by_id($id);
+		$data = $this->kamar->get_by_id($id);
 		echo json_encode($data);
 	}
 
 	public function ajax_detail($id)
 	{
-		$data = $this->checkout->get_by_id($id);
+		$data = $this->kamar->get_by_id($id);
 		echo json_encode($data);
 	}
 
@@ -163,7 +139,7 @@ class Mastercheckout extends CI_Controller {
                 'status' => $this->input->post('status'),
                 'ket' => $this->input->post('ket'),
 			);
-		$insert = $this->checkout->save($data);
+		$insert = $this->kamar->save($data);
 		echo json_encode(array("status" => TRUE));
 	}
 
@@ -186,7 +162,7 @@ class Mastercheckout extends CI_Controller {
                 'status' => $this->input->post('status'),
                 'ket' => $this->input->post('ket'),
 			);
-		$this->checkout->update(array('id_booking' => $this->input->post('id_booking')), $data);
+		$this->kamar->update(array('id_booking' => $this->input->post('id_booking')), $data);
 		echo json_encode(array("status" => TRUE));
 	}
 
@@ -213,8 +189,8 @@ class Mastercheckout extends CI_Controller {
                 'acc' => 'Resepsionis',
 			);
 		$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
-		$this->checkout->Update('booking',$data,$id);
-		redirect('dashboard/datacheckout');
+		$this->kamar->Update('booking',$data,$id);
+		redirect('dashboard/datakamar');
 		echo json_encode(array("status" => TRUE));
 	}
 
@@ -228,19 +204,14 @@ class Mastercheckout extends CI_Controller {
 	    $data = array(
                 'acc' => 'Nite Audit',
 			);
-	    $notif = array(
-	    	'nama_notif' => 'Update Laporan Harian Baru',
-	    	'untuk' => 'Nite Audit',
-	    	);
-	    $this->checkout->saveNotif($notif);
-		$this->checkout->Update('booking',$data,$acc);
+		$this->kamar->Update('booking',$data,$acc);
 		redirect('dashboard/lapharian');
 		echo json_encode(array("status" => TRUE));
 	}
 
 	public function ajax_delete($id)
 	{
-		$this->checkout->delete_by_id($id);
+		$this->kamar->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
 	}
 
