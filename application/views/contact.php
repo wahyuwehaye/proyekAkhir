@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="contact-main">
 			<div class="contact-top">
-				<h2>Contact</h2>
+				<h2>Kritik dan Saran </h2>
 			</div>
 			<div class="contact-bottom">
 				<div class="col-md-9 contact-left">
@@ -11,7 +11,7 @@
 						<input type="text" placeholder="Name">
 						<input type="text" class="email" placeholder="Email">
 						<textarea  placeholder="Message" required=""></textarea>
-						<input type="submit" value="Send">
+						<input type="submit" value="Kirim">
 					</form>
 				</div>
 				<div class="col-md-3 contact-right">

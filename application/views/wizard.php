@@ -192,10 +192,13 @@ $idtransbaru = $datetidtrans+1;
 
                                   <div class="dz-message">
                                    <h3> Klik atau Drop Bukti Pembayaran disini</h3>
+
                                    <input type="hidden" id="id_transaksi" name="id_transaksi" value="<?php echo $idtransbaru; ?>">
                                   </div>
 
+
                                 </div>
+                                <h6>Format jpg, png, gif</h6>
                                 <!-- <button type="button" class="btn btn-block btn-primary btn-sm">Primary</button> -->
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>
