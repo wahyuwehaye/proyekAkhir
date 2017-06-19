@@ -138,6 +138,7 @@ $idtransbaru = $datetidtrans+1;
                                         <option value="DP">DP</option>
                                         <option value="Lunas">Lunas</option>
                                     </select>
+                                <h6>DP minimal 50% </h6>
                                 </div>
                                 <div class="form-group">
                                     <label for="f1-last-name">Harga Per Malam</label>
