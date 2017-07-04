@@ -219,7 +219,7 @@
 
           <div class="box">
               <!-- <div class="box-header">
-              <button class="btn btn-xs btn-success" onclick="add_pesanan()"><i class="glyphicon glyphicon-plus"></i></button>
+              <button class="btn btn-xs btn-success" onclick="add_bukti()"><i class="glyphicon glyphicon-plus"></i></button>
               <button class="btn btn-xs btn-warning" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i></button>
           </div> -->
             <!-- /.box-header -->
@@ -553,17 +553,17 @@ $(document).ready(function() {
 
 
 
-function add_pesanan()
+function add_bukti()
 {
     save_method = 'add';
     $('#form')[0].reset(); // reset form on modals
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Pesanan'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Tambah bukti'); // Set Title to Bootstrap modal title
 }
 
-function edit_pesanan(id)
+function edit_bukti(id)
 {
     save_method = 'update';
     $('#form')[0].reset(); // reset form on modals
@@ -573,16 +573,16 @@ function edit_pesanan(id)
     //Ajax Load data from ajax
     $.ajax({
         url : "<?php echo site_url('masterbukti/ajax_edit/')?>/" + id,
+        // url : "<?php echo site_url('masterbukti/ajax_sendsms/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
-            $('[name="id_bukti"]').val(data.id_bukti);
-            $('[name="bukti"]').val(data.bukti);
-            $('[name="tgl"]').val(data.tgl);
             $('[name="id_transaksi"]').val(data.id_transaksi);
+            $('[name="photo"]').val(data.photo);
+            $('[name="tgl"]').val(data.tgl);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Pesanan'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Kirim Konfirmasi Pembayaran'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
@@ -592,7 +592,7 @@ function edit_pesanan(id)
     });
 }
 
-function detail_pesanan(id)
+function detail_bukti(id)
 {
     save_method = 'detail';
     $('#form1')[0].reset(); // reset form on modals
@@ -606,12 +606,11 @@ function detail_pesanan(id)
         dataType: "JSON",
         success: function(data)
         {
-            $('[name="id_bukti"]').val(data.id_bukti);
-            $('[name="bukti"]').val(data.bukti);
-            $('[name="tgl"]').val(data.tgl);
             $('[name="id_transaksi"]').val(data.id_transaksi);
+            $('[name="photo"]').val(data.photo);
+            $('[name="tgl"]').val(data.tgl);
             $('#modal_form1').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Detail Pesanan'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Detail bukti'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
@@ -637,7 +636,8 @@ function save()
     if(save_method == 'add') {
         url = "<?php echo site_url('masterbukti/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('masterbukti/ajax_update')?>";
+        // url = "<?php echo site_url('masterbukti/ajax_update')?>";
+        url = "<?php echo site_url('masterbukti/ajax_sendsms')?>";
     }
 
     // ajax adding data to database
@@ -670,7 +670,7 @@ function save()
     });
 }
 
-function delete_pesanan(id)
+function delete_bukti(id)
 {
     if(confirm('Are you sure delete this data?'))
     {
@@ -696,7 +696,7 @@ function delete_pesanan(id)
 
 </script>
 <!-- <div></div> -->
-<!-- Detail  Pesanan Modal-->
+<!-- Detail  bukti Modal-->
 <div class="modal fade" id="modal_form1" role="dialog">
     <div class="modal-dialog modal-success">
         <div class="modal-content">
@@ -706,30 +706,30 @@ function delete_pesanan(id)
             </div>
             <div class="modal-body form1">
                 <form action="#" id="form1" class="form-horizontal">
-                    <input type="hidden" value="" name="id_tamu"/>
+                    <input type="hidden" value="" name="id_bukti"/>
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label col-md-3">Tanggal Masuk</label>
+                            <label class="control-label col-md-3">ID Transaksi</label>
                             <div class="col-md-9">
-                                <input disabled name="tgl_input" required="" placeholder="Tanggal Masuk" class="form-control" type="date">
+                                <input disabled name="id_transaksi" required="" placeholder="ID Transaksi" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Nama Tamu</label>
+                            <label class="control-label col-md-3">Photo</label>
                             <div class="col-md-9">
-                                <input disabled name="nama_tamu" placeholder="Nama Tamu" class="form-control" type="text">
+                                <input disabled name="photo" placeholder="Photo" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Alamat Tamu</label>
+                            <label class="control-label col-md-3">Tanggal</label>
                             <div class="col-md-9">
-                                <input disabled name="alamat_tamu" placeholder="Alamat Tamu" class="form-control" type="text">
+                                <input disabled name="tgl" placeholder="Tanggal" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="control-label col-md-3">Nomor HP</label>
                             <div class="col-md-9">
                                 <input disabled name="no_hp" placeholder="Nomor HP" class="form-control" type="text">
@@ -777,7 +777,7 @@ function delete_pesanan(id)
                                 <input disabled name="status" placeholder="Status" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </form>
             </div>
@@ -799,30 +799,45 @@ function delete_pesanan(id)
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
-                    <input type="hidden" value="" name="id_tamu"/>
+                    <input type="hidden" value="" name="id_bukti"/>
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label col-md-3">Tanggal Masuk</label>
+                            <label class="control-label col-md-3">ID Transaksi</label>
                             <div class="col-md-9">
-                                <input name="tgl_input" required="" placeholder="Tanggal Masuk" class="form-control" type="date">
+                                <input disabled="" name="id_transaksi" required="" placeholder="ID Transaksi" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Nama Tamu</label>
+                            <!-- <label class="control-label col-md-3">Nomor Handphone</label> -->
                             <div class="col-md-9">
-                                <input name="nama_tamu" placeholder="Nama Tamu" class="form-control" type="text">
+                                <input type="hidden" class="form-control" id="DestinationNumber" name="DestinationNumber" placeholder="Nomor Handphone">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Alamat Tamu</label>
+                            <label class="control-label col-md-3">Pesan</label>
                             <div class="col-md-9">
-                                <input name="alamat_tamu" placeholder="Alamat Tamu" class="form-control" type="text">
+                                <textarea id="TextDecoded" name="TextDecoded" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <input type="hidden" class="form-control" id="CreatorID" name="CreatorID" value="<?php echo ($_SESSION['username']); ?>" placeholder="Pengirim">
+                        <!-- <div class="form-group">
+                            <label class="control-label col-md-3">Photo Bukti Pembayaran</label>
+                            <div class="col-md-9">
+                                <input name="photo" placeholder="Photo Bukti Pembayaran" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="control-label col-md-3">Tanggal Pembayaran</label>
+                            <div class="col-md-9">
+                                <input name="tgl" placeholder="Tanggal Pembayaran" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div> -->
+                        <!-- <div class="form-group">
                             <label class="control-label col-md-3">Nomor HP</label>
                             <div class="col-md-9">
                                 <input name="no_hp" placeholder="Nomor HP" class="form-control" type="text">
@@ -870,12 +885,12 @@ function delete_pesanan(id)
                                 <input name="status" placeholder="Status" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
+                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Kirim</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
             </div>
         </div><!-- /.modal-content -->

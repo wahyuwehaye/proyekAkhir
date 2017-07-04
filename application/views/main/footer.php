@@ -91,9 +91,12 @@
         <script src="<?php echo base_url()?>assets/datepicker/js/bootstrap-datepicker.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
+                var date = new Date();
+                date.setDate(date.getDate()-0);
                 $('.tanggal').datepicker({
                     format: "dd-mm-yyyy",
-                    autoclose:true
+                    autoclose:true,
+                    startDate: date
                 });
             });
         </script>

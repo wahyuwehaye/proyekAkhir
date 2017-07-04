@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2017 at 01:48 AM
+-- Generation Time: Jun 22, 2017 at 02:29 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -57,12 +57,18 @@ INSERT INTO `booking` (`id_booking`, `tgl_input`, `nama`, `tipe_kamar`, `no_hp`,
 (1, '2017-06-12', 'ngubaid', 'Deluxe', '08131212121', 'kebumen', '2017-06-26', '2017-06-28', 1, 2, 201, 249000, 498000, 498000, 'Transfer Ke Nomor Rekening BRI', 'Check Out', '', 'Lunas', 0, 'Keuangan'),
 (2, '2017-06-12', 'ajeng', 'Standard', '081312777381', 'bandung', '2017-06-21', '2017-06-22', 1, 1, 101, 250000, 125000, 250000, 'Transfer Ke Nomor Rekening BCA', 'Check Out', '', 'Lunas', 0, 'Resepsionis'),
 (3, '2017-06-13', 'Wahyu Saepuloh', 'Family Suite', '081312555467', 'bandung', '1970-01-01', '1970-01-01', 1, 0, 601, 450000, 0, 0, 'Debit', 'Check In', '1234567', 'Lunas', 0, ''),
-(4, '2017-06-13', 'saeukoh', 'Family Suite', '456789', 'adksbad', '1970-01-01', '1970-01-01', 1, 0, 602, 450000, 0, 0, 'Debit', 'Check In', '123456', 'Lunas', 0, ''),
-(6, '2017-06-13', 'firman', 'Standard', '567890', 'ciamis', '1970-01-01', '1970-01-01', 1, 0, 101, 250000, 0, 0, 'Debit', 'Check In', '2345', 'Lunas', 0, ''),
+(4, '2017-06-13', 'saeukoh', 'Family Suite', '456789', 'adksbad', '1970-01-01', '1970-01-01', 1, 0, 602, 450000, 0, 0, 'Debit', 'Check Out', '123456', 'Lunas', 0, 'Resepsionis'),
+(6, '2017-06-13', 'firman', 'Standard', '567890', 'ciamis', '2017-06-21', '2017-06-21', 1, 0, 101, 250000, 0, 0, 'Debit', 'Booking', '2345', 'Lunas', 0, ''),
 (7, '2017-06-13', 'ajeng pursitasari', 'Superior', '678908', 'bandung', '1970-01-01', '1970-01-01', 1, 0, 301, 330000, 0, 0, 'Debit', 'Check In', '1234', 'Lunas', 0, ''),
-(8, '2017-06-13', 'ahmad', 'Family Triple', '567890', 'bandung', '1970-01-01', '1970-01-01', 4, 0, 501, 400000, 0, 0, 'Debit', 'Check In', '234567', 'Lunas', 0, ''),
+(8, '2017-06-13', 'ahmad', 'Family Triple', '567890', 'bandung', '2017-06-21', '2017-06-22', 4, 0, 501, 400000, 0, 0, 'Debit', 'Check In', '234567', 'Lunas', 0, ''),
 (9, '2017-06-13', 'puspita', 'Deluxe', '567890', 'banudng', '2017-06-19', '2017-06-20', 3, 1, 201, 249000, 0, 747000, 'Debit', 'Check In', '123456', 'Lunas', 0, ''),
-(10, '2017-06-13', 'ajeng', 'Standard', '081312777381', 'bandung', '2017-06-21', '2017-06-22', 1, 1, 101, 250000, 125000, 250000, 'Transfer Ke Nomor Rekening BRI', 'Booking', '', 'DP', 0, '');
+(10, '2017-06-13', 'ajeng', 'Standard', '081312777381', 'bandung', '2017-06-21', '2017-06-22', 1, 1, 101, 250000, 125000, 250000, 'Transfer Ke Nomor Rekening BRI', 'Check In', '', 'DP', 0, ''),
+(11, '2017-06-19', 'Wahyu Saepuloh', 'Standard', '081312555467', 'bandung', '2017-06-20', '2017-06-21', 1, 1, 102, 250000, 0, 250000, 'Debit', 'Check In', '3434', 'Lunas', 0, ''),
+(12, '2017-06-21', 'drupadi', 'Deluxe', '1', 'bandung', '2017-06-21', '2017-06-22', 1, 1, 202, 249000, 249000, 249000, 'Transfer Ke Nomor Rekening BCA', 'Booking', '', 'Lunas', 0, ''),
+(13, '2017-06-21', 'Septian Beni', 'Deluxe', '456789', 'bandung', '1970-01-01', '1970-01-01', 1, 0, 203, 249000, 0, 0, 'Debit', 'Check In', '987654', 'Lunas', 0, ''),
+(14, '2017-06-21', 'Wawan Sudrajat', 'Deluxe', '5678900', 'bandung', '2017-06-21', '2017-06-23', 1, 2, 204, 249000, 0, 498000, 'Debit', 'Check Out', '2345678', 'Lunas', 0, 'Resepsionis'),
+(15, '2017-06-21', 'drupadi', 'Deluxe', '1', 'bandung', '2017-06-21', '2017-06-22', 1, 1, 204, 249000, 249000, 249000, 'Transfer Ke Nomor Rekening BRI', 'Booking', '', 'Lunas', 0, ''),
+(16, '2017-06-21', 'drupadi', 'Deluxe', '1', 'bandung', '2017-06-21', '2017-06-22', 1, 1, 205, 249000, 249000, 249000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', 'Lunas', 0, '');
 
 -- --------------------------------------------------------
 
@@ -84,7 +90,8 @@ CREATE TABLE `buktibayar` (
 
 INSERT INTO `buktibayar` (`id_bukti`, `photo`, `token`, `tgl`, `id_transaksi`) VALUES
 (1, 'Screenshot_281.png', '0.8630180218483321', '2017-06-12 07:00:25', 1),
-(2, 'Screenshot_42.png', '0.978515119881193', '2017-06-12 23:17:41', 4);
+(2, 'Screenshot_42.png', '0.978515119881193', '2017-06-12 23:17:41', 4),
+(3, 'Screenshot_321.png', '0.7727958705744598', '2017-06-21 04:29:00', 16);
 
 -- --------------------------------------------------------
 
@@ -137,7 +144,9 @@ INSERT INTO `data_sementara` (`id_booking_sementara`, `tgl_input`, `kamar`, `nam
 (3, '2017-06-12 06:59:38', '1', 'Standard', '2017-06-19', '2017-06-21', 250000, 440000, 'dru'),
 (4, '2017-06-12 07:00:06', '1', 'Deluxe', '2017-06-26', '2017-06-28', 249000, 510000, 'ubed'),
 (5, '2017-06-12 09:48:56', '1', 'Standard', '2017-06-21', '2017-06-22', 250000, 440000, 'ajeng'),
-(6, '2017-06-12 22:30:18', '1', 'Standard', '2017-06-20', '2017-06-21', 250000, 440000, 'ajeng');
+(6, '2017-06-12 22:30:18', '1', 'Standard', '2017-06-20', '2017-06-21', 250000, 440000, 'ajeng'),
+(7, '2017-06-19 08:04:00', '1', 'Deluxe', '2017-06-19', '2017-06-21', 249000, 510000, 'wahyu'),
+(8, '2017-06-21 02:35:35', '1', 'Deluxe', '2017-06-21', '2017-06-22', 249000, 510000, 'dru');
 
 -- --------------------------------------------------------
 
@@ -273,18 +282,18 @@ CREATE TABLE `kamar` (
 --
 
 INSERT INTO `kamar` (`id_kamar`, `nomor_kamar`, `id_fasilitas`, `id_tipe_kamar`, `status`, `id_booking`) VALUES
-(27, 101, 0, 1, 'Booking', 0),
-(28, 102, 0, 1, 'kosong', 0),
+(27, 101, 0, 1, 'Check In', 0),
+(28, 102, 0, 1, 'Booking', 0),
 (29, 103, 0, 1, 'kosong', 0),
 (30, 104, 0, 1, 'kosong', 0),
 (31, 105, 0, 1, 'kosong', 0),
 (32, 106, 0, 1, 'kosong', 0),
 (33, 107, 0, 1, 'kosong', 0),
 (34, 201, 0, 2, 'Booking', 0),
-(35, 202, 0, 2, 'kosong', 0),
-(36, 203, 0, 2, 'kosong', 0),
-(37, 204, 0, 2, 'kosong', 0),
-(38, 205, 0, 2, 'kosong', 0),
+(35, 202, 0, 2, 'Booking', 0),
+(36, 203, 0, 2, 'Check In', 0),
+(37, 204, 0, 2, 'Booking', 0),
+(38, 205, 0, 2, 'Booking', 0),
 (39, 206, 0, 2, 'kosong', 0),
 (40, 207, 0, 2, 'kosong', 0),
 (41, 208, 0, 2, 'kosong', 0),
@@ -317,11 +326,11 @@ INSERT INTO `kamar` (`id_kamar`, `nomor_kamar`, `id_fasilitas`, `id_tipe_kamar`,
 (68, 304, 0, 3, 'kosong', 0),
 (69, 401, 0, 4, 'kosong', 0),
 (70, 402, 0, 4, 'kosong', 0),
-(71, 501, 0, 5, 'Booking', 0),
+(71, 501, 0, 5, 'Check In', 0),
 (72, 502, 0, 5, 'kosong', 0),
 (73, 503, 0, 5, 'kosong', 0),
-(74, 601, 0, 6, 'Booking', 0),
-(75, 602, 0, 6, 'Booking', 0);
+(74, 601, 0, 6, 'Check In', 0),
+(75, 602, 0, 6, 'kosong', 0);
 
 -- --------------------------------------------------------
 
@@ -556,6 +565,20 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `promosi`
+--
+
+CREATE TABLE `promosi` (
+  `id` int(10) NOT NULL,
+  `gambar` varchar(250) NOT NULL,
+  `tipe_kamar` varchar(100) NOT NULL,
+  `penjelasan` text NOT NULL,
+  `tgl_post` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sentitems`
 --
 
@@ -777,6 +800,12 @@ ALTER TABLE `phones`
   ADD PRIMARY KEY (`IMEI`);
 
 --
+-- Indexes for table `promosi`
+--
+ALTER TABLE `promosi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sentitems`
 --
 ALTER TABLE `sentitems`
@@ -806,12 +835,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id_booking` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_booking` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `buktibayar`
 --
 ALTER TABLE `buktibayar`
-  MODIFY `id_bukti` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_bukti` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `checkin_out`
 --
@@ -821,7 +850,7 @@ ALTER TABLE `checkin_out`
 -- AUTO_INCREMENT for table `data_sementara`
 --
 ALTER TABLE `data_sementara`
-  MODIFY `id_booking_sementara` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_booking_sementara` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `data_tamu`
 --
@@ -877,6 +906,11 @@ ALTER TABLE `pegawai`
 --
 ALTER TABLE `pelanggan`
   MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `promosi`
+--
+ALTER TABLE `promosi`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tipe_kamar`
 --

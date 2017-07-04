@@ -78,7 +78,8 @@ class m_bukti extends CI_Model {
 	public function get_by_id($id)
 	{
 		$this->db->from($this->table);
-		$this->db->where('id_bukti',$id);
+		// $this->db->where('id_bukti',$id);
+		$this->db->where('id_transaksi',$id);
 		$query = $this->db->get();
 
 		return $query->row();

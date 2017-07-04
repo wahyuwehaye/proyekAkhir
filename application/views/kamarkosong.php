@@ -228,45 +228,100 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>ID Kamar</th>
-                  <th>Nomor Kamar</th>
-                  <th>Status</th>
+                  <th>Tipe Kamar</th>
+                  <th>Jumlah Kamar Kosong</th>
+                  <!-- <th>Status</th> -->
                 </tr>
                 </thead>
                 <tbody>
-                <!-- <tr>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>PSP</td>
-                  <td>-</td>
-                  <td>C</td>
-                  <td>C</td>
-                  <td>C</td>
-                  <td>C</td>
-                  <td>C</td>
-                  <td><a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="#"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-				  </td>
-                </tr>
                 <tr>
                   <td>1</td>
-                  <td>1</td>
+                  <td>Standard</td>
+                  <td><?php
+                        $this->db->select('id_kamar');
+                        $this->db->from('kamar');
+                        $this->db->where('id_tipe_kamar','1');
+                        $this->db->where('status','kosong');
+                        echo $this->db->count_all_results();
+                      ?>
+                  </td>
+                  <!-- <td>PSP</td>
                   <td>-</td>
-                  <td>-</td>
-                  <td>U</td>
+                  <td>C</td>
                   <td>C</td>
                   <td>C</td>
                   <td>C</td>
                   <td>C</td>
                   <td><a class="btn btn-xs btn-primary" href="javascript:void(0)" title="Edit" onclick="#"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-				  </td>
-                </tr> -->
+				  </td> -->
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Deluxe</td>
+                  <td><?php
+                        $this->db->select('id_kamar');
+                        $this->db->from('kamar');
+                        $this->db->where('id_tipe_kamar','2');
+                        $this->db->where('status','kosong');
+                        echo $this->db->count_all_results();
+                      ?>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Superior</td>
+                  <td><?php
+                        $this->db->select('id_kamar');
+                        $this->db->from('kamar');
+                        $this->db->where('id_tipe_kamar','3');
+                        $this->db->where('status','kosong');
+                        echo $this->db->count_all_results();
+                      ?>
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Suite</td>
+                  <td><?php
+                        $this->db->select('id_kamar');
+                        $this->db->from('kamar');
+                        $this->db->where('id_tipe_kamar','4');
+                        $this->db->where('status','kosong');
+                        echo $this->db->count_all_results();
+                      ?>
+                  </td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Family Triple</td>
+                  <td><?php
+                        $this->db->select('id_kamar');
+                        $this->db->from('kamar');
+                        $this->db->where('id_tipe_kamar','5');
+                        $this->db->where('status','kosong');
+                        echo $this->db->count_all_results();
+                      ?>
+                  </td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Family Suite</td>
+                  <td><?php
+                        $this->db->select('id_kamar');
+                        $this->db->from('kamar');
+                        $this->db->where('id_tipe_kamar','6');
+                        $this->db->where('status','kosong');
+                        echo $this->db->count_all_results();
+                      ?>
+                  </td>
+                </tr>
                 </tbody>
                 <tfoot>
                 <tr>
                   <th>No</th>
-                  <th>ID Kamar</th>
-                  <th>Nomor Kamar</th>
-                  <th>Status</th>
+                  <th>Tipe Kamar</th>
+                  <th>Jumlah Kamar Kosong</th>
+                  <!-- <th>Status</th> -->
                 </tr>
                 </tfoot>
               </table>
@@ -515,27 +570,27 @@ var table;
 $(document).ready(function() {
 
     //datatables
-    table = $('#table').DataTable({
+    // table = $('#table').DataTable({
 
-        "processing": true, //Feature control the processing indicator.
-        "serverSide": true, //Feature control DataTables' server-side processing mode.
-        "order": [], //Initial no order.
+    //     "processing": true, //Feature control the processing indicator.
+    //     "serverSide": true, //Feature control DataTables' server-side processing mode.
+    //     "order": [], //Initial no order.
 
-        // Load data for the table's content from an Ajax source
-        "ajax": {
-            "url": "<?php echo site_url('Masterkamar/ajax_list')?>",
-            "type": "POST"
-        },
+    //     // Load data for the table's content from an Ajax source
+    //     "ajax": {
+    //         "url": "<?php echo site_url('Masterkamar/ajax_list')?>",
+    //         "type": "POST"
+    //     },
 
-        //Set column definition initialisation properties.
-        "columnDefs": [
-        {
-            "targets": [ -1 ], //last column
-            "orderable": false, //set not orderable
-        },
-        ],
+    //     //Set column definition initialisation properties.
+    //     "columnDefs": [
+    //     {
+    //         "targets": [ -1 ], //last column
+    //         "orderable": false, //set not orderable
+    //     },
+    //     ],
 
-    });
+    // });
 
 
 });

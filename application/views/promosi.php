@@ -181,23 +181,21 @@
             <form role="form" method="post" class="f1" action="<?php echo base_url()?>index.php/Dashboard/insertBookOnsite">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="nama_tamu">Upload Gambar</label>
-                  <input type="file" class="form-control" id="nama_tamu" name="nama_tamu" placeholder="Nomor Handphone">
+                  <label for="gambar">Upload Gambar</label>
+                  <input type="file" class="form-control" id="gambar" name="gambar" placeholder="Nomor Handphone">
                 </div>
                 <div class="form-group">
                   <label>Pilih Tipe Kamar</label>
-                  <select class="form-control">
+                  <select name="tipe_kamar" id="tipe_kamar" class="form-control">
                   <option>-- Pilih Tipe Kamar --</option>
-                    <option>Standar</option>
-                    <option>Deluxe</option>
-                    <option>Suite</option>
-                    <option>Superior</option>
-                    <option>Family</option>
+                    <?php foreach($tipe_kamar->result_array() as $row) {?>
+                                        <option value="<?php echo $row['nama_kamar'];?>"><?php echo $row['nama_kamar']?></option>
+                                    <?php }?>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="alamat_tamu">Penjelasan</label>
-                  <textarea class="form-control" rows="3" placeholder="Penjelasan mengenai harga promosi tipe kamar"></textarea>
+                  <label for="penjelasan">Penjelasan</label>
+                  <textarea id="penjelasan" name="penjelasan" class="form-control" rows="3" placeholder="Penjelasan mengenai harga promosi tipe kamar"></textarea>
                 </div>
               <div class="box-footer " style="float:right;">
                 <button type="submit" class="btn btn-primary">Simpan</button>

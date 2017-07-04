@@ -713,10 +713,12 @@ $(document).ready(function() {
     //       $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
     //     }
     // );
-
+    var date = new Date();
+    date.setDate(date.getDate()-0);
     //Date picker
     $('#datepicker').datepicker({
-      autoclose: true
+      autoclose: true,
+      startDate: date
     });
 
     //Date picker

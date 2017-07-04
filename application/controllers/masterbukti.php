@@ -33,7 +33,14 @@ class Masterbukti extends CI_Controller {
 			$row[] = $bukti->tgl;
 
 			//add html for action
-			$row[] = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Kirim" onclick="detail_bukti('."'".$bukti->id_bukti."'".')"><i class="glyphicon glyphicon-send"> Kirim</i></a>';
+			// $row[] = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Konfirmasi" onclick="edit_bukti('."'".$bukti->id_transaksi."'".')"><i class="glyphicon glyphicon-send"> Konfirmasi</i></a>';
+			$row[] = '<form method="post" class="f1" action="Mastersms/ajax_konfirm">
+				<input type="hidden" class="form-control" id="DestinationNumber" name="DestinationNumber" value=".$bukti->id_transaksi." placeholder="Nomor Handphone">
+				<input type="hidden" class="form-control" id="DestinationNumber" name="DestinationNumber" value="081312555467" placeholder="Nomor Handphone">
+				<input type="hidden" class="form-control" id="TextDecoded" value="coba" name="TextDecoded" placeholder="Nomor Handphone">
+				<input type="hidden" class="form-control" id="CreatorID" name="CreatorID" value="Admin" placeholder="Pengirim">
+				<button class="btn btn-xs btn-success" type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-send"> Konfirmasi</i></button>
+			</form';
 
 			$data[] = $row;
 		}
@@ -80,6 +87,24 @@ class Masterbukti extends CI_Controller {
 			);
 		$this->bukti->update(array('id_bukti' => $this->input->post('id_bukti')), $data);
 		echo json_encode(array("status" => TRUE));
+	}
+
+	public function ajax_sendsms(){
+		$idBooking = $this->db->query("select no_hp from booking where id_booking='1'")->row();
+                $idBooking = $idBooking->no_hp;
+		// $idbooking = $this->input->post('id_transaksi');
+		// $idnya = $this->db->query("select no_hp from booking where id_booking='1'");
+  //       foreach($idnya->result() as $row) {
+  //           $id =  $row->no_hp;
+  //       }
+		$data = array(
+                'DestinationNumber' => $idBooking,
+				'TextDecoded' => $this->input->post('TextDecoded'),
+				'CreatorID' => $this->input->post('CreatorID'),
+			);
+		$insert = $this->sms->save($data);
+		echo json_encode(array("status" => TRUE));
+		redirect('dashboard/daftarsms');
 	}
 
 	public function ajax_delete($id)

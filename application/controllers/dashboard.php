@@ -273,7 +273,8 @@ class Dashboard extends CI_Controller {
     }
 
     public function promosi(){
-        $this->load->view('promosi');
+    	$data['tipe_kamar'] = $this->db->query("select * from tipe_kamar");
+        $this->load->view('promosi',$data);
     }
 
     public function laporharian(){
@@ -490,7 +491,7 @@ class Dashboard extends CI_Controller {
 	    	'nomor_kamar' => $this->input->post("nomor_kamar"),
 	    	);
 	    $dataupdate = array(
-	    	'status' => "Booking",
+	    	'status' => "Check In",
 	    	);
 	    $keterangan="Lunas";
 	  //   if (($this->input->post("dp"))===($this->input->post("total"))) {
@@ -530,5 +531,50 @@ class Dashboard extends CI_Controller {
 	    redirect('dashboard/detailonsite');
 		echo json_encode(array("status" => TRUE));
 		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
+	}
+
+	// untuk promosi
+
+	public function promosi()
+	{
+		$this->_validate();
+		
+		$data = array(
+				'tipe_kamar' => $this->input->post('tipe_kamar'),
+				'penjelasan' => $this->input->post('penjelasan'),
+				'tgl_post' => date('Y-m-d H:i:s'),
+			);
+
+		if(!empty($_FILES['logo']['name']))
+		{
+			$upload = $this->_do_uploaded();
+			$data['logo'] = $upload;
+		}
+
+		$insert = $this->channel->save($data);
+
+		echo json_encode(array("status" => TRUE));
+	}
+
+	private function _do_uploaded()
+	{
+		$config['upload_path']          = 'upload/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 10000; //set max size allowed in Kilobyte
+        $config['max_width']            = 10000; // set max width image allowed
+        $config['max_height']           = 10000; // set max height allowed
+        $config['file_name']            = round(microtime(true) * 1000); //just milisecond timestamp fot unique name
+
+        $this->load->library('upload', $config);
+
+        if(!$this->upload->do_upload('logo')) //upload and validate
+        {
+            $data['inputerror'][] = 'logo';
+			$data['error_string'][] = 'Upload error: '.$this->upload->display_errors('',''); //show ajax error
+			$data['status'] = FALSE;
+			echo json_encode($data);
+			exit();
+		}
+		return $this->upload->data('file_name');
 	}
 }

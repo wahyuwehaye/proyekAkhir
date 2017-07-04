@@ -133,6 +133,18 @@ class Mastersms extends CI_Controller {
 		redirect('dashboard/daftarsms');
 	}
 
+	public function ajax_konfirm()
+	{
+		$data = array(
+                'DestinationNumber' => $this->input->post('DestinationNumber'),
+				'TextDecoded' => $this->input->post('TextDecoded'),
+				'CreatorID' => $this->input->post('CreatorID'),
+			);
+		$insert = $this->sms->save($data);
+		echo json_encode(array("status" => TRUE));
+		redirect('dashboard/daftarsms');
+	}
+
 	public function ajax_update()
 	{
 		$data = array(

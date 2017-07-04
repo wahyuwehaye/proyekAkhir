@@ -891,75 +891,84 @@ $(document).ready(function() {
           $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
         }
     );
-
+var date = new Date();
+  date.setDate(date.getDate()-0);
     //Date picker
     $('#datepicker').datepicker({
-      autoclose: true
+      autoclose: true,
+      startDate: date
     });
 
     //Date picker
     $('#datepicker1').datepicker({
-      autoclose: true
-    });
-
-    //Date picker
-    $('#datepicker1').datepicker({
-      autoclose: true
+      autoclose: true,
+      startDate: date
     });
 
     //Date picker
     $('#datepicker11').datepicker({
-      autoclose: true
+      autoclose: true,
+      startDate: date
     });
 
     //Date picker
     $('#datepicker2').datepicker({
-      autoclose: true
+      autoclose: true,
+      startDate: date
     });
 
     //Date picker
     $('#datepicker12').datepicker({
-      autoclose: true
+      autoclose: true,
+      startDate: date
     });
 
     //Date picker
     $('#datepicker3').datepicker({
-      autoclose: true
+      autoclose: true,
+      startDate: date
     });
 
     //Date picker
     $('#datepicker13').datepicker({
-      autoclose: true
+      autoclose: true,
+      startDate: date
     });
 
     //Date picker
     $('#datepicker4').datepicker({
-      autoclose: true
+      autoclose: true,
+      startDate: date
     });
 
     //Date picker
     $('#datepicker14').datepicker({
-      autoclose: true
+      autoclose: true,
+      startDate: date
     });
 
     //Date picker
     $('#datepicker5').datepicker({
-      autoclose: true
+      autoclose: true,
+      startDate: date
     });
 
     //Date picker
     $('#datepicker15').datepicker({
-      autoclose: true
+      autoclose: true,
+      startDate: date
     });
 
     //Date picker
     $('#datepicker6').datepicker({
-      autoclose: true
+      autoclose: true,
+      startDate: date
     });
 
     //Date picker
     $('#datepicker16').datepicker({
-      autoclose: true
+      autoclose: true,
+      startDate: date
     });
 
     //iCheck for checkbox and radio inputs
