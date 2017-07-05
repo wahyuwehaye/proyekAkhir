@@ -55,8 +55,23 @@ class Masterkamar extends CI_Controller {
 		foreach ($list as $kamar) {
 			$no++;
 			$row = array();
+			$sitipe = $kamar->id_tipe_kamar;
             $row[] = $no;
             $row[] = $kamar->id_kamar;
+			$row[] = $kamar->id_tipe_kamar;
+			// if (($kamar->id_tipe_kamar)==1) {
+			// 	"Standard";
+			// }elseif (($kamar->id_tipe_kamar)==2) {
+			// 	"Deluxe";
+			// }elseif (($kamar->id_tipe_kamar)==3) {
+			// 	"Superior";
+			// }elseif (($kamar->id_tipe_kamar)==4) {
+			// 	"Suite";
+			// }elseif (($kamar->id_tipe_kamar)==5) {
+			// 	"Family Triple";
+			// }elseif (($kamar->id_tipe_kamar)==6) {
+			// 	"Family Suite";
+			// };
 			$row[] = $kamar->nomor_kamar;
 			$row[] = $kamar->status;
 
@@ -88,6 +103,7 @@ class Masterkamar extends CI_Controller {
 			$row = array();
             $row[] = $no;
             $row[] = $kamar->id_kamar;
+            $row[] = $kamar->id_tipe_kamar;
 			$row[] = $kamar->nomor_kamar;
 			$row[] = $kamar->status;
 

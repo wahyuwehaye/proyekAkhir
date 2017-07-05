@@ -229,6 +229,7 @@
                 <tr>
                   <th>No</th>
                   <th>ID Kamar</th>
+                  <th>Tipe Kamar</th>
                   <th>Nomor Kamar</th>
                   <th>Status</th>
                 </tr>
@@ -265,6 +266,7 @@
                 <tr>
                   <th>No</th>
                   <th>ID Kamar</th>
+                  <th>Tipe Kamar</th>
                   <th>Nomor Kamar</th>
                   <th>Status</th>
                 </tr>
