@@ -441,7 +441,7 @@ class Dashboard extends CI_Controller {
 		    	'id_booking' => $this->input->post("id_transaksi"),
 	    	);
 	    	$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
-	    	$noallkamar .= $nokamar .= ', ';
+	    	$noallkamar .= $nokamar;
 	    	$nokamar=$nokamar+1;
 	    }
 	    // $datakamar = array(
@@ -516,6 +516,8 @@ class Dashboard extends CI_Controller {
 		    	'id_booking' => $this->input->post("id_transaksi"),
 	    	);
 	    	$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+	    	// $nopakekoma = $nokamar;
+	    	// $nopakekoma .= ', ';
 	    	$noallkamar .= $nokamar;
 	    	$nokamar=$nokamar+1;
 	    }
