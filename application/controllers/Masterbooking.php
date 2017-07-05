@@ -132,12 +132,25 @@ class Masterbooking extends CI_Controller {
 	{
 		$this->load->database();
 	    $this->load->model('m_dashboard');
-		$datakamar = array(
-	    	'nomor_kamar' => $this->input->post("nomor_kamar"),
+	    $jumkamar = $this->input->post("jumlah_kamar");
+	    $nokamar = $this->input->post("nomor_kamar");
+	    $nosatukamar = substr($nokamar,0,3);
+	    for ($i=0; $i < $jumkamar; $i++) { 
+	    	$datakamar = array(
+		    	'nomor_kamar' => $nosatukamar,
+		    );
+	    	$dataupdate = array(
+		    	'status' => $this->input->post('status'),
 	    	);
-	    $dataupdate = array(
-	    	'status' => $this->input->post('status'),
-	    	);
+	    	$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+	    	$nosatukamar=$nosatukamar+1;
+	    }
+		// $datakamar = array(
+	 //    	'nomor_kamar' => $this->input->post("nomor_kamar"),
+	 //    	);
+	 //    $dataupdate = array(
+	 //    	'status' => $this->input->post('status'),
+	 //    	);
 		$data = array(
             	'tgl_input' => $this->input->post('tgl_input'),
 				'nama' => $this->input->post('nama'),
@@ -157,7 +170,7 @@ class Masterbooking extends CI_Controller {
                 'ket' => $this->input->post('ket'),
 			);
 		$this->booking->update(array('id_booking' => $this->input->post('id_booking')), $data);
-		$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+		// $this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
 		echo json_encode(array("status" => TRUE));
 	}
 

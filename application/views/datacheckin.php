@@ -604,6 +604,7 @@ function edit_checkin(id)
             $('[name="tgl_masuk"]').val(data.tgl_masuk);
             $('[name="tgl_keluar"]').val(data.tgl_keluar);
             $('[name="tipe_kamar"]').val(data.tipe_kamar);
+            $('[name="nomor_kamar"]').val(data.nomor_kamar);
             $('[name="jumlah_kamar"]').val(data.jumlah_kamar);
             $('[name="metode_bayar"]').val(data.metode_bayar);
             $('[name="harga"]').val(data.harga);
@@ -645,6 +646,7 @@ function detail_checkin(id)
             $('[name="tgl_masuk"]').val(data.tgl_masuk);
             $('[name="tgl_keluar"]').val(data.tgl_keluar);
             $('[name="tipe_kamar"]').val(data.tipe_kamar);
+            $('[name="nomor_kamar"]').val(data.nomor_kamar);
             $('[name="jumlah_kamar"]').val(data.jumlah_kamar);
             $('[name="metode_bayar"]').val(data.metode_bayar);
             $('[name="harga"]').val(data.harga);
@@ -801,6 +803,13 @@ function delete_checkin(id)
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="control-label col-md-3">Nomor Kamar</label>
+                            <div class="col-md-9">
+                                <input disabled name="nomor_kamar" placeholder="Nomor Kamar" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label col-md-3">Jumlah Kamar </label>
                             <div class="col-md-9">
                                 <input disabled name="jumlah_kamar" placeholder="Jumlah Kamar " class="form-control" type="text">
@@ -925,6 +934,13 @@ function delete_checkin(id)
                             <label class="control-label col-md-3">Tipe Kamar</label>
                             <div class="col-md-9">
                                 <input name="tipe_kamar" placeholder="Tipe Kamar" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Nomor Kamar</label>
+                            <div class="col-md-9">
+                                <input name="nomor_kamar" placeholder="Nomor Kamar" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>

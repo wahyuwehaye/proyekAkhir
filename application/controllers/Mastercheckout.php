@@ -197,22 +197,34 @@ class Mastercheckout extends CI_Controller {
 	    $this->load->model('m_dashboard');
 	    $databooking = $this->M_formcekout->ambilbooking($this->input->post("kode"))->row();
 	    $nomorkamar = $databooking->nomor_kamar;
-		$datakamar = array(
-	    	'nomor_kamar' => $nomorkamar,
+	    $jumkamar = $databooking->jumlah_kamar;
+	    $nosatukamar = substr($nomorkamar,0,3);
+	    for ($i=0; $i < $jumkamar; $i++) { 
+	    	$datakamar = array(
+		    	'nomor_kamar' => $nosatukamar,
+		    );
+	    	$dataupdate = array(
+		    	'status' => "kosong",
 	    	);
+	    	$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+	    	$nosatukamar=$nosatukamar+1;
+	    }
+		// $datakamar = array(
+	 //    	'nomor_kamar' => $nomorkamar,
+	 //    	);
 		$id = array(
 	    	'id_booking' => $this->input->post("kode"),
 	    	);
-	    $dataupdate = array(
-	    	'status' => "kosong",
-	    	);
+	    // $dataupdate = array(
+	    // 	'status' => "kosong",
+	    // 	);
 		$data = array(
                 // 'tgl_keluar' => $this->input->post("tgl_keluar"),
 				'status' => 'Check Out',
                 'ket' => 'Lunas',
                 'acc' => 'Resepsionis',
 			);
-		$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+		// $this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
 		$this->checkout->Update('booking',$data,$id);
 		redirect('dashboard/datacheckout');
 		echo json_encode(array("status" => TRUE));
