@@ -429,12 +429,28 @@ class Dashboard extends CI_Controller {
 	public function insertBooking(){
 		$this->load->database();
 	    $this->load->model('m_dashboard');
-	    $datakamar = array(
-	    	'nomor_kamar' => $this->input->post("nomor_kamar"),
+	    $jumkamar = $this->input->post("jumlah_kamar");
+	    $nokamar = $this->input->post("nomor_kamar");
+	    $noallkamar = "";
+	    for ($i=0; $i < $jumkamar; $i++) { 
+	    	$datakamar = array(
+		    	'nomor_kamar' => $nokamar,
+		    );
+	    	$dataupdate = array(
+		    	'status' => "Booking",
+		    	'id_booking' => $this->input->post("id_transaksi"),
 	    	);
-	    $dataupdate = array(
-	    	'status' => "Booking",
-	    	);
+	    	$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+	    	$noallkamar .= $nokamar;
+	    	$nokamar=$nokamar+1;
+	    }
+	    // $datakamar = array(
+	    // 	'nomor_kamar' => $this->input->post("nomor_kamar"),
+	    // 	);
+	    // $dataupdate = array(
+	    // 	'status' => "Booking",
+	    // 	'id_booking' => $this->input->post("id_transaksi"),
+	    // 	);
 	    $keterangan="";
 	    if (($this->input->post("dp"))>=($this->input->post("total"))) {
 				$keterangan = "Lunas";
@@ -451,7 +467,8 @@ class Dashboard extends CI_Controller {
 			'tipe_kamar' => $this->input->post("tipe_kamar"),
 			'jumlah_kamar' => $this->input->post("jumlah_kamar"),
 			'jumlah_malam' => $this->input->post("jumlah_malam"),
-			'nomor_kamar' => $this->input->post("nomor_kamar"),
+			// 'nomor_kamar' => $this->input->post("nomor_kamar"),
+			'nomor_kamar' => $noallkamar,
 			'harga' => $this->input->post("harga"),
 			'dp' => $this->input->post("dp"),
 			'total' => $this->input->post("total"),
@@ -477,7 +494,7 @@ class Dashboard extends CI_Controller {
 			$databukti['photo'] = $upload;
 		}
 		$this->m_dashboard->insertTamu($dataTamu);
-		$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+		// $this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
 		// $insert = $this->m_dashboard->save($databukti);
 	    redirect('/');
 		echo json_encode(array("status" => TRUE));
@@ -487,12 +504,27 @@ class Dashboard extends CI_Controller {
 	public function insertOnsite(){
 		$this->load->database();
 	    $this->load->model('m_dashboard');
-	    $datakamar = array(
-	    	'nomor_kamar' => $this->input->post("nomor_kamar"),
+	    $jumkamar = $this->input->post("jumlah_kamar");
+	    $nokamar = $this->input->post("nomor_kamar");
+	    $noallkamar = "";
+	    for ($i=0; $i < $jumkamar; $i++) { 
+	    	$datakamar = array(
+		    	'nomor_kamar' => $nokamar,
+		    );
+	    	$dataupdate = array(
+		    	'status' => "Check In",
+		    	'id_booking' => $this->input->post("id_transaksi"),
 	    	);
-	    $dataupdate = array(
-	    	'status' => "Check In",
-	    	);
+	    	$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+	    	$noallkamar .= $nokamar;
+	    	$nokamar=$nokamar+1;
+	    }
+	    // $datakamar = array(
+	    // 	'nomor_kamar' => $this->input->post("nomor_kamar"),
+	    // 	);
+	    // $dataupdate = array(
+	    // 	'status' => "Check In",
+	    // 	);
 	    $keterangan="Lunas";
 	  //   if (($this->input->post("dp"))===($this->input->post("total"))) {
 			// 	$keterangan = "Lunas";
@@ -509,7 +541,8 @@ class Dashboard extends CI_Controller {
 			'tipe_kamar' => $this->input->post("tipe_kamar"),
 			'jumlah_kamar' => $this->input->post("jumlah_kamar"),
 			'jumlah_malam' => $this->input->post("jumlah_malam"),
-			'nomor_kamar' => $this->input->post("nomor_kamar"),
+			// 'nomor_kamar' => $this->input->post("nomor_kamar"),
+			'nomor_kamar' => $noallkamar,
 			'harga' => $this->input->post("harga"),
 			'dp' => $this->input->post("dp"),
 			'total' => $this->input->post("total"),
@@ -527,7 +560,7 @@ class Dashboard extends CI_Controller {
 	 	  //   );
 	    // $this->m_dashboard->insertTamu($dataTamu, $dataPelanggan);
 		$this->m_dashboard->insertTamu($dataTamu);
-		$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+		// $this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
 	    redirect('dashboard/detailonsite');
 		echo json_encode(array("status" => TRUE));
 		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
@@ -535,26 +568,26 @@ class Dashboard extends CI_Controller {
 
 	// untuk promosi
 
-	public function promosi()
-	{
-		$this->_validate();
+	// public function promosi()
+	// {
+	// 	$this->_validate();
 		
-		$data = array(
-				'tipe_kamar' => $this->input->post('tipe_kamar'),
-				'penjelasan' => $this->input->post('penjelasan'),
-				'tgl_post' => date('Y-m-d H:i:s'),
-			);
+	// 	$data = array(
+	// 			'tipe_kamar' => $this->input->post('tipe_kamar'),
+	// 			'penjelasan' => $this->input->post('penjelasan'),
+	// 			'tgl_post' => date('Y-m-d H:i:s'),
+	// 		);
 
-		if(!empty($_FILES['logo']['name']))
-		{
-			$upload = $this->_do_uploaded();
-			$data['logo'] = $upload;
-		}
+	// 	if(!empty($_FILES['logo']['name']))
+	// 	{
+	// 		$upload = $this->_do_uploaded();
+	// 		$data['logo'] = $upload;
+	// 	}
 
-		$insert = $this->channel->save($data);
+	// 	$insert = $this->channel->save($data);
 
-		echo json_encode(array("status" => TRUE));
-	}
+	// 	echo json_encode(array("status" => TRUE));
+	// }
 
 	private function _do_uploaded()
 	{

@@ -226,6 +226,7 @@ $idtransbaru = $datetidtrans+1;
 									<input type="hidden" name="status" value="Booking">
                                     <input type="hidden" name="no_kartu" value="">
                                     <input type="hidden" name="ket" value=" DP">
+                                    <input type="hidden" id="id_transaksi" name="id_transaksi" value="<?php echo $idtransbaru; ?>">
                                     <h5>Tanggal Keluar : <?php echo $tglOut; ?></h5>
                                     <h5>Jumlah Kamar : <?php echo $kamar; ?></h5>
                                     <h5>Tipe Kamar : <?php echo $nama_kamar; ?></h5>

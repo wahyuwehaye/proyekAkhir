@@ -316,7 +316,7 @@
               ?>
                 <?php $no=1; foreach($kamarkosong1 as $kmr1){ ?>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-default"><input type="radio" name="radio" id="radio" class="minimal"> <?php echo $kmr1->nomor_kamar; ?></span></h4>
+              <h4 align="center"><span class="label label-default"><input type="checkbox" name="radio" id="radio" class="minimal"> <?php echo $kmr1->nomor_kamar; ?></span></h4>
           </div>
           <?php $no++;
                 if ($no>6) {
@@ -349,7 +349,7 @@
               ?>
                 <?php $no=1; foreach($kamarkosong2 as $kmr2){ ?>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-default"><input type="radio" name="radio" id="radio" class="minimal"> <?php echo $kmr2->nomor_kamar; ?></span></h4>
+              <h4 align="center"><span class="label label-default"><input type="checkbox" name="radio" id="radio" class="minimal"> <?php echo $kmr2->nomor_kamar; ?></span></h4>
           </div>
           <?php $no++;
                 if ($no>6) {
@@ -382,7 +382,7 @@
               ?>
                 <?php $no=1; foreach($kamarkosong3 as $kmr3){ ?>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-default"><input type="radio" name="radio" id="radio" class="minimal"> <?php echo $kmr3->nomor_kamar; ?></span></h4>
+              <h4 align="center"><span class="label label-default"><input type="checkbox" name="radio" id="radio" class="minimal"> <?php echo $kmr3->nomor_kamar; ?></span></h4>
           </div>
           <?php $no++;
                 if ($no>6) {
@@ -415,7 +415,7 @@
               ?>
                 <?php $no=1; foreach($kamarkosong4 as $kmr4){ ?>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-default"><input type="radio" name="radio" id="radio" class="minimal"> <?php echo $kmr4->nomor_kamar; ?></span></h4>
+              <h4 align="center"><span class="label label-default"><input type="checkbox" name="radio" id="radio" class="minimal"> <?php echo $kmr4->nomor_kamar; ?></span></h4>
           </div>
           <?php $no++;
                 if ($no>6) {
@@ -448,7 +448,7 @@
               ?>
                 <?php $no=1; foreach($kamarkosong5 as $kmr5){ ?>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-default"><input type="radio" name="radio" id="radio" class="minimal"> <?php echo $kmr5->nomor_kamar; ?></span></h4>
+              <h4 align="center"><span class="label label-default"><input type="checkbox" name="radio" id="radio" class="minimal"> <?php echo $kmr5->nomor_kamar; ?></span></h4>
           </div>
           <?php $no++;
                 if ($no>6) {
@@ -481,7 +481,7 @@
               ?>
                 <?php $no=1; foreach($kamarkosong6 as $kmr6){ ?>
           <div class="col-md-1">
-              <h4 align="center"><span class="label label-default"><input type="radio" name="radio" id="radio" class="minimal"> <?php echo $kmr6->nomor_kamar; ?></span></h4>
+              <h4 align="center"><span class="label label-default"><input type="checkbox" name="radio" id="radio" class="minimal"> <?php echo $kmr6->nomor_kamar; ?></span></h4>
           </div>
           <?php $no++;
                 if ($no>6) {

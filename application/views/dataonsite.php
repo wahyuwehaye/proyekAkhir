@@ -232,6 +232,15 @@
                     $dapetnomor = $row->nomor_kamar;
                     break;
                 }
+
+                $datetidtrans="";
+                $getidtrans = $CI->db->query('SELECT * FROM booking ORDER BY id_booking DESC LIMIT 1');
+                foreach ($getidtrans->result() as $cari) {
+                    $datetidtrans = $cari->id_booking;
+                    break;
+                }
+                $idtransbaru = $datetidtrans+1;
+                // echo $idtransbaru;
             ?>
 
             <!-- /.box-header -->
@@ -287,6 +296,7 @@
                   <input type="hidden" name="nomor_kamar" value="<?php echo $dapetnomor; ?>">
                   <input type="hidden" name="tipe_kamar" value="<?php echo $tipe_kamar; ?>">
                   <input type="hidden" name="harga_kamar" value="<?php echo $harga_kamar; ?>">
+                  <input type="hidden" id="id_transaksi" name="id_transaksi" value="<?php echo $idtransbaru; ?>">
               </div>
               <!-- /.box-body -->
 
