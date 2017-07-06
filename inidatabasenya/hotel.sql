@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2017 at 02:29 AM
+-- Generation Time: Jul 06, 2017 at 02:23 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -37,7 +37,7 @@ CREATE TABLE `booking` (
   `tgl_keluar` date NOT NULL,
   `jumlah_kamar` int(10) NOT NULL,
   `jumlah_malam` int(5) NOT NULL,
-  `nomor_kamar` int(5) NOT NULL,
+  `nomor_kamar` varchar(100) NOT NULL,
   `harga` int(15) NOT NULL,
   `dp` int(15) NOT NULL,
   `total` int(20) NOT NULL,
@@ -54,21 +54,7 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`id_booking`, `tgl_input`, `nama`, `tipe_kamar`, `no_hp`, `alamat`, `tgl_masuk`, `tgl_keluar`, `jumlah_kamar`, `jumlah_malam`, `nomor_kamar`, `harga`, `dp`, `total`, `metode_bayar`, `status`, `no_kartu`, `ket`, `id_user`, `acc`) VALUES
-(1, '2017-06-12', 'ngubaid', 'Deluxe', '08131212121', 'kebumen', '2017-06-26', '2017-06-28', 1, 2, 201, 249000, 498000, 498000, 'Transfer Ke Nomor Rekening BRI', 'Check Out', '', 'Lunas', 0, 'Keuangan'),
-(2, '2017-06-12', 'ajeng', 'Standard', '081312777381', 'bandung', '2017-06-21', '2017-06-22', 1, 1, 101, 250000, 125000, 250000, 'Transfer Ke Nomor Rekening BCA', 'Check Out', '', 'Lunas', 0, 'Resepsionis'),
-(3, '2017-06-13', 'Wahyu Saepuloh', 'Family Suite', '081312555467', 'bandung', '1970-01-01', '1970-01-01', 1, 0, 601, 450000, 0, 0, 'Debit', 'Check In', '1234567', 'Lunas', 0, ''),
-(4, '2017-06-13', 'saeukoh', 'Family Suite', '456789', 'adksbad', '1970-01-01', '1970-01-01', 1, 0, 602, 450000, 0, 0, 'Debit', 'Check Out', '123456', 'Lunas', 0, 'Resepsionis'),
-(6, '2017-06-13', 'firman', 'Standard', '567890', 'ciamis', '2017-06-21', '2017-06-21', 1, 0, 101, 250000, 0, 0, 'Debit', 'Booking', '2345', 'Lunas', 0, ''),
-(7, '2017-06-13', 'ajeng pursitasari', 'Superior', '678908', 'bandung', '1970-01-01', '1970-01-01', 1, 0, 301, 330000, 0, 0, 'Debit', 'Check In', '1234', 'Lunas', 0, ''),
-(8, '2017-06-13', 'ahmad', 'Family Triple', '567890', 'bandung', '2017-06-21', '2017-06-22', 4, 0, 501, 400000, 0, 0, 'Debit', 'Check In', '234567', 'Lunas', 0, ''),
-(9, '2017-06-13', 'puspita', 'Deluxe', '567890', 'banudng', '2017-06-19', '2017-06-20', 3, 1, 201, 249000, 0, 747000, 'Debit', 'Check In', '123456', 'Lunas', 0, ''),
-(10, '2017-06-13', 'ajeng', 'Standard', '081312777381', 'bandung', '2017-06-21', '2017-06-22', 1, 1, 101, 250000, 125000, 250000, 'Transfer Ke Nomor Rekening BRI', 'Check In', '', 'DP', 0, ''),
-(11, '2017-06-19', 'Wahyu Saepuloh', 'Standard', '081312555467', 'bandung', '2017-06-20', '2017-06-21', 1, 1, 102, 250000, 0, 250000, 'Debit', 'Check In', '3434', 'Lunas', 0, ''),
-(12, '2017-06-21', 'drupadi', 'Deluxe', '1', 'bandung', '2017-06-21', '2017-06-22', 1, 1, 202, 249000, 249000, 249000, 'Transfer Ke Nomor Rekening BCA', 'Booking', '', 'Lunas', 0, ''),
-(13, '2017-06-21', 'Septian Beni', 'Deluxe', '456789', 'bandung', '1970-01-01', '1970-01-01', 1, 0, 203, 249000, 0, 0, 'Debit', 'Check In', '987654', 'Lunas', 0, ''),
-(14, '2017-06-21', 'Wawan Sudrajat', 'Deluxe', '5678900', 'bandung', '2017-06-21', '2017-06-23', 1, 2, 204, 249000, 0, 498000, 'Debit', 'Check Out', '2345678', 'Lunas', 0, 'Resepsionis'),
-(15, '2017-06-21', 'drupadi', 'Deluxe', '1', 'bandung', '2017-06-21', '2017-06-22', 1, 1, 204, 249000, 249000, 249000, 'Transfer Ke Nomor Rekening BRI', 'Booking', '', 'Lunas', 0, ''),
-(16, '2017-06-21', 'drupadi', 'Deluxe', '1', 'bandung', '2017-06-21', '2017-06-22', 1, 1, 205, 249000, 249000, 249000, 'Transfer Ke Nomor Rekening Mandiri', 'Booking', '', 'Lunas', 0, '');
+(1, '2017-07-06', 'ajeng', 'Standard', '081312777381', 'bandung', '2017-07-18', '2017-07-20', 3, 2, '101102103', 250000, 1500000, 1500000, 'Transfer Ke Nomor Rekening BRI', 'Check Out', '', 'Lunas', 0, 'Resepsionis');
 
 -- --------------------------------------------------------
 
@@ -89,9 +75,7 @@ CREATE TABLE `buktibayar` (
 --
 
 INSERT INTO `buktibayar` (`id_bukti`, `photo`, `token`, `tgl`, `id_transaksi`) VALUES
-(1, 'Screenshot_281.png', '0.8630180218483321', '2017-06-12 07:00:25', 1),
-(2, 'Screenshot_42.png', '0.978515119881193', '2017-06-12 23:17:41', 4),
-(3, 'Screenshot_321.png', '0.7727958705744598', '2017-06-21 04:29:00', 16);
+(1, 'Screenshot_127.png', '0.1737352593890622', '2017-07-06 00:19:31', 1);
 
 -- --------------------------------------------------------
 
@@ -133,20 +117,6 @@ CREATE TABLE `data_sementara` (
   `harga_kamar_weekend` int(10) NOT NULL,
   `user` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `data_sementara`
---
-
-INSERT INTO `data_sementara` (`id_booking_sementara`, `tgl_input`, `kamar`, `nama_kamar`, `tglIn`, `tglOut`, `harga_kamar_weekday`, `harga_kamar_weekend`, `user`) VALUES
-(1, '2017-06-12 06:56:56', '1', 'Standard', '2017-06-19', '2017-06-21', 250000, 440000, 'dru'),
-(2, '2017-06-12 06:57:57', '1', 'Standard', '2017-06-19', '2017-06-21', 250000, 440000, 'dru'),
-(3, '2017-06-12 06:59:38', '1', 'Standard', '2017-06-19', '2017-06-21', 250000, 440000, 'dru'),
-(4, '2017-06-12 07:00:06', '1', 'Deluxe', '2017-06-26', '2017-06-28', 249000, 510000, 'ubed'),
-(5, '2017-06-12 09:48:56', '1', 'Standard', '2017-06-21', '2017-06-22', 250000, 440000, 'ajeng'),
-(6, '2017-06-12 22:30:18', '1', 'Standard', '2017-06-20', '2017-06-21', 250000, 440000, 'ajeng'),
-(7, '2017-06-19 08:04:00', '1', 'Deluxe', '2017-06-19', '2017-06-21', 249000, 510000, 'wahyu'),
-(8, '2017-06-21 02:35:35', '1', 'Deluxe', '2017-06-21', '2017-06-22', 249000, 510000, 'dru');
 
 -- --------------------------------------------------------
 
@@ -282,18 +252,18 @@ CREATE TABLE `kamar` (
 --
 
 INSERT INTO `kamar` (`id_kamar`, `nomor_kamar`, `id_fasilitas`, `id_tipe_kamar`, `status`, `id_booking`) VALUES
-(27, 101, 0, 1, 'Check In', 0),
-(28, 102, 0, 1, 'Booking', 0),
-(29, 103, 0, 1, 'kosong', 0),
+(27, 101, 0, 1, 'kosong', 1),
+(28, 102, 0, 1, 'kosong', 1),
+(29, 103, 0, 1, 'kosong', 1),
 (30, 104, 0, 1, 'kosong', 0),
 (31, 105, 0, 1, 'kosong', 0),
 (32, 106, 0, 1, 'kosong', 0),
 (33, 107, 0, 1, 'kosong', 0),
-(34, 201, 0, 2, 'Booking', 0),
-(35, 202, 0, 2, 'Booking', 0),
-(36, 203, 0, 2, 'Check In', 0),
-(37, 204, 0, 2, 'Booking', 0),
-(38, 205, 0, 2, 'Booking', 0),
+(34, 201, 0, 2, 'kosong', 0),
+(35, 202, 0, 2, 'kosong', 0),
+(36, 203, 0, 2, 'kosong', 0),
+(37, 204, 0, 2, 'kosong', 0),
+(38, 205, 0, 2, 'kosong', 0),
 (39, 206, 0, 2, 'kosong', 0),
 (40, 207, 0, 2, 'kosong', 0),
 (41, 208, 0, 2, 'kosong', 0),
@@ -320,16 +290,16 @@ INSERT INTO `kamar` (`id_kamar`, `nomor_kamar`, `id_fasilitas`, `id_tipe_kamar`,
 (62, 229, 0, 2, 'kosong', 0),
 (63, 230, 0, 2, 'kosong', 0),
 (64, 231, 0, 2, 'kosong', 0),
-(65, 301, 0, 3, 'Booking', 0),
+(65, 301, 0, 3, 'kosong', 0),
 (66, 302, 0, 3, 'kosong', 0),
 (67, 303, 0, 3, 'kosong', 0),
 (68, 304, 0, 3, 'kosong', 0),
 (69, 401, 0, 4, 'kosong', 0),
 (70, 402, 0, 4, 'kosong', 0),
-(71, 501, 0, 5, 'Check In', 0),
+(71, 501, 0, 5, 'kosong', 0),
 (72, 502, 0, 5, 'kosong', 0),
 (73, 503, 0, 5, 'kosong', 0),
-(74, 601, 0, 6, 'Check In', 0),
+(74, 601, 0, 6, 'kosong', 0),
 (75, 602, 0, 6, 'kosong', 0);
 
 -- --------------------------------------------------------
@@ -345,15 +315,6 @@ CREATE TABLE `kritiksaran` (
   `message` text NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `kritiksaran`
---
-
-INSERT INTO `kritiksaran` (`id`, `nama`, `email`, `message`, `tanggal`) VALUES
-(1, 'wahyu', 'wehaye94@gmail.com', 'ini pesannya', '2017-06-12 19:57:00'),
-(2, 'wahyu', 'wehaye94@gmail.com', 'ini pesannya', '2017-06-12 19:57:43'),
-(3, 'saepuloh', 'saputra@sa.com', 'adajbdkja', '2017-06-12 19:58:45');
 
 -- --------------------------------------------------------
 
@@ -391,20 +352,6 @@ CREATE TABLE `notifikasi` (
   `untuk` varchar(50) NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `notifikasi`
---
-
-INSERT INTO `notifikasi` (`id`, `nama_notif`, `untuk`, `tanggal`) VALUES
-(1, 'Update Laporan Harian Baru', 'Nite Audit', '2017-06-12 07:01:25'),
-(2, 'Laporan Harian Harus Diulang', 'Resepsionis', '2017-06-12 07:10:30'),
-(3, 'Update Laporan Harian Baru', 'Nite Audit', '2017-06-12 07:13:38'),
-(4, 'Laporan Harian Sudah di Approve', 'Resepsionis', '2017-06-12 07:13:42'),
-(5, 'Update Laporan Harian Baru', 'Nite Audit', '2017-06-12 09:56:20'),
-(6, 'Laporan Harian Harus Diulang', 'Resepsionis', '2017-06-12 09:56:30'),
-(7, 'Update Laporan Harian Baru', 'Nite Audit', '2017-06-12 09:56:43'),
-(8, 'Laporan Harian Harus Diulang', 'Resepsionis', '2017-06-12 09:57:00');
 
 -- --------------------------------------------------------
 
@@ -835,12 +782,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id_booking` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_booking` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `buktibayar`
 --
 ALTER TABLE `buktibayar`
-  MODIFY `id_bukti` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_bukti` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `checkin_out`
 --
@@ -850,7 +797,7 @@ ALTER TABLE `checkin_out`
 -- AUTO_INCREMENT for table `data_sementara`
 --
 ALTER TABLE `data_sementara`
-  MODIFY `id_booking_sementara` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_booking_sementara` int(5) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `data_tamu`
 --
@@ -880,7 +827,7 @@ ALTER TABLE `kamar`
 -- AUTO_INCREMENT for table `kritiksaran`
 --
 ALTER TABLE `kritiksaran`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `lapkamar`
 --
@@ -890,7 +837,7 @@ ALTER TABLE `lapkamar`
 -- AUTO_INCREMENT for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `outbox`
 --

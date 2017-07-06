@@ -27,20 +27,23 @@ class Masterbukti extends CI_Controller {
             $row[] = $bukti->id_transaksi;
 			// $row[] = $bukti->photo;
 			if($bukti->photo)
-				$row[] = '<a href="'.base_url('upload-foto/'.$bukti->photo).'" target="_blank"><img src="'.base_url('upload-foto/'.$bukti->photo).'" class="img-responsive" /></a>';
+				$row[] = '<a href="'.base_url('upload-foto/'.$bukti->photo).'" target="_blank"><img src="'.base_url('upload-foto/'.$bukti->photo).'" class="img-responsive" /></a><br><p style="color: red; text-align: center;">klik pada foto untuk detail</p>';
 			else
 				$row[] = '(No photo)';
 			$row[] = $bukti->tgl;
 
 			//add html for action
 			// $row[] = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Konfirmasi" onclick="edit_bukti('."'".$bukti->id_transaksi."'".')"><i class="glyphicon glyphicon-send"> Konfirmasi</i></a>';
-			$row[] = '<form method="post" class="f1" action="Mastersms/ajax_konfirm">
-				<input type="hidden" class="form-control" id="DestinationNumber" name="DestinationNumber" value=".$bukti->id_transaksi." placeholder="Nomor Handphone">
-				<input type="hidden" class="form-control" id="DestinationNumber" name="DestinationNumber" value="081312555467" placeholder="Nomor Handphone">
-				<input type="hidden" class="form-control" id="TextDecoded" value="coba" name="TextDecoded" placeholder="Nomor Handphone">
-				<input type="hidden" class="form-control" id="CreatorID" name="CreatorID" value="Admin" placeholder="Pengirim">
-				<button class="btn btn-xs btn-success" type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-send"> Konfirmasi</i></button>
-			</form';
+			// $row[] = '<form method="post" class="f1" action="Mastersms/ajax_konfirm">
+			// 	<input type="hidden" class="form-control" id="DestinationNumber" name="DestinationNumber" value=".$bukti->id_transaksi." placeholder="Nomor Handphone">
+			// 	<input type="hidden" class="form-control" id="DestinationNumber" name="DestinationNumber" value="081312555467" placeholder="Nomor Handphone">
+			// 	<input type="hidden" class="form-control" id="TextDecoded" value="coba" name="TextDecoded" placeholder="Nomor Handphone">
+			// 	<input type="hidden" class="form-control" id="CreatorID" name="CreatorID" value="Admin" placeholder="Pengirim">
+			// 	<button class="btn btn-xs btn-success" type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-send"> Konfirmasi</i></button>
+			// </form';
+
+			// delete
+			$row[] = '<a class="btn btn-xs btn-success" href="javascript:void(0)" title="Konfirmasi" onclick="delete_bukti('."'".$bukti->id_bukti."'".')"><i class="fa fa-check-circle"></i> Sudah Diterima</a>';
 
 			$data[] = $row;
 		}
@@ -111,6 +114,13 @@ class Masterbukti extends CI_Controller {
 	{
 		$this->bukti->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
+		//delete file
+		// $bukti = $this->bukti->get_by_id($id);
+		// if(file_exists('upload-foto/'.$bukti->photo) && $bukti->photo)
+		// 	unlink('upload-foto/'.$bukti->photo);
+		
+		// $this->bukti->delete_by_id($id);
+		// echo json_encode(array("status" => TRUE));
 	}
 
 }

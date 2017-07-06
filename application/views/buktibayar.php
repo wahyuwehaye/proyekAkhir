@@ -672,7 +672,7 @@ function save()
 
 function delete_bukti(id)
 {
-    if(confirm('Are you sure delete this data?'))
+    if(confirm('Apakah data Bukti Pembayaran ini sudah Benar?'))
     {
         // ajax delete data to database
         $.ajax({
