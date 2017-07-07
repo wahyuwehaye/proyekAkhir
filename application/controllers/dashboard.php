@@ -444,6 +444,8 @@ class Dashboard extends CI_Controller {
 	    	$noallkamar .= $nokamar;
 	    	$nokamar=$nokamar+1;
 	    }
+	    $hasilnomor = (str_split($noallkamar,3));
+	    $hasilpakespasi = implode(", ",$hasilnomor);
 	    // $datakamar = array(
 	    // 	'nomor_kamar' => $this->input->post("nomor_kamar"),
 	    // 	);
@@ -468,7 +470,7 @@ class Dashboard extends CI_Controller {
 			'jumlah_kamar' => $this->input->post("jumlah_kamar"),
 			'jumlah_malam' => $this->input->post("jumlah_malam"),
 			// 'nomor_kamar' => $this->input->post("nomor_kamar"),
-			'nomor_kamar' => $noallkamar,
+			'nomor_kamar' => $hasilpakespasi,
 			'harga' => $this->input->post("harga"),
 			'dp' => $this->input->post("dp"),
 			'total' => $this->input->post("total"),
