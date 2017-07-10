@@ -32,6 +32,11 @@ class Dashboard extends CI_Controller {
         if(isset($_SESSION['logged_in']))
 		{
         $this->load->view('home');
+  //       // setting timer
+		// $lama = 1; // lama data adalah 3 hari
+		// // proses penghapusan data
+		// $query = "DELETE FROM booking WHERE DATEDIFF(CURDATE(), tgl_input) > '".$lama."'";
+		// $hasil = mysql_query($query);
         }else{
         $this->load->view('login');
     }
@@ -209,8 +214,23 @@ class Dashboard extends CI_Controller {
     }
 
     public function databooking(){
+    	//       // setting timer
+		// $lama = 1; // lama data adalah 3 hari
+		// // proses penghapusan data
+		// $query = "DELETE FROM booking WHERE DATEDIFF(CURDATE(), tgl_input) > '".$lama."'";
+		// $hasil = mysql_query($query);
+		
     	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
         $this->load->view('databooking',$data);
+        sleep(20);
+        $datakamar = array(
+		    	'ket' => "Belum Upload Bukti Pembayaran",
+		    );
+	    $dataupdate = array(
+		    	'status' => "Cancel",
+	    	);
+	    $this->m_dashboard->Update('booking',$dataupdate,$datakamar);
+	    
     }
 
     public function datacheckin(){
@@ -453,12 +473,19 @@ class Dashboard extends CI_Controller {
 	    // 	'status' => "Booking",
 	    // 	'id_booking' => $this->input->post("id_transaksi"),
 	    // 	);
+	    $idbuatket = $this->input->post("id_transaksi");
+	    $this->db->select('id');
+		$this->db->from('buktibayar');
+		$this->db->where('id_transaksi', $idbuatket);
+		$idbuatketerangan = $this->db->count_all_results();
 	    $keterangan="";
-	    if (($this->input->post("dp"))>=($this->input->post("total"))) {
-				$keterangan = "Lunas";
-			}else{
+	    if ($idbuatketerangan<1) {
+				$keterangan = "Belum Upload Bukti Pembayaran";
+		}else if (($this->input->post("dp"))>=($this->input->post("total"))) {
+			$keterangan = "Lunas";
+		}else{
 				$keterangan = "DP";
-			}
+		}
 	    $dataTamu = array(
 			'tgl_input' => $this->input->post("tgl_input"),
 			'nama' => $this->input->post("nama"),

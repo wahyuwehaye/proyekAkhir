@@ -50,7 +50,12 @@ foreach ($getidtrans->result() as $cari) {
 $idtransbaru = $datetidtrans+1;
 // echo $idtransbaru;
 
+// $this->db->select('id');
+// $this->db->from('buktibayar');
+// $this->db->where('id_transaksi', $idtransbaru);
+// $idbuatketerangan = $this->db->count_all_results();
 
+// echo $idbuatketerangan;
 ?>
 
 <!--features strat here-->

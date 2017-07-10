@@ -230,6 +230,46 @@ class Mastercheckout extends CI_Controller {
 		echo json_encode(array("status" => TRUE));
 	}
 
+	public function ajax_update_cancel()
+	{
+		$this->load->database();
+		$this->load->model('M_formcekout'); //load model mkota yang berada di folder model
+	    $this->load->model('m_dashboard');
+	    $databooking = $this->M_formcekout->ambilbooking($this->input->post("kode"))->row();
+	    $nomorkamar = $databooking->nomor_kamar;
+	    $jumkamar = $databooking->jumlah_kamar;
+	    $nosatukamar = substr($nomorkamar,0,3);
+	    for ($i=0; $i < $jumkamar; $i++) { 
+	    	$datakamar = array(
+		    	'nomor_kamar' => $nosatukamar,
+		    );
+	    	$dataupdate = array(
+		    	'status' => "kosong",
+	    	);
+	    	$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+	    	$nosatukamar=$nosatukamar+1;
+	    }
+		// $datakamar = array(
+	 //    	'nomor_kamar' => $nomorkamar,
+	 //    	);
+		$id = array(
+	    	'id_booking' => $this->input->post("kode"),
+	    	);
+	    // $dataupdate = array(
+	    // 	'status' => "kosong",
+	    // 	);
+		$data = array(
+                // 'tgl_keluar' => $this->input->post("tgl_keluar"),
+				'status' => 'Cancel',
+                'ket' => 'Tidak Diketahui',
+                'acc' => 'Tidak Diketahui',
+			);
+		// $this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+		$this->checkout->Update('booking',$data,$id);
+		redirect('dashboard/datacheckout');
+		echo json_encode(array("status" => TRUE));
+	}
+
 	public function ajax_update_ke_nite(){
 		$this->load->database();
 		$this->load->model('M_formcekout'); //load model mkota yang berada di folder model
