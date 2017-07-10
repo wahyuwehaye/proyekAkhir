@@ -174,7 +174,7 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url()?>index.php/dashboard/kamarkosong"><i class="fa  fa-heartbeat"></i> Kamar Kosong</a></li>
+            <li><a href="<?php echo base_url()?>index.php/dashboard/kamarkosong"><i class="fa  fa-heartbeat"></i>Ketersediaan Kamar Kosong</a></li>
             <li><a href="<?php echo base_url()?>index.php/dashboard/kamarbooking"><i class="fa fa-heart-o"></i> Kamar Booking</a></li>
             <li><a href="<?php echo base_url()?>index.php/dashboard/kamarisi"><i class="fa fa-heart"></i> Kamar Isi</a></li>
           </ul>

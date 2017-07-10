@@ -174,7 +174,7 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url()?>index.php/dashboard/kamarkosong"><i class="fa  fa-heartbeat"></i> Kamar Kosong</a></li>
+            <li><a href="<?php echo base_url()?>index.php/dashboard/kamarkosong"><i class="fa  fa-heartbeat"></i>Ketersediaan Kamar Kosong</a></li>
             <li  class="active"><a href="<?php echo base_url()?>index.php/dashboard/kamarbooking"><i class="fa fa-heart-o"></i> Kamar Booking</a></li>
             <li><a href="<?php echo base_url()?>index.php/dashboard/kamarisi"><i class="fa fa-heart"></i> Kamar Isi</a></li>
           </ul>
@@ -206,11 +206,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Kamar Kosong
+        Kamar Booking
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Kamar Kosong</li>
+        <li class="active">Kamar Booking</li>
       </ol>
     </section>
 
