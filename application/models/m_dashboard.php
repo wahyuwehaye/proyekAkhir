@@ -128,5 +128,10 @@ class m_dashboard extends CI_Model{
     public function insertSementara($sementara){
         $this->db->insert('data_sementara',$sementara);
     }
+
+    function ambilstatus(){
+            $query = $this->db->query("select * from booking where (ket='Belum Upload Bukti Pembayaran') and (status = 'Booking')");
+            return $query;
+        }
 }
 ?>

@@ -180,6 +180,7 @@
             <li><a href="<?php echo base_url()?>index.php/dashboard/kamarisi"><i class="fa fa-heart"></i> Kamar Isi</a></li>
           </ul>
         </li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/datacancel"><i class="fa fa-list-ol"></i> <span> Data Canceled</span></a></li>
         <li><a href="<?php echo base_url()?>index.php/dashboard/lapharian"><i class="fa fa-list"></i> <span> Laporan Harian</span></a></li>
         <li><a href="<?php echo base_url()?>index.php/dashboard/lapbulanan"><i class="fa fa-bar-chart-o"></i> <span> Laporan Bulanan</span></a></li>
         <li class="treeview">

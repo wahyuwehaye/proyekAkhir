@@ -131,6 +131,7 @@
             <li><a href="<?php echo base_url()?>index.php/dashboard/onsite"><i class="fa fa-list-ul"></i> Data Check Out</a></li>
           </ul>
         </li>
+        <li><a href="<?php echo base_url()?>index.php/dashboard/datacancel"><i class="fa fa-list-ol"></i> <span> Data Canceled</span></a></li>
         <li><a href="<?php echo base_url()?>index.php/dashboard/lapharian"><i class="fa fa-list"></i> <span> Laporan Harian</span></a></li>
         <li><a href="<?php echo base_url()?>index.php/dashboard/lapbulanan"><i class="fa fa-bar-chart-o"></i> <span> Laporan Bulanan</span></a></li>
         <li class="treeview active">

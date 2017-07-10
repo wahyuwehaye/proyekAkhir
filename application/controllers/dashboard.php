@@ -214,22 +214,54 @@ class Dashboard extends CI_Controller {
     }
 
     public function databooking(){
-    	//       // setting timer
-		// $lama = 1; // lama data adalah 3 hari
-		// // proses penghapusan data
-		// $query = "DELETE FROM booking WHERE DATEDIFF(CURDATE(), tgl_input) > '".$lama."'";
-		// $hasil = mysql_query($query);
-		
     	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
         $this->load->view('databooking',$data);
-        sleep(20);
-        $datakamar = array(
-		    	'ket' => "Belum Upload Bukti Pembayaran",
-		    );
-	    $dataupdate = array(
-		    	'status' => "Cancel",
-	    	);
-	    $this->m_dashboard->Update('booking',$dataupdate,$datakamar);
+     //    sleep(10);
+     //    $datakamar = array(
+		   //  	'ket' => "Belum Upload Bukti Pembayaran",
+		   //  );
+	    // $dataupdate = array(
+		   //  	'status' => "Cancel",
+	    // 	);
+	    // $this->m_dashboard->Update('booking',$dataupdate,$datakamar);
+	    // $databooking = $this->M_formcekout->ambilbooking($this->input->post("kode"))->row();
+	    // $nomorkamar = $databooking->nomor_kamar;
+	    // $jumkamar = $databooking->jumlah_kamar;
+	    // $nosatukamar = substr($nomorkamar,0,3);
+	    // for ($i=0; $i < $jumkamar; $i++) { 
+	    // 	$datakamar = array(
+		   //  	'nomor_kamar' => $nosatukamar,
+		   //  );
+	    // 	$dataupdate = array(
+		   //  	'status' => "kosong",
+	    // 	);
+	    // 	$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
+	    // 	$nosatukamar=$nosatukamar+1;
+	    // }
+	    $this->db->select('id_booking');
+		$this->db->from('booking');
+		$this->db->where('status', 'Booking');
+		$this->db->where('ket', 'Belum Upload Bukti Pembayaran');
+		$jumlahdatastatus = $this->db->count_all_results();
+		if ($jumlahdatastatus>1) {
+				$datastatus = $this->m_dashboard->ambilstatus()->row();
+		 //    $kini = new DateTime('now');  
+			// $kemarin = new DateTime($datastatus->cekdata);  
+			// echo $kemarin->diff($kini)->format('%a hari %h jam %i menit %s detik');
+			$kini = strtotime('now');//mendapatkan waktu sekarang  
+			$kemarin = strtotime($datastatus->tgl_input);//mendapatkan waktu kemarin
+			$selisih=$kini-$kemarin;//mendapatkan selisih waktu  
+			$jam = round((($selisih % 604800)%86400)/3600);//contoh selisih dalam jam  
+			if ($jam > 1) {
+				$datakamar = array(
+				    	'ket' => "Belum Upload Bukti Pembayaran",
+				    );
+			    $dataupdate = array(
+				    	'status' => "Cancel",
+			    	);
+			    $this->m_dashboard->Update('booking',$dataupdate,$datakamar);
+			}
+		}
 	    
     }
 
@@ -242,6 +274,11 @@ class Dashboard extends CI_Controller {
     	$this->load->model('m_dashboard');
     	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
         $this->load->view('datacheckout',$data);
+    }
+
+    public function datacancel(){
+    	$data['notif'] = $this->m_dashboard->tampil_notif_resepsionis()->result();
+        $this->load->view('datacancel',$data);
     }
 
     public function formcheckout(){
