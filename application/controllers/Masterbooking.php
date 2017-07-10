@@ -167,7 +167,9 @@ class Masterbooking extends CI_Controller {
 				'total' => $this->input->post('total'),
 				'no_kartu' => $this->input->post('no_kartu'),
                 'status' => $this->input->post('status'),
-                'ket' => $this->input->post('ket'),
+                // 'ket' => $this->input->post('ket'),
+                'ket' => 'Lunas',
+
 			);
 		$this->booking->update(array('id_booking' => $this->input->post('id_booking')), $data);
 		// $this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
