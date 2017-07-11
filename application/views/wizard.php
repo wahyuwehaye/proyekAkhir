@@ -26,8 +26,8 @@ $jumlahmalamnya = $interval->days;
 $total = ($harganya * $jumlahmalamnya)*$kamar;
 // echo $total;
 //jika data masih dalam bentuk datetime ex:2017-06-10 01:20:15
-$time_get = strtotime('2017-07-11 9:47:15');
-echo time_ago($time_get);
+// $time_get = strtotime('2017-07-11 9:47:15');
+// echo time_ago($time_get);
 $gettipekamar = $CI->db->query('select id_tipe_kamar from tipe_kamar where nama_kamar="'.$nama_kamar.'"');
 // $tipekamar = $gettipekamar->result_array();
 foreach ($gettipekamar->result() as $row){
