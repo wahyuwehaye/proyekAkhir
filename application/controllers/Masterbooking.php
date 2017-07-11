@@ -151,6 +151,11 @@ class Masterbooking extends CI_Controller {
 	 //    $dataupdate = array(
 	 //    	'status' => $this->input->post('status'),
 	 //    	);
+	    if (($this->input->post('status'))=="Check In") {
+	    	$kett = "Lunas";
+	    }else{
+	    	$kett = $this->input->post('ket');
+	    }
 		$data = array(
             	'tgl_input' => $this->input->post('tgl_input'),
 				'nama' => $this->input->post('nama'),
@@ -168,7 +173,7 @@ class Masterbooking extends CI_Controller {
 				'no_kartu' => $this->input->post('no_kartu'),
                 'status' => $this->input->post('status'),
                 // 'ket' => $this->input->post('ket'),
-                'ket' => 'Lunas',
+                'ket' => $kett,
 
 			);
 		$this->booking->update(array('id_booking' => $this->input->post('id_booking')), $data);

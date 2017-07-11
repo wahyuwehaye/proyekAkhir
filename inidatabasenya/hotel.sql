@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2017 at 02:23 AM
+-- Generation Time: Jul 11, 2017 at 11:20 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -46,15 +46,9 @@ CREATE TABLE `booking` (
   `no_kartu` varchar(100) NOT NULL,
   `ket` text NOT NULL,
   `id_user` int(5) NOT NULL,
-  `acc` varchar(20) NOT NULL
+  `acc` varchar(20) NOT NULL,
+  `cekdata` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `booking`
---
-
-INSERT INTO `booking` (`id_booking`, `tgl_input`, `nama`, `tipe_kamar`, `no_hp`, `alamat`, `tgl_masuk`, `tgl_keluar`, `jumlah_kamar`, `jumlah_malam`, `nomor_kamar`, `harga`, `dp`, `total`, `metode_bayar`, `status`, `no_kartu`, `ket`, `id_user`, `acc`) VALUES
-(1, '2017-07-06', 'ajeng', 'Standard', '081312777381', 'bandung', '2017-07-18', '2017-07-20', 3, 2, '101102103', 250000, 1500000, 1500000, 'Transfer Ke Nomor Rekening BRI', 'Check Out', '', 'Lunas', 0, 'Resepsionis');
 
 -- --------------------------------------------------------
 
@@ -69,13 +63,6 @@ CREATE TABLE `buktibayar` (
   `tgl` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_transaksi` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `buktibayar`
---
-
-INSERT INTO `buktibayar` (`id_bukti`, `photo`, `token`, `tgl`, `id_transaksi`) VALUES
-(1, 'Screenshot_127.png', '0.1737352593890622', '2017-07-06 00:19:31', 1);
 
 -- --------------------------------------------------------
 
@@ -240,7 +227,7 @@ INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
 
 CREATE TABLE `kamar` (
   `id_kamar` int(5) NOT NULL,
-  `nomor_kamar` int(5) NOT NULL,
+  `nomor_kamar` varchar(5) NOT NULL,
   `id_fasilitas` int(5) NOT NULL,
   `id_tipe_kamar` int(5) NOT NULL,
   `status` varchar(20) NOT NULL,
@@ -252,55 +239,55 @@ CREATE TABLE `kamar` (
 --
 
 INSERT INTO `kamar` (`id_kamar`, `nomor_kamar`, `id_fasilitas`, `id_tipe_kamar`, `status`, `id_booking`) VALUES
-(27, 101, 0, 1, 'kosong', 1),
-(28, 102, 0, 1, 'kosong', 1),
-(29, 103, 0, 1, 'kosong', 1),
-(30, 104, 0, 1, 'kosong', 0),
-(31, 105, 0, 1, 'kosong', 0),
-(32, 106, 0, 1, 'kosong', 0),
-(33, 107, 0, 1, 'kosong', 0),
-(34, 201, 0, 2, 'kosong', 0),
-(35, 202, 0, 2, 'kosong', 0),
-(36, 203, 0, 2, 'kosong', 0),
-(37, 204, 0, 2, 'kosong', 0),
-(38, 205, 0, 2, 'kosong', 0),
-(39, 206, 0, 2, 'kosong', 0),
-(40, 207, 0, 2, 'kosong', 0),
-(41, 208, 0, 2, 'kosong', 0),
-(42, 209, 0, 2, 'kosong', 0),
-(43, 210, 0, 2, 'kosong', 0),
-(44, 211, 0, 2, 'kosong', 0),
-(45, 212, 0, 2, 'kosong', 0),
-(46, 213, 0, 2, 'kosong', 0),
-(47, 214, 0, 2, 'kosong', 0),
-(48, 215, 0, 2, 'kosong', 0),
-(49, 216, 0, 2, 'kosong', 0),
-(50, 217, 0, 2, 'kosong', 0),
-(51, 218, 0, 2, 'kosong', 0),
-(52, 219, 0, 2, 'kosong', 0),
-(53, 220, 0, 2, 'kosong', 0),
-(54, 221, 0, 2, 'kosong', 0),
-(55, 222, 0, 2, 'kosong', 0),
-(56, 223, 0, 2, 'kosong', 0),
-(57, 224, 0, 2, 'kosong', 0),
-(58, 225, 0, 2, 'kosong', 0),
-(59, 226, 0, 2, 'kosong', 0),
-(60, 227, 0, 2, 'kosong', 0),
-(61, 228, 0, 2, 'kosong', 0),
-(62, 229, 0, 2, 'kosong', 0),
-(63, 230, 0, 2, 'kosong', 0),
-(64, 231, 0, 2, 'kosong', 0),
-(65, 301, 0, 3, 'kosong', 0),
-(66, 302, 0, 3, 'kosong', 0),
-(67, 303, 0, 3, 'kosong', 0),
-(68, 304, 0, 3, 'kosong', 0),
-(69, 401, 0, 4, 'kosong', 0),
-(70, 402, 0, 4, 'kosong', 0),
-(71, 501, 0, 5, 'kosong', 0),
-(72, 502, 0, 5, 'kosong', 0),
-(73, 503, 0, 5, 'kosong', 0),
-(74, 601, 0, 6, 'kosong', 0),
-(75, 602, 0, 6, 'kosong', 0);
+(27, '101', 0, 1, 'kosong', 0),
+(28, '102', 0, 1, 'kosong', 0),
+(29, '103', 0, 1, 'kosong', 0),
+(30, '104', 0, 1, 'kosong', 0),
+(31, '105', 0, 1, 'kosong', 0),
+(32, '106', 0, 1, 'kosong', 0),
+(33, '107', 0, 1, 'kosong', 0),
+(34, '201', 0, 2, 'kosong', 0),
+(35, '202', 0, 2, 'kosong', 0),
+(36, '203', 0, 2, 'kosong', 0),
+(37, '204', 0, 2, 'kosong', 0),
+(38, '205', 0, 2, 'kosong', 0),
+(39, '206', 0, 2, 'kosong', 0),
+(40, '207', 0, 2, 'kosong', 0),
+(41, '208', 0, 2, 'kosong', 0),
+(42, '209', 0, 2, 'kosong', 0),
+(43, '210', 0, 2, 'kosong', 0),
+(44, '211', 0, 2, 'kosong', 0),
+(45, '212', 0, 2, 'kosong', 0),
+(46, '213', 0, 2, 'kosong', 0),
+(47, '214', 0, 2, 'kosong', 0),
+(48, '215', 0, 2, 'kosong', 0),
+(49, '216', 0, 2, 'kosong', 0),
+(50, '217', 0, 2, 'kosong', 0),
+(51, '218', 0, 2, 'kosong', 0),
+(52, '219', 0, 2, 'kosong', 0),
+(53, '220', 0, 2, 'kosong', 0),
+(54, '221', 0, 2, 'kosong', 0),
+(55, '222', 0, 2, 'kosong', 0),
+(56, '223', 0, 2, 'kosong', 0),
+(57, '224', 0, 2, 'kosong', 0),
+(58, '225', 0, 2, 'kosong', 0),
+(59, '226', 0, 2, 'kosong', 0),
+(60, '227', 0, 2, 'kosong', 0),
+(61, '228', 0, 2, 'kosong', 0),
+(62, '229', 0, 2, 'kosong', 0),
+(63, '230', 0, 2, 'kosong', 0),
+(64, '231', 0, 2, 'kosong', 0),
+(65, '301', 0, 3, 'kosong', 0),
+(66, '302', 0, 3, 'kosong', 0),
+(67, '303', 0, 3, 'kosong', 0),
+(68, '304', 0, 3, 'kosong', 0),
+(69, '401', 0, 4, 'kosong', 0),
+(70, '402', 0, 4, 'kosong', 0),
+(71, '501', 0, 5, 'kosong', 0),
+(72, '502', 0, 5, 'kosong', 0),
+(73, '503', 0, 5, 'kosong', 0),
+(74, '601', 0, 6, 'kosong', 0),
+(75, '602', 0, 6, 'kosong', 0);
 
 -- --------------------------------------------------------
 
@@ -782,12 +769,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id_booking` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_booking` int(5) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `buktibayar`
 --
 ALTER TABLE `buktibayar`
-  MODIFY `id_bukti` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_bukti` int(5) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `checkin_out`
 --

@@ -133,5 +133,10 @@ class m_dashboard extends CI_Model{
             $query = $this->db->query("select * from booking where (ket='Belum Upload Bukti Pembayaran') and (status = 'Booking')");
             return $query;
         }
+
+    function caribooking(){
+            $query = $this->db->query("select * from booking where ket='Belum Upload Bukti Pembayaran' and (status = 'Booking')");
+            return $query;
+        }
 }
 ?>

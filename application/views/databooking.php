@@ -103,6 +103,12 @@
                   // echo date('yesterday');
                  // $date = date('Y-m-d H:i:s', time() - (60*60*5));
                  //  echo dateAgo($date);
+// $kalimat = 'Andi Pergi Ke Pasar';
+// if(preg_match("/Pergia/i", $kalimat)) {
+//   echo 'Ketemu';
+// } else {
+//   echo 'Tidak Ketemu';
+// }
                 ?> 
                   Ajeng Pursitasari - Resepsionis
                   <small>January, 2017</small>

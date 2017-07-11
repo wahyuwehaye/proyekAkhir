@@ -24,6 +24,8 @@ class Dashboard extends CI_Controller {
      parent::__construct();
      $this->load->model('m_login');
 	 $this->load->model(array('m_dashboard'));
+    $this->load->database();
+	$this->load->model('M_formcekout'); //load model mkota yang berada di folder model
      //session_start();
     }
 
@@ -238,30 +240,55 @@ class Dashboard extends CI_Controller {
 	    // 	$this->m_dashboard->Update('kamar',$dataupdate,$datakamar);
 	    // 	$nosatukamar=$nosatukamar+1;
 	    // }
+	    // ambil jumlah keterangannya
 	    $this->db->select('id_booking');
 		$this->db->from('booking');
 		$this->db->where('status', 'Booking');
 		$this->db->where('ket', 'Belum Upload Bukti Pembayaran');
 		$jumlahdatastatus = $this->db->count_all_results();
-		if ($jumlahdatastatus>1) {
+		// cek datanya apakah ada atau tidak
+		if ($jumlahdatastatus>=1) {
+			// update statusnya jadi cancel
 				$datastatus = $this->m_dashboard->ambilstatus()->row();
 		 //    $kini = new DateTime('now');  
 			// $kemarin = new DateTime($datastatus->cekdata);  
 			// echo $kemarin->diff($kini)->format('%a hari %h jam %i menit %s detik');
 			$kini = strtotime('now');//mendapatkan waktu sekarang  
-			$kemarin = strtotime($datastatus->tgl_input);//mendapatkan waktu kemarin
+			$kemarin = strtotime($datastatus->cekdata);//mendapatkan waktu kemarin
 			$selisih=$kini-$kemarin;//mendapatkan selisih waktu  
 			$jam = round((($selisih % 604800)%86400)/3600);//contoh selisih dalam jam  
-			if ($jam > 1) {
+			$nomorkamar = $datastatus->nomor_kamar;
+			$jumkamar = $datastatus->jumlah_kamar;
+			$nosatukamar = substr($nomorkamar,0,3);
+			$cekjam = time_ago($kemarin);
+			// if ($jam > 1) {
+			// if ($cekjam == "1 minutes ago ") {
+			if (preg_match("/hour/i", $cekjam)) {
 				$datakamar = array(
 				    	'ket' => "Belum Upload Bukti Pembayaran",
 				    );
 			    $dataupdate = array(
-				    	'status' => "Cancel",
+				    	'status' => 'Cancel',
 			    	);
 			    $this->m_dashboard->Update('booking',$dataupdate,$datakamar);
+
+			    // update data kamarnya jadi kosong
+			    
+			    for ($i=0; $i < $jumkamar; $i++) { 
+			    	$datakamar1 = array(
+				    	'nomor_kamar' => $nosatukamar,
+				    );
+			    	$dataupdate1 = array(
+				    	'status' => "kosong",
+			    	);
+			    	$this->m_dashboard->Update('kamar',$dataupdate1,$datakamar1);
+			    	$nosatukamar=$nosatukamar+1;
+			    }
 			}
+
+			
 		}
+		
 	    
     }
 
@@ -516,12 +543,19 @@ class Dashboard extends CI_Controller {
 		$this->db->where('id_transaksi', $idbuatket);
 		$idbuatketerangan = $this->db->count_all_results();
 	    $keterangan="";
-	    if ($idbuatketerangan<1) {
+	    if (($this->input->post("dp"))>=($this->input->post("total"))) {
+	    	if ($idbuatketerangan<1) {
 				$keterangan = "Belum Upload Bukti Pembayaran";
-		}else if (($this->input->post("dp"))>=($this->input->post("total"))) {
-			$keterangan = "Lunas";
+			}else{
+				$keterangan = "Lunas";
+			}
+			
 		}else{
+			if ($idbuatketerangan<1) {
+				$keterangan = "Belum Upload Bukti Pembayaran";
+			}else{
 				$keterangan = "DP";
+			}
 		}
 	    $dataTamu = array(
 			'tgl_input' => $this->input->post("tgl_input"),
